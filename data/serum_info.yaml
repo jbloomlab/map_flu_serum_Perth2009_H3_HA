@@ -1,0 +1,200 @@
+# Information about each serum sample. 
+# For each sample ID, give name and description.
+# If relevant, also give species and vaccination (or infection) info.
+
+#------------------------------
+# Controls:
+
+mock:
+  name: no-serum
+  description: no-serum control
+  group: mock
+
+plasmid:
+  name: plasmid
+  description: plasmid used as control to estimate sequencing error rate
+  group: plasmid
+
+#------------------------------
+# Monoclonal antibodies
+5A01:
+  name: antibody-5A01
+  description: site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley
+  group: antibody
+
+4F03:
+  name: antibody-4F03
+  description: site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley
+  group: antibody
+
+#------------------------------
+# Ferret sera
+
+f9267neg:
+  name: Pitt-1-preinf
+  species: ferret
+  description: Lakdawala lab ferret, before infection
+  vaccination: pre
+  group: ferret
+
+f9267d23:
+  name: Pitt-1-postinf
+  species: ferret
+  description: Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA
+  vaccination: post
+  group: ferret
+
+f9435neg:
+  name: Pitt-2-preinf
+  species: ferret
+  description: Lakdawala lab ferret, before infection
+  vaccination: pre
+  group: ferret
+
+f9435d23:
+  name: Pitt-2-postinf
+  species: ferret
+  description: Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA
+  vaccination: post
+  group: ferret
+
+f9437neg:
+  name: Pitt-3-preinf
+  species: ferret
+  description: Lakdawala lab ferret, before infection
+  vaccination: pre
+  group: ferret
+
+f9437d23:
+  name: Pitt-3-postinf
+  species: ferret
+  description: Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA
+  vaccination: post
+  group: ferret
+
+WHOCCPerth:
+  name: WHO
+  species: ferret
+  description: ferret infected by Melbourne WHO CC with their Perth/2009 strain
+  vaccination: post
+  group: ferret
+
+WHOCCVic:
+  name: WHO-Victoria2011
+  species: ferret
+  description: ferret infected by Melbourne WHO CC with their Victoria/2011 strain
+  vaccination: post
+  group: ferret
+
+#------------------------------
+# Human sera from Terry Stevens-Ayers in Hutch VIDD Division
+
+VIDD1:
+  name: 2010-age-21
+  species: human
+  description: collected at Hutch in 2/2010 from person born in 1989
+  group: VIDD_sera
+
+VIDD2:
+  name: 2009-age-53a
+  species: human
+  description: collected at Hutch in 1/2009 from person born in 1956
+  group: VIDD_sera
+
+VIDD3:
+  name: 2009-age-53b
+  species: human
+  description: second sample collected at Hutch in 3/2009 from person born in 1956
+  group: VIDD_sera
+
+VIDD4:
+  name: 2009-age-64
+  species: human
+  description: collected at Hutch in 11/2008 from person born in 1945
+  group: VIDD_sera
+
+VIDD5:
+  name: 2009-age-65
+  species: human
+  description: collected at Hutch in 6/2009 from person born in 1944
+  group: VIDD_sera
+
+#------------------------------
+# Human sera from Seth Zost and Scott Hensley
+
+557v1:
+  name: 2015-age-25-prevacc
+  species: human
+  description: collected before 2015/2016 vaccine from person born in 1990
+  vaccination: pre
+  group: Hensley_sera
+
+557v2:
+  name: 2015-age-25-vacc
+  species: human
+  description: collected after 2015/2016 vaccine from person born in 1990
+  vaccination: post
+  group: Hensley_sera
+
+574v1:
+  name: 2015-age-29-prevacc
+  species: human
+  description: collected before 2015/2016 vaccine from person born in 1986
+  vaccination: pre
+  group: Hensley_sera
+
+574v2:
+  name: 2015-age-29-vacc
+  species: human
+  description: collected after 2015/2016 vaccine from person born in 1986
+  vaccination: post
+  group: Hensley_sera
+
+589v1:
+  name: 2015-age-48-prevacc
+  species: human
+  description: collected before 2015/2016 vaccine from person born in 1967
+  vaccination: pre
+  group: Hensley_sera
+
+589v2:
+  name: 2015-age-48-vacc
+  species: human
+  description: collected after 2015/2016 vaccine from person born in 1967
+  vaccination: post
+  group: Hensley_sera
+
+571v1:
+  name: 2015-age-49-prevacc
+  species: human
+  description: collected before 2015/2016 vaccine from person born in 1966
+  vaccination: pre
+  group: Hensley_sera
+
+571v2:
+  name: 2015-age-49-vacc
+  species: human
+  description: collected after 2015/2016 vaccine from person born in 1966
+  vaccination: post
+  group: Hensley_sera
+
+#------------------------------
+# Human sera with monoclonal 4F03 spike-in
+
+VIDD5andlow4F03:
+  name: 2009-age-65-with-low-4F03
+  species: human
+  description: collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency
+  group: serum_mAb_spike
+  
+VIDD5andmid4F03:
+  name: 2009-age-65-with-mid-4F03
+  species: human
+  description: collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency
+  group: serum_mAb_spike
+  
+VIDD5andhi4F03:
+  name: 2009-age-65-with-hi-4F03
+  species: human
+  description: collected at Hutch in 6/2009 from person b1944 with 4F03 at high stringency
+  group: serum_mAb_spike

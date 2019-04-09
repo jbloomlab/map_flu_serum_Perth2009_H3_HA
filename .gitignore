@@ -1,0 +1,13 @@
+.*
+!.gitignore
+!.gitattributes
+*.pyc
+*.log
+*.Log
+*.out
+_*
+
+SRA_upload/*.tar
+
+results/*
+!results/analysis_notebook*

@@ -1,0 +1,38 @@
+# configuration file
+
+# information on sera and samples
+serum_info: data/serum_info.yaml
+sample_list: data/sample_list.csv
+
+# wildtype sequence, and map of sequential to standard HA numbering
+refseq: data/Perth09_HA_reference.fa
+renumbering_scheme: data/H3renumbering_scheme.csv
+
+# alignment specs for barcoded subamplicon sequencing:
+# https://jbloomlab.github.io/dms_tools2/bcsubamp.html
+alignspecs: >- 
+              1,285,38,40
+              286,567,33,34
+              568,852,34,30
+              853,1137,34,31
+              1138,1422,36,29
+              1423,1701,39,44
+R1trim: 200
+R2trim: 165
+
+# max number of cpus to use
+ncpus: 16
+
+# should dms_tools2 programs use existing output if it exists?
+use_existing: 'yes'
+
+# names of Jupyter notebooks
+analysis_nb: analysis_notebook.ipynb
+
+# names of results directories
+countsdir: results/codoncounts # counts of mutations
+renumbcountsdir: results/renumbered_codoncounts # counts w/ renumbered sites
+diffseldir: results/diffsel # diffsel for all samples
+fracsurvivedir: results/fracsurvive # fracsurvive for all samples
+avgdiffseldir: results/avgdiffsel # diffsel average across libraries
+avgfracsurvivedir: results/avgfracsurvive # fracsurvive average across libraries
