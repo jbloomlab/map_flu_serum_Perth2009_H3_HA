@@ -17,7 +17,9 @@ def main():
     
     # output files 
     submissionform = 'submissionform_2019_Perth_serum_MAP.tsv'
-    tar_filename = '2019_Perth_serum_MAP.tar'
+    tar_dir = 'files_to_upload'
+    os.makedirs(tar_dir, exist_ok=True)
+    tar_filename = os.path.join(tar_dir, '2019_Perth_serum_MAP.tar')
     make_tar = True  # set to True to make the tarfile;
 
     # information for SRA about projects / samples
