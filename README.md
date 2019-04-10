@@ -39,7 +39,7 @@ The [config.yaml](config.yaml) file points to several files in the [./data/](dat
       - *serum*: serum used for selection
       - *library*: viral library, using simple 1, 2, 3 naming rather than the more confusing library codes used to label experiments
       - *date*: day when sequencing was done
-      - *serum_dilution*: dilution of serum used
+      - *serum_dilution*: dilution of serum used; this includes the 1:4 dilution used during the RDE treatment of the serum. For antibodies, it is the concentration in ug/ml.
       - *percent_infectivity*: percent of viral library retaining infectivity
       - *R1*: glob pattern to R1 FASTQ files on Hutch server
       - **to be added**: eventually we will also add the SRA accesssion when the FASTQ files are uploaded to the SRA so there can be an option to run the analysis on either the FASTQ files on Hutch server or those downloaded from SRA.
