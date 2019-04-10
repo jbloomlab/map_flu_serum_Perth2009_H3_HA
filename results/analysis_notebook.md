@@ -5469,7 +5469,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>174</td>
       <td>159</td>
       <td>29.408444</td>
-      <td>7.342281e-21</td>
+      <td>7.342282e-21</td>
       <td>2.077866e-18</td>
       <td>True</td>
     </tr>
@@ -5490,7 +5490,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>193</td>
       <td>13.612415</td>
       <td>5.329409e-10</td>
-      <td>7.541113e-08</td>
+      <td>7.541114e-08</td>
       <td>True</td>
     </tr>
     <tr>
