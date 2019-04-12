@@ -1,6 +1,6 @@
 
 <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc" style="margin-top: 1em;"><ul class="toc-item"><li><span><a href="#Analysis-of-serum-mutational-antigenic-profiling" data-toc-modified-id="Analysis-of-serum-mutational-antigenic-profiling-1">Analysis of serum mutational antigenic profiling</a></span><ul class="toc-item"><li><span><a href="#Configure-analysis" data-toc-modified-id="Configure-analysis-1.1">Configure analysis</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1.1">Import Python modules / packages</a></span></li><li><span><a href="#Get-config-variables" data-toc-modified-id="Get-config-variables-1.1.2">Get config variables</a></span></li><li><span><a href="#Get-sera-information" data-toc-modified-id="Get-sera-information-1.1.3">Get sera information</a></span></li><li><span><a href="#Get-list-of-samples" data-toc-modified-id="Get-list-of-samples-1.1.4">Get list of samples</a></span></li></ul></li><li><span><a href="#Align-sequencing-and-count-mutations" data-toc-modified-id="Align-sequencing-and-count-mutations-1.2">Align sequencing and count mutations</a></span><ul class="toc-item"><li><span><a href="#Run-dms2_batch_bcsubamp" data-toc-modified-id="Run-dms2_batch_bcsubamp-1.2.1">Run <code>dms2_batch_bcsubamp</code></a></span></li><li><span><a href="#Plot-sequencing-and-mutation-counts-summaries" data-toc-modified-id="Plot-sequencing-and-mutation-counts-summaries-1.2.2">Plot sequencing and mutation counts summaries</a></span><ul class="toc-item"><li><span><a href="#Reads-and-barcodes-per-sample" data-toc-modified-id="Reads-and-barcodes-per-sample-1.2.2.1">Reads and barcodes per sample</a></span></li><li><span><a href="#Coverage-across-gene" data-toc-modified-id="Coverage-across-gene-1.2.2.2">Coverage across gene</a></span></li><li><span><a href="#Mutation-frequencies" data-toc-modified-id="Mutation-frequencies-1.2.2.3">Mutation frequencies</a></span></li><li><span><a href="#Check-for-oxidative-damage" data-toc-modified-id="Check-for-oxidative-damage-1.2.2.4">Check for oxidative damage</a></span></li></ul></li><li><span><a href="#Renumber-to-standard-HA-numbering" data-toc-modified-id="Renumber-to-standard-HA-numbering-1.2.3">Renumber to standard HA numbering</a></span></li></ul></li><li><span><a href="#Compute-immune-selection-on-mutations" data-toc-modified-id="Compute-immune-selection-on-mutations-1.3">Compute immune selection on mutations</a></span><ul class="toc-item"><li><span><a href="#Samples-to-compare-for-each-selection" data-toc-modified-id="Samples-to-compare-for-each-selection-1.3.1">Samples to compare for each selection</a></span></li><li><span><a href="#Choose-measure-of-immune-selection" data-toc-modified-id="Choose-measure-of-immune-selection-1.3.2">Choose measure of immune selection</a></span></li><li><span><a href="#Compute-immune-selection" data-toc-modified-id="Compute-immune-selection-1.3.3">Compute immune selection</a></span></li><li><span><a href="#Get-all-selection-information-in-one-data-frame" data-toc-modified-id="Get-all-selection-information-in-one-data-frame-1.3.4">Get all selection information in one data frame</a></span></li></ul></li><li><span><a href="#Analyze-immune-selection" data-toc-modified-id="Analyze-immune-selection-1.4">Analyze immune selection</a></span><ul class="toc-item"><li><span><a href="#Examine-all-samples-and-choose-ones-to-retain" data-toc-modified-id="Examine-all-samples-and-choose-ones-to-retain-1.4.1">Examine all samples and choose ones to retain</a></span><ul class="toc-item"><li><span><a href="#Plot-site-level-selection-for-all-samples" data-toc-modified-id="Plot-site-level-selection-for-all-samples-1.4.1.1">Plot site-level selection for all samples</a></span></li><li><span><a href="#Choose-samples-to-retain-based-on-infectivity-remaining" data-toc-modified-id="Choose-samples-to-retain-based-on-infectivity-remaining-1.4.1.2">Choose samples to retain based on infectivity remaining</a></span></li><li><span><a href="#Listing-of-retained-samples" data-toc-modified-id="Listing-of-retained-samples-1.4.1.3">Listing of retained samples</a></span></li></ul></li><li><span><a href="#Compute-serum-average-from-retained-samples" data-toc-modified-id="Compute-serum-average-from-retained-samples-1.4.2">Compute serum average from retained samples</a></span></li><li><span><a href="#Choose-averaging-method-for-downstream-use" data-toc-modified-id="Choose-averaging-method-for-downstream-use-1.4.3">Choose averaging method for downstream use</a></span></li><li><span><a href="#Identify-sites-of-&quot;significant&quot;-selection" data-toc-modified-id="Identify-sites-of-&quot;significant&quot;-selection-1.4.4">Identify sites of "significant" selection</a></span><ul class="toc-item"><li><span><a href="#Cutoff-for-significance" data-toc-modified-id="Cutoff-for-significance-1.4.4.1">Cutoff for significance</a></span></li><li><span><a href="#Identify-significant-sites" data-toc-modified-id="Identify-significant-sites-1.4.4.2">Identify significant sites</a></span></li><li><span><a href="#List-significant-sites-for-each-serum" data-toc-modified-id="List-significant-sites-for-each-serum-1.4.4.3">List significant sites for each serum</a></span></li><li><span><a href="#Get-significant-sites-for-each-serum-group" data-toc-modified-id="Get-significant-sites-for-each-serum-group-1.4.4.4">Get significant sites for each serum group</a></span></li></ul></li><li><span><a href="#Plot-serum-average-selection" data-toc-modified-id="Plot-serum-average-selection-1.4.5">Plot serum-average selection</a></span><ul class="toc-item"><li><span><a href="#Choose-sites-to-zoom-in-on" data-toc-modified-id="Choose-sites-to-zoom-in-on-1.4.5.1">Choose sites to zoom-in on</a></span></li><li><span><a href="#Compact-plots-of-replicate-average-selection" data-toc-modified-id="Compact-plots-of-replicate-average-selection-1.4.5.2">Compact plots of replicate-average selection</a></span></li><li><span><a href="#Compact-plots-showing-each-replicate" data-toc-modified-id="Compact-plots-showing-each-replicate-1.4.5.3">Compact plots showing each replicate</a></span></li><li><span><a href="#Whole-gene-logo-plots-of-replicate-average-selection" data-toc-modified-id="Whole-gene-logo-plots-of-replicate-average-selection-1.4.5.4">Whole-gene logo plots of replicate-average selection</a></span></li></ul></li></ul></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Analysis-of-serum-mutational-antigenic-profiling" data-toc-modified-id="Analysis-of-serum-mutational-antigenic-profiling-1">Analysis of serum mutational antigenic profiling</a></span><ul class="toc-item"><li><span><a href="#Configure-analysis" data-toc-modified-id="Configure-analysis-1.1">Configure analysis</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1.1">Import Python modules / packages</a></span></li><li><span><a href="#Get-config-variables" data-toc-modified-id="Get-config-variables-1.1.2">Get config variables</a></span></li><li><span><a href="#Get-sera-information" data-toc-modified-id="Get-sera-information-1.1.3">Get sera information</a></span></li><li><span><a href="#Get-list-of-samples" data-toc-modified-id="Get-list-of-samples-1.1.4">Get list of samples</a></span></li></ul></li><li><span><a href="#Download-deep-sequencing-data-if-needed" data-toc-modified-id="Download-deep-sequencing-data-if-needed-1.2">Download deep sequencing data if needed</a></span></li><li><span><a href="#Align-sequencing-and-count-mutations" data-toc-modified-id="Align-sequencing-and-count-mutations-1.3">Align sequencing and count mutations</a></span><ul class="toc-item"><li><span><a href="#Run-dms2_batch_bcsubamp" data-toc-modified-id="Run-dms2_batch_bcsubamp-1.3.1">Run <code>dms2_batch_bcsubamp</code></a></span></li><li><span><a href="#Plot-sequencing-and-mutation-counts-summaries" data-toc-modified-id="Plot-sequencing-and-mutation-counts-summaries-1.3.2">Plot sequencing and mutation counts summaries</a></span><ul class="toc-item"><li><span><a href="#Reads-and-barcodes-per-sample" data-toc-modified-id="Reads-and-barcodes-per-sample-1.3.2.1">Reads and barcodes per sample</a></span></li><li><span><a href="#Coverage-across-gene" data-toc-modified-id="Coverage-across-gene-1.3.2.2">Coverage across gene</a></span></li><li><span><a href="#Mutation-frequencies" data-toc-modified-id="Mutation-frequencies-1.3.2.3">Mutation frequencies</a></span></li><li><span><a href="#Check-for-oxidative-damage" data-toc-modified-id="Check-for-oxidative-damage-1.3.2.4">Check for oxidative damage</a></span></li></ul></li><li><span><a href="#Renumber-to-standard-HA-numbering" data-toc-modified-id="Renumber-to-standard-HA-numbering-1.3.3">Renumber to standard HA numbering</a></span></li></ul></li><li><span><a href="#Compute-immune-selection-on-mutations" data-toc-modified-id="Compute-immune-selection-on-mutations-1.4">Compute immune selection on mutations</a></span><ul class="toc-item"><li><span><a href="#Samples-to-compare-for-each-selection" data-toc-modified-id="Samples-to-compare-for-each-selection-1.4.1">Samples to compare for each selection</a></span></li><li><span><a href="#Choose-measure-of-immune-selection" data-toc-modified-id="Choose-measure-of-immune-selection-1.4.2">Choose measure of immune selection</a></span></li><li><span><a href="#Compute-immune-selection" data-toc-modified-id="Compute-immune-selection-1.4.3">Compute immune selection</a></span></li><li><span><a href="#Get-all-selection-information-in-one-data-frame" data-toc-modified-id="Get-all-selection-information-in-one-data-frame-1.4.4">Get all selection information in one data frame</a></span></li></ul></li><li><span><a href="#Analyze-immune-selection" data-toc-modified-id="Analyze-immune-selection-1.5">Analyze immune selection</a></span><ul class="toc-item"><li><span><a href="#Examine-all-samples-and-choose-ones-to-retain" data-toc-modified-id="Examine-all-samples-and-choose-ones-to-retain-1.5.1">Examine all samples and choose ones to retain</a></span><ul class="toc-item"><li><span><a href="#Plot-site-level-selection-for-all-samples" data-toc-modified-id="Plot-site-level-selection-for-all-samples-1.5.1.1">Plot site-level selection for all samples</a></span></li><li><span><a href="#Choose-samples-to-retain-based-on-infectivity-remaining" data-toc-modified-id="Choose-samples-to-retain-based-on-infectivity-remaining-1.5.1.2">Choose samples to retain based on infectivity remaining</a></span></li><li><span><a href="#Listing-of-retained-samples" data-toc-modified-id="Listing-of-retained-samples-1.5.1.3">Listing of retained samples</a></span></li></ul></li><li><span><a href="#Compute-serum-average-from-retained-samples" data-toc-modified-id="Compute-serum-average-from-retained-samples-1.5.2">Compute serum average from retained samples</a></span></li><li><span><a href="#Choose-averaging-method-for-downstream-use" data-toc-modified-id="Choose-averaging-method-for-downstream-use-1.5.3">Choose averaging method for downstream use</a></span></li><li><span><a href="#Identify-sites-of-&quot;significant&quot;-selection" data-toc-modified-id="Identify-sites-of-&quot;significant&quot;-selection-1.5.4">Identify sites of "significant" selection</a></span><ul class="toc-item"><li><span><a href="#Cutoff-for-significance" data-toc-modified-id="Cutoff-for-significance-1.5.4.1">Cutoff for significance</a></span></li><li><span><a href="#Identify-significant-sites" data-toc-modified-id="Identify-significant-sites-1.5.4.2">Identify significant sites</a></span></li><li><span><a href="#List-significant-sites-for-each-serum" data-toc-modified-id="List-significant-sites-for-each-serum-1.5.4.3">List significant sites for each serum</a></span></li><li><span><a href="#Get-significant-sites-for-each-serum-group" data-toc-modified-id="Get-significant-sites-for-each-serum-group-1.5.4.4">Get significant sites for each serum group</a></span></li></ul></li><li><span><a href="#Plot-serum-average-selection" data-toc-modified-id="Plot-serum-average-selection-1.5.5">Plot serum-average selection</a></span><ul class="toc-item"><li><span><a href="#Choose-sites-to-zoom-in-on" data-toc-modified-id="Choose-sites-to-zoom-in-on-1.5.5.1">Choose sites to zoom-in on</a></span></li><li><span><a href="#Compact-plots-of-replicate-average-selection" data-toc-modified-id="Compact-plots-of-replicate-average-selection-1.5.5.2">Compact plots of replicate-average selection</a></span></li><li><span><a href="#Compact-plots-showing-each-replicate" data-toc-modified-id="Compact-plots-showing-each-replicate-1.5.5.3">Compact plots showing each replicate</a></span></li><li><span><a href="#Whole-gene-logo-plots-of-replicate-average-selection" data-toc-modified-id="Whole-gene-logo-plots-of-replicate-average-selection-1.5.5.4">Whole-gene logo plots of replicate-average selection</a></span></li></ul></li></ul></li></ul></li><li><span><a href="#Plot-figures-for-paper" data-toc-modified-id="Plot-figures-for-paper-2">Plot figures for paper</a></span></li></ul></div>
 
 # Analysis of serum mutational antigenic profiling
 This Python Jupyter notebook analyzes mutational antigenic profiling of serum against virus carrying the A/Perth/2009 (H3N2) HA.
@@ -55,7 +55,7 @@ print(f"Using dms_tools2 version {dms_tools2.__version__}")
 print(f"Using dmslogo version {dmslogo.__version__}")
 ```
 
-    Using dms_tools2 version 2.4.8
+    Using dms_tools2 version 2.4.9
     Using dmslogo version 0.1.0
 
 
@@ -118,6 +118,26 @@ display(HTML(pd.Series(config)
     <tr>
       <th>renumbering_scheme</th>
       <td>data/H3renumbering_scheme.csv</td>
+    </tr>
+    <tr>
+      <th>seq_data_source</th>
+      <td>SRA_accession</td>
+    </tr>
+    <tr>
+      <th>fastq_dir</th>
+      <td>results/FASTQ_files</td>
+    </tr>
+    <tr>
+      <th>fastq_dump</th>
+      <td>fastq-dump</td>
+    </tr>
+    <tr>
+      <th>ascp</th>
+      <td>/app/aspera-connect/3.7.5/bin/ascp</td>
+    </tr>
+    <tr>
+      <th>asperakey</th>
+      <td>/app/aspera-connect/3.7.5/etc/asperaweb_id_dsa.openssh</td>
     </tr>
     <tr>
       <th>alignspecs</th>
@@ -471,6 +491,7 @@ display(HTML(samples.to_html(index=False)))
       <th>serum_dilution</th>
       <th>percent_infectivity</th>
       <th>R1</th>
+      <th>SRA_accession</th>
     </tr>
   </thead>
   <tbody>
@@ -479,108 +500,120 @@ display(HTML(samples.to_html(index=False)))
       <td>589v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>13.8200</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt01/*R1*.fastq.gz</td>
+      <td>SRR8875142</td>
     </tr>
     <tr>
       <td>L4-571v1</td>
       <td>571v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>19.6200</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt03/*R1*.fastq.gz</td>
+      <td>SRR8875143</td>
     </tr>
     <tr>
       <td>L4-571v2</td>
       <td>571v2</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>5.4800</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt04/*R1*.fastq.gz</td>
+      <td>SRR8875144</td>
     </tr>
     <tr>
       <td>L4-574v1</td>
       <td>574v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>9.4800</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt05/*R1*.fastq.gz</td>
+      <td>SRR8875145</td>
     </tr>
     <tr>
       <td>L4-WHOCCPerth</td>
       <td>WHOCCPerth</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>2.3200</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt06/*R1*.fastq.gz</td>
+      <td>SRR8875138</td>
     </tr>
     <tr>
       <td>L4-589v2</td>
       <td>589v2</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.0035</td>
+      <td>0.000875</td>
       <td>4.5800</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt09/*R1*.fastq.gz</td>
+      <td>SRR8875139</td>
     </tr>
     <tr>
       <td>L4-557v1</td>
       <td>557v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>6.9000</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt10/*R1*.fastq.gz</td>
+      <td>SRR8875140</td>
     </tr>
     <tr>
       <td>L4-f9267neg</td>
       <td>f9267neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt15/*R1*.fastq.gz</td>
+      <td>SRR8875141</td>
     </tr>
     <tr>
       <td>L4-f9267d23</td>
       <td>f9267d23</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>4.3600</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt16/*R1*.fastq.gz</td>
+      <td>SRR8875136</td>
     </tr>
     <tr>
       <td>L4-f9435neg</td>
       <td>f9435neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.004</td>
+      <td>0.001</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt17/*R1*.fastq.gz</td>
+      <td>SRR8875137</td>
     </tr>
     <tr>
       <td>L4-f9437neg</td>
       <td>f9437neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.009</td>
+      <td>0.00225</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt19/*R1*.fastq.gz</td>
+      <td>SRR8875168</td>
     </tr>
     <tr>
       <td>L4-f9437d23</td>
       <td>f9437d23</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.009</td>
+      <td>0.00225</td>
       <td>8.7700</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt20/*R1*.fastq.gz</td>
+      <td>SRR8875169</td>
     </tr>
     <tr>
       <td>Lib4mock-A</td>
@@ -590,6 +623,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt21/*R1*.fastq.gz</td>
+      <td>SRR8875170</td>
     </tr>
     <tr>
       <td>WTplasmid-A</td>
@@ -599,123 +633,137 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>NaN</td>
       <td>/shared/ngs/illumina/jmlee34/181114_D00300_0647_BHNCNYBCX2/Unaligned/Project_jmlee34/Sample_expt22/*R1*.fastq.gz</td>
+      <td>SRR8875171</td>
     </tr>
     <tr>
       <td>L5-f9267neg</td>
       <td>f9267neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt02/*R1*.fastq.gz</td>
+      <td>SRR8875172</td>
     </tr>
     <tr>
       <td>L5-f9435neg</td>
       <td>f9435neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt03/*R1*.fastq.gz</td>
+      <td>SRR8875173</td>
     </tr>
     <tr>
       <td>L5-f9437neg</td>
       <td>f9437neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.025</td>
+      <td>0.00625</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt04/*R1*.fastq.gz</td>
+      <td>SRR8875174</td>
     </tr>
     <tr>
       <td>L5-VIDD1</td>
       <td>VIDD1</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.018</td>
+      <td>0.0045</td>
       <td>5.9500</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt06/*R1*.fastq.gz</td>
+      <td>SRR8875175</td>
     </tr>
     <tr>
       <td>L5-WHOCCPerth</td>
       <td>WHOCCPerth</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>1.8800</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt11/*R1*.fastq.gz</td>
+      <td>SRR8875166</td>
     </tr>
     <tr>
       <td>L5-f9267d23</td>
       <td>f9267d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0007</td>
+      <td>0.000175</td>
       <td>5.3500</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt12/*R1*.fastq.gz</td>
+      <td>SRR8875167</td>
     </tr>
     <tr>
       <td>L5-WHOCCVic</td>
       <td>WHOCCVic</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>3.9000</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt14/*R1*.fastq.gz</td>
+      <td>SRR8875191</td>
     </tr>
     <tr>
       <td>L5-VIDD5</td>
       <td>VIDD5</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0035</td>
+      <td>0.000875</td>
       <td>5.2400</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt15/*R1*.fastq.gz</td>
+      <td>SRR8875190</td>
     </tr>
     <tr>
       <td>L5-VIDD4</td>
       <td>VIDD4</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0067</td>
+      <td>0.001675</td>
       <td>0.8700</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt18/*R1*.fastq.gz</td>
+      <td>SRR8875193</td>
     </tr>
     <tr>
       <td>L5-VIDD2</td>
       <td>VIDD2</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.015</td>
+      <td>0.00375</td>
       <td>2.0300</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt19/*R1*.fastq.gz</td>
+      <td>SRR8875192</td>
     </tr>
     <tr>
       <td>L5-VIDD3</td>
       <td>VIDD3</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.018</td>
+      <td>0.0045</td>
       <td>1.7300</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt20/*R1*.fastq.gz</td>
+      <td>SRR8875187</td>
     </tr>
     <tr>
       <td>L5-f9435d23</td>
       <td>f9435d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0025</td>
+      <td>0.000625</td>
       <td>1.8800</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt21/*R1*.fastq.gz</td>
+      <td>SRR8875186</td>
     </tr>
     <tr>
       <td>L5-f9437d23</td>
       <td>f9437d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0055</td>
+      <td>0.001375</td>
       <td>1.7000</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt24/*R1*.fastq.gz</td>
+      <td>SRR8875189</td>
     </tr>
     <tr>
       <td>Lib5mock-A</td>
@@ -725,6 +773,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt25/*R1*.fastq.gz</td>
+      <td>SRR8875188</td>
     </tr>
     <tr>
       <td>WTplasmid-B</td>
@@ -734,60 +783,67 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>NaN</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_WTplasmid-2e5/*R1*.fastq.gz</td>
+      <td>SRR8875195</td>
     </tr>
     <tr>
       <td>L4-f9435d23</td>
       <td>f9435d23</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>3.4500</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt27/*R1*.fastq.gz</td>
+      <td>SRR8875194</td>
     </tr>
     <tr>
       <td>L4-VIDD4</td>
       <td>VIDD4</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.016</td>
+      <td>0.004</td>
       <td>10.7400</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt29/*R1*.fastq.gz</td>
+      <td>SRR8875112</td>
     </tr>
     <tr>
       <td>L4-VIDD3</td>
       <td>VIDD3</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>5.9800</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt31/*R1*.fastq.gz</td>
+      <td>SRR8875113</td>
     </tr>
     <tr>
       <td>L4-WHOCCVic</td>
       <td>WHOCCVic</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.025</td>
+      <td>0.00625</td>
       <td>1.2600</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt32/*R1*.fastq.gz</td>
+      <td>SRR8875110</td>
     </tr>
     <tr>
       <td>L4-VIDD1</td>
       <td>VIDD1</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.07</td>
+      <td>0.0175</td>
       <td>4.0800</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt35/*R1*.fastq.gz</td>
+      <td>SRR8875111</td>
     </tr>
     <tr>
       <td>L4-VIDD2</td>
       <td>VIDD2</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.035</td>
+      <td>0.00875</td>
       <td>3.7400</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt37/*R1*.fastq.gz</td>
+      <td>SRR8875108</td>
     </tr>
     <tr>
       <td>Lib4mock-B</td>
@@ -797,6 +853,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_expt38/*R1*.fastq.gz</td>
+      <td>SRR8875109</td>
     </tr>
     <tr>
       <td>WTplasmid-C</td>
@@ -806,51 +863,57 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>NaN</td>
       <td>/shared/ngs/illumina/jmlee34/190116_D00300_0668_AHVHCFBCX2/Unaligned/Project_jmlee34/Sample_WT-pHH-plasmid/*R1*.fastq.gz</td>
+      <td>SRR8875106</td>
     </tr>
     <tr>
       <td>L5-589v1</td>
       <td>589v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.07</td>
+      <td>0.0175</td>
       <td>20.3200</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt01/*R1*.fastq.gz</td>
+      <td>SRR8875107</td>
     </tr>
     <tr>
       <td>L5-557v2</td>
       <td>557v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.002</td>
+      <td>0.0005</td>
       <td>0.8100</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt02/*R1*.fastq.gz</td>
+      <td>SRR8875114</td>
     </tr>
     <tr>
       <td>L5-571v2</td>
       <td>571v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.04</td>
+      <td>0.01</td>
       <td>1.0900</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt04/*R1*.fastq.gz</td>
+      <td>SRR8875115</td>
     </tr>
     <tr>
       <td>L5-574v1</td>
       <td>574v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.05</td>
+      <td>0.0125</td>
       <td>7.5700</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt05/*R1*.fastq.gz</td>
+      <td>SRR8875119</td>
     </tr>
     <tr>
       <td>L5-574v2</td>
       <td>574v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0035</td>
+      <td>0.000875</td>
       <td>1.1100</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt06/*R1*.fastq.gz</td>
+      <td>SRR8875118</td>
     </tr>
     <tr>
       <td>L5-4F03-c1</td>
@@ -860,6 +923,7 @@ display(HTML(samples.to_html(index=False)))
       <td>0.3</td>
       <td>22.9900</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt13/*R1*.fastq.gz</td>
+      <td>SRR8875117</td>
     </tr>
     <tr>
       <td>L5-4F03-c3</td>
@@ -869,96 +933,107 @@ display(HTML(samples.to_html(index=False)))
       <td>1.5</td>
       <td>3.7100</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt14/*R1*.fastq.gz</td>
+      <td>SRR8875116</td>
     </tr>
     <tr>
       <td>L6-589v2</td>
       <td>589v2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.0015</td>
+      <td>0.000375</td>
       <td>4.0600</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt15/*R1*.fastq.gz</td>
+      <td>SRR8875123</td>
     </tr>
     <tr>
       <td>L6-557v1</td>
       <td>557v1</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.02</td>
+      <td>0.005</td>
       <td>1.5700</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt16/*R1*.fastq.gz</td>
+      <td>SRR8875122</td>
     </tr>
     <tr>
       <td>L6-557v2</td>
       <td>557v2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.002</td>
+      <td>0.0005</td>
       <td>1.6400</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt17/*R1*.fastq.gz</td>
+      <td>SRR8875121</td>
     </tr>
     <tr>
       <td>L6-VIDD2</td>
       <td>VIDD2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.015</td>
+      <td>0.00375</td>
       <td>6.2200</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt18/*R1*.fastq.gz</td>
+      <td>SRR8875120</td>
     </tr>
     <tr>
       <td>L6-VIDD3</td>
       <td>VIDD3</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.025</td>
+      <td>0.00625</td>
       <td>1.1200</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt19/*R1*.fastq.gz</td>
+      <td>SRR8875125</td>
     </tr>
     <tr>
       <td>L6-VIDD1</td>
       <td>VIDD1</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>3.6800</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt20/*R1*.fastq.gz</td>
+      <td>SRR8875124</td>
     </tr>
     <tr>
       <td>L6-f9267d23</td>
       <td>f9267d23</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.0015</td>
+      <td>0.000375</td>
       <td>1.6900</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt21/*R1*.fastq.gz</td>
+      <td>SRR8875132</td>
     </tr>
     <tr>
       <td>L6-f9435d23</td>
       <td>f9435d23</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.005</td>
+      <td>0.00125</td>
       <td>3.0400</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt22/*R1*.fastq.gz</td>
+      <td>SRR8875133</td>
     </tr>
     <tr>
       <td>L6-WHOCCPerth</td>
       <td>WHOCCPerth</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>4.1000</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt23/*R1*.fastq.gz</td>
+      <td>SRR8875134</td>
     </tr>
     <tr>
       <td>L6-WHOCCVic</td>
       <td>WHOCCVic</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>3.6200</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_expt24/*R1*.fastq.gz</td>
+      <td>SRR8875135</td>
     </tr>
     <tr>
       <td>Lib5mock-B</td>
@@ -968,6 +1043,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_Lib5mock/*R1*.fastq.gz</td>
+      <td>SRR8875128</td>
     </tr>
     <tr>
       <td>Lib6mock-A</td>
@@ -977,6 +1053,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_Lib6mock/*R1*.fastq.gz</td>
+      <td>SRR8875129</td>
     </tr>
     <tr>
       <td>WTplasmid-D</td>
@@ -986,6 +1063,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>NaN</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_WTplasmid/*R1*.fastq.gz</td>
+      <td>SRR8875130</td>
     </tr>
     <tr>
       <td>WTplasmid-E</td>
@@ -995,33 +1073,37 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>NaN</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_WTplasmid/*R1*.fastq.gz</td>
+      <td>SRR8875131</td>
     </tr>
     <tr>
       <td>L5-589v2</td>
       <td>589v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0015</td>
+      <td>0.000375</td>
       <td>4.6800</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel01/*R1*.fastq.gz</td>
+      <td>SRR8875126</td>
     </tr>
     <tr>
       <td>L5-557v1</td>
       <td>557v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.02</td>
+      <td>0.005</td>
       <td>2.3100</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel03/*R1*.fastq.gz</td>
+      <td>SRR8875127</td>
     </tr>
     <tr>
       <td>L5-571v1</td>
       <td>571v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>11.8600</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel04/*R1*.fastq.gz</td>
+      <td>SRR8875149</td>
     </tr>
     <tr>
       <td>L5-5A01</td>
@@ -1031,6 +1113,7 @@ display(HTML(samples.to_html(index=False)))
       <td>0.025</td>
       <td>1.3600</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel07/*R1*.fastq.gz</td>
+      <td>SRR8875148</td>
     </tr>
     <tr>
       <td>L5-4F03-c2</td>
@@ -1040,51 +1123,57 @@ display(HTML(samples.to_html(index=False)))
       <td>0.7</td>
       <td>4.7100</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel09/*R1*.fastq.gz</td>
+      <td>SRR8875151</td>
     </tr>
     <tr>
       <td>L5-VIDD5-low4F03</td>
       <td>VIDD5andlow4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0035+0.3</td>
+      <td>0.000875+0.3</td>
       <td>5.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel14/*R1*.fastq.gz</td>
+      <td>SRR8875150</td>
     </tr>
     <tr>
       <td>L5-VIDD5-mid4F03</td>
       <td>VIDD5andmid4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0035+0.7</td>
+      <td>0.000875+0.7</td>
       <td>0.4600</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel15/*R1*.fastq.gz</td>
+      <td>SRR8875153</td>
     </tr>
     <tr>
       <td>L5-VIDD5-hi4F03</td>
       <td>VIDD5andhi4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0035+1.5</td>
+      <td>0.000875+1.5</td>
       <td>0.0400</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel16/*R1*.fastq.gz</td>
+      <td>SRR8875152</td>
     </tr>
     <tr>
       <td>L4-574v2</td>
       <td>574v2</td>
       <td>lib1</td>
       <td>2019-03-06</td>
-      <td>0.008</td>
+      <td>0.002</td>
       <td>1.5400</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel17/*R1*.fastq.gz</td>
+      <td>SRR8875155</td>
     </tr>
     <tr>
       <td>L4-557v2</td>
       <td>557v2</td>
       <td>lib1</td>
       <td>2019-03-06</td>
-      <td>0.005</td>
+      <td>0.00125</td>
       <td>1.5300</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel20/*R1*.fastq.gz</td>
+      <td>SRR8875154</td>
     </tr>
     <tr>
       <td>L4-5A01</td>
@@ -1094,24 +1183,27 @@ display(HTML(samples.to_html(index=False)))
       <td>0.07</td>
       <td>4.3200</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel23/*R1*.fastq.gz</td>
+      <td>SRR8875147</td>
     </tr>
     <tr>
       <td>L4-4F03-c2</td>
       <td>4F03</td>
       <td>lib1</td>
       <td>2019-03-06</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>3.4700</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel24/*R1*.fastq.gz</td>
+      <td>SRR8875146</td>
     </tr>
     <tr>
       <td>L4-4F03-c3</td>
       <td>4F03</td>
       <td>lib1</td>
       <td>2019-03-06</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>0.7800</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_sel25/*R1*.fastq.gz</td>
+      <td>SRR8875160</td>
     </tr>
     <tr>
       <td>Lib4mock-C</td>
@@ -1121,6 +1213,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_L4mock/*R1*.fastq.gz</td>
+      <td>SRR8875161</td>
     </tr>
     <tr>
       <td>WTplasmid-F</td>
@@ -1130,78 +1223,87 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>NaN</td>
       <td>/shared/ngs/illumina/jmlee34/190306_D00300_0692_BHWH52BCX2/Unaligned/Project_jmlee34/Sample_WTplasmid-pool2/*R1*.fastq.gz</td>
+      <td>SRR8875158</td>
     </tr>
     <tr>
       <td>L6-589v1</td>
       <td>589v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.07</td>
+      <td>0.0175</td>
       <td>18.4000</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt01/*R1*.fastq.gz</td>
+      <td>SRR8875159</td>
     </tr>
     <tr>
       <td>L6-571v1</td>
       <td>571v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>27.7400</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt05/*R1*.fastq.gz</td>
+      <td>SRR8875164</td>
     </tr>
     <tr>
       <td>L6-571v2</td>
       <td>571v2</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.02</td>
+      <td>0.005</td>
       <td>7.7900</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt06/*R1*.fastq.gz</td>
+      <td>SRR8875165</td>
     </tr>
     <tr>
       <td>L6-574v1</td>
       <td>574v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.06</td>
+      <td>0.015</td>
       <td>3.3000</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt07/*R1*.fastq.gz</td>
+      <td>SRR8875162</td>
     </tr>
     <tr>
       <td>L6-574v2</td>
       <td>574v2</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>1.9200</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt08/*R1*.fastq.gz</td>
+      <td>SRR8875163</td>
     </tr>
     <tr>
       <td>L6-f9267neg</td>
       <td>f9267neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt12/*R1*.fastq.gz</td>
+      <td>SRR8875156</td>
     </tr>
     <tr>
       <td>L6-f9435neg</td>
       <td>f9435neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt14/*R1*.fastq.gz</td>
+      <td>SRR8875157</td>
     </tr>
     <tr>
       <td>L6-f9437neg</td>
       <td>f9437neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.025</td>
+      <td>0.00625</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt16/*R1*.fastq.gz</td>
+      <td>SRR8875183</td>
     </tr>
     <tr>
       <td>L6-5A01</td>
@@ -1211,6 +1313,7 @@ display(HTML(samples.to_html(index=False)))
       <td>0.025</td>
       <td>1.0200</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_expt20/*R1*.fastq.gz</td>
+      <td>SRR8875182</td>
     </tr>
     <tr>
       <td>Lib6mock-B</td>
@@ -1220,6 +1323,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_L6mock/*R1*.fastq.gz</td>
+      <td>SRR8875181</td>
     </tr>
     <tr>
       <td>L4-4F03-c1</td>
@@ -1229,33 +1333,37 @@ display(HTML(samples.to_html(index=False)))
       <td>0.3</td>
       <td>28.2400</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel02/*R1*.fastq.gz</td>
+      <td>SRR8875180</td>
     </tr>
     <tr>
       <td>L6-VIDD5</td>
       <td>VIDD5</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.008</td>
+      <td>0.002</td>
       <td>5.5800</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel03/*R1*.fastq.gz</td>
+      <td>SRR8875179</td>
     </tr>
     <tr>
       <td>L6-VIDD4</td>
       <td>VIDD4</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.015</td>
+      <td>0.00375</td>
       <td>0.2600</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel05/*R1*.fastq.gz</td>
+      <td>SRR8875178</td>
     </tr>
     <tr>
       <td>L6-f9437d23</td>
       <td>f9437d23</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.007</td>
+      <td>0.00175</td>
       <td>5.7800</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel06/*R1*.fastq.gz</td>
+      <td>SRR8875177</td>
     </tr>
     <tr>
       <td>L6-4F03-c1</td>
@@ -1265,6 +1373,7 @@ display(HTML(samples.to_html(index=False)))
       <td>0.3</td>
       <td>23.9100</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel08/*R1*.fastq.gz</td>
+      <td>SRR8875176</td>
     </tr>
     <tr>
       <td>L6-4F03-c3</td>
@@ -1274,42 +1383,47 @@ display(HTML(samples.to_html(index=False)))
       <td>1.4</td>
       <td>0.8400</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel09/*R1*.fastq.gz</td>
+      <td>SRR8875185</td>
     </tr>
     <tr>
       <td>L4-VIDD5</td>
       <td>VIDD5</td>
       <td>lib1</td>
       <td>2019-03-26</td>
-      <td>0.0135</td>
+      <td>0.003375</td>
       <td>1.7700</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel11/*R1*.fastq.gz</td>
+      <td>SRR8875184</td>
     </tr>
     <tr>
       <td>L4-VIDD5-low4F03</td>
       <td>VIDD5andlow4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
-      <td>0.0135</td>
+      <td>0.003375+0.3</td>
       <td>0.0300</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel12/*R1*.fastq.gz</td>
+      <td>SRR8875196</td>
     </tr>
     <tr>
       <td>L4-VIDD5-mid4F03</td>
       <td>VIDD5andmid4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
-      <td>0.0135</td>
+      <td>0.003375+1</td>
       <td>0.0037</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel13/*R1*.fastq.gz</td>
+      <td>SRR8875197</td>
     </tr>
     <tr>
       <td>L4-VIDD5-hi4F03</td>
       <td>VIDD5andhi4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
-      <td>0.0135</td>
+      <td>0.003375+2</td>
       <td>0.0016</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel14/*R1*.fastq.gz</td>
+      <td>SRR8875198</td>
     </tr>
     <tr>
       <td>L6-4F03-c2</td>
@@ -1319,33 +1433,37 @@ display(HTML(samples.to_html(index=False)))
       <td>0.75</td>
       <td>7.1600</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel16/*R1*.fastq.gz</td>
+      <td>SRR8875199</td>
     </tr>
     <tr>
       <td>L6-VIDD5-low4F03</td>
       <td>VIDD5andlow4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.008</td>
+      <td>0.002+0.3</td>
       <td>0.2040</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel17/*R1*.fastq.gz</td>
+      <td>SRR8875200</td>
     </tr>
     <tr>
       <td>L6-VIDD5-mid4F03</td>
       <td>VIDD5andmid4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.008</td>
+      <td>0.002+0.75</td>
       <td>0.0077</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel18/*R1*.fastq.gz</td>
+      <td>SRR8875201</td>
     </tr>
     <tr>
       <td>L6-VIDD5-hi4F03</td>
       <td>VIDD5andhi4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.008</td>
+      <td>0.002+1.4</td>
       <td>0.0032</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_sel19/*R1*.fastq.gz</td>
+      <td>SRR8875202</td>
     </tr>
     <tr>
       <td>Lib4mock-D</td>
@@ -1355,6 +1473,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>100.0000</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_L4mock/*R1*.fastq.gz</td>
+      <td>SRR8875203</td>
     </tr>
     <tr>
       <td>WTplasmid-G</td>
@@ -1364,6 +1483,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>NaN</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_WTplasmid/*R1*.fastq.gz</td>
+      <td>SRR8875204</td>
     </tr>
     <tr>
       <td>WTplasmid-H</td>
@@ -1373,6 +1493,7 @@ display(HTML(samples.to_html(index=False)))
       <td>NaN</td>
       <td>NaN</td>
       <td>/shared/ngs/illumina/jmlee34/190326_D00300_0706_AHWYTCBCX2/Unaligned/Project_jmlee34/Sample_WTplasmid/*R1*.fastq.gz</td>
+      <td>SRR8875205</td>
     </tr>
   </tbody>
 </table>
@@ -1390,6 +1511,43 @@ else:
 ```
 
     We have information for all sera used for the samples.
+
+
+## Download deep sequencing data if needed
+The configfile specifies whether we get the data from existing *R1* files on the Hutch server, or download the data from the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) using [dms_tools2.sra.fastqFromSRA](https://jbloomlab.github.io/dms_tools2/dms_tools2.sra.html):
+
+
+```python
+if config['seq_data_source'] == 'SRA_accession':
+    
+    # are we using Aspera for rapid downloads?
+    if config['ascp'] and config['asperakey']:
+        aspera = (config['ascp'], config['asperakey'])
+    else:
+        aspera = None
+        
+    # do the downloads
+    print(f"Downloading FASTQ files to {config['fastq_dir']} (takes a while)...")
+    os.makedirs(config['fastq_dir'], exist_ok=True)
+    samples = samples.rename(columns={'sample': 'name',
+                                      'SRA_accession': 'run'})
+    dms_tools2.sra.fastqFromSRA(
+            samples=samples,
+            fastq_dump=config['fastq_dump'],
+            fastqdir=config['fastq_dir'],
+            aspera=aspera,
+            ncpus=config['ncpus'],
+            )
+    samples = samples.rename(columns={'name': 'sample',
+                                      'run': 'SRA_accession'})
+    print('Completed downloading files.')
+        
+elif config['seq_data_source'] != 'R1':
+    raise ValueError('invalid value of `seq_data_source`')
+```
+
+    Downloading FASTQ files to results/FASTQ_files (takes a while)...
+    Completed downloading files.
 
 
 ## Align sequencing and count mutations
@@ -1440,6 +1598,7 @@ cmds = ['dms2_batch_bcsubamp',
         '--R1trim', str(config['R1trim']),
         '--R2trim', str(config['R2trim']),
         '--outdir', config['countsdir'],
+        '--fastqdir', config['fastq_dir'],
         '--summaryprefix', 'summary',
         '--ncpus', str(config['ncpus']),
         '--use_existing', config['use_existing'],
@@ -1451,7 +1610,7 @@ print('Completed running dms2_batch_bcsubamp.')
 ```
 
     Running dms2_batch_bcsubamp with this command:
-    dms2_batch_bcsubamp --batchfile results/codoncounts/batch.csv --refseq data/Perth09_HA_reference.fa --alignspecs 1,285,38,40 286,567,33,34 568,852,34,30 853,1137,34,31 1138,1422,36,29 1423,1701,39,44 --R1trim 200 --R2trim 165 --outdir results/codoncounts --summaryprefix summary --ncpus 16 --use_existing yes
+    dms2_batch_bcsubamp --batchfile results/codoncounts/batch.csv --refseq data/Perth09_HA_reference.fa --alignspecs 1,285,38,40 286,567,33,34 568,852,34,30 853,1137,34,31 1138,1422,36,29 1423,1701,39,44 --R1trim 200 --R2trim 165 --outdir results/codoncounts --fastqdir results/FASTQ_files --summaryprefix summary --ncpus 16 --use_existing yes
     Completed running dms2_batch_bcsubamp.
 
 
@@ -1482,7 +1641,7 @@ showPDF(countsplotprefix + 'readstats.pdf')
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_32_0.png)
+![png](analysis_notebook_files/analysis_notebook_34_0.png)
 
 
 Distribution of sequencing reads per barcode on subamplicons:
@@ -1493,7 +1652,7 @@ showPDF(countsplotprefix + 'readsperbc.pdf')
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_34_0.png)
+![png](analysis_notebook_files/analysis_notebook_36_0.png)
 
 
 Number of barcoded subamplicons that align and have sufficient reads:
@@ -1504,7 +1663,7 @@ showPDF(countsplotprefix + 'bcstats.pdf')
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_36_0.png)
+![png](analysis_notebook_files/analysis_notebook_38_0.png)
 
 
 #### Coverage across gene
@@ -1516,7 +1675,7 @@ showPDF(countsplotprefix + 'depth.pdf')
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_38_0.png)
+![png](analysis_notebook_files/analysis_notebook_40_0.png)
 
 
 #### Mutation frequencies
@@ -1528,7 +1687,7 @@ showPDF(countsplotprefix + 'codonmuttypes.pdf')
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_40_0.png)
+![png](analysis_notebook_files/analysis_notebook_42_0.png)
 
 
 Average mutation frequency per sample, stratifying by number of nucleotide changes per codon mutation:
@@ -1539,7 +1698,7 @@ showPDF(countsplotprefix + 'codonntchanges.pdf')
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_42_0.png)
+![png](analysis_notebook_files/analysis_notebook_44_0.png)
 
 
 Per-codon mutation frequencies across all sites in gene for each sample:
@@ -1550,7 +1709,7 @@ showPDF(countsplotprefix + 'mutfreq.pdf')
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_44_0.png)
+![png](analysis_notebook_files/analysis_notebook_46_0.png)
 
 
 #### Check for oxidative damage
@@ -1563,7 +1722,7 @@ showPDF(countsplotprefix + 'singlentchanges.pdf')
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_46_0.png)
+![png](analysis_notebook_files/analysis_notebook_48_0.png)
 
 
 ### Renumber to standard HA numbering
@@ -1682,6 +1841,8 @@ display(HTML(selections.to_html(index=False)))
       <th>date</th>
       <th>serum_dilution</th>
       <th>percent_infectivity</th>
+      <th>SRA_accession</th>
+      <th>R2</th>
       <th>serum_description</th>
       <th>serum_group</th>
       <th>serum_name</th>
@@ -1701,8 +1862,10 @@ display(HTML(selections.to_html(index=False)))
       <td>589v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>13.8200</td>
+      <td>SRR8875142</td>
+      <td>L4-589v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-prevacc</td>
@@ -1720,8 +1883,10 @@ display(HTML(selections.to_html(index=False)))
       <td>589v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.07</td>
+      <td>0.0175</td>
       <td>20.3200</td>
+      <td>SRR8875107</td>
+      <td>L5-589v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-prevacc</td>
@@ -1739,8 +1904,10 @@ display(HTML(selections.to_html(index=False)))
       <td>589v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.07</td>
+      <td>0.0175</td>
       <td>18.4000</td>
+      <td>SRR8875159</td>
+      <td>L6-589v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-prevacc</td>
@@ -1758,8 +1925,10 @@ display(HTML(selections.to_html(index=False)))
       <td>571v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>19.6200</td>
+      <td>SRR8875143</td>
+      <td>L4-571v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1966</td>
       <td>Hensley_sera</td>
       <td>2015-age-49-prevacc</td>
@@ -1777,8 +1946,10 @@ display(HTML(selections.to_html(index=False)))
       <td>571v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>11.8600</td>
+      <td>SRR8875149</td>
+      <td>L5-571v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1966</td>
       <td>Hensley_sera</td>
       <td>2015-age-49-prevacc</td>
@@ -1796,8 +1967,10 @@ display(HTML(selections.to_html(index=False)))
       <td>571v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>27.7400</td>
+      <td>SRR8875164</td>
+      <td>L6-571v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1966</td>
       <td>Hensley_sera</td>
       <td>2015-age-49-prevacc</td>
@@ -1815,8 +1988,10 @@ display(HTML(selections.to_html(index=False)))
       <td>571v2</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>5.4800</td>
+      <td>SRR8875144</td>
+      <td>L4-571v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1966</td>
       <td>Hensley_sera</td>
       <td>2015-age-49-vacc</td>
@@ -1834,8 +2009,10 @@ display(HTML(selections.to_html(index=False)))
       <td>571v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.04</td>
+      <td>0.01</td>
       <td>1.0900</td>
+      <td>SRR8875115</td>
+      <td>L5-571v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1966</td>
       <td>Hensley_sera</td>
       <td>2015-age-49-vacc</td>
@@ -1853,8 +2030,10 @@ display(HTML(selections.to_html(index=False)))
       <td>571v2</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.02</td>
+      <td>0.005</td>
       <td>7.7900</td>
+      <td>SRR8875165</td>
+      <td>L6-571v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1966</td>
       <td>Hensley_sera</td>
       <td>2015-age-49-vacc</td>
@@ -1872,8 +2051,10 @@ display(HTML(selections.to_html(index=False)))
       <td>574v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>9.4800</td>
+      <td>SRR8875145</td>
+      <td>L4-574v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1986</td>
       <td>Hensley_sera</td>
       <td>2015-age-29-prevacc</td>
@@ -1891,8 +2072,10 @@ display(HTML(selections.to_html(index=False)))
       <td>574v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.05</td>
+      <td>0.0125</td>
       <td>7.5700</td>
+      <td>SRR8875119</td>
+      <td>L5-574v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1986</td>
       <td>Hensley_sera</td>
       <td>2015-age-29-prevacc</td>
@@ -1910,8 +2093,10 @@ display(HTML(selections.to_html(index=False)))
       <td>574v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.06</td>
+      <td>0.015</td>
       <td>3.3000</td>
+      <td>SRR8875162</td>
+      <td>L6-574v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1986</td>
       <td>Hensley_sera</td>
       <td>2015-age-29-prevacc</td>
@@ -1929,8 +2114,10 @@ display(HTML(selections.to_html(index=False)))
       <td>WHOCCPerth</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>2.3200</td>
+      <td>SRR8875138</td>
+      <td>L4-WHOCCPerth_R2.fastq.gz</td>
       <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
       <td>ferret</td>
       <td>WHO</td>
@@ -1948,8 +2135,10 @@ display(HTML(selections.to_html(index=False)))
       <td>WHOCCPerth</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>1.8800</td>
+      <td>SRR8875166</td>
+      <td>L5-WHOCCPerth_R2.fastq.gz</td>
       <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
       <td>ferret</td>
       <td>WHO</td>
@@ -1967,8 +2156,10 @@ display(HTML(selections.to_html(index=False)))
       <td>WHOCCPerth</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>4.1000</td>
+      <td>SRR8875134</td>
+      <td>L6-WHOCCPerth_R2.fastq.gz</td>
       <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
       <td>ferret</td>
       <td>WHO</td>
@@ -1986,8 +2177,10 @@ display(HTML(selections.to_html(index=False)))
       <td>589v2</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.0035</td>
+      <td>0.000875</td>
       <td>4.5800</td>
+      <td>SRR8875139</td>
+      <td>L4-589v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-vacc</td>
@@ -2005,8 +2198,10 @@ display(HTML(selections.to_html(index=False)))
       <td>589v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0015</td>
+      <td>0.000375</td>
       <td>4.6800</td>
+      <td>SRR8875126</td>
+      <td>L5-589v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-vacc</td>
@@ -2024,8 +2219,10 @@ display(HTML(selections.to_html(index=False)))
       <td>589v2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.0015</td>
+      <td>0.000375</td>
       <td>4.0600</td>
+      <td>SRR8875123</td>
+      <td>L6-589v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-vacc</td>
@@ -2043,8 +2240,10 @@ display(HTML(selections.to_html(index=False)))
       <td>557v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>6.9000</td>
+      <td>SRR8875140</td>
+      <td>L4-557v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1990</td>
       <td>Hensley_sera</td>
       <td>2015-age-25-prevacc</td>
@@ -2062,8 +2261,10 @@ display(HTML(selections.to_html(index=False)))
       <td>557v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.02</td>
+      <td>0.005</td>
       <td>2.3100</td>
+      <td>SRR8875127</td>
+      <td>L5-557v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1990</td>
       <td>Hensley_sera</td>
       <td>2015-age-25-prevacc</td>
@@ -2081,8 +2282,10 @@ display(HTML(selections.to_html(index=False)))
       <td>557v1</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.02</td>
+      <td>0.005</td>
       <td>1.5700</td>
+      <td>SRR8875122</td>
+      <td>L6-557v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1990</td>
       <td>Hensley_sera</td>
       <td>2015-age-25-prevacc</td>
@@ -2100,8 +2303,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9267neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>100.0000</td>
+      <td>SRR8875141</td>
+      <td>L4-f9267neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-1-preinf</td>
@@ -2119,8 +2324,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9267neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>100.0000</td>
+      <td>SRR8875172</td>
+      <td>L5-f9267neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-1-preinf</td>
@@ -2138,8 +2345,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9267neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>100.0000</td>
+      <td>SRR8875156</td>
+      <td>L6-f9267neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-1-preinf</td>
@@ -2157,8 +2366,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9267d23</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>4.3600</td>
+      <td>SRR8875136</td>
+      <td>L4-f9267d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-1-postinf</td>
@@ -2176,8 +2387,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9267d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0007</td>
+      <td>0.000175</td>
       <td>5.3500</td>
+      <td>SRR8875167</td>
+      <td>L5-f9267d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-1-postinf</td>
@@ -2195,8 +2408,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9267d23</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.0015</td>
+      <td>0.000375</td>
       <td>1.6900</td>
+      <td>SRR8875132</td>
+      <td>L6-f9267d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-1-postinf</td>
@@ -2214,8 +2429,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9435neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.004</td>
+      <td>0.001</td>
       <td>100.0000</td>
+      <td>SRR8875137</td>
+      <td>L4-f9435neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-2-preinf</td>
@@ -2233,8 +2450,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9435neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>100.0000</td>
+      <td>SRR8875173</td>
+      <td>L5-f9435neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-2-preinf</td>
@@ -2252,8 +2471,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9435neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>100.0000</td>
+      <td>SRR8875157</td>
+      <td>L6-f9435neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-2-preinf</td>
@@ -2271,8 +2492,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9437neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.009</td>
+      <td>0.00225</td>
       <td>100.0000</td>
+      <td>SRR8875168</td>
+      <td>L4-f9437neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-3-preinf</td>
@@ -2290,8 +2513,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9437neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.025</td>
+      <td>0.00625</td>
       <td>100.0000</td>
+      <td>SRR8875174</td>
+      <td>L5-f9437neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-3-preinf</td>
@@ -2309,8 +2534,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9437neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.025</td>
+      <td>0.00625</td>
       <td>100.0000</td>
+      <td>SRR8875183</td>
+      <td>L6-f9437neg_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, before infection</td>
       <td>ferret</td>
       <td>Pitt-3-preinf</td>
@@ -2328,8 +2555,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9437d23</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.009</td>
+      <td>0.00225</td>
       <td>8.7700</td>
+      <td>SRR8875169</td>
+      <td>L4-f9437d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-3-postinf</td>
@@ -2347,8 +2576,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9437d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0055</td>
+      <td>0.001375</td>
       <td>1.7000</td>
+      <td>SRR8875189</td>
+      <td>L5-f9437d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-3-postinf</td>
@@ -2366,8 +2597,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9437d23</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.007</td>
+      <td>0.00175</td>
       <td>5.7800</td>
+      <td>SRR8875177</td>
+      <td>L6-f9437d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-3-postinf</td>
@@ -2385,8 +2618,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD1</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.018</td>
+      <td>0.0045</td>
       <td>5.9500</td>
+      <td>SRR8875175</td>
+      <td>L5-VIDD1_R2.fastq.gz</td>
       <td>collected at Hutch in 2/2010 from person born in 1989</td>
       <td>VIDD_sera</td>
       <td>2010-age-21</td>
@@ -2404,8 +2639,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD1</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.07</td>
+      <td>0.0175</td>
       <td>4.0800</td>
+      <td>SRR8875111</td>
+      <td>L4-VIDD1_R2.fastq.gz</td>
       <td>collected at Hutch in 2/2010 from person born in 1989</td>
       <td>VIDD_sera</td>
       <td>2010-age-21</td>
@@ -2423,8 +2660,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD1</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>3.6800</td>
+      <td>SRR8875124</td>
+      <td>L6-VIDD1_R2.fastq.gz</td>
       <td>collected at Hutch in 2/2010 from person born in 1989</td>
       <td>VIDD_sera</td>
       <td>2010-age-21</td>
@@ -2442,8 +2681,10 @@ display(HTML(selections.to_html(index=False)))
       <td>WHOCCVic</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>3.9000</td>
+      <td>SRR8875191</td>
+      <td>L5-WHOCCVic_R2.fastq.gz</td>
       <td>ferret infected by Melbourne WHO CC with their Victoria/2011 strain</td>
       <td>ferret</td>
       <td>WHO-Victoria2011</td>
@@ -2461,8 +2702,10 @@ display(HTML(selections.to_html(index=False)))
       <td>WHOCCVic</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.025</td>
+      <td>0.00625</td>
       <td>1.2600</td>
+      <td>SRR8875110</td>
+      <td>L4-WHOCCVic_R2.fastq.gz</td>
       <td>ferret infected by Melbourne WHO CC with their Victoria/2011 strain</td>
       <td>ferret</td>
       <td>WHO-Victoria2011</td>
@@ -2480,8 +2723,10 @@ display(HTML(selections.to_html(index=False)))
       <td>WHOCCVic</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>3.6200</td>
+      <td>SRR8875135</td>
+      <td>L6-WHOCCVic_R2.fastq.gz</td>
       <td>ferret infected by Melbourne WHO CC with their Victoria/2011 strain</td>
       <td>ferret</td>
       <td>WHO-Victoria2011</td>
@@ -2499,8 +2744,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0035</td>
+      <td>0.000875</td>
       <td>5.2400</td>
+      <td>SRR8875190</td>
+      <td>L5-VIDD5_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person born in 1944</td>
       <td>VIDD_sera</td>
       <td>2009-age-65</td>
@@ -2518,8 +2765,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.008</td>
+      <td>0.002</td>
       <td>5.5800</td>
+      <td>SRR8875179</td>
+      <td>L6-VIDD5_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person born in 1944</td>
       <td>VIDD_sera</td>
       <td>2009-age-65</td>
@@ -2537,8 +2786,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5</td>
       <td>lib1</td>
       <td>2019-03-26</td>
-      <td>0.0135</td>
+      <td>0.003375</td>
       <td>1.7700</td>
+      <td>SRR8875184</td>
+      <td>L4-VIDD5_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person born in 1944</td>
       <td>VIDD_sera</td>
       <td>2009-age-65</td>
@@ -2556,8 +2807,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD4</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0067</td>
+      <td>0.001675</td>
       <td>0.8700</td>
+      <td>SRR8875193</td>
+      <td>L5-VIDD4_R2.fastq.gz</td>
       <td>collected at Hutch in 11/2008 from person born in 1945</td>
       <td>VIDD_sera</td>
       <td>2009-age-64</td>
@@ -2575,8 +2828,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD4</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.016</td>
+      <td>0.004</td>
       <td>10.7400</td>
+      <td>SRR8875112</td>
+      <td>L4-VIDD4_R2.fastq.gz</td>
       <td>collected at Hutch in 11/2008 from person born in 1945</td>
       <td>VIDD_sera</td>
       <td>2009-age-64</td>
@@ -2594,8 +2849,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD4</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.015</td>
+      <td>0.00375</td>
       <td>0.2600</td>
+      <td>SRR8875178</td>
+      <td>L6-VIDD4_R2.fastq.gz</td>
       <td>collected at Hutch in 11/2008 from person born in 1945</td>
       <td>VIDD_sera</td>
       <td>2009-age-64</td>
@@ -2613,8 +2870,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD2</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.015</td>
+      <td>0.00375</td>
       <td>2.0300</td>
+      <td>SRR8875192</td>
+      <td>L5-VIDD2_R2.fastq.gz</td>
       <td>collected at Hutch in 1/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
       <td>2009-age-53a</td>
@@ -2632,8 +2891,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD2</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.035</td>
+      <td>0.00875</td>
       <td>3.7400</td>
+      <td>SRR8875108</td>
+      <td>L4-VIDD2_R2.fastq.gz</td>
       <td>collected at Hutch in 1/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
       <td>2009-age-53a</td>
@@ -2651,8 +2912,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.015</td>
+      <td>0.00375</td>
       <td>6.2200</td>
+      <td>SRR8875120</td>
+      <td>L6-VIDD2_R2.fastq.gz</td>
       <td>collected at Hutch in 1/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
       <td>2009-age-53a</td>
@@ -2670,8 +2933,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD3</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.018</td>
+      <td>0.0045</td>
       <td>1.7300</td>
+      <td>SRR8875187</td>
+      <td>L5-VIDD3_R2.fastq.gz</td>
       <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
       <td>2009-age-53b</td>
@@ -2689,8 +2954,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD3</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.03</td>
+      <td>0.0075</td>
       <td>5.9800</td>
+      <td>SRR8875113</td>
+      <td>L4-VIDD3_R2.fastq.gz</td>
       <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
       <td>2009-age-53b</td>
@@ -2708,8 +2975,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD3</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.025</td>
+      <td>0.00625</td>
       <td>1.1200</td>
+      <td>SRR8875125</td>
+      <td>L6-VIDD3_R2.fastq.gz</td>
       <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
       <td>2009-age-53b</td>
@@ -2727,8 +2996,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9435d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
-      <td>0.0025</td>
+      <td>0.000625</td>
       <td>1.8800</td>
+      <td>SRR8875186</td>
+      <td>L5-f9435d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-2-postinf</td>
@@ -2746,8 +3017,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9435d23</td>
       <td>lib1</td>
       <td>2019-01-16</td>
-      <td>0.01</td>
+      <td>0.0025</td>
       <td>3.4500</td>
+      <td>SRR8875194</td>
+      <td>L4-f9435d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-2-postinf</td>
@@ -2765,8 +3038,10 @@ display(HTML(selections.to_html(index=False)))
       <td>f9435d23</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.005</td>
+      <td>0.00125</td>
       <td>3.0400</td>
+      <td>SRR8875133</td>
+      <td>L6-f9435d23_R2.fastq.gz</td>
       <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
       <td>ferret</td>
       <td>Pitt-2-postinf</td>
@@ -2784,8 +3059,10 @@ display(HTML(selections.to_html(index=False)))
       <td>557v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.002</td>
+      <td>0.0005</td>
       <td>0.8100</td>
+      <td>SRR8875114</td>
+      <td>L5-557v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1990</td>
       <td>Hensley_sera</td>
       <td>2015-age-25-vacc</td>
@@ -2803,8 +3080,10 @@ display(HTML(selections.to_html(index=False)))
       <td>557v2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
-      <td>0.002</td>
+      <td>0.0005</td>
       <td>1.6400</td>
+      <td>SRR8875121</td>
+      <td>L6-557v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1990</td>
       <td>Hensley_sera</td>
       <td>2015-age-25-vacc</td>
@@ -2822,8 +3101,10 @@ display(HTML(selections.to_html(index=False)))
       <td>557v2</td>
       <td>lib1</td>
       <td>2019-03-06</td>
-      <td>0.005</td>
+      <td>0.00125</td>
       <td>1.5300</td>
+      <td>SRR8875154</td>
+      <td>L4-557v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1990</td>
       <td>Hensley_sera</td>
       <td>2015-age-25-vacc</td>
@@ -2841,8 +3122,10 @@ display(HTML(selections.to_html(index=False)))
       <td>574v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0035</td>
+      <td>0.000875</td>
       <td>1.1100</td>
+      <td>SRR8875118</td>
+      <td>L5-574v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1986</td>
       <td>Hensley_sera</td>
       <td>2015-age-29-vacc</td>
@@ -2860,8 +3143,10 @@ display(HTML(selections.to_html(index=False)))
       <td>574v2</td>
       <td>lib1</td>
       <td>2019-03-06</td>
-      <td>0.008</td>
+      <td>0.002</td>
       <td>1.5400</td>
+      <td>SRR8875155</td>
+      <td>L4-574v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1986</td>
       <td>Hensley_sera</td>
       <td>2015-age-29-vacc</td>
@@ -2879,8 +3164,10 @@ display(HTML(selections.to_html(index=False)))
       <td>574v2</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.003</td>
+      <td>0.00075</td>
       <td>1.9200</td>
+      <td>SRR8875163</td>
+      <td>L6-574v2_R2.fastq.gz</td>
       <td>collected after 2015/2016 vaccine from person born in 1986</td>
       <td>Hensley_sera</td>
       <td>2015-age-29-vacc</td>
@@ -2900,6 +3187,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-06</td>
       <td>0.3</td>
       <td>22.9900</td>
+      <td>SRR8875117</td>
+      <td>L5-4F03-c1_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -2919,6 +3208,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-06</td>
       <td>1.5</td>
       <td>3.7100</td>
+      <td>SRR8875116</td>
+      <td>L5-4F03-c3_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -2938,6 +3229,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-06</td>
       <td>0.7</td>
       <td>4.7100</td>
+      <td>SRR8875151</td>
+      <td>L5-4F03-c2_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -2955,8 +3248,10 @@ display(HTML(selections.to_html(index=False)))
       <td>4F03</td>
       <td>lib1</td>
       <td>2019-03-06</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>3.4700</td>
+      <td>SRR8875146</td>
+      <td>L4-4F03-c2_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -2974,8 +3269,10 @@ display(HTML(selections.to_html(index=False)))
       <td>4F03</td>
       <td>lib1</td>
       <td>2019-03-06</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>0.7800</td>
+      <td>SRR8875160</td>
+      <td>L4-4F03-c3_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -2995,6 +3292,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-26</td>
       <td>0.3</td>
       <td>23.9100</td>
+      <td>SRR8875176</td>
+      <td>L6-4F03-c1_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -3014,6 +3313,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-26</td>
       <td>1.4</td>
       <td>0.8400</td>
+      <td>SRR8875185</td>
+      <td>L6-4F03-c3_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -3033,6 +3334,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-26</td>
       <td>0.75</td>
       <td>7.1600</td>
+      <td>SRR8875199</td>
+      <td>L6-4F03-c2_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -3052,6 +3355,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-26</td>
       <td>0.3</td>
       <td>28.2400</td>
+      <td>SRR8875180</td>
+      <td>L4-4F03-c1_R2.fastq.gz</td>
       <td>site E-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-4F03</td>
@@ -3071,6 +3376,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-06</td>
       <td>0.025</td>
       <td>1.3600</td>
+      <td>SRR8875148</td>
+      <td>L5-5A01_R2.fastq.gz</td>
       <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-5A01</td>
@@ -3090,6 +3397,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-06</td>
       <td>0.07</td>
       <td>4.3200</td>
+      <td>SRR8875147</td>
+      <td>L4-5A01_R2.fastq.gz</td>
       <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-5A01</td>
@@ -3109,6 +3418,8 @@ display(HTML(selections.to_html(index=False)))
       <td>2019-03-26</td>
       <td>0.025</td>
       <td>1.0200</td>
+      <td>SRR8875182</td>
+      <td>L6-5A01_R2.fastq.gz</td>
       <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
       <td>antibody</td>
       <td>antibody-5A01</td>
@@ -3126,8 +3437,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andlow4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0035+0.3</td>
+      <td>0.000875+0.3</td>
       <td>5.0000</td>
+      <td>SRR8875150</td>
+      <td>L5-VIDD5-low4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-low-4F03</td>
@@ -3145,8 +3458,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andlow4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.008</td>
+      <td>0.002+0.3</td>
       <td>0.2040</td>
+      <td>SRR8875200</td>
+      <td>L6-VIDD5-low4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-low-4F03</td>
@@ -3164,8 +3479,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andlow4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
-      <td>0.0135</td>
+      <td>0.003375+0.3</td>
       <td>0.0300</td>
+      <td>SRR8875196</td>
+      <td>L4-VIDD5-low4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-low-4F03</td>
@@ -3183,8 +3500,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andmid4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0035+0.7</td>
+      <td>0.000875+0.7</td>
       <td>0.4600</td>
+      <td>SRR8875153</td>
+      <td>L5-VIDD5-mid4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-mid-4F03</td>
@@ -3202,8 +3521,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andmid4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.008</td>
+      <td>0.002+0.75</td>
       <td>0.0077</td>
+      <td>SRR8875201</td>
+      <td>L6-VIDD5-mid4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-mid-4F03</td>
@@ -3221,8 +3542,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andmid4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
-      <td>0.0135</td>
+      <td>0.003375+1</td>
       <td>0.0037</td>
+      <td>SRR8875197</td>
+      <td>L4-VIDD5-mid4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-mid-4F03</td>
@@ -3240,8 +3563,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andhi4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
-      <td>0.0035+1.5</td>
+      <td>0.000875+1.5</td>
       <td>0.0400</td>
+      <td>SRR8875152</td>
+      <td>L5-VIDD5-hi4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at high stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-hi-4F03</td>
@@ -3259,8 +3584,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andhi4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
-      <td>0.008</td>
+      <td>0.002+1.4</td>
       <td>0.0032</td>
+      <td>SRR8875202</td>
+      <td>L6-VIDD5-hi4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at high stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-hi-4F03</td>
@@ -3278,8 +3605,10 @@ display(HTML(selections.to_html(index=False)))
       <td>VIDD5andhi4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
-      <td>0.0135</td>
+      <td>0.003375+2</td>
       <td>0.0016</td>
+      <td>SRR8875198</td>
+      <td>L4-VIDD5-hi4F03_R2.fastq.gz</td>
       <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at high stringency</td>
       <td>serum_mAb_spike</td>
       <td>2009-age-65-with-hi-4F03</td>
@@ -3413,6 +3742,8 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <th>date</th>
       <th>serum_dilution</th>
       <th>percent_infectivity</th>
+      <th>SRA_accession</th>
+      <th>R2</th>
       <th>serum_description</th>
       <th>serum_group</th>
       <th>serum_name</th>
@@ -3444,8 +3775,10 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>589v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>13.82</td>
+      <td>SRR8875142</td>
+      <td>L4-589v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-prevacc</td>
@@ -3475,8 +3808,10 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>589v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>13.82</td>
+      <td>SRR8875142</td>
+      <td>L4-589v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-prevacc</td>
@@ -3506,8 +3841,10 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>589v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>13.82</td>
+      <td>SRR8875142</td>
+      <td>L4-589v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-prevacc</td>
@@ -3537,8 +3874,10 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>589v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>13.82</td>
+      <td>SRR8875142</td>
+      <td>L4-589v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-prevacc</td>
@@ -3568,8 +3907,10 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>589v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
-      <td>0.074</td>
+      <td>0.0185</td>
       <td>13.82</td>
+      <td>SRR8875142</td>
+      <td>L4-589v1_R2.fastq.gz</td>
       <td>collected before 2015/2016 vaccine from person born in 1967</td>
       <td>Hensley_sera</td>
       <td>2015-age-48-prevacc</td>
@@ -3645,7 +3986,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_1.png)
+![png](analysis_notebook_files/analysis_notebook_69_1.png)
 
 
 
@@ -3693,7 +4034,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_4.png)
+![png](analysis_notebook_files/analysis_notebook_69_4.png)
 
 
 
@@ -3741,7 +4082,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_7.png)
+![png](analysis_notebook_files/analysis_notebook_69_7.png)
 
 
 
@@ -3789,7 +4130,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_10.png)
+![png](analysis_notebook_files/analysis_notebook_69_10.png)
 
 
 
@@ -3837,7 +4178,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_13.png)
+![png](analysis_notebook_files/analysis_notebook_69_13.png)
 
 
 
@@ -3885,7 +4226,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_16.png)
+![png](analysis_notebook_files/analysis_notebook_69_16.png)
 
 
 
@@ -3933,7 +4274,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_19.png)
+![png](analysis_notebook_files/analysis_notebook_69_19.png)
 
 
 
@@ -3981,7 +4322,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_22.png)
+![png](analysis_notebook_files/analysis_notebook_69_22.png)
 
 
 
@@ -4029,7 +4370,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_25.png)
+![png](analysis_notebook_files/analysis_notebook_69_25.png)
 
 
 
@@ -4077,7 +4418,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_28.png)
+![png](analysis_notebook_files/analysis_notebook_69_28.png)
 
 
 
@@ -4125,7 +4466,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_31.png)
+![png](analysis_notebook_files/analysis_notebook_69_31.png)
 
 
 
@@ -4173,7 +4514,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_34.png)
+![png](analysis_notebook_files/analysis_notebook_69_34.png)
 
 
 
@@ -4221,7 +4562,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_37.png)
+![png](analysis_notebook_files/analysis_notebook_69_37.png)
 
 
 
@@ -4269,7 +4610,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_40.png)
+![png](analysis_notebook_files/analysis_notebook_69_40.png)
 
 
 
@@ -4317,7 +4658,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_43.png)
+![png](analysis_notebook_files/analysis_notebook_69_43.png)
 
 
 
@@ -4365,7 +4706,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_46.png)
+![png](analysis_notebook_files/analysis_notebook_69_46.png)
 
 
 
@@ -4413,7 +4754,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_49.png)
+![png](analysis_notebook_files/analysis_notebook_69_49.png)
 
 
 
@@ -4563,7 +4904,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_52.png)
+![png](analysis_notebook_files/analysis_notebook_69_52.png)
 
 
 
@@ -4611,7 +4952,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_55.png)
+![png](analysis_notebook_files/analysis_notebook_69_55.png)
 
 
 
@@ -4659,7 +5000,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_58.png)
+![png](analysis_notebook_files/analysis_notebook_69_58.png)
 
 
 
@@ -4707,7 +5048,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_61.png)
+![png](analysis_notebook_files/analysis_notebook_69_61.png)
 
 
 
@@ -4755,7 +5096,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_64.png)
+![png](analysis_notebook_files/analysis_notebook_69_64.png)
 
 
 
@@ -4803,7 +5144,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_67.png)
+![png](analysis_notebook_files/analysis_notebook_69_67.png)
 
 
 
@@ -4851,7 +5192,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_70.png)
+![png](analysis_notebook_files/analysis_notebook_69_70.png)
 
 
 
@@ -4899,7 +5240,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_73.png)
+![png](analysis_notebook_files/analysis_notebook_69_73.png)
 
 
 
@@ -4947,7 +5288,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_67_76.png)
+![png](analysis_notebook_files/analysis_notebook_69_76.png)
 
 
 
@@ -5059,7 +5400,7 @@ _ = p.draw()
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_73_0.png)
+![png](analysis_notebook_files/analysis_notebook_75_0.png)
 
 
 #### Listing of retained samples
@@ -5469,7 +5810,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>174</td>
       <td>159</td>
       <td>29.408444</td>
-      <td>7.342282e-21</td>
+      <td>7.342281e-21</td>
       <td>2.077866e-18</td>
       <td>True</td>
     </tr>
@@ -5490,7 +5831,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>193</td>
       <td>13.612415</td>
       <td>5.329409e-10</td>
-      <td>7.541114e-08</td>
+      <td>7.541113e-08</td>
       <td>True</td>
     </tr>
     <tr>
@@ -5929,7 +6270,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_113_1.png)
+![png](analysis_notebook_files/analysis_notebook_115_1.png)
 
 
     
@@ -5940,7 +6281,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_113_3.png)
+![png](analysis_notebook_files/analysis_notebook_115_3.png)
 
 
     
@@ -5951,7 +6292,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_113_5.png)
+![png](analysis_notebook_files/analysis_notebook_115_5.png)
 
 
     
@@ -5962,7 +6303,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_113_7.png)
+![png](analysis_notebook_files/analysis_notebook_115_7.png)
 
 
     
@@ -5973,7 +6314,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_113_9.png)
+![png](analysis_notebook_files/analysis_notebook_115_9.png)
 
 
 #### Compact plots showing each replicate
@@ -6026,7 +6367,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_1.png)
+![png](analysis_notebook_files/analysis_notebook_117_1.png)
 
 
     
@@ -6037,7 +6378,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_3.png)
+![png](analysis_notebook_files/analysis_notebook_117_3.png)
 
 
     
@@ -6048,7 +6389,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_5.png)
+![png](analysis_notebook_files/analysis_notebook_117_5.png)
 
 
     
@@ -6059,7 +6400,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_7.png)
+![png](analysis_notebook_files/analysis_notebook_117_7.png)
 
 
     
@@ -6070,7 +6411,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_9.png)
+![png](analysis_notebook_files/analysis_notebook_117_9.png)
 
 
 #### Whole-gene logo plots of replicate-average selection
@@ -6229,7 +6570,7 @@ plt.close(fig)
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_125_0.png)
+![png](analysis_notebook_files/analysis_notebook_127_0.png)
 
 
 

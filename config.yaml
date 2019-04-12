@@ -8,6 +8,20 @@ sample_list: data/sample_list.csv
 refseq: data/Perth09_HA_reference.fa
 renumbering_scheme: data/H3renumbering_scheme.csv
 
+# where to get the sequencing data,
+# can be either *SRA_accession* or *R1*
+seq_data_source: SRA_accession
+
+# The following arguments are needed only if `seq_data_source`
+# is `SRA_accession`:
+fastq_dir: results/FASTQ_files  # download FASTQ files here
+fastq_dump: fastq-dump  # path to fastq-dump
+# Next two arguments give paths for Aspera download program / key on Hutch
+# server; you will need to update with paths for your computer. If you
+# want to use fastq-dump for downloads (slower) set both of these to "null"
+ascp: /app/aspera-connect/3.7.5/bin/ascp
+asperakey: /app/aspera-connect/3.7.5/etc/asperaweb_id_dsa.openssh
+
 # alignment specs for barcoded subamplicon sequencing:
 # https://jbloomlab.github.io/dms_tools2/bcsubamp.html
 alignspecs: >- 

@@ -16,7 +16,7 @@ To run [analysis_notebook.ipynb](analysis_notebook.ipynb) and generate the [Mark
     
 On the Hutch cluster, you probably want to submit this job using [slurm](https://slurm.schedmd.com/), which you can simply do with:
 
-    sbatch -t 2-0 -p largenode -c 16 --mem=100000 run_notebook.bash
+    sbatch -p largenode -c 16 --mem=100000 run_notebook.bash
 
 ## Configuring the analysis
 The configuration for the analysis is in a separate file, [config.yaml](config.yaml). 
@@ -41,8 +41,8 @@ The [config.yaml](config.yaml) file points to several files in the [./data/](dat
       - *date*: day when sequencing was done
       - *serum_dilution*: dilution of serum used; this includes the 1:4 dilution used during the RDE treatment of the serum. For antibodies, it is the concentration in ug/ml.
       - *percent_infectivity*: percent of viral library retaining infectivity
-      - *R1*: glob pattern to R1 FASTQ files on Hutch server
-      - **to be added**: eventually we will also add the SRA accesssion when the FASTQ files are uploaded to the SRA so there can be an option to run the analysis on either the FASTQ files on Hutch server or those downloaded from SRA.
+      - *R1*: glob pattern to R1 FASTQ files on Hutch server; the R2 file names are guessed from the R1 names. If [config.yaml](config.yaml) sets *seq_data_source* to *R1* then there must be a valid R1 file glob for all samples; otherwise this column is ignored.
+      - *SRA_accession*: the accession number on the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) for the sequencing for this sample. If [config.yaml](config.yaml) sets *seq_data_source* to *SRA_accession* then there must be a valid accession for all samples; otherwise this column is ignored.
   
   - [data/Perth09_HA_reference.fa](data/Perth09_HA_reference.fa):
     FASTA file giving the sequence of the wildtype Perth/2009 HA used in the experiments.
