@@ -56,7 +56,7 @@ print(f"Using dmslogo version {dmslogo.__version__}")
 ```
 
     Using dms_tools2 version 2.4.9
-    Using dmslogo version 0.1.1
+    Using dmslogo version 0.1.2
 
 
 Set data frame display options:
@@ -5853,7 +5853,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>174</td>
       <td>159</td>
       <td>29.408444</td>
-      <td>7.342282e-21</td>
+      <td>7.342283e-21</td>
       <td>2.077866e-18</td>
       <td>True</td>
     </tr>
@@ -6287,6 +6287,14 @@ avg_sel_df = avg_sel_df.assign(site_label=lambda x: x['wildtype'] +
                                x['site'].astype('str'))
 ```
 
+We will use axes with shared ylimits across rows for all plots **except** for the *antibody* serum group:
+
+
+```python
+share_ylim_across_rows = collections.defaultdict(lambda: True)
+share_ylim_across_rows['antibody'] = False
+```
+
 Now we make the line and logo plots.
 We also save PDF versions of each plot:
 
@@ -6305,6 +6313,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
             gridrow_col='serum_name_formatted',
             share_xlabel=True,
             share_ylabel=True,
+            share_ylim_across_rows=share_ylim_across_rows[serum_group],
             wspace=0.6,
             draw_line_kwargs=dict(
                     height_col='positive_diffsel',
@@ -6333,7 +6342,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_107_1.png)
+![png](analysis_notebook_files/analysis_notebook_109_1.png)
 
 
     
@@ -6344,7 +6353,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_107_3.png)
+![png](analysis_notebook_files/analysis_notebook_109_3.png)
 
 
     
@@ -6355,7 +6364,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_107_5.png)
+![png](analysis_notebook_files/analysis_notebook_109_5.png)
 
 
     
@@ -6366,7 +6375,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_107_7.png)
+![png](analysis_notebook_files/analysis_notebook_109_7.png)
 
 
     
@@ -6377,7 +6386,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_107_9.png)
+![png](analysis_notebook_files/analysis_notebook_109_9.png)
 
 
 #### Compact plots showing each replicate
@@ -6402,6 +6411,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
             gridcol_col='library',
             share_xlabel=True,
             share_ylabel=True,
+            share_ylim_across_rows=share_ylim_across_rows[serum_group],
             wspace=0.6,
             draw_line_kwargs=dict(
                     height_col='positive_diffsel',
@@ -6430,7 +6440,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_1.png)
+![png](analysis_notebook_files/analysis_notebook_111_1.png)
 
 
     
@@ -6441,7 +6451,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_3.png)
+![png](analysis_notebook_files/analysis_notebook_111_3.png)
 
 
     
@@ -6452,7 +6462,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_5.png)
+![png](analysis_notebook_files/analysis_notebook_111_5.png)
 
 
     
@@ -6463,7 +6473,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_7.png)
+![png](analysis_notebook_files/analysis_notebook_111_7.png)
 
 
     
@@ -6474,7 +6484,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_9.png)
+![png](analysis_notebook_files/analysis_notebook_111_9.png)
 
 
 #### Whole-gene logo plots of replicate-average selection
@@ -6637,7 +6647,7 @@ plt.close(fig)
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_119_0.png)
+![png](analysis_notebook_files/analysis_notebook_121_0.png)
 
 
 
