@@ -245,23 +245,15 @@ display(HTML(sera.to_html(index=False)))
     <tr>
       <td>5A01</td>
       <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-5A01</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <td>4F03</td>
-      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
-      <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <td>3C04</td>
       <td>site B-targeting monoclonal antibody 3C04 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C04</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -269,7 +261,7 @@ display(HTML(sera.to_html(index=False)))
     <tr>
       <td>3C06</td>
       <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C06</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -277,15 +269,23 @@ display(HTML(sera.to_html(index=False)))
     <tr>
       <td>4C01</td>
       <td>site B-targeting monoclonal antibody 4C01 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-4C01</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>4F03</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody_lower_head</td>
+      <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <td>1C04</td>
       <td>lower head-targeting monoclonal antibody 1C04 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-1C04</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1914,7 +1914,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.55</td>
       <td>0.0100</td>
       <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C06</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1932,7 +1932,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.1</td>
       <td>0.0688</td>
       <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C06</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1950,7 +1950,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.65</td>
       <td>0.0331</td>
       <td>site B-targeting monoclonal antibody 3C04 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C04</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1968,7 +1968,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.1</td>
       <td>0.0777</td>
       <td>site B-targeting monoclonal antibody 3C04 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C04</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1986,7 +1986,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.60</td>
       <td>0.0185</td>
       <td>site B-targeting monoclonal antibody 4C01 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-4C01</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2004,7 +2004,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.2</td>
       <td>0.1190</td>
       <td>site B-targeting monoclonal antibody 4C01 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-4C01</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2022,7 +2022,7 @@ display(HTML(selections.to_html(index=False)))
       <td>16.0</td>
       <td>10.3190</td>
       <td>lower head-targeting monoclonal antibody 1C04 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-1C04</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2040,7 +2040,7 @@ display(HTML(selections.to_html(index=False)))
       <td>18.0</td>
       <td>7.9040</td>
       <td>lower head-targeting monoclonal antibody 1C04 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-1C04</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3192,7 +3192,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.3</td>
       <td>22.9900</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3210,7 +3210,7 @@ display(HTML(selections.to_html(index=False)))
       <td>1.5</td>
       <td>3.7100</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3228,7 +3228,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.7</td>
       <td>4.7100</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3246,7 +3246,7 @@ display(HTML(selections.to_html(index=False)))
       <td>1.0</td>
       <td>3.4700</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3264,7 +3264,7 @@ display(HTML(selections.to_html(index=False)))
       <td>2.0</td>
       <td>0.7800</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3282,7 +3282,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.3</td>
       <td>23.9100</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3300,7 +3300,7 @@ display(HTML(selections.to_html(index=False)))
       <td>1.4</td>
       <td>0.8400</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3318,7 +3318,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.75</td>
       <td>7.1600</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3336,7 +3336,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.3</td>
       <td>28.2400</td>
       <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_lower_head</td>
       <td>antibody-4F03</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3354,7 +3354,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.025</td>
       <td>1.3600</td>
       <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-5A01</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3372,7 +3372,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.07</td>
       <td>4.3200</td>
       <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-5A01</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3390,7 +3390,7 @@ display(HTML(selections.to_html(index=False)))
       <td>0.025</td>
       <td>1.0200</td>
       <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-5A01</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3678,7 +3678,7 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>0.55</td>
       <td>0.01</td>
       <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C06</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3708,7 +3708,7 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>0.55</td>
       <td>0.01</td>
       <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C06</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3738,7 +3738,7 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>0.55</td>
       <td>0.01</td>
       <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C06</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3768,7 +3768,7 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>0.55</td>
       <td>0.01</td>
       <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C06</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3798,7 +3798,7 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>0.55</td>
       <td>0.01</td>
       <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-3C06</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -5562,13 +5562,20 @@ display(HTML(selections
       <td>3.6800</td>
     </tr>
     <tr>
-      <th rowspan="6" valign="top">antibody</th>
+      <th rowspan="2" valign="top">antibody_lower_head</th>
       <th>antibody-1C04</th>
       <td>NaN</td>
       <td>10.3190</td>
       <td>7.9040</td>
     </tr>
     <tr>
+      <th>antibody-4F03</th>
+      <td>3.4700</td>
+      <td>3.7100</td>
+      <td>0.8400</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">antibody_region_B</th>
       <th>antibody-3C04</th>
       <td>0.0777</td>
       <td>0.0331</td>
@@ -5585,12 +5592,6 @@ display(HTML(selections
       <td>0.1190</td>
       <td>0.0185</td>
       <td>NaN</td>
-    </tr>
-    <tr>
-      <th>antibody-4F03</th>
-      <td>3.4700</td>
-      <td>3.7100</td>
-      <td>0.8400</td>
     </tr>
     <tr>
       <th>antibody-5A01</th>
@@ -5848,17 +5849,17 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
   </thead>
   <tbody>
     <tr>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-5A01</td>
       <td>174</td>
       <td>159</td>
       <td>29.408444</td>
-      <td>7.342283e-21</td>
+      <td>7.342281e-21</td>
       <td>2.077866e-18</td>
       <td>True</td>
     </tr>
     <tr>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-5A01</td>
       <td>175</td>
       <td>160</td>
@@ -5868,17 +5869,17 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>True</td>
     </tr>
     <tr>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-5A01</td>
       <td>208</td>
       <td>193</td>
       <td>13.612415</td>
       <td>5.329409e-10</td>
-      <td>7.541114e-08</td>
+      <td>7.541113e-08</td>
       <td>True</td>
     </tr>
     <tr>
-      <td>antibody</td>
+      <td>antibody_region_B</td>
       <td>antibody-5A01</td>
       <td>173</td>
       <td>158</td>
@@ -5929,11 +5930,6 @@ display(HTML(sigsites_df
       <td>8</td>
     </tr>
     <tr>
-      <th>antibody-4F03</th>
-      <td>80, 81, 83, 121, 122, 220, 244, 259, (HA2)78</td>
-      <td>9</td>
-    </tr>
-    <tr>
       <th>antibody-3C04</th>
       <td>159, 160, 192, 193</td>
       <td>4</td>
@@ -5947,6 +5943,11 @@ display(HTML(sigsites_df
       <th>antibody-4C01</th>
       <td></td>
       <td>0</td>
+    </tr>
+    <tr>
+      <th>antibody-4F03</th>
+      <td>80, 81, 83, 121, 122, 220, 244, 259, (HA2)78</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>antibody-1C04</th>
@@ -6133,16 +6134,22 @@ display(HTML(sigsites_by_serumgroup.to_html()))
       <td>8</td>
     </tr>
     <tr>
+      <th>antibody_region_B</th>
+      <td>[160, 172, 173, 174, 175, 182, 207, 208, 237, 242, 259]</td>
+      <td>[145, 157, 158, 159, 160, 167, 192, 193, 222, 227, 244]</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>antibody_lower_head</th>
+      <td>[68, 69, 72, 95, 96, 97, 98, 136, 137, 203, 225, 235, 259, 274, 405, 422]</td>
+      <td>[53, 54, 57, 80, 81, 82, 83, 121, 122, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]</td>
+      <td>16</td>
+    </tr>
+    <tr>
       <th>Hensley_sera</th>
       <td>[159, 160, 172, 174, 175, 176, 204, 207, 208, 216, 222, 225, 233, 235, 237, 238, 239, 240, 242, 259, 294]</td>
       <td>[144, 145, 157, 159, 160, 161, 189, 192, 193, 201, 207, 210, 218, 220, 222, 223, 224, 225, 227, 244, 279]</td>
       <td>21</td>
-    </tr>
-    <tr>
-      <th>antibody</th>
-      <td>[68, 69, 72, 95, 96, 97, 98, 136, 137, 160, 172, 173, 174, 175, 182, 203, 207, 208, 225, 235, 237, 242, 259, 274, 405, 422]</td>
-      <td>[53, 54, 57, 80, 81, 82, 83, 121, 122, 145, 157, 158, 159, 160, 167, 188, 192, 193, 210, 220, 222, 227, 244, 259, (HA2)61, (HA2)78]</td>
-      <td>26</td>
     </tr>
   </tbody>
 </table>
@@ -6242,10 +6249,16 @@ display(HTML(pd.DataFrame.from_dict(zoom_sites, orient='index').to_html()))
       <td>6</td>
     </tr>
     <tr>
-      <th>antibody</th>
-      <td>[68, 69, 72, 95, 96, 97, 98, 136, 137, 160, 172, 173, 174, 175, 182, 203, 207, 208, 225, 235, 237, 242, 259, 274, 405, 422]</td>
-      <td>[53, 54, 57, 80, 81, 82, 83, 121, 122, 145, 157, 158, 159, 160, 167, 188, 192, 193, 210, 220, 222, 227, 244, 259, (HA2)61, (HA2)78]</td>
-      <td>26</td>
+      <th>antibody_lower_head</th>
+      <td>[68, 69, 72, 95, 96, 97, 98, 136, 137, 203, 225, 235, 259, 274, 405, 422]</td>
+      <td>[53, 54, 57, 80, 81, 82, 83, 121, 122, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>antibody_region_B</th>
+      <td>[160, 172, 173, 174, 175, 182, 207, 208, 237, 242, 259]</td>
+      <td>[145, 157, 158, 159, 160, 167, 192, 193, 222, 227, 244]</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>ferret</th>
@@ -6359,7 +6372,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group antibody, saving to results/avgdiffsel/antibody_avg.pdf
+    Serum group antibody_lower_head, saving to results/avgdiffsel/antibody_lower_head_avg.pdf
     
 
 
@@ -6370,7 +6383,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group ferret, saving to results/avgdiffsel/ferret_avg.pdf
+    Serum group antibody_region_B, saving to results/avgdiffsel/antibody_region_B_avg.pdf
     
 
 
@@ -6381,12 +6394,23 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group serum_mAb_spike, saving to results/avgdiffsel/serum_mAb_spike_avg.pdf
+    Serum group ferret, saving to results/avgdiffsel/ferret_avg.pdf
     
 
 
 
 ![png](analysis_notebook_files/analysis_notebook_109_9.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group serum_mAb_spike, saving to results/avgdiffsel/serum_mAb_spike_avg.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_109_11.png)
 
 
 #### Compact plots showing each replicate
@@ -6457,7 +6481,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group antibody, saving to results/avgdiffsel/antibody_reps.pdf
+    Serum group antibody_lower_head, saving to results/avgdiffsel/antibody_lower_head_reps.pdf
     
 
 
@@ -6468,7 +6492,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group ferret, saving to results/avgdiffsel/ferret_reps.pdf
+    Serum group antibody_region_B, saving to results/avgdiffsel/antibody_region_B_reps.pdf
     
 
 
@@ -6479,12 +6503,23 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group serum_mAb_spike, saving to results/avgdiffsel/serum_mAb_spike_reps.pdf
+    Serum group ferret, saving to results/avgdiffsel/ferret_reps.pdf
     
 
 
 
 ![png](analysis_notebook_files/analysis_notebook_111_9.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group serum_mAb_spike, saving to results/avgdiffsel/serum_mAb_spike_reps.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_111_11.png)
 
 
 #### Whole-gene logo plots of replicate-average selection
@@ -6519,10 +6554,10 @@ for tup in (avg_selections
 ```
 
     Plotting antibody-5A01 to results/avgdiffsel/antibody-5A01_diffsel.pdf
-    Plotting antibody-4F03 to results/avgdiffsel/antibody-4F03_diffsel.pdf
     Plotting antibody-3C04 to results/avgdiffsel/antibody-3C04_diffsel.pdf
     Plotting antibody-3C06 to results/avgdiffsel/antibody-3C06_diffsel.pdf
     Plotting antibody-4C01 to results/avgdiffsel/antibody-4C01_diffsel.pdf
+    Plotting antibody-4F03 to results/avgdiffsel/antibody-4F03_diffsel.pdf
     Plotting antibody-1C04 to results/avgdiffsel/antibody-1C04_diffsel.pdf
     Plotting ferret-Pitt-1-preinf to results/avgdiffsel/ferret-Pitt-1-preinf_diffsel.pdf
     Plotting ferret-Pitt-1-postinf to results/avgdiffsel/ferret-Pitt-1-postinf_diffsel.pdf

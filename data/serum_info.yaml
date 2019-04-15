@@ -16,36 +16,40 @@ plasmid:
   group: plasmid
 
 #------------------------------
-# Monoclonal antibodies
+# Monoclonal antibodies targeting antigenic region B
+
 5A01:
   name: antibody-5A01
   description: site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley
-  group: antibody
-
-4F03:
-  name: antibody-4F03
-  description: lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley
-  group: antibody
+  group: antibody_region_B
 
 3C04:
   name: antibody-3C04
   description: site B-targeting monoclonal antibody 3C04 from Seth Zost and Scott Hensley
-  group: antibody
+  group: antibody_region_B
 
 3C06:
   name: antibody-3C06
   description: site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley
-  group: antibody
+  group: antibody_region_B
 
 4C01:
   name: antibody-4C01
   description: site B-targeting monoclonal antibody 4C01 from Seth Zost and Scott Hensley
-  group: antibody
+  group: antibody_region_B
+
+#------------------------------
+# Monoclonal antibodies targeting lower on HA's head
+
+4F03:
+  name: antibody-4F03
+  description: lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley
+  group: antibody_lower_head
 
 1C04:
   name: antibody-1C04
   description: lower head-targeting monoclonal antibody 1C04 from Seth Zost and Scott Hensley
-  group: antibody
+  group: antibody_lower_head
 
 #------------------------------
 # Ferret sera
