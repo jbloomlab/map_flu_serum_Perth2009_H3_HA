@@ -40,13 +40,8 @@ ncpus: 16
 # should dms_tools2 programs use existing output if it exists?
 use_existing: 'yes'
 
-# names of Jupyter notebooks
-analysis_nb: analysis_notebook.ipynb
-
 # names of results directories
-countsdir: results/codoncounts # counts of mutations
-renumbcountsdir: results/renumbered_codoncounts # counts w/ renumbered sites
-diffseldir: results/diffsel # diffsel for all samples
-fracsurvivedir: results/fracsurvive # fracsurvive for all samples
-avgdiffseldir: results/avgdiffsel # diffsel average across libraries
-avgfracsurvivedir: results/avgfracsurvive # fracsurvive average across libraries
+countsdir: results/codoncounts  # counts of mutations
+renumbcountsdir: results/renumbered_codoncounts  # counts w/ renumbered sites
+diffseldir: results/diffsel  # diffsel for all samples
+avgdiffseldir: results/avgdiffsel  # diffsel average across libraries
