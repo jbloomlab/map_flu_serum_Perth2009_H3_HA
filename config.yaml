@@ -37,8 +37,11 @@ R2trim: 165
 # max number of cpus to use
 ncpus: 16
 
-# should dms_tools2 programs use existing output if it exists?
+# Should dms_tools2 programs use existing output if it exists?
 use_existing: 'yes'
+
+# Do we average across replicates using "mean" or "median"?
+avg_type: median
 
 # names of results directories
 countsdir: results/codoncounts  # counts of mutations

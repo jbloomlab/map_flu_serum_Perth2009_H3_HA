@@ -1,6 +1,6 @@
 
 <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Analysis-of-serum-mutational-antigenic-profiling" data-toc-modified-id="Analysis-of-serum-mutational-antigenic-profiling-1">Analysis of serum mutational antigenic profiling</a></span><ul class="toc-item"><li><span><a href="#Configure-analysis" data-toc-modified-id="Configure-analysis-1.1">Configure analysis</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1.1">Import Python modules / packages</a></span></li><li><span><a href="#Get-config-variables" data-toc-modified-id="Get-config-variables-1.1.2">Get config variables</a></span></li><li><span><a href="#Get-sera-information" data-toc-modified-id="Get-sera-information-1.1.3">Get sera information</a></span></li><li><span><a href="#Get-list-of-samples" data-toc-modified-id="Get-list-of-samples-1.1.4">Get list of samples</a></span></li></ul></li><li><span><a href="#Download-deep-sequencing-data-if-needed" data-toc-modified-id="Download-deep-sequencing-data-if-needed-1.2">Download deep sequencing data if needed</a></span></li><li><span><a href="#Align-sequencing-and-count-mutations" data-toc-modified-id="Align-sequencing-and-count-mutations-1.3">Align sequencing and count mutations</a></span><ul class="toc-item"><li><span><a href="#Run-dms2_batch_bcsubamp" data-toc-modified-id="Run-dms2_batch_bcsubamp-1.3.1">Run <code>dms2_batch_bcsubamp</code></a></span></li><li><span><a href="#Plot-sequencing-and-mutation-counts-summaries" data-toc-modified-id="Plot-sequencing-and-mutation-counts-summaries-1.3.2">Plot sequencing and mutation counts summaries</a></span><ul class="toc-item"><li><span><a href="#Reads-and-barcodes-per-sample" data-toc-modified-id="Reads-and-barcodes-per-sample-1.3.2.1">Reads and barcodes per sample</a></span></li><li><span><a href="#Coverage-across-gene" data-toc-modified-id="Coverage-across-gene-1.3.2.2">Coverage across gene</a></span></li><li><span><a href="#Mutation-frequencies" data-toc-modified-id="Mutation-frequencies-1.3.2.3">Mutation frequencies</a></span></li><li><span><a href="#Check-for-oxidative-damage" data-toc-modified-id="Check-for-oxidative-damage-1.3.2.4">Check for oxidative damage</a></span></li></ul></li><li><span><a href="#Renumber-to-standard-HA-numbering" data-toc-modified-id="Renumber-to-standard-HA-numbering-1.3.3">Renumber to standard HA numbering</a></span></li></ul></li><li><span><a href="#Compute-immune-selection-on-mutations" data-toc-modified-id="Compute-immune-selection-on-mutations-1.4">Compute immune selection on mutations</a></span><ul class="toc-item"><li><span><a href="#Samples-to-compare-for-each-selection" data-toc-modified-id="Samples-to-compare-for-each-selection-1.4.1">Samples to compare for each selection</a></span></li><li><span><a href="#Choose-measure-of-immune-selection" data-toc-modified-id="Choose-measure-of-immune-selection-1.4.2">Choose measure of immune selection</a></span></li><li><span><a href="#Compute-immune-selection" data-toc-modified-id="Compute-immune-selection-1.4.3">Compute immune selection</a></span></li><li><span><a href="#Get-all-selection-information-in-one-data-frame" data-toc-modified-id="Get-all-selection-information-in-one-data-frame-1.4.4">Get all selection information in one data frame</a></span></li></ul></li><li><span><a href="#Analyze-immune-selection" data-toc-modified-id="Analyze-immune-selection-1.5">Analyze immune selection</a></span><ul class="toc-item"><li><span><a href="#Examine-all-samples-and-choose-ones-to-retain" data-toc-modified-id="Examine-all-samples-and-choose-ones-to-retain-1.5.1">Examine all samples and choose ones to retain</a></span><ul class="toc-item"><li><span><a href="#Plot-site-level-selection-for-all-samples" data-toc-modified-id="Plot-site-level-selection-for-all-samples-1.5.1.1">Plot site-level selection for all samples</a></span></li><li><span><a href="#Choose-samples-to-retain-based-on-infectivity-remaining" data-toc-modified-id="Choose-samples-to-retain-based-on-infectivity-remaining-1.5.1.2">Choose samples to retain based on infectivity remaining</a></span></li><li><span><a href="#Listing-of-retained-samples" data-toc-modified-id="Listing-of-retained-samples-1.5.1.3">Listing of retained samples</a></span></li></ul></li><li><span><a href="#Compute-serum-average-from-retained-samples" data-toc-modified-id="Compute-serum-average-from-retained-samples-1.5.2">Compute serum average from retained samples</a></span></li><li><span><a href="#Choose-averaging-method-for-downstream-use" data-toc-modified-id="Choose-averaging-method-for-downstream-use-1.5.3">Choose averaging method for downstream use</a></span></li><li><span><a href="#Identify-sites-of-&quot;significant&quot;-selection" data-toc-modified-id="Identify-sites-of-&quot;significant&quot;-selection-1.5.4">Identify sites of "significant" selection</a></span><ul class="toc-item"><li><span><a href="#Cutoff-for-significance" data-toc-modified-id="Cutoff-for-significance-1.5.4.1">Cutoff for significance</a></span></li><li><span><a href="#Identify-significant-sites" data-toc-modified-id="Identify-significant-sites-1.5.4.2">Identify significant sites</a></span></li><li><span><a href="#List-significant-sites-for-each-serum" data-toc-modified-id="List-significant-sites-for-each-serum-1.5.4.3">List significant sites for each serum</a></span></li><li><span><a href="#Get-significant-sites-for-each-serum-group" data-toc-modified-id="Get-significant-sites-for-each-serum-group-1.5.4.4">Get significant sites for each serum group</a></span></li></ul></li><li><span><a href="#Plot-serum-average-selection" data-toc-modified-id="Plot-serum-average-selection-1.5.5">Plot serum-average selection</a></span><ul class="toc-item"><li><span><a href="#Choose-sites-to-zoom-in-on" data-toc-modified-id="Choose-sites-to-zoom-in-on-1.5.5.1">Choose sites to zoom-in on</a></span></li><li><span><a href="#Compact-plots-of-replicate-average-selection" data-toc-modified-id="Compact-plots-of-replicate-average-selection-1.5.5.2">Compact plots of replicate-average selection</a></span></li><li><span><a href="#Compact-plots-showing-each-replicate" data-toc-modified-id="Compact-plots-showing-each-replicate-1.5.5.3">Compact plots showing each replicate</a></span></li><li><span><a href="#Whole-gene-logo-plots-of-replicate-average-selection" data-toc-modified-id="Whole-gene-logo-plots-of-replicate-average-selection-1.5.5.4">Whole-gene logo plots of replicate-average selection</a></span></li></ul></li></ul></li></ul></li><li><span><a href="#Plot-figures-for-paper" data-toc-modified-id="Plot-figures-for-paper-2">Plot figures for paper</a></span></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Analysis-of-serum-mutational-antigenic-profiling" data-toc-modified-id="Analysis-of-serum-mutational-antigenic-profiling-1">Analysis of serum mutational antigenic profiling</a></span><ul class="toc-item"><li><span><a href="#Configure-analysis" data-toc-modified-id="Configure-analysis-1.1">Configure analysis</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1.1">Import Python modules / packages</a></span></li><li><span><a href="#Get-config-variables" data-toc-modified-id="Get-config-variables-1.1.2">Get config variables</a></span></li><li><span><a href="#Get-sera-information" data-toc-modified-id="Get-sera-information-1.1.3">Get sera information</a></span></li><li><span><a href="#Get-list-of-samples" data-toc-modified-id="Get-list-of-samples-1.1.4">Get list of samples</a></span></li><li><span><a href="#Download-deep-sequencing-data-if-needed" data-toc-modified-id="Download-deep-sequencing-data-if-needed-1.1.5">Download deep sequencing data if needed</a></span></li></ul></li><li><span><a href="#Align-sequencing-and-count-mutations" data-toc-modified-id="Align-sequencing-and-count-mutations-1.2">Align sequencing and count mutations</a></span><ul class="toc-item"><li><span><a href="#Run-dms2_batch_bcsubamp" data-toc-modified-id="Run-dms2_batch_bcsubamp-1.2.1">Run <code>dms2_batch_bcsubamp</code></a></span></li><li><span><a href="#Plot-sequencing-and-mutation-counts-summaries" data-toc-modified-id="Plot-sequencing-and-mutation-counts-summaries-1.2.2">Plot sequencing and mutation counts summaries</a></span><ul class="toc-item"><li><span><a href="#Reads-and-barcodes-per-sample" data-toc-modified-id="Reads-and-barcodes-per-sample-1.2.2.1">Reads and barcodes per sample</a></span></li><li><span><a href="#Coverage-across-gene" data-toc-modified-id="Coverage-across-gene-1.2.2.2">Coverage across gene</a></span></li><li><span><a href="#Mutation-frequencies" data-toc-modified-id="Mutation-frequencies-1.2.2.3">Mutation frequencies</a></span></li><li><span><a href="#Check-for-oxidative-damage" data-toc-modified-id="Check-for-oxidative-damage-1.2.2.4">Check for oxidative damage</a></span></li></ul></li><li><span><a href="#Renumber-to-standard-HA-numbering" data-toc-modified-id="Renumber-to-standard-HA-numbering-1.2.3">Renumber to standard HA numbering</a></span></li></ul></li><li><span><a href="#Compute-immune-selection-on-mutations" data-toc-modified-id="Compute-immune-selection-on-mutations-1.3">Compute immune selection on mutations</a></span><ul class="toc-item"><li><span><a href="#Samples-to-compare-for-each-selection" data-toc-modified-id="Samples-to-compare-for-each-selection-1.3.1">Samples to compare for each selection</a></span></li><li><span><a href="#Compute-immune-selection" data-toc-modified-id="Compute-immune-selection-1.3.2">Compute immune selection</a></span></li><li><span><a href="#Get-all-selection-information-in-one-data-frame" data-toc-modified-id="Get-all-selection-information-in-one-data-frame-1.3.3">Get all selection information in one data frame</a></span></li></ul></li><li><span><a href="#Analyze-immune-selection" data-toc-modified-id="Analyze-immune-selection-1.4">Analyze immune selection</a></span><ul class="toc-item"><li><span><a href="#Examine-all-samples-and-choose-ones-to-retain" data-toc-modified-id="Examine-all-samples-and-choose-ones-to-retain-1.4.1">Examine all samples and choose ones to retain</a></span><ul class="toc-item"><li><span><a href="#Plot-site-level-selection-for-all-samples" data-toc-modified-id="Plot-site-level-selection-for-all-samples-1.4.1.1">Plot site-level selection for all samples</a></span></li><li><span><a href="#Choose-samples-to-retain-based-on-infectivity-remaining" data-toc-modified-id="Choose-samples-to-retain-based-on-infectivity-remaining-1.4.1.2">Choose samples to retain based on infectivity remaining</a></span></li><li><span><a href="#Listing-of-retained-samples" data-toc-modified-id="Listing-of-retained-samples-1.4.1.3">Listing of retained samples</a></span></li></ul></li><li><span><a href="#Compute-serum-average-from-retained-samples" data-toc-modified-id="Compute-serum-average-from-retained-samples-1.4.2">Compute serum average from retained samples</a></span></li><li><span><a href="#Identify-sites-of-&quot;significant&quot;-selection" data-toc-modified-id="Identify-sites-of-&quot;significant&quot;-selection-1.4.3">Identify sites of "significant" selection</a></span><ul class="toc-item"><li><span><a href="#Cutoff-for-significance" data-toc-modified-id="Cutoff-for-significance-1.4.3.1">Cutoff for significance</a></span></li><li><span><a href="#Identify-significant-sites" data-toc-modified-id="Identify-significant-sites-1.4.3.2">Identify significant sites</a></span></li><li><span><a href="#List-significant-sites-for-each-serum" data-toc-modified-id="List-significant-sites-for-each-serum-1.4.3.3">List significant sites for each serum</a></span></li><li><span><a href="#Get-significant-sites-for-each-serum-group" data-toc-modified-id="Get-significant-sites-for-each-serum-group-1.4.3.4">Get significant sites for each serum group</a></span></li></ul></li><li><span><a href="#Plot-serum-average-selection" data-toc-modified-id="Plot-serum-average-selection-1.4.4">Plot serum-average selection</a></span><ul class="toc-item"><li><span><a href="#Choose-sites-to-zoom-in-on" data-toc-modified-id="Choose-sites-to-zoom-in-on-1.4.4.1">Choose sites to zoom-in on</a></span></li><li><span><a href="#Compact-plots-of-replicate-average-selection" data-toc-modified-id="Compact-plots-of-replicate-average-selection-1.4.4.2">Compact plots of replicate-average selection</a></span></li><li><span><a href="#Compact-plots-showing-each-replicate" data-toc-modified-id="Compact-plots-showing-each-replicate-1.4.4.3">Compact plots showing each replicate</a></span></li><li><span><a href="#Whole-gene-logo-plots-of-replicate-average-selection" data-toc-modified-id="Whole-gene-logo-plots-of-replicate-average-selection-1.4.4.4">Whole-gene logo plots of replicate-average selection</a></span></li></ul></li></ul></li><li><span><a href="#Plot-figures-for-paper" data-toc-modified-id="Plot-figures-for-paper-1.5">Plot figures for paper</a></span></li></ul></li></ul></div>
 
 # Analysis of serum mutational antigenic profiling
 This Python Jupyter notebook analyzes mutational antigenic profiling of serum against virus carrying the A/Perth/2009 (H3N2) HA.
@@ -160,8 +160,8 @@ display(HTML(pd.Series(config)
       <td>yes</td>
     </tr>
     <tr>
-      <th>analysis_nb</th>
-      <td>analysis_notebook.ipynb</td>
+      <th>avg_type</th>
+      <td>median</td>
     </tr>
     <tr>
       <th>countsdir</th>
@@ -176,16 +176,8 @@ display(HTML(pd.Series(config)
       <td>results/diffsel</td>
     </tr>
     <tr>
-      <th>fracsurvivedir</th>
-      <td>results/fracsurvive</td>
-    </tr>
-    <tr>
       <th>avgdiffseldir</th>
       <td>results/avgdiffsel</td>
-    </tr>
-    <tr>
-      <th>avgfracsurvivedir</th>
-      <td>results/avgfracsurvive</td>
     </tr>
   </tbody>
 </table>
@@ -1811,7 +1803,9 @@ print(f"Renumbered codon counts are in {config['renumbcountsdir']}")
 
 
 ## Compute immune selection on mutations
-We will now quantify the immune selection on each mutation by comparing its frequency in each serum-selected sample to an appropriate mock-selected control.
+We will now determine the immune selection on each mutation by comparing its frequency in each serum-selected sample to an appropriate mock-selected control.
+Specifically, we will quantify the immune selection as the *differential selection (diffsel)*, which is essentially the log enrichment of each mutation relative to wildtype in the immune-selected versus mock sample.
+See [Doud et al (2017)](https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1006271) for the paper introducing this metric, and see [here](https://jbloomlab.github.io/dms_tools2/diffsel.html) for a more detailed description.
 
 ### Samples to compare for each selection
 In order to quantify the immune selection, we need to compare each selected sample to the appropriate controls.
@@ -1853,9 +1847,8 @@ selections = (
     # add information about sera
     .merge(sera, validate='many_to_one')
 
-    # add columns with frac survive and informative names for serum and samples
+    # add informative names for serum and samples
     .assign(
-        libfracsurvive=lambda x: x['percent_infectivity'] / 100,
         serum_name_formatted=lambda x:
             x['serum_species'].map(lambda s: '' if pd.isnull(s) or s == 'human'
                                    else s + '-') + x['serum_name'],
@@ -1871,8 +1864,7 @@ selections = (
     .drop(['R1', 'R2', 'SRA_accession'], axis='columns', errors='ignore')
 
     # re-order columns a bit so key ones are displayed first
-    .set_index(['serum_name_formatted', 'name', 'sel', 'mock', 'err',
-                'libfracsurvive'])
+    .set_index(['serum_name_formatted', 'name', 'sel', 'mock', 'err'])
     .reset_index()
     )
 
@@ -1896,7 +1888,6 @@ display(HTML(selections.to_html(index=False)))
       <th>sel</th>
       <th>mock</th>
       <th>err</th>
-      <th>libfracsurvive</th>
       <th>serum</th>
       <th>library</th>
       <th>date</th>
@@ -1917,7 +1908,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L2-3C06</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.000100</td>
       <td>3C06</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -1936,7 +1926,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-3C06</td>
       <td>Lib4mock-mAb</td>
       <td>WTplasmid-mAb-C</td>
-      <td>0.000688</td>
       <td>3C06</td>
       <td>lib1</td>
       <td>2018-09-12</td>
@@ -1955,7 +1944,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L2-3C04</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.000331</td>
       <td>3C04</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -1974,7 +1962,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-3C04</td>
       <td>Lib4mock-mAb</td>
       <td>WTplasmid-mAb-C</td>
-      <td>0.000777</td>
       <td>3C04</td>
       <td>lib1</td>
       <td>2018-09-12</td>
@@ -1993,7 +1980,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L2-4C01</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.000185</td>
       <td>4C01</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -2012,7 +1998,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-4C01</td>
       <td>Lib4mock-mAb</td>
       <td>WTplasmid-mAb-C</td>
-      <td>0.001190</td>
       <td>4C01</td>
       <td>lib1</td>
       <td>2018-09-12</td>
@@ -2031,7 +2016,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L2-1C04</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.103190</td>
       <td>1C04</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -2050,7 +2034,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L3-1C04</td>
       <td>Lib3mock-mAb</td>
       <td>WTplasmid-mAb-B</td>
-      <td>0.079040</td>
       <td>1C04</td>
       <td>lib3</td>
       <td>2018-09-12</td>
@@ -2069,7 +2052,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-589v1</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.138200</td>
       <td>589v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2088,7 +2070,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-589v1</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.203200</td>
       <td>589v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -2107,7 +2088,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-589v1</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.184000</td>
       <td>589v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2126,7 +2106,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-571v1</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.196200</td>
       <td>571v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2145,7 +2124,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-571v1</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.118600</td>
       <td>571v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -2164,7 +2142,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-571v1</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.277400</td>
       <td>571v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2183,7 +2160,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-571v2</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.054800</td>
       <td>571v2</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2202,7 +2178,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-571v2</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.010900</td>
       <td>571v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -2221,7 +2196,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-571v2</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.077900</td>
       <td>571v2</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2240,7 +2214,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-574v1</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.094800</td>
       <td>574v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2259,7 +2232,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-574v1</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.075700</td>
       <td>574v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -2278,7 +2250,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-574v1</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.033000</td>
       <td>574v1</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2297,7 +2268,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-WHOCCPerth</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.023200</td>
       <td>WHOCCPerth</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2316,7 +2286,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-WHOCCPerth</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.018800</td>
       <td>WHOCCPerth</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2335,7 +2304,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-WHOCCPerth</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.041000</td>
       <td>WHOCCPerth</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -2354,7 +2322,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-589v2</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.045800</td>
       <td>589v2</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2373,7 +2340,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-589v2</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.046800</td>
       <td>589v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -2392,7 +2358,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-589v2</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.040600</td>
       <td>589v2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -2411,7 +2376,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-557v1</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.069000</td>
       <td>557v1</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2430,7 +2394,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-557v1</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.023100</td>
       <td>557v1</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -2449,7 +2412,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-557v1</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.015700</td>
       <td>557v1</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -2468,7 +2430,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-f9267neg</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>1.000000</td>
       <td>f9267neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2487,7 +2448,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-f9267neg</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>1.000000</td>
       <td>f9267neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2506,7 +2466,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-f9267neg</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>1.000000</td>
       <td>f9267neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2525,7 +2484,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-f9267d23</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.043600</td>
       <td>f9267d23</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2544,7 +2502,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-f9267d23</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.053500</td>
       <td>f9267d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2563,7 +2520,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-f9267d23</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.016900</td>
       <td>f9267d23</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -2582,7 +2538,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-f9435neg</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>1.000000</td>
       <td>f9435neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2601,7 +2556,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-f9435neg</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>1.000000</td>
       <td>f9435neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2620,7 +2574,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-f9435neg</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>1.000000</td>
       <td>f9435neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2639,7 +2592,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-f9437neg</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>1.000000</td>
       <td>f9437neg</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2658,7 +2610,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-f9437neg</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>1.000000</td>
       <td>f9437neg</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2677,7 +2628,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-f9437neg</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>1.000000</td>
       <td>f9437neg</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2696,7 +2646,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-f9437d23</td>
       <td>Lib4mock-A</td>
       <td>WTplasmid-A</td>
-      <td>0.087700</td>
       <td>f9437d23</td>
       <td>lib1</td>
       <td>2018-11-14</td>
@@ -2715,7 +2664,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-f9437d23</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.017000</td>
       <td>f9437d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2734,7 +2682,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-f9437d23</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.057800</td>
       <td>f9437d23</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2753,7 +2700,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-VIDD1</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.059500</td>
       <td>VIDD1</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2772,7 +2718,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-VIDD1</td>
       <td>Lib4mock-B</td>
       <td>WTplasmid-C</td>
-      <td>0.040800</td>
       <td>VIDD1</td>
       <td>lib1</td>
       <td>2019-01-16</td>
@@ -2791,7 +2736,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-VIDD1</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.036800</td>
       <td>VIDD1</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -2810,7 +2754,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-WHOCCVic</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.039000</td>
       <td>WHOCCVic</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2829,7 +2772,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-WHOCCVic</td>
       <td>Lib4mock-B</td>
       <td>WTplasmid-C</td>
-      <td>0.012600</td>
       <td>WHOCCVic</td>
       <td>lib1</td>
       <td>2019-01-16</td>
@@ -2848,7 +2790,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-WHOCCVic</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.036200</td>
       <td>WHOCCVic</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -2867,7 +2808,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-VIDD5</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.052400</td>
       <td>VIDD5</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2886,7 +2826,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-VIDD5</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.055800</td>
       <td>VIDD5</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2905,7 +2844,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-VIDD5</td>
       <td>Lib4mock-D</td>
       <td>WTplasmid-G</td>
-      <td>0.017700</td>
       <td>VIDD5</td>
       <td>lib1</td>
       <td>2019-03-26</td>
@@ -2924,7 +2862,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-VIDD4</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.008700</td>
       <td>VIDD4</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -2943,7 +2880,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-VIDD4</td>
       <td>Lib4mock-B</td>
       <td>WTplasmid-C</td>
-      <td>0.107400</td>
       <td>VIDD4</td>
       <td>lib1</td>
       <td>2019-01-16</td>
@@ -2962,7 +2898,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-VIDD4</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.002600</td>
       <td>VIDD4</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -2981,7 +2916,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-VIDD2</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.020300</td>
       <td>VIDD2</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -3000,7 +2934,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-VIDD2</td>
       <td>Lib4mock-B</td>
       <td>WTplasmid-C</td>
-      <td>0.037400</td>
       <td>VIDD2</td>
       <td>lib1</td>
       <td>2019-01-16</td>
@@ -3019,7 +2952,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-VIDD2</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.062200</td>
       <td>VIDD2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -3038,7 +2970,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-VIDD3</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.017300</td>
       <td>VIDD3</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -3057,7 +2988,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-VIDD3</td>
       <td>Lib4mock-B</td>
       <td>WTplasmid-C</td>
-      <td>0.059800</td>
       <td>VIDD3</td>
       <td>lib1</td>
       <td>2019-01-16</td>
@@ -3076,7 +3006,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-VIDD3</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.011200</td>
       <td>VIDD3</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -3095,7 +3024,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-f9435d23</td>
       <td>Lib5mock-A</td>
       <td>WTplasmid-B</td>
-      <td>0.018800</td>
       <td>f9435d23</td>
       <td>lib2</td>
       <td>2019-01-16</td>
@@ -3114,7 +3042,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-f9435d23</td>
       <td>Lib4mock-B</td>
       <td>WTplasmid-C</td>
-      <td>0.034500</td>
       <td>f9435d23</td>
       <td>lib1</td>
       <td>2019-01-16</td>
@@ -3133,7 +3060,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-f9435d23</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.030400</td>
       <td>f9435d23</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -3152,7 +3078,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-557v2</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.008100</td>
       <td>557v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3171,7 +3096,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-557v2</td>
       <td>Lib6mock-A</td>
       <td>WTplasmid-E</td>
-      <td>0.016400</td>
       <td>557v2</td>
       <td>lib3</td>
       <td>2019-03-06</td>
@@ -3190,7 +3114,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-557v2</td>
       <td>Lib4mock-C</td>
       <td>WTplasmid-F</td>
-      <td>0.015300</td>
       <td>557v2</td>
       <td>lib1</td>
       <td>2019-03-06</td>
@@ -3209,7 +3132,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-574v2</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.011100</td>
       <td>574v2</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3228,7 +3150,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-574v2</td>
       <td>Lib4mock-C</td>
       <td>WTplasmid-F</td>
-      <td>0.015400</td>
       <td>574v2</td>
       <td>lib1</td>
       <td>2019-03-06</td>
@@ -3247,7 +3168,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-574v2</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.019200</td>
       <td>574v2</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -3266,7 +3186,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-4F03-c1</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.229900</td>
       <td>4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3285,7 +3204,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-4F03-c3</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.037100</td>
       <td>4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3304,7 +3222,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-4F03-c2</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.047100</td>
       <td>4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3323,7 +3240,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-4F03-c2</td>
       <td>Lib4mock-C</td>
       <td>WTplasmid-F</td>
-      <td>0.034700</td>
       <td>4F03</td>
       <td>lib1</td>
       <td>2019-03-06</td>
@@ -3342,7 +3258,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-4F03-c3</td>
       <td>Lib4mock-C</td>
       <td>WTplasmid-F</td>
-      <td>0.007800</td>
       <td>4F03</td>
       <td>lib1</td>
       <td>2019-03-06</td>
@@ -3361,7 +3276,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-4F03-c1</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.239100</td>
       <td>4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -3380,7 +3294,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-4F03-c3</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.008400</td>
       <td>4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -3399,7 +3312,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-4F03-c2</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.071600</td>
       <td>4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -3418,7 +3330,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-4F03-c1</td>
       <td>Lib4mock-D</td>
       <td>WTplasmid-G</td>
-      <td>0.282400</td>
       <td>4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
@@ -3437,7 +3348,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-5A01</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.013600</td>
       <td>5A01</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3456,7 +3366,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-5A01</td>
       <td>Lib4mock-C</td>
       <td>WTplasmid-F</td>
-      <td>0.043200</td>
       <td>5A01</td>
       <td>lib1</td>
       <td>2019-03-06</td>
@@ -3475,7 +3384,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-5A01</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.010200</td>
       <td>5A01</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -3494,7 +3402,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-VIDD5-low4F03</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.050000</td>
       <td>VIDD5andlow4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3513,7 +3420,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-VIDD5-low4F03</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.002040</td>
       <td>VIDD5andlow4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -3532,7 +3438,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-VIDD5-low4F03</td>
       <td>Lib4mock-D</td>
       <td>WTplasmid-G</td>
-      <td>0.000300</td>
       <td>VIDD5andlow4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
@@ -3551,7 +3456,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-VIDD5-mid4F03</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.004600</td>
       <td>VIDD5andmid4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3570,7 +3474,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-VIDD5-mid4F03</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.000077</td>
       <td>VIDD5andmid4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -3589,7 +3492,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-VIDD5-mid4F03</td>
       <td>Lib4mock-D</td>
       <td>WTplasmid-G</td>
-      <td>0.000037</td>
       <td>VIDD5andmid4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
@@ -3608,7 +3510,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L5-VIDD5-hi4F03</td>
       <td>Lib5mock-B</td>
       <td>WTplasmid-D</td>
-      <td>0.000400</td>
       <td>VIDD5andhi4F03</td>
       <td>lib2</td>
       <td>2019-03-06</td>
@@ -3627,7 +3528,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L6-VIDD5-hi4F03</td>
       <td>Lib6mock-B</td>
       <td>WTplasmid-H</td>
-      <td>0.000032</td>
       <td>VIDD5andhi4F03</td>
       <td>lib3</td>
       <td>2019-03-26</td>
@@ -3646,7 +3546,6 @@ display(HTML(selections.to_html(index=False)))
       <td>L4-VIDD5-hi4F03</td>
       <td>Lib4mock-D</td>
       <td>WTplasmid-G</td>
-      <td>0.000016</td>
       <td>VIDD5andhi4F03</td>
       <td>lib1</td>
       <td>2019-03-26</td>
@@ -3663,53 +3562,15 @@ display(HTML(selections.to_html(index=False)))
 </table>
 
 
-### Choose measure of immune selection
-In our prior work, we have used two different measures of the selection on each mutation:
- - *differential selection (diffsel)*: essentially the log enrichment of each mutation relative to wildtype in the immune-selected versus mock sample; [see here for a detailed description](https://jbloomlab.github.io/dms_tools2/diffsel.html).
- - *fraction surviving above average (fracsurvive)*: the estimated fraction of virions with each mutation that survive immune selection **above the library average**; [see here for a detailed description](https://jbloomlab.github.io/dms_tools2/fracsurvive.html).
- 
-There are programs in [dms_tools2](https://jbloomlab.github.io/dms_tools2) to compute each of these measures of selection, namely [dms_batch_diffsel](https://jbloomlab.github.io/dms_tools2/dms2_batch_diffsel.html) or [dms2_batch_fracsurvive](https://jbloomlab.github.io/dms_tools2/dms2_batch_fracsurvive.html).
-
-For this notebook, we will just choose **one** of these measures to compute.
-The reason is that we will use just one measure in the paper, and the notebook is less cluttered if we show just one measure of selection.
-Note however that the notebook is set up so that you can simply switch the value of the `seltype` variable defined immediately below and then run all the results for the other measure of selection if you want to compare things:
-
-
-```python
-seltype = 'diffsel'  # use this measure of immune selection
-```
-
-We also specify the extra arguments that must be passed to the [dms_batch_diffsel](https://jbloomlab.github.io/dms_tools2/dms2_batch_diffsel.html) or [dms2_batch_fracsurvive](https://jbloomlab.github.io/dms_tools2/dms2_batch_fracsurvive.html) program for each selection metric:
-
-
-```python
-# extra arguments when computing selection
-addargs = {'diffsel': [],
-           'fracsurvive': ['--aboveavg', 'yes']  # fracsurvive above average
-           }
-```
-
-The selection is computed at the mutation level.
-But for many plots, we want to summarize the selection at the site level.
-So we need to define what site-level metric we use:
-
-
-```python
-site_metric = {'diffsel': 'positive_diffsel',
-               'fracsurvive': 'avgfracsurvive'
-               }
-```
-
 ### Compute immune selection
-Now we actually run the appropriate program to compute the immune selection.
+Now we run [dms2_batch_diffsel](https://jbloomlab.github.io/dms_tools2/dms2_batch_diffsel.html) to compute the immune selection.
 We then add to our `selections` data frame the name of the files holding the computed site (*site*) and mutation (*mut*) level selection for each sample.
   
 The next cell does all of this:
 
 
 ```python
-prog = f"dms2_batch_{seltype}"
-outdir = config[f"{seltype}dir"]
+outdir = config['diffseldir']
 os.makedirs(outdir, exist_ok=True)
 
 # write batch file used by program
@@ -3719,20 +3580,20 @@ batchfile = os.path.join(outdir, 'batch.csv')
  .to_csv(batchfile, index=False)
  )
 
-cmds = [prog,
+cmds = ['dms2_batch_diffsel',
         '--summaryprefix', 'summary',
         '--batchfile', batchfile,
         '--outdir', outdir,
         '--indir', config['renumbcountsdir'],
         '--use_existing', config['use_existing'],
         '--ncpus', str(config['ncpus'])
-        ] + addargs[seltype]
+        ]
 
-print(f"Computing {seltype} using {prog} with command:\n{' '.join(cmds)}")
+print(f"Computing diffsel using dms2_batch_diffsel with command:\n{' '.join(cmds)}")
 subprocess.check_output(cmds)
 
 selfilecols = []
-for selfile in ['mut' + seltype, 'site' + seltype]:
+for selfile in ['mutdiffsel', 'sitediffsel']:
     selfilecol = selfile + '_file'
     selfilecols.append(selfilecol)
     selections[selfilecol] = (outdir + '/' + selections['serum_name_formatted']
@@ -3779,7 +3640,6 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <th>sel</th>
       <th>mock</th>
       <th>err</th>
-      <th>libfracsurvive</th>
       <th>serum</th>
       <th>library</th>
       <th>date</th>
@@ -3812,7 +3672,6 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>L2-3C06</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.0001</td>
       <td>3C06</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -3843,7 +3702,6 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>L2-3C06</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.0001</td>
       <td>3C06</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -3874,7 +3732,6 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>L2-3C06</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.0001</td>
       <td>3C06</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -3905,7 +3762,6 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>L2-3C06</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.0001</td>
       <td>3C06</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -3936,7 +3792,6 @@ display(HTML(sel_df.head(n=5).to_html(index=False)))
       <td>L2-3C06</td>
       <td>Lib2mock-mAb</td>
       <td>WTplasmid-mAb-A</td>
-      <td>0.0001</td>
       <td>3C06</td>
       <td>lib2</td>
       <td>2018-07-20</td>
@@ -3993,8 +3848,8 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
                 wspace=0.6,
                 draw_line_kwargs=dict(
                         xtick_col='site',
-                        height_col=site_metric[seltype],
-                        ylabel=site_metric[seltype],
+                        height_col='positive_diffsel',
+                        ylabel='positive_diffsel',
                         )
                 )
     display(fig)
@@ -4002,7 +3857,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
     corr_df = (serum_sel_df
                .rename(columns={'name_formatted': 'sample'})
-               .pivot_table(values=site_metric[seltype],
+               .pivot_table(values='positive_diffsel',
                             columns='sample',
                             index=['site'])
                .corr()
@@ -4017,7 +3872,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_1.png)
+![png](analysis_notebook_files/analysis_notebook_63_1.png)
 
 
 
@@ -4065,7 +3920,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_4.png)
+![png](analysis_notebook_files/analysis_notebook_63_4.png)
 
 
 
@@ -4113,7 +3968,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_7.png)
+![png](analysis_notebook_files/analysis_notebook_63_7.png)
 
 
 
@@ -4161,7 +4016,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_10.png)
+![png](analysis_notebook_files/analysis_notebook_63_10.png)
 
 
 
@@ -4209,7 +4064,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_13.png)
+![png](analysis_notebook_files/analysis_notebook_63_13.png)
 
 
 
@@ -4257,7 +4112,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_16.png)
+![png](analysis_notebook_files/analysis_notebook_63_16.png)
 
 
 
@@ -4305,7 +4160,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_19.png)
+![png](analysis_notebook_files/analysis_notebook_63_19.png)
 
 
 
@@ -4353,7 +4208,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_22.png)
+![png](analysis_notebook_files/analysis_notebook_63_22.png)
 
 
 
@@ -4401,7 +4256,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_25.png)
+![png](analysis_notebook_files/analysis_notebook_63_25.png)
 
 
 
@@ -4449,7 +4304,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_28.png)
+![png](analysis_notebook_files/analysis_notebook_63_28.png)
 
 
 
@@ -4497,7 +4352,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_31.png)
+![png](analysis_notebook_files/analysis_notebook_63_31.png)
 
 
 
@@ -4545,7 +4400,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_34.png)
+![png](analysis_notebook_files/analysis_notebook_63_34.png)
 
 
 
@@ -4593,7 +4448,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_37.png)
+![png](analysis_notebook_files/analysis_notebook_63_37.png)
 
 
 
@@ -4641,7 +4496,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_40.png)
+![png](analysis_notebook_files/analysis_notebook_63_40.png)
 
 
 
@@ -4689,7 +4544,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_43.png)
+![png](analysis_notebook_files/analysis_notebook_63_43.png)
 
 
 
@@ -4737,7 +4592,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_46.png)
+![png](analysis_notebook_files/analysis_notebook_63_46.png)
 
 
 
@@ -4785,7 +4640,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_49.png)
+![png](analysis_notebook_files/analysis_notebook_63_49.png)
 
 
 
@@ -4823,7 +4678,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_52.png)
+![png](analysis_notebook_files/analysis_notebook_63_52.png)
 
 
 
@@ -4861,7 +4716,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_55.png)
+![png](analysis_notebook_files/analysis_notebook_63_55.png)
 
 
 
@@ -4899,7 +4754,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_58.png)
+![png](analysis_notebook_files/analysis_notebook_63_58.png)
 
 
 
@@ -4937,7 +4792,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_61.png)
+![png](analysis_notebook_files/analysis_notebook_63_61.png)
 
 
 
@@ -5087,7 +4942,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_64.png)
+![png](analysis_notebook_files/analysis_notebook_63_64.png)
 
 
 
@@ -5135,7 +4990,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_67.png)
+![png](analysis_notebook_files/analysis_notebook_63_67.png)
 
 
 
@@ -5183,7 +5038,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_70.png)
+![png](analysis_notebook_files/analysis_notebook_63_70.png)
 
 
 
@@ -5231,7 +5086,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_73.png)
+![png](analysis_notebook_files/analysis_notebook_63_73.png)
 
 
 
@@ -5279,7 +5134,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_76.png)
+![png](analysis_notebook_files/analysis_notebook_63_76.png)
 
 
 
@@ -5327,7 +5182,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_79.png)
+![png](analysis_notebook_files/analysis_notebook_63_79.png)
 
 
 
@@ -5375,7 +5230,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_82.png)
+![png](analysis_notebook_files/analysis_notebook_63_82.png)
 
 
 
@@ -5423,7 +5278,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_85.png)
+![png](analysis_notebook_files/analysis_notebook_63_85.png)
 
 
 
@@ -5471,7 +5326,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_69_88.png)
+![png](analysis_notebook_files/analysis_notebook_63_88.png)
 
 
 
@@ -5583,7 +5438,7 @@ _ = p.draw()
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_75_0.png)
+![png](analysis_notebook_files/analysis_notebook_69_0.png)
 
 
 #### Listing of retained samples
@@ -5816,7 +5671,7 @@ display(HTML(selections
 
 
 ### Compute serum average from retained samples
-We now compute the "average" selection among the retained samples for each serum.
+We now compute the average selection among the retained samples for each serum.
 
 First, confirm that we have retained just one sample per serum / library:
 
@@ -5830,19 +5685,22 @@ assert all(len(group) == 1 for _, group in
            )
 ```
 
-We will compute two types of "average" selection, the mean and the median across the samples:
+We can compute the "average" selection using either the mean or the median; which one to use is specified in the config file:
 
 
 ```python
-avg_types = ['mean', 'median']
+avg_type = config['avg_type']
+print(f"Computing across replicate averages as the {avg_type}")
 ```
 
-Do a sanity check and make sure none of our libraries are named one of the average types:
+    Computing across replicate averages as the median
+
+
+Do a sanity check and make sure none of our libraries are named the same as the average type:
 
 
 ```python
-assert not set(avg_types).intersection(set(selections['library']))
-assert not set(avg_types).intersection(set(selections['name_formatted']))
+assert all(avg_type not in selections[col].values for col in ['library', 'name_formatted'])
 ```
 
 Now loop over all sera and compute the average selection for all retained samples for that sera.
@@ -5851,13 +5709,8 @@ The averages (along with the samples used to compute these averages) are then ad
 
 
 ```python
-# function to compute mutation-level average
-mut_avg_func = {'diffsel': dms_tools2.diffsel.avgMutDiffSel,
-                'fracsurvive': dms_tools2.fracsurvive.avgMutFracSurvive}
-
-# function to convert mutation-level values to site-level values
-mut_to_site_func = {'diffsel': dms_tools2.diffsel.mutToSiteDiffSel,
-                    'fracsurvive': dms_tools2.fracsurvive.mutToSiteFracSurvive}
+avgdir = config['avgdiffseldir']
+os.makedirs(avgdir, exist_ok=True)
 
 avg_selections = []
 for serum_name_formatted, group in (
@@ -5870,28 +5723,24 @@ for serum_name_formatted, group in (
 
     avg_selections.append(group)
 
-    for avg_type in avg_types:
-        # build row of data frame with average
-        avg_row = group.iloc[0].to_dict(into=collections.OrderedDict)
-        avg_row['library'] = avg_type
-        avg_row['name_formatted'] = avg_type
+    # build row of data frame with average
+    avg_row = group.iloc[0].to_dict(into=collections.OrderedDict)
+    avg_row['library'] = avg_type
+    avg_row['name_formatted'] = avg_type
 
-        avgdir = config[f"avg{seltype}dir"]
-        os.makedirs(avgdir, exist_ok=True)
+    avg_row['mutdiffsel_file'] = (f"{avgdir}/{serum_name_formatted}-"
+                                  f"mutdiffsel-{avg_type}.csv")
+    (dms_tools2.diffsel.avgMutDiffSel(group['mutdiffsel_file'], avg_type)
+     .to_csv(avg_row['mutdiffsel_file'], index=False))
 
-        avg_row[f"mut{seltype}_file"] = (f"{avgdir}/{serum_name_formatted}-"
-                                         f"mut{seltype}-{avg_type}.csv")
-        (mut_avg_func[seltype](group[f"mut{seltype}_file"], avg_type)
-         .to_csv(avg_row[f"mut{seltype}_file"], index=False))
+    avg_row['sitediffsel_file'] = (f"{avgdir}/{serum_name_formatted}-"
+                                   'sitediffsel-{avg_type}.csv')
+    (dms_tools2.diffsel.mutToSiteDiffSel(pd.read_csv(avg_row['mutdiffsel_file']))
+     .to_csv(avg_row['sitediffsel_file'], index=False))
 
-        avg_row[f"site{seltype}_file"] = (f"{avgdir}/{serum_name_formatted}-"
-                                          f"site{seltype}-{avg_type}.csv")
-        (mut_to_site_func[seltype](pd.read_csv(avg_row[f"mut{seltype}_file"]))
-         .to_csv(avg_row[f"site{seltype}_file"], index=False))
-
-        avg_row = pd.Series(avg_row).to_frame().transpose()
-        assert all(avg_row.columns == group.columns)
-        avg_selections.append(avg_row)
+    avg_row = pd.Series(avg_row).to_frame().transpose()
+    assert all(avg_row.columns == group.columns)
+    avg_selections.append(avg_row)
 
 # put avg_selections in data frame, sort to match config['sera']
 avg_selections = (pd.concat(avg_selections)
@@ -5908,7 +5757,7 @@ avg_selections = (pd.concat(avg_selections)
                   )
 ```
 
-Now the `avg_selections` data frame lists the files giving all the retained library replicates plus the means and medians calculated from them these replicates.
+Now the `avg_selections` data frame lists the files giving all the retained library replicates plus the average calculated from them these replicates.
 
 Now we create the data frame `avg_sel_df` which actually holds the site- and mutation-level averages for all sera as well as the samples (one replicate per library) that we used to compute these averages:
 
@@ -5925,19 +5774,6 @@ avg_sel_df = (dms_tools2.diffsel.df_read_filecols(avg_selections, selfilecols)
 ```
 
 This `avg_sel_df` data frame differs from `sel_df` only in that it includes the averages as a library type, and only has the retained replicates for each library.
-
-### Choose averaging method for downstream use
-For the summary plots below, we need to choose whether to represent our "averages" using the mean or the median.
-This is done in the next cell.
-We are using the *median* as our measure of the average; to instead use the *mean* simply switch the cell below to define `avg_type` as *mean* rather than *median*.
-
-**(This choice of median over mean should be re-visited once we have replicates for all three libraries, but for 1 and 2 libraries the mean and the median are the same so it doesn't matter).**
-
-
-```python
-avg_type = 'median'
-unused_avg_types = [x for x in avg_types if x != avg_type]
-```
 
 ### Identify sites of "significant" selection
 We want to identify the sites that are under "significant" immune selection.
@@ -5960,7 +5796,7 @@ Note that the cell below also saves plots showing the fit gamma distribution (yo
 
 
 ```python
-plotfile_template = os.path.join(config[f"avg{seltype}dir"],
+plotfile_template = os.path.join(config['avgdiffseldir'],
                                  'sigsites_{serum}.pdf')
 
 print(f"Identifying sites of significant selection at a FDR of {fdr_cutoff}.\n"
@@ -5971,14 +5807,14 @@ for serum_name_formatted, group in (
         avg_sel_df
         .query('library == @avg_type')
         [['serum_group', 'serum_name_formatted', 'isite', 'site',
-          site_metric[seltype]]]
+          'positive_diffsel']]
         .drop_duplicates()
         .groupby('serum_name_formatted')
         ):
     plotfile = plotfile_template.format(serum=serum_name_formatted)
     df, cutoff, gamma_params = dms_tools2.plot.findSigSel(
             group,
-            site_metric[seltype],
+            'positive_diffsel',
             plotfile,
             fdr=fdr_cutoff,
             title=serum_name_formatted
@@ -6017,7 +5853,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>174</td>
       <td>159</td>
       <td>29.408444</td>
-      <td>7.342283e-21</td>
+      <td>7.342282e-21</td>
       <td>2.077866e-18</td>
       <td>True</td>
     </tr>
@@ -6027,7 +5863,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>175</td>
       <td>160</td>
       <td>32.811071</td>
-      <td>3.346377e-23</td>
+      <td>3.346376e-23</td>
       <td>1.894049e-20</td>
       <td>True</td>
     </tr>
@@ -6047,7 +5883,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <td>173</td>
       <td>158</td>
       <td>4.757160</td>
-      <td>6.271669e-04</td>
+      <td>6.271668e-04</td>
       <td>4.437205e-02</td>
       <td>True</td>
     </tr>
@@ -6458,7 +6294,7 @@ We also save PDF versions of each plot:
 ```python
 for serum_group, df in avg_sel_df.groupby('serum_group'):
 
-    plotfile = os.path.join(config[f"avg{seltype}dir"],
+    plotfile = os.path.join(config['avgdiffseldir'],
                             f"{serum_group}_avg.pdf")
     print(f"\n\n{'*' * 72}\nSerum group {serum_group}, saving to {plotfile}\n")
 
@@ -6471,16 +6307,16 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
             share_ylabel=True,
             wspace=0.6,
             draw_line_kwargs=dict(
-                    height_col=site_metric[seltype],
+                    height_col='positive_diffsel',
                     xtick_col='site',
-                    ylabel=f"immune selection ({seltype})",
+                    ylabel='immune selection',
                     ),
             draw_logo_kwargs=dict(
                     letter_col='mutation',
-                    letter_height_col=f"mut{seltype}",
+                    letter_height_col='mutdiffsel',
                     xtick_col='site_label',
                     xlabel='site',
-                    ylabel=f"immune selection ({seltype})",
+                    ylabel='immune selection',
                     clip_negative_heights=True,
                     ),
             )
@@ -6497,7 +6333,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_1.png)
+![png](analysis_notebook_files/analysis_notebook_107_1.png)
 
 
     
@@ -6508,7 +6344,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_3.png)
+![png](analysis_notebook_files/analysis_notebook_107_3.png)
 
 
     
@@ -6519,7 +6355,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_5.png)
+![png](analysis_notebook_files/analysis_notebook_107_5.png)
 
 
     
@@ -6530,7 +6366,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_7.png)
+![png](analysis_notebook_files/analysis_notebook_107_7.png)
 
 
     
@@ -6541,7 +6377,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_115_9.png)
+![png](analysis_notebook_files/analysis_notebook_107_9.png)
 
 
 #### Compact plots showing each replicate
@@ -6554,12 +6390,12 @@ The next cell makes compact plots for each replicate separately:
 ```python
 for serum_group, df in avg_sel_df.groupby('serum_group'):
 
-    plotfile = os.path.join(config[f"avg{seltype}dir"],
+    plotfile = os.path.join(config['avgdiffseldir'],
                             f"{serum_group}_reps.pdf")
     print(f"\n\n{'*' * 72}\nSerum group {serum_group}, saving to {plotfile}\n")
 
     fig, axes = dmslogo.facet_plot(
-            data=df.query('library not in @avg_types'),
+            data=df.query('library != @avg_type'),
             x_col='isite',
             show_col='zoom_site',
             gridrow_col='serum_name_formatted',
@@ -6568,16 +6404,16 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
             share_ylabel=True,
             wspace=0.6,
             draw_line_kwargs=dict(
-                    height_col=site_metric[seltype],
+                    height_col='positive_diffsel',
                     xtick_col='site',
-                    ylabel=f"immune selection ({seltype})",
+                    ylabel='immune selection',
                     ),
             draw_logo_kwargs=dict(
                     letter_col='mutation',
-                    letter_height_col=f"mut{seltype}",
+                    letter_height_col='mutdiffsel',
                     xtick_col='site_label',
                     xlabel='site',
-                    ylabel=f"immune selection ({seltype})",
+                    ylabel='immune selection',
                     clip_negative_heights=True,
                     ),
             )
@@ -6594,7 +6430,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_117_1.png)
+![png](analysis_notebook_files/analysis_notebook_109_1.png)
 
 
     
@@ -6605,7 +6441,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_117_3.png)
+![png](analysis_notebook_files/analysis_notebook_109_3.png)
 
 
     
@@ -6616,7 +6452,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_117_5.png)
+![png](analysis_notebook_files/analysis_notebook_109_5.png)
 
 
     
@@ -6627,7 +6463,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_117_7.png)
+![png](analysis_notebook_files/analysis_notebook_109_7.png)
 
 
     
@@ -6638,7 +6474,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_117_9.png)
+![png](analysis_notebook_files/analysis_notebook_109_9.png)
 
 
 #### Whole-gene logo plots of replicate-average selection
@@ -6648,18 +6484,18 @@ They are too large to be useful to show visually in this notebook, but the cell 
 
 
 ```python
-outdir = config[f"avg{seltype}dir"]  # save plots here
+outdir = config['avgdiffseldir']  # save plots here
 
 for tup in (avg_selections
             .query('library == @avg_type')
             .itertuples(index=False)
             ):
     name = getattr(tup, "serum_name_formatted")
-    plotfile = os.path.join(outdir, f"{name}_{seltype}.pdf")
-    datafile = getattr(tup, f"mut{seltype}_file")
+    plotfile = os.path.join(outdir, f"{name}_diffsel.pdf")
+    datafile = getattr(tup, 'mutdiffsel_file')
     cmds = ['dms2_logoplot',
             '--outdir', outdir,
-            f"--{seltype}", datafile,
+            '--diffsel', datafile,
             '--name', name,
             '--nperline', '71',
             '--overlay1', datafile, 'wildtype', 'wildtype',
@@ -6704,7 +6540,7 @@ for tup in (avg_selections
     Plotting 2009-age-65-with-hi-4F03 to results/avgdiffsel/2009-age-65-with-hi-4F03_diffsel.pdf
 
 
-# Plot figures for paper
+## Plot figures for paper
 
 In the following section, we will generate the plots and figures that will go into the paper.
 
@@ -6769,7 +6605,7 @@ avg_sel_df['spike_group'] = (avg_sel_df['serum_name_formatted']
 
 
 ```python
-plotfile = os.path.join(config[f"avg{seltype}dir"], "spikein_avg.pdf")
+plotfile = os.path.join(config['avgdiffseldir'], "spikein_avg.pdf")
 
 fig, axes = dmslogo.facet_plot(
         data=avg_sel_df.query('spike_group == "spike_group" and library == @avg_type'), 
@@ -6780,17 +6616,17 @@ fig, axes = dmslogo.facet_plot(
         share_ylabel=True, 
         wspace=0.6,  
         draw_line_kwargs=dict(
-                height_col=site_metric[seltype], 
+                height_col='positive_diffsel', 
                 xtick_col='site', 
-                ylabel=f"immune selection ({seltype})",
+                ylabel='immune selection',
                 ), 
         draw_logo_kwargs=dict(
                 letter_col='mutation', 
-                letter_height_col=f"mut{seltype}", 
+                letter_height_col='mutdiffsel', 
                 color_col = 'color',
                 xtick_col='site_label', 
                 xlabel='site', 
-                ylabel=f"immune selection ({seltype})", 
+                ylabel='immune selection', 
                 clip_negative_heights=True,
                 ),
         )
@@ -6801,7 +6637,7 @@ plt.close(fig)
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_127_0.png)
+![png](analysis_notebook_files/analysis_notebook_119_0.png)
 
 
 
