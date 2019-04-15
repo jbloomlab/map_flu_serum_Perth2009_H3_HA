@@ -1,4 +1,4 @@
-# Information about each serum sample. 
+# Information about each serum sample.
 # For each sample ID, give name and description.
 # If relevant, also give species and vaccination (or infection) info.
 
@@ -27,27 +27,25 @@ plasmid:
   description: lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley
   group: antibody
 
-#------------------------------
-# Monoclonal antibodies with duplicate selections
-3C04: 
+3C04:
   name: antibody-3C04
   description: site B-targeting monoclonal antibody 3C04 from Seth Zost and Scott Hensley
-  group: antibody_dup
+  group: antibody
 
 3C06:
   name: antibody-3C06
   description: site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley
-  group: antibody_dup
+  group: antibody
 
 4C01:
   name: antibody-4C01
   description: site B-targeting monoclonal antibody 4C01 from Seth Zost and Scott Hensley
-  group: antibody_dup
+  group: antibody
 
 1C04:
   name: antibody-1C04
   description: lower head-targeting monoclonal antibody 1C04 from Seth Zost and Scott Hensley
-  group: antibody_dup
+  group: antibody
 
 #------------------------------
 # Ferret sera
@@ -208,13 +206,13 @@ VIDD5andlow4F03:
   species: human
   description: collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency
   group: serum_mAb_spike
-  
+
 VIDD5andmid4F03:
   name: 2009-age-65-with-mid-4F03
   species: human
   description: collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency
   group: serum_mAb_spike
-  
+
 VIDD5andhi4F03:
   name: 2009-age-65-with-hi-4F03
   species: human

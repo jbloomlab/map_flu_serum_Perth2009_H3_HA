@@ -55,6 +55,10 @@ print(f"Using dms_tools2 version {dms_tools2.__version__}")
 print(f"Using dmslogo version {dmslogo.__version__}")
 ```
 
+    Using dms_tools2 version 2.4.9
+    Using dmslogo version 0.1.1
+
+
 Set data frame display options:
 
 
@@ -87,6 +91,106 @@ display(HTML(pd.Series(config)
              ))
 ```
 
+    Read the following configuration from config.yaml:
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>serum_info</th>
+      <td>data/serum_info.yaml</td>
+    </tr>
+    <tr>
+      <th>sample_list</th>
+      <td>data/sample_list.csv</td>
+    </tr>
+    <tr>
+      <th>refseq</th>
+      <td>data/Perth09_HA_reference.fa</td>
+    </tr>
+    <tr>
+      <th>renumbering_scheme</th>
+      <td>data/H3renumbering_scheme.csv</td>
+    </tr>
+    <tr>
+      <th>seq_data_source</th>
+      <td>SRA_accession</td>
+    </tr>
+    <tr>
+      <th>fastq_dir</th>
+      <td>results/FASTQ_files</td>
+    </tr>
+    <tr>
+      <th>fastq_dump</th>
+      <td>fastq-dump</td>
+    </tr>
+    <tr>
+      <th>ascp</th>
+      <td>/app/aspera-connect/3.7.5/bin/ascp</td>
+    </tr>
+    <tr>
+      <th>asperakey</th>
+      <td>/app/aspera-connect/3.7.5/etc/asperaweb_id_dsa.openssh</td>
+    </tr>
+    <tr>
+      <th>alignspecs</th>
+      <td>1,285,38,40 286,567,33,34 568,852,34,30 853,1137,34,31 1138,1422,36,29 1423,1701,39,44</td>
+    </tr>
+    <tr>
+      <th>R1trim</th>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>R2trim</th>
+      <td>165</td>
+    </tr>
+    <tr>
+      <th>ncpus</th>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>use_existing</th>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <th>analysis_nb</th>
+      <td>analysis_notebook.ipynb</td>
+    </tr>
+    <tr>
+      <th>countsdir</th>
+      <td>results/codoncounts</td>
+    </tr>
+    <tr>
+      <th>renumbcountsdir</th>
+      <td>results/renumbered_codoncounts</td>
+    </tr>
+    <tr>
+      <th>diffseldir</th>
+      <td>results/diffsel</td>
+    </tr>
+    <tr>
+      <th>fracsurvivedir</th>
+      <td>results/fracsurvive</td>
+    </tr>
+    <tr>
+      <th>avgdiffseldir</th>
+      <td>results/avgdiffsel</td>
+    </tr>
+    <tr>
+      <th>avgfracsurvivedir</th>
+      <td>results/avgfracsurvive</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ### Get sera information
 Read information on the sera that are being mapped.
 
@@ -114,20 +218,1347 @@ print(f"Read the following sera information from {config['serum_info']}:")
 display(HTML(sera.to_html(index=False)))
 ```
 
+    Read the following sera information from data/serum_info.yaml:
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum</th>
+      <th>serum_description</th>
+      <th>serum_group</th>
+      <th>serum_name</th>
+      <th>serum_species</th>
+      <th>serum_vaccination</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mock</td>
+      <td>no-serum control</td>
+      <td>mock</td>
+      <td>no-serum</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>plasmid</td>
+      <td>plasmid used as control to estimate sequencing error rate</td>
+      <td>plasmid</td>
+      <td>plasmid</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>5A01</td>
+      <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-5A01</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>4F03</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>3C04</td>
+      <td>site B-targeting monoclonal antibody 3C04 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C04</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>3C06</td>
+      <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>4C01</td>
+      <td>site B-targeting monoclonal antibody 4C01 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4C01</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>1C04</td>
+      <td>lower head-targeting monoclonal antibody 1C04 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-1C04</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>f9267neg</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-1-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+    </tr>
+    <tr>
+      <td>f9267d23</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-1-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>f9435neg</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-2-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+    </tr>
+    <tr>
+      <td>f9435d23</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-2-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>f9437neg</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-3-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+    </tr>
+    <tr>
+      <td>f9437d23</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-3-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>WHOCCPerth</td>
+      <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
+      <td>ferret</td>
+      <td>WHO</td>
+      <td>ferret</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>WHOCCVic</td>
+      <td>ferret infected by Melbourne WHO CC with their Victoria/2011 strain</td>
+      <td>ferret</td>
+      <td>WHO-Victoria2011</td>
+      <td>ferret</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>VIDD1</td>
+      <td>collected at Hutch in 2/2010 from person born in 1989</td>
+      <td>VIDD_sera</td>
+      <td>2010-age-21</td>
+      <td>human</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>VIDD2</td>
+      <td>collected at Hutch in 1/2009 from person born in 1956</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-53a</td>
+      <td>human</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>VIDD3</td>
+      <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-53b</td>
+      <td>human</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>VIDD4</td>
+      <td>collected at Hutch in 11/2008 from person born in 1945</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-64</td>
+      <td>human</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>VIDD5</td>
+      <td>collected at Hutch in 6/2009 from person born in 1944</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-65</td>
+      <td>human</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>557v1</td>
+      <td>collected before 2015/2016 vaccine from person born in 1990</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+    </tr>
+    <tr>
+      <td>557v2</td>
+      <td>collected after 2015/2016 vaccine from person born in 1990</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-vacc</td>
+      <td>human</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>574v1</td>
+      <td>collected before 2015/2016 vaccine from person born in 1986</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-29-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+    </tr>
+    <tr>
+      <td>574v2</td>
+      <td>collected after 2015/2016 vaccine from person born in 1986</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-29-vacc</td>
+      <td>human</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>589v1</td>
+      <td>collected before 2015/2016 vaccine from person born in 1967</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-48-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+    </tr>
+    <tr>
+      <td>589v2</td>
+      <td>collected after 2015/2016 vaccine from person born in 1967</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-48-vacc</td>
+      <td>human</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>571v1</td>
+      <td>collected before 2015/2016 vaccine from person born in 1966</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-49-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+    </tr>
+    <tr>
+      <td>571v2</td>
+      <td>collected after 2015/2016 vaccine from person born in 1966</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-49-vacc</td>
+      <td>human</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>VIDD5andlow4F03</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-low-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>VIDD5andmid4F03</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-mid-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>VIDD5andhi4F03</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at high stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-hi-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ### Get list of samples
 Read information about all of the samples that we have deep sequenced.
 
-For each sample, we have information on the serum to which it corresponds, the virus library, the date of sequencing, the serum dilution, the percent infectivity, and the location of the FASTQ files on the Hutch server:
+For each sample, we have information on the serum to which it corresponds, the virus library, the date of sequencing, the serum dilution, the percent infectivity, and (depending on the value of *seq_data_source* in the config file) either the [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra) accession or the location of the R1 files on the Hutch server:
 
 
 ```python
 samples = pd.read_csv(config['sample_list'])
+
+# don't need any R1 column if we are using SRA accession
+if config['seq_data_source'] == 'SRA_accession':
+    samples = samples.drop(columns='R1', errors='ignore')
 
 assert len(samples) == len(samples['sample'].unique()), 'non-unique samples'
 
 print(f"Read the following samples from {config['sample_list']}:")
 display(HTML(samples.to_html(index=False)))
 ```
+
+    Read the following samples from data/sample_list.csv:
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>serum</th>
+      <th>library</th>
+      <th>date</th>
+      <th>serum_dilution</th>
+      <th>percent_infectivity</th>
+      <th>SRA_accession</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>L2-3C06</td>
+      <td>3C06</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.55</td>
+      <td>0.0100</td>
+      <td>SRR7974483</td>
+    </tr>
+    <tr>
+      <td>L4-3C06</td>
+      <td>3C06</td>
+      <td>lib1</td>
+      <td>2018-09-12</td>
+      <td>0.1</td>
+      <td>0.0688</td>
+      <td>SRR7974503</td>
+    </tr>
+    <tr>
+      <td>L2-3C04</td>
+      <td>3C04</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.65</td>
+      <td>0.0331</td>
+      <td>SRR7974490</td>
+    </tr>
+    <tr>
+      <td>L4-3C04</td>
+      <td>3C04</td>
+      <td>lib1</td>
+      <td>2018-09-12</td>
+      <td>0.1</td>
+      <td>0.0777</td>
+      <td>SRR7974499</td>
+    </tr>
+    <tr>
+      <td>L2-4C01</td>
+      <td>4C01</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.60</td>
+      <td>0.0185</td>
+      <td>SRR7974491</td>
+    </tr>
+    <tr>
+      <td>L4-4C01</td>
+      <td>4C01</td>
+      <td>lib1</td>
+      <td>2018-09-12</td>
+      <td>0.2</td>
+      <td>0.1190</td>
+      <td>SRR7974488</td>
+    </tr>
+    <tr>
+      <td>L2-1C04</td>
+      <td>1C04</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>16.0</td>
+      <td>10.3190</td>
+      <td>SRR7974492</td>
+    </tr>
+    <tr>
+      <td>L3-1C04</td>
+      <td>1C04</td>
+      <td>lib3</td>
+      <td>2018-09-12</td>
+      <td>18.0</td>
+      <td>7.9040</td>
+      <td>SRR7974497</td>
+    </tr>
+    <tr>
+      <td>Lib2mock-mAb</td>
+      <td>mock</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR7974494</td>
+    </tr>
+    <tr>
+      <td>Lib3mock-mAb</td>
+      <td>mock</td>
+      <td>lib3</td>
+      <td>2018-09-12</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR7974507</td>
+    </tr>
+    <tr>
+      <td>Lib4mock-mAb</td>
+      <td>mock</td>
+      <td>lib1</td>
+      <td>2018-09-12</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR7974486</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-mAb-A</td>
+      <td>plasmid</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR7974495</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-mAb-B</td>
+      <td>plasmid</td>
+      <td>lib3</td>
+      <td>2018-09-12</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR7974502</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-mAb-C</td>
+      <td>plasmid</td>
+      <td>lib1</td>
+      <td>2018-09-12</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR7974484</td>
+    </tr>
+    <tr>
+      <td>L4-589v1</td>
+      <td>589v1</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>13.8200</td>
+      <td>SRR8875142</td>
+    </tr>
+    <tr>
+      <td>L4-571v1</td>
+      <td>571v1</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>19.6200</td>
+      <td>SRR8875143</td>
+    </tr>
+    <tr>
+      <td>L4-571v2</td>
+      <td>571v2</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>5.4800</td>
+      <td>SRR8875144</td>
+    </tr>
+    <tr>
+      <td>L4-574v1</td>
+      <td>574v1</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>9.4800</td>
+      <td>SRR8875145</td>
+    </tr>
+    <tr>
+      <td>L4-WHOCCPerth</td>
+      <td>WHOCCPerth</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>2.3200</td>
+      <td>SRR8875138</td>
+    </tr>
+    <tr>
+      <td>L4-589v2</td>
+      <td>589v2</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.000875</td>
+      <td>4.5800</td>
+      <td>SRR8875139</td>
+    </tr>
+    <tr>
+      <td>L4-557v1</td>
+      <td>557v1</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0075</td>
+      <td>6.9000</td>
+      <td>SRR8875140</td>
+    </tr>
+    <tr>
+      <td>L4-f9267neg</td>
+      <td>f9267neg</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.00075</td>
+      <td>100.0000</td>
+      <td>SRR8875141</td>
+    </tr>
+    <tr>
+      <td>L4-f9267d23</td>
+      <td>f9267d23</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.00075</td>
+      <td>4.3600</td>
+      <td>SRR8875136</td>
+    </tr>
+    <tr>
+      <td>L4-f9435neg</td>
+      <td>f9435neg</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.001</td>
+      <td>100.0000</td>
+      <td>SRR8875137</td>
+    </tr>
+    <tr>
+      <td>L4-f9437neg</td>
+      <td>f9437neg</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.00225</td>
+      <td>100.0000</td>
+      <td>SRR8875168</td>
+    </tr>
+    <tr>
+      <td>L4-f9437d23</td>
+      <td>f9437d23</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.00225</td>
+      <td>8.7700</td>
+      <td>SRR8875169</td>
+    </tr>
+    <tr>
+      <td>Lib4mock-A</td>
+      <td>mock</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR8875170</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-A</td>
+      <td>plasmid</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR8875171</td>
+    </tr>
+    <tr>
+      <td>L5-f9267neg</td>
+      <td>f9267neg</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.00075</td>
+      <td>100.0000</td>
+      <td>SRR8875172</td>
+    </tr>
+    <tr>
+      <td>L5-f9435neg</td>
+      <td>f9435neg</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0025</td>
+      <td>100.0000</td>
+      <td>SRR8875173</td>
+    </tr>
+    <tr>
+      <td>L5-f9437neg</td>
+      <td>f9437neg</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.00625</td>
+      <td>100.0000</td>
+      <td>SRR8875174</td>
+    </tr>
+    <tr>
+      <td>L5-VIDD1</td>
+      <td>VIDD1</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0045</td>
+      <td>5.9500</td>
+      <td>SRR8875175</td>
+    </tr>
+    <tr>
+      <td>L5-WHOCCPerth</td>
+      <td>WHOCCPerth</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0075</td>
+      <td>1.8800</td>
+      <td>SRR8875166</td>
+    </tr>
+    <tr>
+      <td>L5-f9267d23</td>
+      <td>f9267d23</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.000175</td>
+      <td>5.3500</td>
+      <td>SRR8875167</td>
+    </tr>
+    <tr>
+      <td>L5-WHOCCVic</td>
+      <td>WHOCCVic</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0025</td>
+      <td>3.9000</td>
+      <td>SRR8875191</td>
+    </tr>
+    <tr>
+      <td>L5-VIDD5</td>
+      <td>VIDD5</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.000875</td>
+      <td>5.2400</td>
+      <td>SRR8875190</td>
+    </tr>
+    <tr>
+      <td>L5-VIDD4</td>
+      <td>VIDD4</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.001675</td>
+      <td>0.8700</td>
+      <td>SRR8875193</td>
+    </tr>
+    <tr>
+      <td>L5-VIDD2</td>
+      <td>VIDD2</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.00375</td>
+      <td>2.0300</td>
+      <td>SRR8875192</td>
+    </tr>
+    <tr>
+      <td>L5-VIDD3</td>
+      <td>VIDD3</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0045</td>
+      <td>1.7300</td>
+      <td>SRR8875187</td>
+    </tr>
+    <tr>
+      <td>L5-f9435d23</td>
+      <td>f9435d23</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.000625</td>
+      <td>1.8800</td>
+      <td>SRR8875186</td>
+    </tr>
+    <tr>
+      <td>L5-f9437d23</td>
+      <td>f9437d23</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.001375</td>
+      <td>1.7000</td>
+      <td>SRR8875189</td>
+    </tr>
+    <tr>
+      <td>Lib5mock-A</td>
+      <td>mock</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR8875188</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-B</td>
+      <td>plasmid</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR8875195</td>
+    </tr>
+    <tr>
+      <td>L4-f9435d23</td>
+      <td>f9435d23</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.0025</td>
+      <td>3.4500</td>
+      <td>SRR8875194</td>
+    </tr>
+    <tr>
+      <td>L4-VIDD4</td>
+      <td>VIDD4</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.004</td>
+      <td>10.7400</td>
+      <td>SRR8875112</td>
+    </tr>
+    <tr>
+      <td>L4-VIDD3</td>
+      <td>VIDD3</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.0075</td>
+      <td>5.9800</td>
+      <td>SRR8875113</td>
+    </tr>
+    <tr>
+      <td>L4-WHOCCVic</td>
+      <td>WHOCCVic</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.00625</td>
+      <td>1.2600</td>
+      <td>SRR8875110</td>
+    </tr>
+    <tr>
+      <td>L4-VIDD1</td>
+      <td>VIDD1</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.0175</td>
+      <td>4.0800</td>
+      <td>SRR8875111</td>
+    </tr>
+    <tr>
+      <td>L4-VIDD2</td>
+      <td>VIDD2</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.00875</td>
+      <td>3.7400</td>
+      <td>SRR8875108</td>
+    </tr>
+    <tr>
+      <td>Lib4mock-B</td>
+      <td>mock</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR8875109</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-C</td>
+      <td>plasmid</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR8875106</td>
+    </tr>
+    <tr>
+      <td>L5-589v1</td>
+      <td>589v1</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.0175</td>
+      <td>20.3200</td>
+      <td>SRR8875107</td>
+    </tr>
+    <tr>
+      <td>L5-557v2</td>
+      <td>557v2</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.0005</td>
+      <td>0.8100</td>
+      <td>SRR8875114</td>
+    </tr>
+    <tr>
+      <td>L5-571v2</td>
+      <td>571v2</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.01</td>
+      <td>1.0900</td>
+      <td>SRR8875115</td>
+    </tr>
+    <tr>
+      <td>L5-574v1</td>
+      <td>574v1</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.0125</td>
+      <td>7.5700</td>
+      <td>SRR8875119</td>
+    </tr>
+    <tr>
+      <td>L5-574v2</td>
+      <td>574v2</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000875</td>
+      <td>1.1100</td>
+      <td>SRR8875118</td>
+    </tr>
+    <tr>
+      <td>L5-4F03-c1</td>
+      <td>4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.3</td>
+      <td>22.9900</td>
+      <td>SRR8875117</td>
+    </tr>
+    <tr>
+      <td>L5-4F03-c3</td>
+      <td>4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>1.5</td>
+      <td>3.7100</td>
+      <td>SRR8875116</td>
+    </tr>
+    <tr>
+      <td>L6-589v2</td>
+      <td>589v2</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.000375</td>
+      <td>4.0600</td>
+      <td>SRR8875123</td>
+    </tr>
+    <tr>
+      <td>L6-557v1</td>
+      <td>557v1</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.005</td>
+      <td>1.5700</td>
+      <td>SRR8875122</td>
+    </tr>
+    <tr>
+      <td>L6-557v2</td>
+      <td>557v2</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.0005</td>
+      <td>1.6400</td>
+      <td>SRR8875121</td>
+    </tr>
+    <tr>
+      <td>L6-VIDD2</td>
+      <td>VIDD2</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.00375</td>
+      <td>6.2200</td>
+      <td>SRR8875120</td>
+    </tr>
+    <tr>
+      <td>L6-VIDD3</td>
+      <td>VIDD3</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.00625</td>
+      <td>1.1200</td>
+      <td>SRR8875125</td>
+    </tr>
+    <tr>
+      <td>L6-VIDD1</td>
+      <td>VIDD1</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.0075</td>
+      <td>3.6800</td>
+      <td>SRR8875124</td>
+    </tr>
+    <tr>
+      <td>L6-f9267d23</td>
+      <td>f9267d23</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.000375</td>
+      <td>1.6900</td>
+      <td>SRR8875132</td>
+    </tr>
+    <tr>
+      <td>L6-f9435d23</td>
+      <td>f9435d23</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.00125</td>
+      <td>3.0400</td>
+      <td>SRR8875133</td>
+    </tr>
+    <tr>
+      <td>L6-WHOCCPerth</td>
+      <td>WHOCCPerth</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.0075</td>
+      <td>4.1000</td>
+      <td>SRR8875134</td>
+    </tr>
+    <tr>
+      <td>L6-WHOCCVic</td>
+      <td>WHOCCVic</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.0025</td>
+      <td>3.6200</td>
+      <td>SRR8875135</td>
+    </tr>
+    <tr>
+      <td>Lib5mock-B</td>
+      <td>mock</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR8875128</td>
+    </tr>
+    <tr>
+      <td>Lib6mock-A</td>
+      <td>mock</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR8875129</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-D</td>
+      <td>plasmid</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR8875130</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-E</td>
+      <td>plasmid</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR8875131</td>
+    </tr>
+    <tr>
+      <td>L5-589v2</td>
+      <td>589v2</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000375</td>
+      <td>4.6800</td>
+      <td>SRR8875126</td>
+    </tr>
+    <tr>
+      <td>L5-557v1</td>
+      <td>557v1</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.005</td>
+      <td>2.3100</td>
+      <td>SRR8875127</td>
+    </tr>
+    <tr>
+      <td>L5-571v1</td>
+      <td>571v1</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.0185</td>
+      <td>11.8600</td>
+      <td>SRR8875149</td>
+    </tr>
+    <tr>
+      <td>L5-5A01</td>
+      <td>5A01</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.025</td>
+      <td>1.3600</td>
+      <td>SRR8875148</td>
+    </tr>
+    <tr>
+      <td>L5-4F03-c2</td>
+      <td>4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.7</td>
+      <td>4.7100</td>
+      <td>SRR8875151</td>
+    </tr>
+    <tr>
+      <td>L5-VIDD5-low4F03</td>
+      <td>VIDD5andlow4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000875+0.3</td>
+      <td>5.0000</td>
+      <td>SRR8875150</td>
+    </tr>
+    <tr>
+      <td>L5-VIDD5-mid4F03</td>
+      <td>VIDD5andmid4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000875+0.7</td>
+      <td>0.4600</td>
+      <td>SRR8875153</td>
+    </tr>
+    <tr>
+      <td>L5-VIDD5-hi4F03</td>
+      <td>VIDD5andhi4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000875+1.5</td>
+      <td>0.0400</td>
+      <td>SRR8875152</td>
+    </tr>
+    <tr>
+      <td>L4-574v2</td>
+      <td>574v2</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>0.002</td>
+      <td>1.5400</td>
+      <td>SRR8875155</td>
+    </tr>
+    <tr>
+      <td>L4-557v2</td>
+      <td>557v2</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>0.00125</td>
+      <td>1.5300</td>
+      <td>SRR8875154</td>
+    </tr>
+    <tr>
+      <td>L4-5A01</td>
+      <td>5A01</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>0.07</td>
+      <td>4.3200</td>
+      <td>SRR8875147</td>
+    </tr>
+    <tr>
+      <td>L4-4F03-c2</td>
+      <td>4F03</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>1.0</td>
+      <td>3.4700</td>
+      <td>SRR8875146</td>
+    </tr>
+    <tr>
+      <td>L4-4F03-c3</td>
+      <td>4F03</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>2.0</td>
+      <td>0.7800</td>
+      <td>SRR8875160</td>
+    </tr>
+    <tr>
+      <td>Lib4mock-C</td>
+      <td>mock</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR8875161</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-F</td>
+      <td>plasmid</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR8875158</td>
+    </tr>
+    <tr>
+      <td>L6-589v1</td>
+      <td>589v1</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.0175</td>
+      <td>18.4000</td>
+      <td>SRR8875159</td>
+    </tr>
+    <tr>
+      <td>L6-571v1</td>
+      <td>571v1</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.0185</td>
+      <td>27.7400</td>
+      <td>SRR8875164</td>
+    </tr>
+    <tr>
+      <td>L6-571v2</td>
+      <td>571v2</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.005</td>
+      <td>7.7900</td>
+      <td>SRR8875165</td>
+    </tr>
+    <tr>
+      <td>L6-574v1</td>
+      <td>574v1</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.015</td>
+      <td>3.3000</td>
+      <td>SRR8875162</td>
+    </tr>
+    <tr>
+      <td>L6-574v2</td>
+      <td>574v2</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00075</td>
+      <td>1.9200</td>
+      <td>SRR8875163</td>
+    </tr>
+    <tr>
+      <td>L6-f9267neg</td>
+      <td>f9267neg</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00075</td>
+      <td>100.0000</td>
+      <td>SRR8875156</td>
+    </tr>
+    <tr>
+      <td>L6-f9435neg</td>
+      <td>f9435neg</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.0025</td>
+      <td>100.0000</td>
+      <td>SRR8875157</td>
+    </tr>
+    <tr>
+      <td>L6-f9437neg</td>
+      <td>f9437neg</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00625</td>
+      <td>100.0000</td>
+      <td>SRR8875183</td>
+    </tr>
+    <tr>
+      <td>L6-5A01</td>
+      <td>5A01</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.025</td>
+      <td>1.0200</td>
+      <td>SRR8875182</td>
+    </tr>
+    <tr>
+      <td>Lib6mock-B</td>
+      <td>mock</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR8875181</td>
+    </tr>
+    <tr>
+      <td>L4-4F03-c1</td>
+      <td>4F03</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.3</td>
+      <td>28.2400</td>
+      <td>SRR8875180</td>
+    </tr>
+    <tr>
+      <td>L6-VIDD5</td>
+      <td>VIDD5</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.002</td>
+      <td>5.5800</td>
+      <td>SRR8875179</td>
+    </tr>
+    <tr>
+      <td>L6-VIDD4</td>
+      <td>VIDD4</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00375</td>
+      <td>0.2600</td>
+      <td>SRR8875178</td>
+    </tr>
+    <tr>
+      <td>L6-f9437d23</td>
+      <td>f9437d23</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00175</td>
+      <td>5.7800</td>
+      <td>SRR8875177</td>
+    </tr>
+    <tr>
+      <td>L6-4F03-c1</td>
+      <td>4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.3</td>
+      <td>23.9100</td>
+      <td>SRR8875176</td>
+    </tr>
+    <tr>
+      <td>L6-4F03-c3</td>
+      <td>4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>1.4</td>
+      <td>0.8400</td>
+      <td>SRR8875185</td>
+    </tr>
+    <tr>
+      <td>L4-VIDD5</td>
+      <td>VIDD5</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.003375</td>
+      <td>1.7700</td>
+      <td>SRR8875184</td>
+    </tr>
+    <tr>
+      <td>L4-VIDD5-low4F03</td>
+      <td>VIDD5andlow4F03</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.003375+0.3</td>
+      <td>0.0300</td>
+      <td>SRR8875196</td>
+    </tr>
+    <tr>
+      <td>L4-VIDD5-mid4F03</td>
+      <td>VIDD5andmid4F03</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.003375+1</td>
+      <td>0.0037</td>
+      <td>SRR8875197</td>
+    </tr>
+    <tr>
+      <td>L4-VIDD5-hi4F03</td>
+      <td>VIDD5andhi4F03</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.003375+2</td>
+      <td>0.0016</td>
+      <td>SRR8875198</td>
+    </tr>
+    <tr>
+      <td>L6-4F03-c2</td>
+      <td>4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.75</td>
+      <td>7.1600</td>
+      <td>SRR8875199</td>
+    </tr>
+    <tr>
+      <td>L6-VIDD5-low4F03</td>
+      <td>VIDD5andlow4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.002+0.3</td>
+      <td>0.2040</td>
+      <td>SRR8875200</td>
+    </tr>
+    <tr>
+      <td>L6-VIDD5-mid4F03</td>
+      <td>VIDD5andmid4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.002+0.75</td>
+      <td>0.0077</td>
+      <td>SRR8875201</td>
+    </tr>
+    <tr>
+      <td>L6-VIDD5-hi4F03</td>
+      <td>VIDD5andhi4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.002+1.4</td>
+      <td>0.0032</td>
+      <td>SRR8875202</td>
+    </tr>
+    <tr>
+      <td>Lib4mock-D</td>
+      <td>mock</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>NaN</td>
+      <td>100.0000</td>
+      <td>SRR8875203</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-G</td>
+      <td>plasmid</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR8875204</td>
+    </tr>
+    <tr>
+      <td>WTplasmid-H</td>
+      <td>plasmid</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SRR8875205</td>
+    </tr>
+  </tbody>
+</table>
+
 
 Check that the serum for all samples are in our set of sera:
 
@@ -140,8 +1571,11 @@ else:
     print('We have information for all sera used for the samples.')
 ```
 
-## Download deep sequencing data if needed
-The configfile specifies whether we get the data from existing *R1* files on the Hutch server, or download the data from the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) using [dms_tools2.sra.fastqFromSRA](https://jbloomlab.github.io/dms_tools2/dms_tools2.sra.html):
+    We have information for all sera used for the samples.
+
+
+### Download deep sequencing data if needed
+The config file specifies whether we get the data from existing *R1* files on the Hutch server, or download the data from the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) using [dms_tools2.sra.fastqFromSRA](https://jbloomlab.github.io/dms_tools2/dms_tools2.sra.html):
 
 
 ```python
@@ -173,6 +1607,10 @@ elif config['seq_data_source'] != 'R1':
     raise ValueError('invalid value of `seq_data_source`')
 ```
 
+    Downloading FASTQ files to results/FASTQ_files (takes a while)...
+    Completed downloading files.
+
+
 ## Align sequencing and count mutations
 The samples were sequenced using [barcoded subamplicon sequencing](https://jbloomlab.github.io/dms_tools2/bcsubamp.html) to obtain high accuracy.
 So we need to process these data to determine the counts of each codon mutation in each sample.
@@ -185,6 +1623,9 @@ os.makedirs(config['countsdir'], exist_ok=True)
 
 print(f"Results from counting mutations go to {config['countsdir']}")
 ```
+
+    Results from counting mutations go to results/codoncounts
+
 
 ### Run `dms2_batch_bcsubamp`
 We process the sequencing data by using [dms2_batch_bcsubamp](https://jbloomlab.github.io/dms_tools2/dms2_batch_bcsubamp.html#dms2-batch-bcsubamp) to generate "codon counts" files that give the counts of each codon mutation for each sample.
@@ -203,6 +1644,9 @@ bcsubamp_batchfile = os.path.join(config['countsdir'], 'batch.csv')
 
 print(f"Creating batch file {bcsubamp_batchfile}")
 ```
+
+    Creating batch file results/codoncounts/batch.csv
+
 
 Now run the program:
 
@@ -225,6 +1669,11 @@ print(f"Running dms2_batch_bcsubamp with this command:\n{' '.join(cmds)}")
 subprocess.check_output(cmds)
 print('Completed running dms2_batch_bcsubamp.')
 ```
+
+    Running dms2_batch_bcsubamp with this command:
+    dms2_batch_bcsubamp --batchfile results/codoncounts/batch.csv --refseq data/Perth09_HA_reference.fa --alignspecs 1,285,38,40 286,567,33,34 568,852,34,30 853,1137,34,31 1138,1422,36,29 1423,1701,39,44 --R1trim 200 --R2trim 165 --outdir results/codoncounts --fastqdir results/FASTQ_files --summaryprefix summary --ncpus 16 --use_existing yes
+    Completed running dms2_batch_bcsubamp.
+
 
 Confirm that all the expected counts files exist:
 
@@ -252,6 +1701,10 @@ Total sequencing reads per sample:
 showPDF(countsplotprefix + 'readstats.pdf')
 ```
 
+
+![png](analysis_notebook_files/analysis_notebook_34_0.png)
+
+
 Distribution of sequencing reads per barcode on subamplicons:
 
 
@@ -259,12 +1712,20 @@ Distribution of sequencing reads per barcode on subamplicons:
 showPDF(countsplotprefix + 'readsperbc.pdf')
 ```
 
+
+![png](analysis_notebook_files/analysis_notebook_36_0.png)
+
+
 Number of barcoded subamplicons that align and have sufficient reads:
 
 
 ```python
 showPDF(countsplotprefix + 'bcstats.pdf')
 ```
+
+
+![png](analysis_notebook_files/analysis_notebook_38_0.png)
+
 
 #### Coverage across gene
 Depth of valid barcoded subamplicons covering each site in the gene:
@@ -274,6 +1735,10 @@ Depth of valid barcoded subamplicons covering each site in the gene:
 showPDF(countsplotprefix + 'depth.pdf')
 ```
 
+
+![png](analysis_notebook_files/analysis_notebook_40_0.png)
+
+
 #### Mutation frequencies
 The average mutation frequency for each sample, stratifying by codon mutation type:
 
@@ -282,6 +1747,10 @@ The average mutation frequency for each sample, stratifying by codon mutation ty
 showPDF(countsplotprefix + 'codonmuttypes.pdf')
 ```
 
+
+![png](analysis_notebook_files/analysis_notebook_42_0.png)
+
+
 Average mutation frequency per sample, stratifying by number of nucleotide changes per codon mutation:
 
 
@@ -289,12 +1758,20 @@ Average mutation frequency per sample, stratifying by number of nucleotide chang
 showPDF(countsplotprefix + 'codonntchanges.pdf')
 ```
 
+
+![png](analysis_notebook_files/analysis_notebook_44_0.png)
+
+
 Per-codon mutation frequencies across all sites in gene for each sample:
 
 
 ```python
 showPDF(countsplotprefix + 'mutfreq.pdf')
 ```
+
+
+![png](analysis_notebook_files/analysis_notebook_46_0.png)
+
 
 #### Check for oxidative damage
 Sometimes there is oxidative damage which manifests as an enrichment of `G`->`T` and `C`->`A` mutations among the single-nucleotide codon mutations.
@@ -304,6 +1781,10 @@ Check for this by plotting frequencies of different single-nucleotide mutation t
 ```python
 showPDF(countsplotprefix + 'singlentchanges.pdf')
 ```
+
+
+![png](analysis_notebook_files/analysis_notebook_48_0.png)
+
 
 ### Renumber to standard HA numbering
 The above alignments use sequential 1, 2, ... numbering of the codons.
@@ -325,6 +1806,9 @@ assert all(os.path.isfile(f) for f in
 
 print(f"Renumbered codon counts are in {config['renumbcountsdir']}")
 ```
+
+    Renumbered codon counts are in results/renumbered_codoncounts
+
 
 ## Compute immune selection on mutations
 We will now quantify the immune selection on each mutation by comparing its frequency in each serum-selected sample to an appropriate mock-selected control.
@@ -384,7 +1868,7 @@ selections = (
         )
 
     # drop unneeded columns
-    .drop(['R1'], axis='columns')
+    .drop(['R1', 'R2', 'SRA_accession'], axis='columns', errors='ignore')
 
     # re-order columns a bit so key ones are displayed first
     .set_index(['serum_name_formatted', 'name', 'sel', 'mock', 'err',
@@ -399,6 +1883,1785 @@ assert len(selections) == len(selections.groupby(['serum_name_formatted',
 print(f"Tabulated information for {len(selections)} selections:")
 display(HTML(selections.to_html(index=False)))
 ```
+
+    Tabulated information for 92 selections:
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum_name_formatted</th>
+      <th>name</th>
+      <th>sel</th>
+      <th>mock</th>
+      <th>err</th>
+      <th>libfracsurvive</th>
+      <th>serum</th>
+      <th>library</th>
+      <th>date</th>
+      <th>serum_dilution</th>
+      <th>percent_infectivity</th>
+      <th>serum_description</th>
+      <th>serum_group</th>
+      <th>serum_name</th>
+      <th>serum_species</th>
+      <th>serum_vaccination</th>
+      <th>name_formatted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>antibody-3C06</td>
+      <td>lib2-0.010</td>
+      <td>L2-3C06</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.000100</td>
+      <td>3C06</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.55</td>
+      <td>0.0100</td>
+      <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 0.010% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-3C06</td>
+      <td>lib1-0.069</td>
+      <td>L4-3C06</td>
+      <td>Lib4mock-mAb</td>
+      <td>WTplasmid-mAb-C</td>
+      <td>0.000688</td>
+      <td>3C06</td>
+      <td>lib1</td>
+      <td>2018-09-12</td>
+      <td>0.1</td>
+      <td>0.0688</td>
+      <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib1, 0.069% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-3C04</td>
+      <td>lib2-0.033</td>
+      <td>L2-3C04</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.000331</td>
+      <td>3C04</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.65</td>
+      <td>0.0331</td>
+      <td>site B-targeting monoclonal antibody 3C04 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C04</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 0.033% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-3C04</td>
+      <td>lib1-0.078</td>
+      <td>L4-3C04</td>
+      <td>Lib4mock-mAb</td>
+      <td>WTplasmid-mAb-C</td>
+      <td>0.000777</td>
+      <td>3C04</td>
+      <td>lib1</td>
+      <td>2018-09-12</td>
+      <td>0.1</td>
+      <td>0.0777</td>
+      <td>site B-targeting monoclonal antibody 3C04 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C04</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib1, 0.078% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4C01</td>
+      <td>lib2-0.018</td>
+      <td>L2-4C01</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.000185</td>
+      <td>4C01</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.60</td>
+      <td>0.0185</td>
+      <td>site B-targeting monoclonal antibody 4C01 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4C01</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 0.018% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4C01</td>
+      <td>lib1-0.12</td>
+      <td>L4-4C01</td>
+      <td>Lib4mock-mAb</td>
+      <td>WTplasmid-mAb-C</td>
+      <td>0.001190</td>
+      <td>4C01</td>
+      <td>lib1</td>
+      <td>2018-09-12</td>
+      <td>0.2</td>
+      <td>0.1190</td>
+      <td>site B-targeting monoclonal antibody 4C01 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4C01</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib1, 0.12% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-1C04</td>
+      <td>lib2-10</td>
+      <td>L2-1C04</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.103190</td>
+      <td>1C04</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>16.0</td>
+      <td>10.3190</td>
+      <td>lower head-targeting monoclonal antibody 1C04 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-1C04</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 10% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-1C04</td>
+      <td>lib3-7.9</td>
+      <td>L3-1C04</td>
+      <td>Lib3mock-mAb</td>
+      <td>WTplasmid-mAb-B</td>
+      <td>0.079040</td>
+      <td>1C04</td>
+      <td>lib3</td>
+      <td>2018-09-12</td>
+      <td>18.0</td>
+      <td>7.9040</td>
+      <td>lower head-targeting monoclonal antibody 1C04 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-1C04</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib3, 7.9% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-48-prevacc</td>
+      <td>lib1-14</td>
+      <td>L4-589v1</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.138200</td>
+      <td>589v1</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>13.8200</td>
+      <td>collected before 2015/2016 vaccine from person born in 1967</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-48-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib1, 14% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-48-prevacc</td>
+      <td>lib2-20</td>
+      <td>L5-589v1</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.203200</td>
+      <td>589v1</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.0175</td>
+      <td>20.3200</td>
+      <td>collected before 2015/2016 vaccine from person born in 1967</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-48-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib2, 20% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-48-prevacc</td>
+      <td>lib3-18</td>
+      <td>L6-589v1</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.184000</td>
+      <td>589v1</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.0175</td>
+      <td>18.4000</td>
+      <td>collected before 2015/2016 vaccine from person born in 1967</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-48-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib3, 18% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-49-prevacc</td>
+      <td>lib1-20</td>
+      <td>L4-571v1</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.196200</td>
+      <td>571v1</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>19.6200</td>
+      <td>collected before 2015/2016 vaccine from person born in 1966</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-49-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib1, 20% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-49-prevacc</td>
+      <td>lib2-12</td>
+      <td>L5-571v1</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.118600</td>
+      <td>571v1</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.0185</td>
+      <td>11.8600</td>
+      <td>collected before 2015/2016 vaccine from person born in 1966</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-49-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib2, 12% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-49-prevacc</td>
+      <td>lib3-28</td>
+      <td>L6-571v1</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.277400</td>
+      <td>571v1</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.0185</td>
+      <td>27.7400</td>
+      <td>collected before 2015/2016 vaccine from person born in 1966</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-49-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib3, 28% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-49-vacc</td>
+      <td>lib1-5.5</td>
+      <td>L4-571v2</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.054800</td>
+      <td>571v2</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>5.4800</td>
+      <td>collected after 2015/2016 vaccine from person born in 1966</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-49-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib1, 5.5% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-49-vacc</td>
+      <td>lib2-1.1</td>
+      <td>L5-571v2</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.010900</td>
+      <td>571v2</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.01</td>
+      <td>1.0900</td>
+      <td>collected after 2015/2016 vaccine from person born in 1966</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-49-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib2, 1.1% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-49-vacc</td>
+      <td>lib3-7.8</td>
+      <td>L6-571v2</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.077900</td>
+      <td>571v2</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.005</td>
+      <td>7.7900</td>
+      <td>collected after 2015/2016 vaccine from person born in 1966</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-49-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib3, 7.8% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-29-prevacc</td>
+      <td>lib1-9.5</td>
+      <td>L4-574v1</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.094800</td>
+      <td>574v1</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>9.4800</td>
+      <td>collected before 2015/2016 vaccine from person born in 1986</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-29-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib1, 9.5% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-29-prevacc</td>
+      <td>lib2-7.6</td>
+      <td>L5-574v1</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.075700</td>
+      <td>574v1</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.0125</td>
+      <td>7.5700</td>
+      <td>collected before 2015/2016 vaccine from person born in 1986</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-29-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib2, 7.6% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-29-prevacc</td>
+      <td>lib3-3.3</td>
+      <td>L6-574v1</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.033000</td>
+      <td>574v1</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.015</td>
+      <td>3.3000</td>
+      <td>collected before 2015/2016 vaccine from person born in 1986</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-29-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib3, 3.3% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO</td>
+      <td>lib1-2.3</td>
+      <td>L4-WHOCCPerth</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.023200</td>
+      <td>WHOCCPerth</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0185</td>
+      <td>2.3200</td>
+      <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
+      <td>ferret</td>
+      <td>WHO</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib1, 2.3% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO</td>
+      <td>lib2-1.9</td>
+      <td>L5-WHOCCPerth</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.018800</td>
+      <td>WHOCCPerth</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0075</td>
+      <td>1.8800</td>
+      <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
+      <td>ferret</td>
+      <td>WHO</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib2, 1.9% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO</td>
+      <td>lib3-4.1</td>
+      <td>L6-WHOCCPerth</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.041000</td>
+      <td>WHOCCPerth</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.0075</td>
+      <td>4.1000</td>
+      <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
+      <td>ferret</td>
+      <td>WHO</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib3, 4.1% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-48-vacc</td>
+      <td>lib1-4.6</td>
+      <td>L4-589v2</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.045800</td>
+      <td>589v2</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.000875</td>
+      <td>4.5800</td>
+      <td>collected after 2015/2016 vaccine from person born in 1967</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-48-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib1, 4.6% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-48-vacc</td>
+      <td>lib2-4.7</td>
+      <td>L5-589v2</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.046800</td>
+      <td>589v2</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000375</td>
+      <td>4.6800</td>
+      <td>collected after 2015/2016 vaccine from person born in 1967</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-48-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib2, 4.7% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-48-vacc</td>
+      <td>lib3-4.1</td>
+      <td>L6-589v2</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.040600</td>
+      <td>589v2</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.000375</td>
+      <td>4.0600</td>
+      <td>collected after 2015/2016 vaccine from person born in 1967</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-48-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib3, 4.1% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-prevacc</td>
+      <td>lib1-6.9</td>
+      <td>L4-557v1</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.069000</td>
+      <td>557v1</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.0075</td>
+      <td>6.9000</td>
+      <td>collected before 2015/2016 vaccine from person born in 1990</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib1, 6.9% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-prevacc</td>
+      <td>lib2-2.3</td>
+      <td>L5-557v1</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.023100</td>
+      <td>557v1</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.005</td>
+      <td>2.3100</td>
+      <td>collected before 2015/2016 vaccine from person born in 1990</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib2, 2.3% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-prevacc</td>
+      <td>lib3-1.6</td>
+      <td>L6-557v1</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.015700</td>
+      <td>557v1</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.005</td>
+      <td>1.5700</td>
+      <td>collected before 2015/2016 vaccine from person born in 1990</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-prevacc</td>
+      <td>human</td>
+      <td>pre</td>
+      <td>lib3, 1.6% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-preinf</td>
+      <td>lib1-100</td>
+      <td>L4-f9267neg</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>1.000000</td>
+      <td>f9267neg</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.00075</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-1-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib1, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-preinf</td>
+      <td>lib2-100</td>
+      <td>L5-f9267neg</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>1.000000</td>
+      <td>f9267neg</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.00075</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-1-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib2, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-preinf</td>
+      <td>lib3-100</td>
+      <td>L6-f9267neg</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>1.000000</td>
+      <td>f9267neg</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00075</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-1-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib3, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-postinf</td>
+      <td>lib1-4.4</td>
+      <td>L4-f9267d23</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.043600</td>
+      <td>f9267d23</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.00075</td>
+      <td>4.3600</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-1-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib1, 4.4% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-postinf</td>
+      <td>lib2-5.3</td>
+      <td>L5-f9267d23</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.053500</td>
+      <td>f9267d23</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.000175</td>
+      <td>5.3500</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-1-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib2, 5.3% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-postinf</td>
+      <td>lib3-1.7</td>
+      <td>L6-f9267d23</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.016900</td>
+      <td>f9267d23</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.000375</td>
+      <td>1.6900</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-1-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib3, 1.7% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-preinf</td>
+      <td>lib1-100</td>
+      <td>L4-f9435neg</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>1.000000</td>
+      <td>f9435neg</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.001</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-2-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib1, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-preinf</td>
+      <td>lib2-100</td>
+      <td>L5-f9435neg</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>1.000000</td>
+      <td>f9435neg</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0025</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-2-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib2, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-preinf</td>
+      <td>lib3-100</td>
+      <td>L6-f9435neg</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>1.000000</td>
+      <td>f9435neg</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.0025</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-2-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib3, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-preinf</td>
+      <td>lib1-100</td>
+      <td>L4-f9437neg</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>1.000000</td>
+      <td>f9437neg</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.00225</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-3-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib1, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-preinf</td>
+      <td>lib2-100</td>
+      <td>L5-f9437neg</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>1.000000</td>
+      <td>f9437neg</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.00625</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-3-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib2, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-preinf</td>
+      <td>lib3-100</td>
+      <td>L6-f9437neg</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>1.000000</td>
+      <td>f9437neg</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00625</td>
+      <td>100.0000</td>
+      <td>Lakdawala lab ferret, before infection</td>
+      <td>ferret</td>
+      <td>Pitt-3-preinf</td>
+      <td>ferret</td>
+      <td>pre</td>
+      <td>lib3, 100% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-postinf</td>
+      <td>lib1-8.8</td>
+      <td>L4-f9437d23</td>
+      <td>Lib4mock-A</td>
+      <td>WTplasmid-A</td>
+      <td>0.087700</td>
+      <td>f9437d23</td>
+      <td>lib1</td>
+      <td>2018-11-14</td>
+      <td>0.00225</td>
+      <td>8.7700</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-3-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib1, 8.8% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-postinf</td>
+      <td>lib2-1.7</td>
+      <td>L5-f9437d23</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.017000</td>
+      <td>f9437d23</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.001375</td>
+      <td>1.7000</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-3-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib2, 1.7% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-postinf</td>
+      <td>lib3-5.8</td>
+      <td>L6-f9437d23</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.057800</td>
+      <td>f9437d23</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00175</td>
+      <td>5.7800</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-3-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib3, 5.8% infectivity</td>
+    </tr>
+    <tr>
+      <td>2010-age-21</td>
+      <td>lib2-6.0</td>
+      <td>L5-VIDD1</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.059500</td>
+      <td>VIDD1</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0045</td>
+      <td>5.9500</td>
+      <td>collected at Hutch in 2/2010 from person born in 1989</td>
+      <td>VIDD_sera</td>
+      <td>2010-age-21</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib2, 6.0% infectivity</td>
+    </tr>
+    <tr>
+      <td>2010-age-21</td>
+      <td>lib1-4.1</td>
+      <td>L4-VIDD1</td>
+      <td>Lib4mock-B</td>
+      <td>WTplasmid-C</td>
+      <td>0.040800</td>
+      <td>VIDD1</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.0175</td>
+      <td>4.0800</td>
+      <td>collected at Hutch in 2/2010 from person born in 1989</td>
+      <td>VIDD_sera</td>
+      <td>2010-age-21</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib1, 4.1% infectivity</td>
+    </tr>
+    <tr>
+      <td>2010-age-21</td>
+      <td>lib3-3.7</td>
+      <td>L6-VIDD1</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.036800</td>
+      <td>VIDD1</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.0075</td>
+      <td>3.6800</td>
+      <td>collected at Hutch in 2/2010 from person born in 1989</td>
+      <td>VIDD_sera</td>
+      <td>2010-age-21</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib3, 3.7% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO-Victoria2011</td>
+      <td>lib2-3.9</td>
+      <td>L5-WHOCCVic</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.039000</td>
+      <td>WHOCCVic</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0025</td>
+      <td>3.9000</td>
+      <td>ferret infected by Melbourne WHO CC with their Victoria/2011 strain</td>
+      <td>ferret</td>
+      <td>WHO-Victoria2011</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib2, 3.9% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO-Victoria2011</td>
+      <td>lib1-1.3</td>
+      <td>L4-WHOCCVic</td>
+      <td>Lib4mock-B</td>
+      <td>WTplasmid-C</td>
+      <td>0.012600</td>
+      <td>WHOCCVic</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.00625</td>
+      <td>1.2600</td>
+      <td>ferret infected by Melbourne WHO CC with their Victoria/2011 strain</td>
+      <td>ferret</td>
+      <td>WHO-Victoria2011</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib1, 1.3% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO-Victoria2011</td>
+      <td>lib3-3.6</td>
+      <td>L6-WHOCCVic</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.036200</td>
+      <td>WHOCCVic</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.0025</td>
+      <td>3.6200</td>
+      <td>ferret infected by Melbourne WHO CC with their Victoria/2011 strain</td>
+      <td>ferret</td>
+      <td>WHO-Victoria2011</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib3, 3.6% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65</td>
+      <td>lib2-5.2</td>
+      <td>L5-VIDD5</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.052400</td>
+      <td>VIDD5</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.000875</td>
+      <td>5.2400</td>
+      <td>collected at Hutch in 6/2009 from person born in 1944</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-65</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib2, 5.2% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65</td>
+      <td>lib3-5.6</td>
+      <td>L6-VIDD5</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.055800</td>
+      <td>VIDD5</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.002</td>
+      <td>5.5800</td>
+      <td>collected at Hutch in 6/2009 from person born in 1944</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-65</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib3, 5.6% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65</td>
+      <td>lib1-1.8</td>
+      <td>L4-VIDD5</td>
+      <td>Lib4mock-D</td>
+      <td>WTplasmid-G</td>
+      <td>0.017700</td>
+      <td>VIDD5</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.003375</td>
+      <td>1.7700</td>
+      <td>collected at Hutch in 6/2009 from person born in 1944</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-65</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib1, 1.8% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-64</td>
+      <td>lib2-0.87</td>
+      <td>L5-VIDD4</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.008700</td>
+      <td>VIDD4</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.001675</td>
+      <td>0.8700</td>
+      <td>collected at Hutch in 11/2008 from person born in 1945</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-64</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib2, 0.87% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-64</td>
+      <td>lib1-11</td>
+      <td>L4-VIDD4</td>
+      <td>Lib4mock-B</td>
+      <td>WTplasmid-C</td>
+      <td>0.107400</td>
+      <td>VIDD4</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.004</td>
+      <td>10.7400</td>
+      <td>collected at Hutch in 11/2008 from person born in 1945</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-64</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib1, 11% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-64</td>
+      <td>lib3-0.26</td>
+      <td>L6-VIDD4</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.002600</td>
+      <td>VIDD4</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00375</td>
+      <td>0.2600</td>
+      <td>collected at Hutch in 11/2008 from person born in 1945</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-64</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib3, 0.26% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-53a</td>
+      <td>lib2-2.0</td>
+      <td>L5-VIDD2</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.020300</td>
+      <td>VIDD2</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.00375</td>
+      <td>2.0300</td>
+      <td>collected at Hutch in 1/2009 from person born in 1956</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-53a</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib2, 2.0% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-53a</td>
+      <td>lib1-3.7</td>
+      <td>L4-VIDD2</td>
+      <td>Lib4mock-B</td>
+      <td>WTplasmid-C</td>
+      <td>0.037400</td>
+      <td>VIDD2</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.00875</td>
+      <td>3.7400</td>
+      <td>collected at Hutch in 1/2009 from person born in 1956</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-53a</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib1, 3.7% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-53a</td>
+      <td>lib3-6.2</td>
+      <td>L6-VIDD2</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.062200</td>
+      <td>VIDD2</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.00375</td>
+      <td>6.2200</td>
+      <td>collected at Hutch in 1/2009 from person born in 1956</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-53a</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib3, 6.2% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-53b</td>
+      <td>lib2-1.7</td>
+      <td>L5-VIDD3</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.017300</td>
+      <td>VIDD3</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.0045</td>
+      <td>1.7300</td>
+      <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-53b</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib2, 1.7% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-53b</td>
+      <td>lib1-6.0</td>
+      <td>L4-VIDD3</td>
+      <td>Lib4mock-B</td>
+      <td>WTplasmid-C</td>
+      <td>0.059800</td>
+      <td>VIDD3</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.0075</td>
+      <td>5.9800</td>
+      <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-53b</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib1, 6.0% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-53b</td>
+      <td>lib3-1.1</td>
+      <td>L6-VIDD3</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.011200</td>
+      <td>VIDD3</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.00625</td>
+      <td>1.1200</td>
+      <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
+      <td>VIDD_sera</td>
+      <td>2009-age-53b</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib3, 1.1% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-postinf</td>
+      <td>lib2-1.9</td>
+      <td>L5-f9435d23</td>
+      <td>Lib5mock-A</td>
+      <td>WTplasmid-B</td>
+      <td>0.018800</td>
+      <td>f9435d23</td>
+      <td>lib2</td>
+      <td>2019-01-16</td>
+      <td>0.000625</td>
+      <td>1.8800</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-2-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib2, 1.9% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-postinf</td>
+      <td>lib1-3.5</td>
+      <td>L4-f9435d23</td>
+      <td>Lib4mock-B</td>
+      <td>WTplasmid-C</td>
+      <td>0.034500</td>
+      <td>f9435d23</td>
+      <td>lib1</td>
+      <td>2019-01-16</td>
+      <td>0.0025</td>
+      <td>3.4500</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-2-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib1, 3.5% infectivity</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-postinf</td>
+      <td>lib3-3.0</td>
+      <td>L6-f9435d23</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.030400</td>
+      <td>f9435d23</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.00125</td>
+      <td>3.0400</td>
+      <td>Lakdawala lab ferret, 23 days after infection by Perth/2009 with our HA</td>
+      <td>ferret</td>
+      <td>Pitt-2-postinf</td>
+      <td>ferret</td>
+      <td>post</td>
+      <td>lib3, 3.0% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>lib2-0.81</td>
+      <td>L5-557v2</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.008100</td>
+      <td>557v2</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.0005</td>
+      <td>0.8100</td>
+      <td>collected after 2015/2016 vaccine from person born in 1990</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib2, 0.81% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>lib3-1.6</td>
+      <td>L6-557v2</td>
+      <td>Lib6mock-A</td>
+      <td>WTplasmid-E</td>
+      <td>0.016400</td>
+      <td>557v2</td>
+      <td>lib3</td>
+      <td>2019-03-06</td>
+      <td>0.0005</td>
+      <td>1.6400</td>
+      <td>collected after 2015/2016 vaccine from person born in 1990</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib3, 1.6% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>lib1-1.5</td>
+      <td>L4-557v2</td>
+      <td>Lib4mock-C</td>
+      <td>WTplasmid-F</td>
+      <td>0.015300</td>
+      <td>557v2</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>0.00125</td>
+      <td>1.5300</td>
+      <td>collected after 2015/2016 vaccine from person born in 1990</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib1, 1.5% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-29-vacc</td>
+      <td>lib2-1.1</td>
+      <td>L5-574v2</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.011100</td>
+      <td>574v2</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000875</td>
+      <td>1.1100</td>
+      <td>collected after 2015/2016 vaccine from person born in 1986</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-29-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib2, 1.1% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-29-vacc</td>
+      <td>lib1-1.5</td>
+      <td>L4-574v2</td>
+      <td>Lib4mock-C</td>
+      <td>WTplasmid-F</td>
+      <td>0.015400</td>
+      <td>574v2</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>0.002</td>
+      <td>1.5400</td>
+      <td>collected after 2015/2016 vaccine from person born in 1986</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-29-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib1, 1.5% infectivity</td>
+    </tr>
+    <tr>
+      <td>2015-age-29-vacc</td>
+      <td>lib3-1.9</td>
+      <td>L6-574v2</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.019200</td>
+      <td>574v2</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.00075</td>
+      <td>1.9200</td>
+      <td>collected after 2015/2016 vaccine from person born in 1986</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-29-vacc</td>
+      <td>human</td>
+      <td>post</td>
+      <td>lib3, 1.9% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib2-23</td>
+      <td>L5-4F03-c1</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.229900</td>
+      <td>4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.3</td>
+      <td>22.9900</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 23% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib2-3.7</td>
+      <td>L5-4F03-c3</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.037100</td>
+      <td>4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>1.5</td>
+      <td>3.7100</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 3.7% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib2-4.7</td>
+      <td>L5-4F03-c2</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.047100</td>
+      <td>4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.7</td>
+      <td>4.7100</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 4.7% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib1-3.5</td>
+      <td>L4-4F03-c2</td>
+      <td>Lib4mock-C</td>
+      <td>WTplasmid-F</td>
+      <td>0.034700</td>
+      <td>4F03</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>1.0</td>
+      <td>3.4700</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib1, 3.5% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib1-0.78</td>
+      <td>L4-4F03-c3</td>
+      <td>Lib4mock-C</td>
+      <td>WTplasmid-F</td>
+      <td>0.007800</td>
+      <td>4F03</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>2.0</td>
+      <td>0.7800</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib1, 0.78% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib3-24</td>
+      <td>L6-4F03-c1</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.239100</td>
+      <td>4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.3</td>
+      <td>23.9100</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib3, 24% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib3-0.84</td>
+      <td>L6-4F03-c3</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.008400</td>
+      <td>4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>1.4</td>
+      <td>0.8400</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib3, 0.84% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib3-7.2</td>
+      <td>L6-4F03-c2</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.071600</td>
+      <td>4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.75</td>
+      <td>7.1600</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib3, 7.2% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-4F03</td>
+      <td>lib1-28</td>
+      <td>L4-4F03-c1</td>
+      <td>Lib4mock-D</td>
+      <td>WTplasmid-G</td>
+      <td>0.282400</td>
+      <td>4F03</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.3</td>
+      <td>28.2400</td>
+      <td>lower head-targeting monoclonal antibody 4F03 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-4F03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib1, 28% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-5A01</td>
+      <td>lib2-1.4</td>
+      <td>L5-5A01</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.013600</td>
+      <td>5A01</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.025</td>
+      <td>1.3600</td>
+      <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-5A01</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 1.4% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-5A01</td>
+      <td>lib1-4.3</td>
+      <td>L4-5A01</td>
+      <td>Lib4mock-C</td>
+      <td>WTplasmid-F</td>
+      <td>0.043200</td>
+      <td>5A01</td>
+      <td>lib1</td>
+      <td>2019-03-06</td>
+      <td>0.07</td>
+      <td>4.3200</td>
+      <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-5A01</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib1, 4.3% infectivity</td>
+    </tr>
+    <tr>
+      <td>antibody-5A01</td>
+      <td>lib3-1.0</td>
+      <td>L6-5A01</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.010200</td>
+      <td>5A01</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.025</td>
+      <td>1.0200</td>
+      <td>site B-targeting monoclonal antibody 5A01 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-5A01</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib3, 1.0% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-low-4F03</td>
+      <td>lib2-5.0</td>
+      <td>L5-VIDD5-low4F03</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.050000</td>
+      <td>VIDD5andlow4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000875+0.3</td>
+      <td>5.0000</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-low-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib2, 5.0% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-low-4F03</td>
+      <td>lib3-0.20</td>
+      <td>L6-VIDD5-low4F03</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.002040</td>
+      <td>VIDD5andlow4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.002+0.3</td>
+      <td>0.2040</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-low-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib3, 0.20% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-low-4F03</td>
+      <td>lib1-0.030</td>
+      <td>L4-VIDD5-low4F03</td>
+      <td>Lib4mock-D</td>
+      <td>WTplasmid-G</td>
+      <td>0.000300</td>
+      <td>VIDD5andlow4F03</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.003375+0.3</td>
+      <td>0.0300</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at low stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-low-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib1, 0.030% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-mid-4F03</td>
+      <td>lib2-0.46</td>
+      <td>L5-VIDD5-mid4F03</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.004600</td>
+      <td>VIDD5andmid4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000875+0.7</td>
+      <td>0.4600</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-mid-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib2, 0.46% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-mid-4F03</td>
+      <td>lib3-0.0077</td>
+      <td>L6-VIDD5-mid4F03</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.000077</td>
+      <td>VIDD5andmid4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.002+0.75</td>
+      <td>0.0077</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-mid-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib3, 0.0077% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-mid-4F03</td>
+      <td>lib1-0.0037</td>
+      <td>L4-VIDD5-mid4F03</td>
+      <td>Lib4mock-D</td>
+      <td>WTplasmid-G</td>
+      <td>0.000037</td>
+      <td>VIDD5andmid4F03</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.003375+1</td>
+      <td>0.0037</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at medium stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-mid-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib1, 0.0037% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-hi-4F03</td>
+      <td>lib2-0.040</td>
+      <td>L5-VIDD5-hi4F03</td>
+      <td>Lib5mock-B</td>
+      <td>WTplasmid-D</td>
+      <td>0.000400</td>
+      <td>VIDD5andhi4F03</td>
+      <td>lib2</td>
+      <td>2019-03-06</td>
+      <td>0.000875+1.5</td>
+      <td>0.0400</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at high stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-hi-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib2, 0.040% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-hi-4F03</td>
+      <td>lib3-0.0032</td>
+      <td>L6-VIDD5-hi4F03</td>
+      <td>Lib6mock-B</td>
+      <td>WTplasmid-H</td>
+      <td>0.000032</td>
+      <td>VIDD5andhi4F03</td>
+      <td>lib3</td>
+      <td>2019-03-26</td>
+      <td>0.002+1.4</td>
+      <td>0.0032</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at high stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-hi-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib3, 0.0032% infectivity</td>
+    </tr>
+    <tr>
+      <td>2009-age-65-with-hi-4F03</td>
+      <td>lib1-0.0016</td>
+      <td>L4-VIDD5-hi4F03</td>
+      <td>Lib4mock-D</td>
+      <td>WTplasmid-G</td>
+      <td>0.000016</td>
+      <td>VIDD5andhi4F03</td>
+      <td>lib1</td>
+      <td>2019-03-26</td>
+      <td>0.003375+2</td>
+      <td>0.0016</td>
+      <td>collected at Hutch in 6/2009 from person b1944 with 4F03 at high stringency</td>
+      <td>serum_mAb_spike</td>
+      <td>2009-age-65-with-hi-4F03</td>
+      <td>human</td>
+      <td>NaN</td>
+      <td>lib1, 0.0016% infectivity</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### Choose measure of immune selection
 In our prior work, we have used two different measures of the selection on each mutation:
@@ -480,6 +3743,12 @@ for selfile in ['mut' + seltype, 'site' + seltype]:
           f"`selections` data frame in column {selfilecol}")
 ```
 
+    Computing diffsel using dms2_batch_diffsel with command:
+    dms2_batch_diffsel --summaryprefix summary --batchfile results/diffsel/batch.csv --outdir results/diffsel --indir results/renumbered_codoncounts --use_existing yes --ncpus 16
+    Created 92 mutdiffsel files, adding to `selections` data frame in column mutdiffsel_file
+    Created 92 sitediffsel files, adding to `selections` data frame in column sitediffsel_file
+
+
 ### Get all selection information in one data frame
 For further processing, we want to create a dataframe that holds all of the selection information at the site and mutation levels for all samples.
 We create such a dataframe, *sel_df*, by reading the files in *selections* into the data frame using [dms_tools2.diffsel.df_read_filecols](https://jbloomlab.github.io/dms_tools2/dms_tools2.diffsel.html#dms_tools2.diffsel.df_read_filecols):
@@ -497,6 +3766,204 @@ Here are the first few rows:
 print(f"sel_df has {len(sel_df)} rows. Here are the first few:")
 display(HTML(sel_df.head(n=5).to_html(index=False)))
 ```
+
+    sel_df has 1041440 rows. Here are the first few:
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum_name_formatted</th>
+      <th>name</th>
+      <th>sel</th>
+      <th>mock</th>
+      <th>err</th>
+      <th>libfracsurvive</th>
+      <th>serum</th>
+      <th>library</th>
+      <th>date</th>
+      <th>serum_dilution</th>
+      <th>percent_infectivity</th>
+      <th>serum_description</th>
+      <th>serum_group</th>
+      <th>serum_name</th>
+      <th>serum_species</th>
+      <th>serum_vaccination</th>
+      <th>name_formatted</th>
+      <th>mutdiffsel_file</th>
+      <th>sitediffsel_file</th>
+      <th>site</th>
+      <th>wildtype</th>
+      <th>mutation</th>
+      <th>mutdiffsel</th>
+      <th>abs_diffsel</th>
+      <th>positive_diffsel</th>
+      <th>negative_diffsel</th>
+      <th>max_diffsel</th>
+      <th>min_diffsel</th>
+      <th>isite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>antibody-3C06</td>
+      <td>lib2-0.010</td>
+      <td>L2-3C06</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.0001</td>
+      <td>3C06</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.55</td>
+      <td>0.01</td>
+      <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 0.010% infectivity</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_mutdiffsel.csv</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_sitediffsel.csv</td>
+      <td>167</td>
+      <td>T</td>
+      <td>A</td>
+      <td>12.307415</td>
+      <td>26.366193</td>
+      <td>24.254047</td>
+      <td>-2.112146</td>
+      <td>12.307415</td>
+      <td>-2.112146</td>
+      <td>182</td>
+    </tr>
+    <tr>
+      <td>antibody-3C06</td>
+      <td>lib2-0.010</td>
+      <td>L2-3C06</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.0001</td>
+      <td>3C06</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.55</td>
+      <td>0.01</td>
+      <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 0.010% infectivity</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_mutdiffsel.csv</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_sitediffsel.csv</td>
+      <td>167</td>
+      <td>T</td>
+      <td>Q</td>
+      <td>1.227785</td>
+      <td>26.366193</td>
+      <td>24.254047</td>
+      <td>-2.112146</td>
+      <td>12.307415</td>
+      <td>-2.112146</td>
+      <td>182</td>
+    </tr>
+    <tr>
+      <td>antibody-3C06</td>
+      <td>lib2-0.010</td>
+      <td>L2-3C06</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.0001</td>
+      <td>3C06</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.55</td>
+      <td>0.01</td>
+      <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 0.010% infectivity</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_mutdiffsel.csv</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_sitediffsel.csv</td>
+      <td>167</td>
+      <td>T</td>
+      <td>G</td>
+      <td>1.189062</td>
+      <td>26.366193</td>
+      <td>24.254047</td>
+      <td>-2.112146</td>
+      <td>12.307415</td>
+      <td>-2.112146</td>
+      <td>182</td>
+    </tr>
+    <tr>
+      <td>antibody-3C06</td>
+      <td>lib2-0.010</td>
+      <td>L2-3C06</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.0001</td>
+      <td>3C06</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.55</td>
+      <td>0.01</td>
+      <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 0.010% infectivity</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_mutdiffsel.csv</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_sitediffsel.csv</td>
+      <td>167</td>
+      <td>T</td>
+      <td>V</td>
+      <td>1.085952</td>
+      <td>26.366193</td>
+      <td>24.254047</td>
+      <td>-2.112146</td>
+      <td>12.307415</td>
+      <td>-2.112146</td>
+      <td>182</td>
+    </tr>
+    <tr>
+      <td>antibody-3C06</td>
+      <td>lib2-0.010</td>
+      <td>L2-3C06</td>
+      <td>Lib2mock-mAb</td>
+      <td>WTplasmid-mAb-A</td>
+      <td>0.0001</td>
+      <td>3C06</td>
+      <td>lib2</td>
+      <td>2018-07-20</td>
+      <td>0.55</td>
+      <td>0.01</td>
+      <td>site B-targeting monoclonal antibody 3C06 from Seth Zost and Scott Hensley</td>
+      <td>antibody</td>
+      <td>antibody-3C06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>lib2, 0.010% infectivity</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_mutdiffsel.csv</td>
+      <td>results/diffsel/antibody-3C06-lib2-0.010_sitediffsel.csv</td>
+      <td>167</td>
+      <td>T</td>
+      <td>W</td>
+      <td>0.742358</td>
+      <td>26.366193</td>
+      <td>24.254047</td>
+      <td>-2.112146</td>
+      <td>12.307415</td>
+      <td>-2.112146</td>
+      <td>182</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Analyze immune selection
 
@@ -544,6 +4011,1508 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
     display(HTML(corr_df.to_html()))
 ```
 
+    
+    
+    ******************* 2009-age-53a *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_1.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 3.7% infectivity</th>
+      <th>lib2, 2.0% infectivity</th>
+      <th>lib3, 6.2% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 3.7% infectivity</th>
+      <td>1.000</td>
+      <td>0.439</td>
+      <td>0.396</td>
+    </tr>
+    <tr>
+      <th>lib2, 2.0% infectivity</th>
+      <td>0.439</td>
+      <td>1.000</td>
+      <td>0.380</td>
+    </tr>
+    <tr>
+      <th>lib3, 6.2% infectivity</th>
+      <td>0.396</td>
+      <td>0.380</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2009-age-53b *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_4.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 6.0% infectivity</th>
+      <th>lib2, 1.7% infectivity</th>
+      <th>lib3, 1.1% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 6.0% infectivity</th>
+      <td>1.000</td>
+      <td>0.446</td>
+      <td>0.451</td>
+    </tr>
+    <tr>
+      <th>lib2, 1.7% infectivity</th>
+      <td>0.446</td>
+      <td>1.000</td>
+      <td>0.434</td>
+    </tr>
+    <tr>
+      <th>lib3, 1.1% infectivity</th>
+      <td>0.451</td>
+      <td>0.434</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2009-age-64 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_7.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 11% infectivity</th>
+      <th>lib2, 0.87% infectivity</th>
+      <th>lib3, 0.26% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 11% infectivity</th>
+      <td>1.000</td>
+      <td>0.498</td>
+      <td>0.473</td>
+    </tr>
+    <tr>
+      <th>lib2, 0.87% infectivity</th>
+      <td>0.498</td>
+      <td>1.000</td>
+      <td>0.438</td>
+    </tr>
+    <tr>
+      <th>lib3, 0.26% infectivity</th>
+      <td>0.473</td>
+      <td>0.438</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2009-age-65 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_10.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 1.8% infectivity</th>
+      <th>lib2, 5.2% infectivity</th>
+      <th>lib3, 5.6% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 1.8% infectivity</th>
+      <td>1.000</td>
+      <td>0.491</td>
+      <td>0.356</td>
+    </tr>
+    <tr>
+      <th>lib2, 5.2% infectivity</th>
+      <td>0.491</td>
+      <td>1.000</td>
+      <td>0.370</td>
+    </tr>
+    <tr>
+      <th>lib3, 5.6% infectivity</th>
+      <td>0.356</td>
+      <td>0.370</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2009-age-65-with-hi-4F03 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_13.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 0.0016% infectivity</th>
+      <th>lib2, 0.040% infectivity</th>
+      <th>lib3, 0.0032% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 0.0016% infectivity</th>
+      <td>1.000</td>
+      <td>0.327</td>
+      <td>0.346</td>
+    </tr>
+    <tr>
+      <th>lib2, 0.040% infectivity</th>
+      <td>0.327</td>
+      <td>1.000</td>
+      <td>0.632</td>
+    </tr>
+    <tr>
+      <th>lib3, 0.0032% infectivity</th>
+      <td>0.346</td>
+      <td>0.632</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2009-age-65-with-low-4F03 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_16.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 0.030% infectivity</th>
+      <th>lib2, 5.0% infectivity</th>
+      <th>lib3, 0.20% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 0.030% infectivity</th>
+      <td>1.000</td>
+      <td>0.409</td>
+      <td>0.381</td>
+    </tr>
+    <tr>
+      <th>lib2, 5.0% infectivity</th>
+      <td>0.409</td>
+      <td>1.000</td>
+      <td>0.500</td>
+    </tr>
+    <tr>
+      <th>lib3, 0.20% infectivity</th>
+      <td>0.381</td>
+      <td>0.500</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2009-age-65-with-mid-4F03 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_19.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 0.0037% infectivity</th>
+      <th>lib2, 0.46% infectivity</th>
+      <th>lib3, 0.0077% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 0.0037% infectivity</th>
+      <td>1.000</td>
+      <td>0.407</td>
+      <td>0.476</td>
+    </tr>
+    <tr>
+      <th>lib2, 0.46% infectivity</th>
+      <td>0.407</td>
+      <td>1.000</td>
+      <td>0.512</td>
+    </tr>
+    <tr>
+      <th>lib3, 0.0077% infectivity</th>
+      <td>0.476</td>
+      <td>0.512</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2010-age-21 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_22.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 4.1% infectivity</th>
+      <th>lib2, 6.0% infectivity</th>
+      <th>lib3, 3.7% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 4.1% infectivity</th>
+      <td>1.000</td>
+      <td>0.518</td>
+      <td>0.539</td>
+    </tr>
+    <tr>
+      <th>lib2, 6.0% infectivity</th>
+      <td>0.518</td>
+      <td>1.000</td>
+      <td>0.614</td>
+    </tr>
+    <tr>
+      <th>lib3, 3.7% infectivity</th>
+      <td>0.539</td>
+      <td>0.614</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2015-age-25-prevacc *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_25.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 6.9% infectivity</th>
+      <th>lib2, 2.3% infectivity</th>
+      <th>lib3, 1.6% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 6.9% infectivity</th>
+      <td>1.000</td>
+      <td>0.753</td>
+      <td>0.763</td>
+    </tr>
+    <tr>
+      <th>lib2, 2.3% infectivity</th>
+      <td>0.753</td>
+      <td>1.000</td>
+      <td>0.757</td>
+    </tr>
+    <tr>
+      <th>lib3, 1.6% infectivity</th>
+      <td>0.763</td>
+      <td>0.757</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2015-age-25-vacc *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_28.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 1.5% infectivity</th>
+      <th>lib2, 0.81% infectivity</th>
+      <th>lib3, 1.6% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 1.5% infectivity</th>
+      <td>1.000</td>
+      <td>0.708</td>
+      <td>0.693</td>
+    </tr>
+    <tr>
+      <th>lib2, 0.81% infectivity</th>
+      <td>0.708</td>
+      <td>1.000</td>
+      <td>0.747</td>
+    </tr>
+    <tr>
+      <th>lib3, 1.6% infectivity</th>
+      <td>0.693</td>
+      <td>0.747</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2015-age-29-prevacc *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_31.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 9.5% infectivity</th>
+      <th>lib2, 7.6% infectivity</th>
+      <th>lib3, 3.3% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 9.5% infectivity</th>
+      <td>1.000</td>
+      <td>0.356</td>
+      <td>0.385</td>
+    </tr>
+    <tr>
+      <th>lib2, 7.6% infectivity</th>
+      <td>0.356</td>
+      <td>1.000</td>
+      <td>0.468</td>
+    </tr>
+    <tr>
+      <th>lib3, 3.3% infectivity</th>
+      <td>0.385</td>
+      <td>0.468</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2015-age-29-vacc *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_34.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 1.5% infectivity</th>
+      <th>lib2, 1.1% infectivity</th>
+      <th>lib3, 1.9% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 1.5% infectivity</th>
+      <td>1.000</td>
+      <td>0.457</td>
+      <td>0.309</td>
+    </tr>
+    <tr>
+      <th>lib2, 1.1% infectivity</th>
+      <td>0.457</td>
+      <td>1.000</td>
+      <td>0.340</td>
+    </tr>
+    <tr>
+      <th>lib3, 1.9% infectivity</th>
+      <td>0.309</td>
+      <td>0.340</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2015-age-48-prevacc *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_37.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 14% infectivity</th>
+      <th>lib2, 20% infectivity</th>
+      <th>lib3, 18% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 14% infectivity</th>
+      <td>1.000</td>
+      <td>0.320</td>
+      <td>0.345</td>
+    </tr>
+    <tr>
+      <th>lib2, 20% infectivity</th>
+      <td>0.320</td>
+      <td>1.000</td>
+      <td>0.413</td>
+    </tr>
+    <tr>
+      <th>lib3, 18% infectivity</th>
+      <td>0.345</td>
+      <td>0.413</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2015-age-48-vacc *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_40.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 4.6% infectivity</th>
+      <th>lib2, 4.7% infectivity</th>
+      <th>lib3, 4.1% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 4.6% infectivity</th>
+      <td>1.000</td>
+      <td>0.578</td>
+      <td>0.668</td>
+    </tr>
+    <tr>
+      <th>lib2, 4.7% infectivity</th>
+      <td>0.578</td>
+      <td>1.000</td>
+      <td>0.571</td>
+    </tr>
+    <tr>
+      <th>lib3, 4.1% infectivity</th>
+      <td>0.668</td>
+      <td>0.571</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2015-age-49-prevacc *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_43.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 20% infectivity</th>
+      <th>lib2, 12% infectivity</th>
+      <th>lib3, 28% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 20% infectivity</th>
+      <td>1.000</td>
+      <td>0.394</td>
+      <td>0.371</td>
+    </tr>
+    <tr>
+      <th>lib2, 12% infectivity</th>
+      <td>0.394</td>
+      <td>1.000</td>
+      <td>0.376</td>
+    </tr>
+    <tr>
+      <th>lib3, 28% infectivity</th>
+      <td>0.371</td>
+      <td>0.376</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* 2015-age-49-vacc *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_46.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 5.5% infectivity</th>
+      <th>lib2, 1.1% infectivity</th>
+      <th>lib3, 7.8% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 5.5% infectivity</th>
+      <td>1.000</td>
+      <td>0.375</td>
+      <td>0.388</td>
+    </tr>
+    <tr>
+      <th>lib2, 1.1% infectivity</th>
+      <td>0.375</td>
+      <td>1.000</td>
+      <td>0.449</td>
+    </tr>
+    <tr>
+      <th>lib3, 7.8% infectivity</th>
+      <td>0.388</td>
+      <td>0.449</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* antibody-1C04 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_49.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib2, 10% infectivity</th>
+      <th>lib3, 7.9% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib2, 10% infectivity</th>
+      <td>1.000</td>
+      <td>0.732</td>
+    </tr>
+    <tr>
+      <th>lib3, 7.9% infectivity</th>
+      <td>0.732</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* antibody-3C04 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_52.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 0.078% infectivity</th>
+      <th>lib2, 0.033% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 0.078% infectivity</th>
+      <td>1.000</td>
+      <td>0.647</td>
+    </tr>
+    <tr>
+      <th>lib2, 0.033% infectivity</th>
+      <td>0.647</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* antibody-3C06 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_55.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 0.069% infectivity</th>
+      <th>lib2, 0.010% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 0.069% infectivity</th>
+      <td>1.000</td>
+      <td>0.576</td>
+    </tr>
+    <tr>
+      <th>lib2, 0.010% infectivity</th>
+      <td>0.576</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* antibody-4C01 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_58.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 0.12% infectivity</th>
+      <th>lib2, 0.018% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 0.12% infectivity</th>
+      <td>1.000</td>
+      <td>0.822</td>
+    </tr>
+    <tr>
+      <th>lib2, 0.018% infectivity</th>
+      <td>0.822</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* antibody-4F03 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_61.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 0.78% infectivity</th>
+      <th>lib1, 28% infectivity</th>
+      <th>lib1, 3.5% infectivity</th>
+      <th>lib2, 23% infectivity</th>
+      <th>lib2, 3.7% infectivity</th>
+      <th>lib2, 4.7% infectivity</th>
+      <th>lib3, 0.84% infectivity</th>
+      <th>lib3, 24% infectivity</th>
+      <th>lib3, 7.2% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 0.78% infectivity</th>
+      <td>1.000</td>
+      <td>0.293</td>
+      <td>0.850</td>
+      <td>0.412</td>
+      <td>0.792</td>
+      <td>0.718</td>
+      <td>0.768</td>
+      <td>0.507</td>
+      <td>0.728</td>
+    </tr>
+    <tr>
+      <th>lib1, 28% infectivity</th>
+      <td>0.293</td>
+      <td>1.000</td>
+      <td>0.395</td>
+      <td>0.357</td>
+      <td>0.368</td>
+      <td>0.370</td>
+      <td>0.326</td>
+      <td>0.379</td>
+      <td>0.388</td>
+    </tr>
+    <tr>
+      <th>lib1, 3.5% infectivity</th>
+      <td>0.850</td>
+      <td>0.395</td>
+      <td>1.000</td>
+      <td>0.451</td>
+      <td>0.745</td>
+      <td>0.720</td>
+      <td>0.731</td>
+      <td>0.578</td>
+      <td>0.743</td>
+    </tr>
+    <tr>
+      <th>lib2, 23% infectivity</th>
+      <td>0.412</td>
+      <td>0.357</td>
+      <td>0.451</td>
+      <td>1.000</td>
+      <td>0.576</td>
+      <td>0.630</td>
+      <td>0.459</td>
+      <td>0.533</td>
+      <td>0.506</td>
+    </tr>
+    <tr>
+      <th>lib2, 3.7% infectivity</th>
+      <td>0.792</td>
+      <td>0.368</td>
+      <td>0.745</td>
+      <td>0.576</td>
+      <td>1.000</td>
+      <td>0.819</td>
+      <td>0.761</td>
+      <td>0.576</td>
+      <td>0.744</td>
+    </tr>
+    <tr>
+      <th>lib2, 4.7% infectivity</th>
+      <td>0.718</td>
+      <td>0.370</td>
+      <td>0.720</td>
+      <td>0.630</td>
+      <td>0.819</td>
+      <td>1.000</td>
+      <td>0.786</td>
+      <td>0.688</td>
+      <td>0.806</td>
+    </tr>
+    <tr>
+      <th>lib3, 0.84% infectivity</th>
+      <td>0.768</td>
+      <td>0.326</td>
+      <td>0.731</td>
+      <td>0.459</td>
+      <td>0.761</td>
+      <td>0.786</td>
+      <td>1.000</td>
+      <td>0.687</td>
+      <td>0.846</td>
+    </tr>
+    <tr>
+      <th>lib3, 24% infectivity</th>
+      <td>0.507</td>
+      <td>0.379</td>
+      <td>0.578</td>
+      <td>0.533</td>
+      <td>0.576</td>
+      <td>0.688</td>
+      <td>0.687</td>
+      <td>1.000</td>
+      <td>0.799</td>
+    </tr>
+    <tr>
+      <th>lib3, 7.2% infectivity</th>
+      <td>0.728</td>
+      <td>0.388</td>
+      <td>0.743</td>
+      <td>0.506</td>
+      <td>0.744</td>
+      <td>0.806</td>
+      <td>0.846</td>
+      <td>0.799</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* antibody-5A01 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_64.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 4.3% infectivity</th>
+      <th>lib2, 1.4% infectivity</th>
+      <th>lib3, 1.0% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 4.3% infectivity</th>
+      <td>1.000</td>
+      <td>0.762</td>
+      <td>0.705</td>
+    </tr>
+    <tr>
+      <th>lib2, 1.4% infectivity</th>
+      <td>0.762</td>
+      <td>1.000</td>
+      <td>0.717</td>
+    </tr>
+    <tr>
+      <th>lib3, 1.0% infectivity</th>
+      <td>0.705</td>
+      <td>0.717</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* ferret-Pitt-1-postinf *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_67.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 4.4% infectivity</th>
+      <th>lib2, 5.3% infectivity</th>
+      <th>lib3, 1.7% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 4.4% infectivity</th>
+      <td>1.000</td>
+      <td>0.517</td>
+      <td>0.58</td>
+    </tr>
+    <tr>
+      <th>lib2, 5.3% infectivity</th>
+      <td>0.517</td>
+      <td>1.000</td>
+      <td>0.58</td>
+    </tr>
+    <tr>
+      <th>lib3, 1.7% infectivity</th>
+      <td>0.580</td>
+      <td>0.580</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* ferret-Pitt-1-preinf *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_70.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 100% infectivity</th>
+      <th>lib2, 100% infectivity</th>
+      <th>lib3, 100% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 100% infectivity</th>
+      <td>1.000</td>
+      <td>0.248</td>
+      <td>0.327</td>
+    </tr>
+    <tr>
+      <th>lib2, 100% infectivity</th>
+      <td>0.248</td>
+      <td>1.000</td>
+      <td>0.231</td>
+    </tr>
+    <tr>
+      <th>lib3, 100% infectivity</th>
+      <td>0.327</td>
+      <td>0.231</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* ferret-Pitt-2-postinf *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_73.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 3.5% infectivity</th>
+      <th>lib2, 1.9% infectivity</th>
+      <th>lib3, 3.0% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 3.5% infectivity</th>
+      <td>1.000</td>
+      <td>0.487</td>
+      <td>0.551</td>
+    </tr>
+    <tr>
+      <th>lib2, 1.9% infectivity</th>
+      <td>0.487</td>
+      <td>1.000</td>
+      <td>0.509</td>
+    </tr>
+    <tr>
+      <th>lib3, 3.0% infectivity</th>
+      <td>0.551</td>
+      <td>0.509</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* ferret-Pitt-2-preinf *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_76.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 100% infectivity</th>
+      <th>lib2, 100% infectivity</th>
+      <th>lib3, 100% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 100% infectivity</th>
+      <td>1.00</td>
+      <td>0.260</td>
+      <td>0.270</td>
+    </tr>
+    <tr>
+      <th>lib2, 100% infectivity</th>
+      <td>0.26</td>
+      <td>1.000</td>
+      <td>0.328</td>
+    </tr>
+    <tr>
+      <th>lib3, 100% infectivity</th>
+      <td>0.27</td>
+      <td>0.328</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* ferret-Pitt-3-postinf *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_79.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 8.8% infectivity</th>
+      <th>lib2, 1.7% infectivity</th>
+      <th>lib3, 5.8% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 8.8% infectivity</th>
+      <td>1.000</td>
+      <td>0.589</td>
+      <td>0.563</td>
+    </tr>
+    <tr>
+      <th>lib2, 1.7% infectivity</th>
+      <td>0.589</td>
+      <td>1.000</td>
+      <td>0.629</td>
+    </tr>
+    <tr>
+      <th>lib3, 5.8% infectivity</th>
+      <td>0.563</td>
+      <td>0.629</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* ferret-Pitt-3-preinf *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_82.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 100% infectivity</th>
+      <th>lib2, 100% infectivity</th>
+      <th>lib3, 100% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 100% infectivity</th>
+      <td>1.000</td>
+      <td>0.286</td>
+      <td>0.346</td>
+    </tr>
+    <tr>
+      <th>lib2, 100% infectivity</th>
+      <td>0.286</td>
+      <td>1.000</td>
+      <td>0.336</td>
+    </tr>
+    <tr>
+      <th>lib3, 100% infectivity</th>
+      <td>0.346</td>
+      <td>0.336</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* ferret-WHO *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_85.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 2.3% infectivity</th>
+      <th>lib2, 1.9% infectivity</th>
+      <th>lib3, 4.1% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 2.3% infectivity</th>
+      <td>1.000</td>
+      <td>0.502</td>
+      <td>0.534</td>
+    </tr>
+    <tr>
+      <th>lib2, 1.9% infectivity</th>
+      <td>0.502</td>
+      <td>1.000</td>
+      <td>0.449</td>
+    </tr>
+    <tr>
+      <th>lib3, 4.1% infectivity</th>
+      <td>0.534</td>
+      <td>0.449</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+    
+    ******************* ferret-WHO-Victoria2011 *******************
+
+
+
+![png](analysis_notebook_files/analysis_notebook_69_88.png)
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sample</th>
+      <th>lib1, 1.3% infectivity</th>
+      <th>lib2, 3.9% infectivity</th>
+      <th>lib3, 3.6% infectivity</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lib1, 1.3% infectivity</th>
+      <td>1.000</td>
+      <td>0.600</td>
+      <td>0.618</td>
+    </tr>
+    <tr>
+      <th>lib2, 3.9% infectivity</th>
+      <td>0.600</td>
+      <td>1.000</td>
+      <td>0.631</td>
+    </tr>
+    <tr>
+      <th>lib3, 3.6% infectivity</th>
+      <td>0.618</td>
+      <td>0.631</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+
+
 #### Choose samples to retain based on infectivity remaining
 From the plots and correlations immediately above, several things are apparent:
  1. Different samples with the **same** virus library tend to be substantially more correlated than samples between different virus libraries.
@@ -562,6 +5531,9 @@ We do this in log space because in linear space, 0% infectivity would be closer 
 target_infectivity = 2
 print(f"Choosing samples closest to {target_infectivity:.2f}% infectivity.")
 ```
+
+    Choosing samples closest to 2.00% infectivity.
+
 
 Mark the samples to retain by adding a *retained* column to both the *selections* and *sel_df* data frames, and flagging it as *True* only for the sample for that serum and library that has the smallest log-space distance to the target infectivity:
 
@@ -582,6 +5554,9 @@ print(f"Retaining {len(selections.query('retained'))} of {len(selections)}")
 sel_df = sel_df.merge(selections[['serum_name_formatted', 'name', 'retained']],
                       validate='many_to_one')
 ```
+
+    Retaining 86 of 92
+
 
 Plot the samples to retain and their percent infectivity.
 In the plot below, the dashed horizontal line indicates the target percent infectivity, and the colors of the points indicate which sample we retained for each serum / library:
@@ -607,6 +5582,10 @@ p = (p9.ggplot(selections.assign(xlabel=lambda x: (x['serum_name_formatted'] +
 _ = p.draw()
 ```
 
+
+![png](analysis_notebook_files/analysis_notebook_75_0.png)
+
+
 #### Listing of retained samples
 Here is a small table listing the samples that we retained for each serum, and their percent infectivity remaining:
 
@@ -627,6 +5606,214 @@ display(HTML(selections
              .to_html()
              ))
 ```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>library</th>
+      <th>lib1</th>
+      <th>lib2</th>
+      <th>lib3</th>
+    </tr>
+    <tr>
+      <th>serum_group</th>
+      <th>serum_name_formatted</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="8" valign="top">Hensley_sera</th>
+      <th>2015-age-25-prevacc</th>
+      <td>6.9000</td>
+      <td>2.3100</td>
+      <td>1.5700</td>
+    </tr>
+    <tr>
+      <th>2015-age-25-vacc</th>
+      <td>1.5300</td>
+      <td>0.8100</td>
+      <td>1.6400</td>
+    </tr>
+    <tr>
+      <th>2015-age-29-prevacc</th>
+      <td>9.4800</td>
+      <td>7.5700</td>
+      <td>3.3000</td>
+    </tr>
+    <tr>
+      <th>2015-age-29-vacc</th>
+      <td>1.5400</td>
+      <td>1.1100</td>
+      <td>1.9200</td>
+    </tr>
+    <tr>
+      <th>2015-age-48-prevacc</th>
+      <td>13.8200</td>
+      <td>20.3200</td>
+      <td>18.4000</td>
+    </tr>
+    <tr>
+      <th>2015-age-48-vacc</th>
+      <td>4.5800</td>
+      <td>4.6800</td>
+      <td>4.0600</td>
+    </tr>
+    <tr>
+      <th>2015-age-49-prevacc</th>
+      <td>19.6200</td>
+      <td>11.8600</td>
+      <td>27.7400</td>
+    </tr>
+    <tr>
+      <th>2015-age-49-vacc</th>
+      <td>5.4800</td>
+      <td>1.0900</td>
+      <td>7.7900</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">VIDD_sera</th>
+      <th>2009-age-53a</th>
+      <td>3.7400</td>
+      <td>2.0300</td>
+      <td>6.2200</td>
+    </tr>
+    <tr>
+      <th>2009-age-53b</th>
+      <td>5.9800</td>
+      <td>1.7300</td>
+      <td>1.1200</td>
+    </tr>
+    <tr>
+      <th>2009-age-64</th>
+      <td>10.7400</td>
+      <td>0.8700</td>
+      <td>0.2600</td>
+    </tr>
+    <tr>
+      <th>2009-age-65</th>
+      <td>1.7700</td>
+      <td>5.2400</td>
+      <td>5.5800</td>
+    </tr>
+    <tr>
+      <th>2010-age-21</th>
+      <td>4.0800</td>
+      <td>5.9500</td>
+      <td>3.6800</td>
+    </tr>
+    <tr>
+      <th rowspan="6" valign="top">antibody</th>
+      <th>antibody-1C04</th>
+      <td>NaN</td>
+      <td>10.3190</td>
+      <td>7.9040</td>
+    </tr>
+    <tr>
+      <th>antibody-3C04</th>
+      <td>0.0777</td>
+      <td>0.0331</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>antibody-3C06</th>
+      <td>0.0688</td>
+      <td>0.0100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>antibody-4C01</th>
+      <td>0.1190</td>
+      <td>0.0185</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>antibody-4F03</th>
+      <td>3.4700</td>
+      <td>3.7100</td>
+      <td>0.8400</td>
+    </tr>
+    <tr>
+      <th>antibody-5A01</th>
+      <td>4.3200</td>
+      <td>1.3600</td>
+      <td>1.0200</td>
+    </tr>
+    <tr>
+      <th rowspan="8" valign="top">ferret</th>
+      <th>ferret-Pitt-1-postinf</th>
+      <td>4.3600</td>
+      <td>5.3500</td>
+      <td>1.6900</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-1-preinf</th>
+      <td>100.0000</td>
+      <td>100.0000</td>
+      <td>100.0000</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-2-postinf</th>
+      <td>3.4500</td>
+      <td>1.8800</td>
+      <td>3.0400</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-2-preinf</th>
+      <td>100.0000</td>
+      <td>100.0000</td>
+      <td>100.0000</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-3-postinf</th>
+      <td>8.7700</td>
+      <td>1.7000</td>
+      <td>5.7800</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-3-preinf</th>
+      <td>100.0000</td>
+      <td>100.0000</td>
+      <td>100.0000</td>
+    </tr>
+    <tr>
+      <th>ferret-WHO</th>
+      <td>2.3200</td>
+      <td>1.8800</td>
+      <td>4.1000</td>
+    </tr>
+    <tr>
+      <th>ferret-WHO-Victoria2011</th>
+      <td>1.2600</td>
+      <td>3.9000</td>
+      <td>3.6200</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">serum_mAb_spike</th>
+      <th>2009-age-65-with-hi-4F03</th>
+      <td>0.0016</td>
+      <td>0.0400</td>
+      <td>0.0032</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-low-4F03</th>
+      <td>0.0300</td>
+      <td>5.0000</td>
+      <td>0.2040</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-mid-4F03</th>
+      <td>0.0037</td>
+      <td>0.4600</td>
+      <td>0.0077</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### Compute serum average from retained samples
 We now compute the "average" selection among the retained samples for each serum.
@@ -804,6 +5991,70 @@ print('Here are the first few rows of sigsites_df:')
 display(HTML(sigsites_df.head(n=4).to_html(index=False)))
 ```
 
+    Identifying sites of significant selection at a FDR of 0.05.
+    Plots of distribution fitting saved as results/avgdiffsel/sigsites_{serum}.pdf
+    Here are the first few rows of sigsites_df:
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum_group</th>
+      <th>serum_name_formatted</th>
+      <th>isite</th>
+      <th>site</th>
+      <th>positive_diffsel</th>
+      <th>P</th>
+      <th>Q</th>
+      <th>sig</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>antibody</td>
+      <td>antibody-5A01</td>
+      <td>174</td>
+      <td>159</td>
+      <td>29.408444</td>
+      <td>7.342283e-21</td>
+      <td>2.077866e-18</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>antibody</td>
+      <td>antibody-5A01</td>
+      <td>175</td>
+      <td>160</td>
+      <td>32.811071</td>
+      <td>3.346377e-23</td>
+      <td>1.894049e-20</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>antibody</td>
+      <td>antibody-5A01</td>
+      <td>208</td>
+      <td>193</td>
+      <td>13.612415</td>
+      <td>5.329409e-10</td>
+      <td>7.541114e-08</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>antibody</td>
+      <td>antibody-5A01</td>
+      <td>173</td>
+      <td>158</td>
+      <td>4.757160</td>
+      <td>6.271669e-04</td>
+      <td>4.437205e-02</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+
+
 #### List significant sites for each serum
 Now display lists of the significant sites for each serum:
 
@@ -820,6 +6071,175 @@ display(HTML(sigsites_df
              .to_html()
              ))
 ```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>significant sites</th>
+      <th>number of sites</th>
+    </tr>
+    <tr>
+      <th>serum_name_formatted</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>antibody-5A01</th>
+      <td>157, 158, 159, 160, 193, 222, 227, 244</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>antibody-4F03</th>
+      <td>80, 81, 83, 121, 122, 220, 244, 259, (HA2)78</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>antibody-3C04</th>
+      <td>159, 160, 192, 193</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>antibody-3C06</th>
+      <td>145, 159, 160, 167, 193</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>antibody-4C01</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>antibody-1C04</th>
+      <td>53, 54, 57, 82, 83, 188, 210, 220, 244, (HA2)61</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-1-preinf</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-1-postinf</th>
+      <td>189, 193</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-2-preinf</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-2-postinf</th>
+      <td>142, 144, 189, 193, 222</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-3-preinf</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-3-postinf</th>
+      <td>189</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>ferret-WHO</th>
+      <td>50, 189, 193</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>ferret-WHO-Victoria2011</th>
+      <td>50, 159, 189, 193, 222, 275</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2010-age-21</th>
+      <td>193, 222</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2009-age-53a</th>
+      <td>157, 160</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2009-age-53b</th>
+      <td>157, 160, 244</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2009-age-64</th>
+      <td>159, 222, 244</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2009-age-65</th>
+      <td>159, 160, 193</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2015-age-25-prevacc</th>
+      <td>145, 159, 160, 192, 193, 210, 218, 220, 222, 223, 224, 279</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2015-age-25-vacc</th>
+      <td>145, 159, 160, 161, 192, 193, 207, 220, 222, 224, 225, 244</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2015-age-29-prevacc</th>
+      <td>157, 159, 160, 193</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2015-age-29-vacc</th>
+      <td>144, 145, 159, 160, 222, 227</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2015-age-48-prevacc</th>
+      <td>201</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2015-age-48-vacc</th>
+      <td>189</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2015-age-49-prevacc</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2015-age-49-vacc</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-low-4F03</th>
+      <td>80, 121, 159, 160, 193, 244</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-mid-4F03</th>
+      <td>121</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-hi-4F03</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
 
 #### Get significant sites for each serum group
 In the analyses below, we may want to plot the sites that are significant within at least one serum sample for each serum group.
@@ -840,6 +6260,57 @@ sigsites_by_serumgroup = (
 
 display(HTML(sigsites_by_serumgroup.to_html()))
 ```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>isite</th>
+      <th>site</th>
+      <th>nsites</th>
+    </tr>
+    <tr>
+      <th>serum_group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>VIDD_sera</th>
+      <td>[172, 174, 175, 208, 237, 259]</td>
+      <td>[157, 159, 160, 193, 222, 244]</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>serum_mAb_spike</th>
+      <td>[95, 136, 174, 175, 208, 259]</td>
+      <td>[80, 121, 159, 160, 193, 244]</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>ferret</th>
+      <td>[65, 157, 159, 174, 204, 208, 237, 290]</td>
+      <td>[50, 142, 144, 159, 189, 193, 222, 275]</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Hensley_sera</th>
+      <td>[159, 160, 172, 174, 175, 176, 204, 207, 208, 216, 222, 225, 233, 235, 237, 238, 239, 240, 242, 259, 294]</td>
+      <td>[144, 145, 157, 159, 160, 161, 189, 192, 193, 201, 207, 210, 218, 220, 222, 223, 224, 225, 227, 244, 279]</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>antibody</th>
+      <td>[68, 69, 72, 95, 96, 97, 98, 136, 137, 160, 172, 173, 174, 175, 182, 203, 207, 208, 225, 235, 237, 242, 259, 274, 405, 422]</td>
+      <td>[53, 54, 57, 80, 81, 82, 83, 121, 122, 145, 157, 158, 159, 160, 167, 188, 192, 193, 210, 220, 222, 227, 244, 259, (HA2)61, (HA2)78]</td>
+      <td>26</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### Plot serum-average selection
 Now we plot the average (across libraries) selection for each serum.
@@ -911,6 +6382,51 @@ Here are the sites we will zoom in on for each serum group:
 display(HTML(pd.DataFrame.from_dict(zoom_sites, orient='index').to_html()))
 ```
 
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>isite</th>
+      <th>site</th>
+      <th>nsites</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Hensley_sera</th>
+      <td>[159, 160, 172, 174, 175, 176, 204, 207, 208, 216, 222, 225, 233, 235, 237, 238, 239, 240, 242, 259, 294]</td>
+      <td>[144, 145, 157, 159, 160, 161, 189, 192, 193, 201, 207, 210, 218, 220, 222, 223, 224, 225, 227, 244, 279]</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>VIDD_sera</th>
+      <td>[172, 174, 175, 208, 237, 259]</td>
+      <td>[157, 159, 160, 193, 222, 244]</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>antibody</th>
+      <td>[68, 69, 72, 95, 96, 97, 98, 136, 137, 160, 172, 173, 174, 175, 182, 203, 207, 208, 225, 235, 237, 242, 259, 274, 405, 422]</td>
+      <td>[53, 54, 57, 80, 81, 82, 83, 121, 122, 145, 157, 158, 159, 160, 167, 188, 192, 193, 210, 220, 222, 227, 244, 259, (HA2)61, (HA2)78]</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>ferret</th>
+      <td>[65, 157, 159, 174, 204, 208, 237, 290]</td>
+      <td>[50, 142, 144, 159, 189, 193, 222, 275]</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>serum_mAb_spike</th>
+      <td>[95, 136, 174, 175, 208, 259]</td>
+      <td>[80, 121, 159, 160, 193, 244]</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+
+
 Add a column (`zoom_site`) to `avg_sel_df` that indicates which sites to zoom in on:
 
 
@@ -973,6 +6489,61 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     plt.close(fig)
 ```
 
+    
+    
+    ************************************************************************
+    Serum group Hensley_sera, saving to results/avgdiffsel/Hensley_sera_avg.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_115_1.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group VIDD_sera, saving to results/avgdiffsel/VIDD_sera_avg.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_115_3.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group antibody, saving to results/avgdiffsel/antibody_avg.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_115_5.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group ferret, saving to results/avgdiffsel/ferret_avg.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_115_7.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group serum_mAb_spike, saving to results/avgdiffsel/serum_mAb_spike_avg.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_115_9.png)
+
+
 #### Compact plots showing each replicate
 The above plots show the average of the retained replicates.
 It can also be helpful to look at each replicate that went into the average separately.
@@ -1015,6 +6586,61 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     plt.close(fig)
 ```
 
+    
+    
+    ************************************************************************
+    Serum group Hensley_sera, saving to results/avgdiffsel/Hensley_sera_reps.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_117_1.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group VIDD_sera, saving to results/avgdiffsel/VIDD_sera_reps.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_117_3.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group antibody, saving to results/avgdiffsel/antibody_reps.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_117_5.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group ferret, saving to results/avgdiffsel/ferret_reps.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_117_7.png)
+
+
+    
+    
+    ************************************************************************
+    Serum group serum_mAb_spike, saving to results/avgdiffsel/serum_mAb_spike_reps.pdf
+    
+
+
+
+![png](analysis_notebook_files/analysis_notebook_117_9.png)
+
+
 #### Whole-gene logo plots of replicate-average selection
 Finally, we make whole-gene logo plots for each serum that shows the replicate-average selection for **all** sites.
 We make these whole-gene plots using [dms2_logoplot](https://jbloomlab.github.io/dms_tools2/dms2_logoplot.html).
@@ -1045,6 +6671,38 @@ for tup in (avg_selections
     subprocess.check_output(cmds)
     assert os.path.isfile(plotfile)
 ```
+
+    Plotting antibody-5A01 to results/avgdiffsel/antibody-5A01_diffsel.pdf
+    Plotting antibody-4F03 to results/avgdiffsel/antibody-4F03_diffsel.pdf
+    Plotting antibody-3C04 to results/avgdiffsel/antibody-3C04_diffsel.pdf
+    Plotting antibody-3C06 to results/avgdiffsel/antibody-3C06_diffsel.pdf
+    Plotting antibody-4C01 to results/avgdiffsel/antibody-4C01_diffsel.pdf
+    Plotting antibody-1C04 to results/avgdiffsel/antibody-1C04_diffsel.pdf
+    Plotting ferret-Pitt-1-preinf to results/avgdiffsel/ferret-Pitt-1-preinf_diffsel.pdf
+    Plotting ferret-Pitt-1-postinf to results/avgdiffsel/ferret-Pitt-1-postinf_diffsel.pdf
+    Plotting ferret-Pitt-2-preinf to results/avgdiffsel/ferret-Pitt-2-preinf_diffsel.pdf
+    Plotting ferret-Pitt-2-postinf to results/avgdiffsel/ferret-Pitt-2-postinf_diffsel.pdf
+    Plotting ferret-Pitt-3-preinf to results/avgdiffsel/ferret-Pitt-3-preinf_diffsel.pdf
+    Plotting ferret-Pitt-3-postinf to results/avgdiffsel/ferret-Pitt-3-postinf_diffsel.pdf
+    Plotting ferret-WHO to results/avgdiffsel/ferret-WHO_diffsel.pdf
+    Plotting ferret-WHO-Victoria2011 to results/avgdiffsel/ferret-WHO-Victoria2011_diffsel.pdf
+    Plotting 2010-age-21 to results/avgdiffsel/2010-age-21_diffsel.pdf
+    Plotting 2009-age-53a to results/avgdiffsel/2009-age-53a_diffsel.pdf
+    Plotting 2009-age-53b to results/avgdiffsel/2009-age-53b_diffsel.pdf
+    Plotting 2009-age-64 to results/avgdiffsel/2009-age-64_diffsel.pdf
+    Plotting 2009-age-65 to results/avgdiffsel/2009-age-65_diffsel.pdf
+    Plotting 2015-age-25-prevacc to results/avgdiffsel/2015-age-25-prevacc_diffsel.pdf
+    Plotting 2015-age-25-vacc to results/avgdiffsel/2015-age-25-vacc_diffsel.pdf
+    Plotting 2015-age-29-prevacc to results/avgdiffsel/2015-age-29-prevacc_diffsel.pdf
+    Plotting 2015-age-29-vacc to results/avgdiffsel/2015-age-29-vacc_diffsel.pdf
+    Plotting 2015-age-48-prevacc to results/avgdiffsel/2015-age-48-prevacc_diffsel.pdf
+    Plotting 2015-age-48-vacc to results/avgdiffsel/2015-age-48-vacc_diffsel.pdf
+    Plotting 2015-age-49-prevacc to results/avgdiffsel/2015-age-49-prevacc_diffsel.pdf
+    Plotting 2015-age-49-vacc to results/avgdiffsel/2015-age-49-vacc_diffsel.pdf
+    Plotting 2009-age-65-with-low-4F03 to results/avgdiffsel/2009-age-65-with-low-4F03_diffsel.pdf
+    Plotting 2009-age-65-with-mid-4F03 to results/avgdiffsel/2009-age-65-with-mid-4F03_diffsel.pdf
+    Plotting 2009-age-65-with-hi-4F03 to results/avgdiffsel/2009-age-65-with-hi-4F03_diffsel.pdf
+
 
 # Plot figures for paper
 
@@ -1141,6 +6799,10 @@ display(fig)
 fig.savefig(plotfile)
 plt.close(fig)
 ```
+
+
+![png](analysis_notebook_files/analysis_notebook_127_0.png)
+
 
 
 ```python
