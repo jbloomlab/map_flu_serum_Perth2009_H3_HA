@@ -48,3 +48,8 @@ countsdir: results/codoncounts  # counts of mutations
 renumbcountsdir: results/renumbered_codoncounts  # counts w/ renumbered sites
 diffseldir: results/diffsel  # diffsel for all samples
 avgdiffseldir: results/avgdiffsel  # diffsel average across libraries
+avgdiffsel_sigsites_dir: results/avgdiffsel/sigsites  # calling "significant sites"
+avgdiffsel_zoom_dir: results/avgdiffsel/zoomed_plots  # zoom of average diffsel
+avgdiffsel_reps_dir: results/avgdiffsel/replicates  # replicates that go into average
+avgdiffsel_full_dir: results/avgdiffsel/full_logo_plots  # full logo plots of average diffsel
+figsdir: results/addtl_figs  # additional customized figures

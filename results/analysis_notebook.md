@@ -1,6 +1,6 @@
 
 <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Analysis-of-serum-mutational-antigenic-profiling" data-toc-modified-id="Analysis-of-serum-mutational-antigenic-profiling-1">Analysis of serum mutational antigenic profiling</a></span><ul class="toc-item"><li><span><a href="#Configure-analysis" data-toc-modified-id="Configure-analysis-1.1">Configure analysis</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1.1">Import Python modules / packages</a></span></li><li><span><a href="#Get-config-variables" data-toc-modified-id="Get-config-variables-1.1.2">Get config variables</a></span></li><li><span><a href="#Get-sera-information" data-toc-modified-id="Get-sera-information-1.1.3">Get sera information</a></span></li><li><span><a href="#Get-list-of-samples" data-toc-modified-id="Get-list-of-samples-1.1.4">Get list of samples</a></span></li><li><span><a href="#Download-deep-sequencing-data-if-needed" data-toc-modified-id="Download-deep-sequencing-data-if-needed-1.1.5">Download deep sequencing data if needed</a></span></li></ul></li><li><span><a href="#Align-sequencing-and-count-mutations" data-toc-modified-id="Align-sequencing-and-count-mutations-1.2">Align sequencing and count mutations</a></span><ul class="toc-item"><li><span><a href="#Run-dms2_batch_bcsubamp" data-toc-modified-id="Run-dms2_batch_bcsubamp-1.2.1">Run <code>dms2_batch_bcsubamp</code></a></span></li><li><span><a href="#Plot-sequencing-and-mutation-counts-summaries" data-toc-modified-id="Plot-sequencing-and-mutation-counts-summaries-1.2.2">Plot sequencing and mutation counts summaries</a></span><ul class="toc-item"><li><span><a href="#Reads-and-barcodes-per-sample" data-toc-modified-id="Reads-and-barcodes-per-sample-1.2.2.1">Reads and barcodes per sample</a></span></li><li><span><a href="#Coverage-across-gene" data-toc-modified-id="Coverage-across-gene-1.2.2.2">Coverage across gene</a></span></li><li><span><a href="#Mutation-frequencies" data-toc-modified-id="Mutation-frequencies-1.2.2.3">Mutation frequencies</a></span></li><li><span><a href="#Check-for-oxidative-damage" data-toc-modified-id="Check-for-oxidative-damage-1.2.2.4">Check for oxidative damage</a></span></li></ul></li><li><span><a href="#Renumber-to-standard-HA-numbering" data-toc-modified-id="Renumber-to-standard-HA-numbering-1.2.3">Renumber to standard HA numbering</a></span></li></ul></li><li><span><a href="#Compute-immune-selection-on-mutations" data-toc-modified-id="Compute-immune-selection-on-mutations-1.3">Compute immune selection on mutations</a></span><ul class="toc-item"><li><span><a href="#Samples-to-compare-for-each-selection" data-toc-modified-id="Samples-to-compare-for-each-selection-1.3.1">Samples to compare for each selection</a></span></li><li><span><a href="#Compute-immune-selection" data-toc-modified-id="Compute-immune-selection-1.3.2">Compute immune selection</a></span></li><li><span><a href="#Get-all-selection-information-in-one-data-frame" data-toc-modified-id="Get-all-selection-information-in-one-data-frame-1.3.3">Get all selection information in one data frame</a></span></li></ul></li><li><span><a href="#Analyze-immune-selection" data-toc-modified-id="Analyze-immune-selection-1.4">Analyze immune selection</a></span><ul class="toc-item"><li><span><a href="#Examine-all-samples-and-choose-ones-to-retain" data-toc-modified-id="Examine-all-samples-and-choose-ones-to-retain-1.4.1">Examine all samples and choose ones to retain</a></span><ul class="toc-item"><li><span><a href="#Plot-site-level-selection-for-all-samples" data-toc-modified-id="Plot-site-level-selection-for-all-samples-1.4.1.1">Plot site-level selection for all samples</a></span></li><li><span><a href="#Choose-samples-to-retain-based-on-infectivity-remaining" data-toc-modified-id="Choose-samples-to-retain-based-on-infectivity-remaining-1.4.1.2">Choose samples to retain based on infectivity remaining</a></span></li><li><span><a href="#Listing-of-retained-samples" data-toc-modified-id="Listing-of-retained-samples-1.4.1.3">Listing of retained samples</a></span></li></ul></li><li><span><a href="#Compute-serum-average-from-retained-samples" data-toc-modified-id="Compute-serum-average-from-retained-samples-1.4.2">Compute serum average from retained samples</a></span></li><li><span><a href="#Identify-sites-of-&quot;significant&quot;-selection" data-toc-modified-id="Identify-sites-of-&quot;significant&quot;-selection-1.4.3">Identify sites of "significant" selection</a></span><ul class="toc-item"><li><span><a href="#Cutoff-for-significance" data-toc-modified-id="Cutoff-for-significance-1.4.3.1">Cutoff for significance</a></span></li><li><span><a href="#Identify-significant-sites" data-toc-modified-id="Identify-significant-sites-1.4.3.2">Identify significant sites</a></span></li><li><span><a href="#List-significant-sites-for-each-serum" data-toc-modified-id="List-significant-sites-for-each-serum-1.4.3.3">List significant sites for each serum</a></span></li><li><span><a href="#Get-significant-sites-for-each-serum-group" data-toc-modified-id="Get-significant-sites-for-each-serum-group-1.4.3.4">Get significant sites for each serum group</a></span></li></ul></li><li><span><a href="#Plot-serum-average-selection" data-toc-modified-id="Plot-serum-average-selection-1.4.4">Plot serum-average selection</a></span><ul class="toc-item"><li><span><a href="#Choose-sites-to-zoom-in-on" data-toc-modified-id="Choose-sites-to-zoom-in-on-1.4.4.1">Choose sites to zoom-in on</a></span></li><li><span><a href="#Compact-plots-of-replicate-average-selection" data-toc-modified-id="Compact-plots-of-replicate-average-selection-1.4.4.2">Compact plots of replicate-average selection</a></span></li><li><span><a href="#Compact-plots-showing-each-replicate" data-toc-modified-id="Compact-plots-showing-each-replicate-1.4.4.3">Compact plots showing each replicate</a></span></li><li><span><a href="#Whole-gene-logo-plots-of-replicate-average-selection" data-toc-modified-id="Whole-gene-logo-plots-of-replicate-average-selection-1.4.4.4">Whole-gene logo plots of replicate-average selection</a></span></li></ul></li></ul></li><li><span><a href="#Plot-figures-for-paper" data-toc-modified-id="Plot-figures-for-paper-1.5">Plot figures for paper</a></span></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Analysis-of-serum-mutational-antigenic-profiling" data-toc-modified-id="Analysis-of-serum-mutational-antigenic-profiling-1">Analysis of serum mutational antigenic profiling</a></span><ul class="toc-item"><li><span><a href="#Configure-analysis" data-toc-modified-id="Configure-analysis-1.1">Configure analysis</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1.1">Import Python modules / packages</a></span></li><li><span><a href="#Get-config-variables" data-toc-modified-id="Get-config-variables-1.1.2">Get config variables</a></span></li><li><span><a href="#Get-sera-information" data-toc-modified-id="Get-sera-information-1.1.3">Get sera information</a></span></li><li><span><a href="#Get-list-of-samples" data-toc-modified-id="Get-list-of-samples-1.1.4">Get list of samples</a></span></li><li><span><a href="#Download-deep-sequencing-data-if-needed" data-toc-modified-id="Download-deep-sequencing-data-if-needed-1.1.5">Download deep sequencing data if needed</a></span></li></ul></li><li><span><a href="#Align-sequencing-and-count-mutations" data-toc-modified-id="Align-sequencing-and-count-mutations-1.2">Align sequencing and count mutations</a></span><ul class="toc-item"><li><span><a href="#Run-dms2_batch_bcsubamp" data-toc-modified-id="Run-dms2_batch_bcsubamp-1.2.1">Run <code>dms2_batch_bcsubamp</code></a></span></li><li><span><a href="#Plot-sequencing-and-mutation-counts-summaries" data-toc-modified-id="Plot-sequencing-and-mutation-counts-summaries-1.2.2">Plot sequencing and mutation counts summaries</a></span><ul class="toc-item"><li><span><a href="#Reads-and-barcodes-per-sample" data-toc-modified-id="Reads-and-barcodes-per-sample-1.2.2.1">Reads and barcodes per sample</a></span></li><li><span><a href="#Coverage-across-gene" data-toc-modified-id="Coverage-across-gene-1.2.2.2">Coverage across gene</a></span></li><li><span><a href="#Mutation-frequencies" data-toc-modified-id="Mutation-frequencies-1.2.2.3">Mutation frequencies</a></span></li><li><span><a href="#Check-for-oxidative-damage" data-toc-modified-id="Check-for-oxidative-damage-1.2.2.4">Check for oxidative damage</a></span></li></ul></li><li><span><a href="#Renumber-to-standard-HA-numbering" data-toc-modified-id="Renumber-to-standard-HA-numbering-1.2.3">Renumber to standard HA numbering</a></span></li></ul></li><li><span><a href="#Compute-immune-selection-on-mutations" data-toc-modified-id="Compute-immune-selection-on-mutations-1.3">Compute immune selection on mutations</a></span><ul class="toc-item"><li><span><a href="#Samples-to-compare-for-each-selection" data-toc-modified-id="Samples-to-compare-for-each-selection-1.3.1">Samples to compare for each selection</a></span></li><li><span><a href="#Compute-immune-selection" data-toc-modified-id="Compute-immune-selection-1.3.2">Compute immune selection</a></span></li><li><span><a href="#Get-all-selection-information-in-one-data-frame" data-toc-modified-id="Get-all-selection-information-in-one-data-frame-1.3.3">Get all selection information in one data frame</a></span></li></ul></li><li><span><a href="#Analyze-immune-selection" data-toc-modified-id="Analyze-immune-selection-1.4">Analyze immune selection</a></span><ul class="toc-item"><li><span><a href="#Examine-all-samples-and-choose-ones-to-retain" data-toc-modified-id="Examine-all-samples-and-choose-ones-to-retain-1.4.1">Examine all samples and choose ones to retain</a></span><ul class="toc-item"><li><span><a href="#Plot-site-level-selection-for-all-samples" data-toc-modified-id="Plot-site-level-selection-for-all-samples-1.4.1.1">Plot site-level selection for all samples</a></span></li><li><span><a href="#Choose-samples-to-retain-based-on-infectivity-remaining" data-toc-modified-id="Choose-samples-to-retain-based-on-infectivity-remaining-1.4.1.2">Choose samples to retain based on infectivity remaining</a></span></li><li><span><a href="#Listing-of-retained-samples" data-toc-modified-id="Listing-of-retained-samples-1.4.1.3">Listing of retained samples</a></span></li></ul></li><li><span><a href="#Compute-serum-average-from-retained-samples" data-toc-modified-id="Compute-serum-average-from-retained-samples-1.4.2">Compute serum average from retained samples</a></span></li><li><span><a href="#Identify-sites-of-&quot;significant&quot;-selection" data-toc-modified-id="Identify-sites-of-&quot;significant&quot;-selection-1.4.3">Identify sites of "significant" selection</a></span><ul class="toc-item"><li><span><a href="#Cutoff-for-significance" data-toc-modified-id="Cutoff-for-significance-1.4.3.1">Cutoff for significance</a></span></li><li><span><a href="#Identify-significant-sites" data-toc-modified-id="Identify-significant-sites-1.4.3.2">Identify significant sites</a></span></li><li><span><a href="#List-significant-sites-for-each-serum" data-toc-modified-id="List-significant-sites-for-each-serum-1.4.3.3">List significant sites for each serum</a></span></li><li><span><a href="#Get-significant-sites-for-each-serum-group" data-toc-modified-id="Get-significant-sites-for-each-serum-group-1.4.3.4">Get significant sites for each serum group</a></span></li></ul></li><li><span><a href="#Plot-selection" data-toc-modified-id="Plot-selection-1.4.4">Plot selection</a></span><ul class="toc-item"><li><span><a href="#Choose-sites-to-zoom-in-on" data-toc-modified-id="Choose-sites-to-zoom-in-on-1.4.4.1">Choose sites to zoom-in on</a></span></li><li><span><a href="#Compact-plots-of-replicate-average-selection" data-toc-modified-id="Compact-plots-of-replicate-average-selection-1.4.4.2">Compact plots of replicate-average selection</a></span></li><li><span><a href="#Compact-plots-showing-each-replicate" data-toc-modified-id="Compact-plots-showing-each-replicate-1.4.4.3">Compact plots showing each replicate</a></span></li><li><span><a href="#Whole-gene-logo-plots-of-replicate-average-selection" data-toc-modified-id="Whole-gene-logo-plots-of-replicate-average-selection-1.4.4.4">Whole-gene logo plots of replicate-average selection</a></span></li></ul></li></ul></li><li><span><a href="#Additional-figures-for-paper" data-toc-modified-id="Additional-figures-for-paper-1.5">Additional figures for paper</a></span><ul class="toc-item"><li><span><a href="#Antibody-spike-in-experiment" data-toc-modified-id="Antibody-spike-in-experiment-1.5.1">Antibody spike-in experiment</a></span></li></ul></li></ul></li></ul></div>
 
 # Analysis of serum mutational antigenic profiling
 This Python Jupyter notebook analyzes mutational antigenic profiling of serum against virus carrying the A/Perth/2009 (H3N2) HA.
@@ -178,6 +178,26 @@ display(HTML(pd.Series(config)
     <tr>
       <th>avgdiffseldir</th>
       <td>results/avgdiffsel</td>
+    </tr>
+    <tr>
+      <th>avgdiffsel_sigsites_dir</th>
+      <td>results/avgdiffsel/sigsites</td>
+    </tr>
+    <tr>
+      <th>avgdiffsel_zoom_dir</th>
+      <td>results/avgdiffsel/zoomed_plots</td>
+    </tr>
+    <tr>
+      <th>avgdiffsel_reps_dir</th>
+      <td>results/avgdiffsel/replicates</td>
+    </tr>
+    <tr>
+      <th>avgdiffsel_full_dir</th>
+      <td>results/avgdiffsel/full_logo_plots</td>
+    </tr>
+    <tr>
+      <th>figsdir</th>
+      <td>results/addtl_figs</td>
     </tr>
   </tbody>
 </table>
@@ -5802,7 +5822,9 @@ The cell below also saves plots showing the fit gamma distribution (you can insp
 
 
 ```python
-plotfile_template = os.path.join(config['avgdiffseldir'],
+os.makedirs(config['avgdiffsel_sigsites_dir'], exist_ok=True)
+
+plotfile_template = os.path.join(config['avgdiffsel_sigsites_dir'],
                                  'sigsites_{serum}_{method}.pdf')
 
 print(f"Identifying sites of significant selection at a FDR of {fdr_cutoff}.\n"
@@ -5846,7 +5868,7 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
 ```
 
     Identifying sites of significant selection at a FDR of 0.05.
-    Plots of distribution fitting saved as results/avgdiffsel/sigsites_{serum}_{method}.pdf
+    Plots of distribution fitting saved as results/avgdiffsel/sigsites/sigsites_{serum}_{method}.pdf
     Here are the first few rows of sigsites_df:
 
 
@@ -6162,7 +6184,7 @@ display(HTML(sigsites_by_serumgroup.to_html()))
 </table>
 
 
-### Plot serum-average selection
+### Plot selection
 Now we plot the average (across libraries) selection for each serum.
 
 #### Choose sites to zoom-in on
@@ -6302,9 +6324,11 @@ We also save PDF versions of each plot:
 
 
 ```python
+os.makedirs(config['avgdiffsel_zoom_dir'], exist_ok=True)
+
 for serum_group, df in avg_sel_df.groupby('serum_group'):
 
-    plotfile = os.path.join(config['avgdiffseldir'],
+    plotfile = os.path.join(config['avgdiffsel_zoom_dir'],
                             f"{serum_group}_avg.pdf")
     print(f"\n\n{'*' * 72}\nSerum group {serum_group}, saving to {plotfile}\n")
 
@@ -6339,7 +6363,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group Hensley_sera, saving to results/avgdiffsel/Hensley_sera_avg.pdf
+    Serum group Hensley_sera, saving to results/avgdiffsel/zoomed_plots/Hensley_sera_avg.pdf
     
 
 
@@ -6350,7 +6374,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group VIDD_sera, saving to results/avgdiffsel/VIDD_sera_avg.pdf
+    Serum group VIDD_sera, saving to results/avgdiffsel/zoomed_plots/VIDD_sera_avg.pdf
     
 
 
@@ -6361,7 +6385,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group antibody_lower_head, saving to results/avgdiffsel/antibody_lower_head_avg.pdf
+    Serum group antibody_lower_head, saving to results/avgdiffsel/zoomed_plots/antibody_lower_head_avg.pdf
     
 
 
@@ -6372,7 +6396,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group antibody_region_B, saving to results/avgdiffsel/antibody_region_B_avg.pdf
+    Serum group antibody_region_B, saving to results/avgdiffsel/zoomed_plots/antibody_region_B_avg.pdf
     
 
 
@@ -6383,7 +6407,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group ferret, saving to results/avgdiffsel/ferret_avg.pdf
+    Serum group ferret, saving to results/avgdiffsel/zoomed_plots/ferret_avg.pdf
     
 
 
@@ -6394,7 +6418,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group serum_mAb_spike, saving to results/avgdiffsel/serum_mAb_spike_avg.pdf
+    Serum group serum_mAb_spike, saving to results/avgdiffsel/zoomed_plots/serum_mAb_spike_avg.pdf
     
 
 
@@ -6410,9 +6434,11 @@ The next cell makes compact plots for each replicate separately:
 
 
 ```python
+os.makedirs(config['avgdiffsel_reps_dir'], exist_ok=True)
+
 for serum_group, df in avg_sel_df.groupby('serum_group'):
 
-    plotfile = os.path.join(config['avgdiffseldir'],
+    plotfile = os.path.join(config['avgdiffsel_reps_dir'],
                             f"{serum_group}_reps.pdf")
     print(f"\n\n{'*' * 72}\nSerum group {serum_group}, saving to {plotfile}\n")
 
@@ -6448,7 +6474,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group Hensley_sera, saving to results/avgdiffsel/Hensley_sera_reps.pdf
+    Serum group Hensley_sera, saving to results/avgdiffsel/replicates/Hensley_sera_reps.pdf
     
 
 
@@ -6459,7 +6485,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group VIDD_sera, saving to results/avgdiffsel/VIDD_sera_reps.pdf
+    Serum group VIDD_sera, saving to results/avgdiffsel/replicates/VIDD_sera_reps.pdf
     
 
 
@@ -6470,7 +6496,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group antibody_lower_head, saving to results/avgdiffsel/antibody_lower_head_reps.pdf
+    Serum group antibody_lower_head, saving to results/avgdiffsel/replicates/antibody_lower_head_reps.pdf
     
 
 
@@ -6481,7 +6507,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group antibody_region_B, saving to results/avgdiffsel/antibody_region_B_reps.pdf
+    Serum group antibody_region_B, saving to results/avgdiffsel/replicates/antibody_region_B_reps.pdf
     
 
 
@@ -6492,7 +6518,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group ferret, saving to results/avgdiffsel/ferret_reps.pdf
+    Serum group ferret, saving to results/avgdiffsel/replicates/ferret_reps.pdf
     
 
 
@@ -6503,7 +6529,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
     
     
     ************************************************************************
-    Serum group serum_mAb_spike, saving to results/avgdiffsel/serum_mAb_spike_reps.pdf
+    Serum group serum_mAb_spike, saving to results/avgdiffsel/replicates/serum_mAb_spike_reps.pdf
     
 
 
@@ -6518,7 +6544,8 @@ They are too large to be useful to show visually in this notebook, but the cell 
 
 
 ```python
-outdir = config['avgdiffseldir']  # save plots here
+outdir = config['avgdiffsel_full_dir']  # save plots here
+os.makedirs(outdir, exist_ok=True)
 
 for tup in (avg_selections
             .query('library == @avg_type')
@@ -6531,7 +6558,7 @@ for tup in (avg_selections
             '--outdir', outdir,
             '--diffsel', datafile,
             '--name', name,
-            '--nperline', '71',
+            '--nperline', '95',
             '--overlay1', datafile, 'wildtype', 'wildtype',
             '--underlay', 'yes', 
             '--restrictdiffsel', 'positive',
@@ -6542,41 +6569,54 @@ for tup in (avg_selections
     assert os.path.isfile(plotfile)
 ```
 
-    Plotting antibody-5A01 to results/avgdiffsel/antibody-5A01_diffsel.pdf
-    Plotting antibody-3C04 to results/avgdiffsel/antibody-3C04_diffsel.pdf
-    Plotting antibody-3C06 to results/avgdiffsel/antibody-3C06_diffsel.pdf
-    Plotting antibody-4C01 to results/avgdiffsel/antibody-4C01_diffsel.pdf
-    Plotting antibody-4F03 to results/avgdiffsel/antibody-4F03_diffsel.pdf
-    Plotting antibody-1C04 to results/avgdiffsel/antibody-1C04_diffsel.pdf
-    Plotting ferret-Pitt-1-preinf to results/avgdiffsel/ferret-Pitt-1-preinf_diffsel.pdf
-    Plotting ferret-Pitt-1-postinf to results/avgdiffsel/ferret-Pitt-1-postinf_diffsel.pdf
-    Plotting ferret-Pitt-2-preinf to results/avgdiffsel/ferret-Pitt-2-preinf_diffsel.pdf
-    Plotting ferret-Pitt-2-postinf to results/avgdiffsel/ferret-Pitt-2-postinf_diffsel.pdf
-    Plotting ferret-Pitt-3-preinf to results/avgdiffsel/ferret-Pitt-3-preinf_diffsel.pdf
-    Plotting ferret-Pitt-3-postinf to results/avgdiffsel/ferret-Pitt-3-postinf_diffsel.pdf
-    Plotting ferret-WHO to results/avgdiffsel/ferret-WHO_diffsel.pdf
-    Plotting ferret-WHO-Victoria2011 to results/avgdiffsel/ferret-WHO-Victoria2011_diffsel.pdf
-    Plotting 2010-age-21 to results/avgdiffsel/2010-age-21_diffsel.pdf
-    Plotting 2009-age-53a to results/avgdiffsel/2009-age-53a_diffsel.pdf
-    Plotting 2009-age-53b to results/avgdiffsel/2009-age-53b_diffsel.pdf
-    Plotting 2009-age-64 to results/avgdiffsel/2009-age-64_diffsel.pdf
-    Plotting 2009-age-65 to results/avgdiffsel/2009-age-65_diffsel.pdf
-    Plotting 2015-age-25-prevacc to results/avgdiffsel/2015-age-25-prevacc_diffsel.pdf
-    Plotting 2015-age-25-vacc to results/avgdiffsel/2015-age-25-vacc_diffsel.pdf
-    Plotting 2015-age-29-prevacc to results/avgdiffsel/2015-age-29-prevacc_diffsel.pdf
-    Plotting 2015-age-29-vacc to results/avgdiffsel/2015-age-29-vacc_diffsel.pdf
-    Plotting 2015-age-48-prevacc to results/avgdiffsel/2015-age-48-prevacc_diffsel.pdf
-    Plotting 2015-age-48-vacc to results/avgdiffsel/2015-age-48-vacc_diffsel.pdf
-    Plotting 2015-age-49-prevacc to results/avgdiffsel/2015-age-49-prevacc_diffsel.pdf
-    Plotting 2015-age-49-vacc to results/avgdiffsel/2015-age-49-vacc_diffsel.pdf
-    Plotting 2009-age-65-with-low-4F03 to results/avgdiffsel/2009-age-65-with-low-4F03_diffsel.pdf
-    Plotting 2009-age-65-with-mid-4F03 to results/avgdiffsel/2009-age-65-with-mid-4F03_diffsel.pdf
-    Plotting 2009-age-65-with-hi-4F03 to results/avgdiffsel/2009-age-65-with-hi-4F03_diffsel.pdf
+    Plotting antibody-5A01 to results/avgdiffsel/full_logo_plots/antibody-5A01_diffsel.pdf
+    Plotting antibody-3C04 to results/avgdiffsel/full_logo_plots/antibody-3C04_diffsel.pdf
+    Plotting antibody-3C06 to results/avgdiffsel/full_logo_plots/antibody-3C06_diffsel.pdf
+    Plotting antibody-4C01 to results/avgdiffsel/full_logo_plots/antibody-4C01_diffsel.pdf
+    Plotting antibody-4F03 to results/avgdiffsel/full_logo_plots/antibody-4F03_diffsel.pdf
+    Plotting antibody-1C04 to results/avgdiffsel/full_logo_plots/antibody-1C04_diffsel.pdf
+    Plotting ferret-Pitt-1-preinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-1-preinf_diffsel.pdf
+    Plotting ferret-Pitt-1-postinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-1-postinf_diffsel.pdf
+    Plotting ferret-Pitt-2-preinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-2-preinf_diffsel.pdf
+    Plotting ferret-Pitt-2-postinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-2-postinf_diffsel.pdf
+    Plotting ferret-Pitt-3-preinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-3-preinf_diffsel.pdf
+    Plotting ferret-Pitt-3-postinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-3-postinf_diffsel.pdf
+    Plotting ferret-WHO to results/avgdiffsel/full_logo_plots/ferret-WHO_diffsel.pdf
+    Plotting ferret-WHO-Victoria2011 to results/avgdiffsel/full_logo_plots/ferret-WHO-Victoria2011_diffsel.pdf
+    Plotting 2010-age-21 to results/avgdiffsel/full_logo_plots/2010-age-21_diffsel.pdf
+    Plotting 2009-age-53a to results/avgdiffsel/full_logo_plots/2009-age-53a_diffsel.pdf
+    Plotting 2009-age-53b to results/avgdiffsel/full_logo_plots/2009-age-53b_diffsel.pdf
+    Plotting 2009-age-64 to results/avgdiffsel/full_logo_plots/2009-age-64_diffsel.pdf
+    Plotting 2009-age-65 to results/avgdiffsel/full_logo_plots/2009-age-65_diffsel.pdf
+    Plotting 2015-age-25-prevacc to results/avgdiffsel/full_logo_plots/2015-age-25-prevacc_diffsel.pdf
+    Plotting 2015-age-25-vacc to results/avgdiffsel/full_logo_plots/2015-age-25-vacc_diffsel.pdf
+    Plotting 2015-age-29-prevacc to results/avgdiffsel/full_logo_plots/2015-age-29-prevacc_diffsel.pdf
+    Plotting 2015-age-29-vacc to results/avgdiffsel/full_logo_plots/2015-age-29-vacc_diffsel.pdf
+    Plotting 2015-age-48-prevacc to results/avgdiffsel/full_logo_plots/2015-age-48-prevacc_diffsel.pdf
+    Plotting 2015-age-48-vacc to results/avgdiffsel/full_logo_plots/2015-age-48-vacc_diffsel.pdf
+    Plotting 2015-age-49-prevacc to results/avgdiffsel/full_logo_plots/2015-age-49-prevacc_diffsel.pdf
+    Plotting 2015-age-49-vacc to results/avgdiffsel/full_logo_plots/2015-age-49-vacc_diffsel.pdf
+    Plotting 2009-age-65-with-low-4F03 to results/avgdiffsel/full_logo_plots/2009-age-65-with-low-4F03_diffsel.pdf
+    Plotting 2009-age-65-with-mid-4F03 to results/avgdiffsel/full_logo_plots/2009-age-65-with-mid-4F03_diffsel.pdf
+    Plotting 2009-age-65-with-hi-4F03 to results/avgdiffsel/full_logo_plots/2009-age-65-with-hi-4F03_diffsel.pdf
 
 
-## Plot figures for paper
+## Additional figures for paper
 
-In the following section, we will generate the plots and figures that will go into the paper.
+In the following section, we will generate additional customized paper figures not created above.
+
+These go in the following directory:
+
+
+```python
+print(f"Putting additional figures in {config['figsdir']}")
+os.makedirs(config['figsdir'])
+```
+
+    Putting additional figures in results/addtl_figs
+
+
+### Antibody spike-in experiment
 
 First, we will plot the profiles for the serum with monoclonal Ab spike-in as well as the profiles for the individual serum and mAb. Significant sites of escape for the mAb will be in one color, and sites for the serum will be in another color.
 
@@ -6639,7 +6679,7 @@ avg_sel_df['spike_group'] = (avg_sel_df['serum_name_formatted']
 
 
 ```python
-plotfile = os.path.join(config['avgdiffseldir'], "spikein_avg.pdf")
+plotfile = os.path.join(config['figsdir'], "spikein_avg.pdf")
 
 fig, axes = dmslogo.facet_plot(
         data=avg_sel_df.query('spike_group == "spike_group" and library == @avg_type'), 
@@ -6671,7 +6711,7 @@ plt.close(fig)
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_120_0.png)
+![png](analysis_notebook_files/analysis_notebook_122_0.png)
 
 
 
