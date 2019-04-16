@@ -55,7 +55,7 @@ print(f"Using dms_tools2 version {dms_tools2.__version__}")
 print(f"Using dmslogo version {dmslogo.__version__}")
 ```
 
-    Using dms_tools2 version 2.4.9
+    Using dms_tools2 version 2.4.10
     Using dmslogo version 0.1.2
 
 
@@ -5735,7 +5735,7 @@ for serum_name_formatted, group in (
      .to_csv(avg_row['mutdiffsel_file'], index=False))
 
     avg_row['sitediffsel_file'] = (f"{avgdir}/{serum_name_formatted}-"
-                                   'sitediffsel-{avg_type}.csv')
+                                   f"sitediffsel-{avg_type}.csv")
     (dms_tools2.diffsel.mutToSiteDiffSel(pd.read_csv(avg_row['mutdiffsel_file']))
      .to_csv(avg_row['sitediffsel_file'], index=False))
 
@@ -5793,43 +5793,60 @@ fdr_cutoff = 0.05
 
 #### Identify significant sites
 Now we use [dms_tools2.plot.findSigSel](https://jbloomlab.github.io/dms_tools2/dms_tools2.plot.html#dms_tools2.plot.findSigSel) to get a dataframe (`sigsites_df`) that lists the "significant" sites for each serum.
-Note that the cell below also saves plots showing the fit gamma distribution (you can inspect these separately if you want to look in more detail):
+That function finds these sites by fitting a gamma distribution to the data and then finding sites that are far outside the range of the distribution (thereby computing a heuristic P-value).
+It has two methods, *robust_hist* and *mle*; we use both and take any sites found by either method.
+
+Because the pre-vaccination and pre-infection serum generally have weak signal and the vaccination at most boosts existing specificities in the human samples that we have, we ignore the pre-vaccination samples when identifying significant sites.
+
+The cell below also saves plots showing the fit gamma distribution (you can inspect these separately if you want to look in more detail):
 
 
 ```python
 plotfile_template = os.path.join(config['avgdiffseldir'],
-                                 'sigsites_{serum}.pdf')
+                                 'sigsites_{serum}_{method}.pdf')
 
 print(f"Identifying sites of significant selection at a FDR of {fdr_cutoff}.\n"
       f"Plots of distribution fitting saved as {plotfile_template}")
 
 sigsites_df = []
+sigsites_cols = ['serum_group', 'serum_name_formatted', 'isite', 'site',
+                 'positive_diffsel']
 for serum_name_formatted, group in (
         avg_sel_df
+        .query('serum_vaccination != "pre"')
         .query('library == @avg_type')
-        [['serum_group', 'serum_name_formatted', 'isite', 'site',
-          'positive_diffsel']]
+        [sigsites_cols]
         .drop_duplicates()
-        .groupby('serum_name_formatted')
+        .groupby('serum_name_formatted', observed=True)
         ):
-    plotfile = plotfile_template.format(serum=serum_name_formatted)
-    df, cutoff, gamma_params = dms_tools2.plot.findSigSel(
-            group,
-            'positive_diffsel',
-            plotfile,
-            fdr=fdr_cutoff,
-            title=serum_name_formatted
-            )
-    sigsites_df.append(df)
+    
+    for method in ['robust_hist', 'mle']:
+        plotfile = plotfile_template.format(serum=serum_name_formatted,
+                                            method=method)
+        df, _, _ = dms_tools2.plot.findSigSel(
+                group,
+                'positive_diffsel',
+                plotfile,
+                fdr=fdr_cutoff,
+                title=serum_name_formatted,
+                method=method
+                )
+        sigsites_df.append(df)
 
-sigsites_df = pd.concat(sigsites_df, ignore_index=True).query('sig')
+sigsites_df = (pd.concat(sigsites_df, ignore_index=True)
+               .groupby(sigsites_cols)
+               .aggregate({'sig': 'sum'})
+               .reset_index()
+               .assign(sig=lambda x: x['sig'].astype(bool))
+               .query('sig')
+               )
 
 print('Here are the first few rows of sigsites_df:')
 display(HTML(sigsites_df.head(n=4).to_html(index=False)))
 ```
 
     Identifying sites of significant selection at a FDR of 0.05.
-    Plots of distribution fitting saved as results/avgdiffsel/sigsites_{serum}.pdf
+    Plots of distribution fitting saved as results/avgdiffsel/sigsites_{serum}_{method}.pdf
     Here are the first few rows of sigsites_df:
 
 
@@ -5842,50 +5859,40 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
       <th>isite</th>
       <th>site</th>
       <th>positive_diffsel</th>
-      <th>P</th>
-      <th>Q</th>
       <th>sig</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>antibody_region_B</td>
-      <td>antibody-5A01</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-vacc</td>
+      <td>160</td>
+      <td>145</td>
+      <td>14.630931</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-vacc</td>
       <td>174</td>
       <td>159</td>
-      <td>29.408444</td>
-      <td>7.342281e-21</td>
-      <td>2.077866e-18</td>
+      <td>26.089489</td>
       <td>True</td>
     </tr>
     <tr>
-      <td>antibody_region_B</td>
-      <td>antibody-5A01</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-vacc</td>
       <td>175</td>
       <td>160</td>
-      <td>32.811071</td>
-      <td>3.346376e-23</td>
-      <td>1.894049e-20</td>
+      <td>6.151038</td>
       <td>True</td>
     </tr>
     <tr>
-      <td>antibody_region_B</td>
-      <td>antibody-5A01</td>
-      <td>208</td>
-      <td>193</td>
-      <td>13.612415</td>
-      <td>5.329409e-10</td>
-      <td>7.541113e-08</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <td>antibody_region_B</td>
-      <td>antibody-5A01</td>
-      <td>173</td>
-      <td>158</td>
-      <td>4.757160</td>
-      <td>6.271668e-04</td>
-      <td>4.437205e-02</td>
+      <td>Hensley_sera</td>
+      <td>2015-age-25-vacc</td>
+      <td>176</td>
+      <td>161</td>
+      <td>5.219629</td>
       <td>True</td>
     </tr>
   </tbody>
@@ -5893,14 +5900,14 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
 
 
 #### List significant sites for each serum
-Now display lists of the significant sites for each serum:
+Now display lists of the significant sites for each serum (excluding the pre-vaccination ones as described above):
 
 
 ```python
 display(HTML(sigsites_df
              .sort_values('isite')
              .assign(nsites=1)
-             .groupby('serum_name_formatted')
+             .groupby('serum_name_formatted', observed=True)
              .aggregate({'site': lambda x: ', '.join(list(x)),
                          'nsites': 'sum'})
              .rename(columns={'site': 'significant sites',
@@ -5925,84 +5932,9 @@ display(HTML(sigsites_df
   </thead>
   <tbody>
     <tr>
-      <th>antibody-5A01</th>
-      <td>157, 158, 159, 160, 193, 222, 227, 244</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>antibody-3C04</th>
-      <td>159, 160, 192, 193</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>antibody-3C06</th>
-      <td>145, 159, 160, 167, 193</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>antibody-4C01</th>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>antibody-4F03</th>
-      <td>80, 81, 83, 121, 122, 220, 244, 259, (HA2)78</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>antibody-1C04</th>
-      <td>53, 54, 57, 82, 83, 188, 210, 220, 244, (HA2)61</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>ferret-Pitt-1-preinf</th>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>ferret-Pitt-1-postinf</th>
-      <td>189, 193</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>ferret-Pitt-2-preinf</th>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>ferret-Pitt-2-postinf</th>
-      <td>142, 144, 189, 193, 222</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>ferret-Pitt-3-preinf</th>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>ferret-Pitt-3-postinf</th>
-      <td>189</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>ferret-WHO</th>
-      <td>50, 189, 193</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>ferret-WHO-Victoria2011</th>
-      <td>50, 159, 189, 193, 222, 275</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>2010-age-21</th>
-      <td>193, 222</td>
-      <td>2</td>
-    </tr>
-    <tr>
       <th>2009-age-53a</th>
-      <td>157, 160</td>
-      <td>2</td>
+      <td>144, 159, 193, 222</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>2009-age-53b</th>
@@ -6011,8 +5943,8 @@ display(HTML(sigsites_df
     </tr>
     <tr>
       <th>2009-age-64</th>
-      <td>159, 222, 244</td>
-      <td>3</td>
+      <td>145, 159, 160, 161, 192, 193, 207, 220, 222, 224, 225, 244</td>
+      <td>12</td>
     </tr>
     <tr>
       <th>2009-age-65</th>
@@ -6020,59 +5952,89 @@ display(HTML(sigsites_df
       <td>3</td>
     </tr>
     <tr>
-      <th>2015-age-25-prevacc</th>
-      <td>145, 159, 160, 192, 193, 210, 218, 220, 222, 223, 224, 279</td>
-      <td>12</td>
+      <th>2009-age-65-with-low-4F03</th>
+      <td>80, 81, 83, 121, 122, 220, 244, 259, (HA2)78</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-mid-4F03</th>
+      <td>53, 54, 57, 82, 83, 188, 210, 220, 244, (HA2)61</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2010-age-21</th>
+      <td>189, 193</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2015-age-25-vacc</th>
-      <td>145, 159, 160, 161, 192, 193, 207, 220, 222, 224, 225, 244</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>2015-age-29-prevacc</th>
-      <td>157, 159, 160, 193</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>2015-age-29-vacc</th>
-      <td>144, 145, 159, 160, 222, 227</td>
+      <td>50, 159, 189, 193, 222, 275</td>
       <td>6</td>
     </tr>
     <tr>
-      <th>2015-age-48-prevacc</th>
-      <td>201</td>
-      <td>1</td>
+      <th>2015-age-29-vacc</th>
+      <td>50, 189, 193</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>2015-age-48-vacc</th>
-      <td>189</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2015-age-49-prevacc</th>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2015-age-49-vacc</th>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2009-age-65-with-low-4F03</th>
       <td>80, 121, 159, 160, 193, 244</td>
       <td>6</td>
     </tr>
     <tr>
-      <th>2009-age-65-with-mid-4F03</th>
+      <th>antibody-1C04</th>
+      <td>137, 145, 159, 160, 167, 193, 207, 244, 246</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>antibody-3C04</th>
+      <td>159, 222, 244</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>antibody-3C06</th>
+      <td>189, 193, 222</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>antibody-4C01</th>
       <td>121</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>2009-age-65-with-hi-4F03</th>
-      <td></td>
-      <td>0</td>
+      <th>antibody-4F03</th>
+      <td>193</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>antibody-5A01</th>
+      <td>157, 160</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-1-postinf</th>
+      <td>144, 145, 159, 160, 222, 227</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-2-postinf</th>
+      <td>142, 144, 189, 193, 222</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-3-postinf</th>
+      <td>189</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>ferret-WHO</th>
+      <td>159, 160, 192, 193</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>ferret-WHO-Victoria2011</th>
+      <td>157, 158, 159, 160, 193, 222, 227, 244</td>
+      <td>8</td>
     </tr>
   </tbody>
 </table>
@@ -6116,16 +6078,16 @@ display(HTML(sigsites_by_serumgroup.to_html()))
   </thead>
   <tbody>
     <tr>
-      <th>VIDD_sera</th>
-      <td>[172, 174, 175, 208, 237, 259]</td>
-      <td>[157, 159, 160, 193, 222, 244]</td>
-      <td>6</td>
-    </tr>
-    <tr>
       <th>serum_mAb_spike</th>
       <td>[95, 136, 174, 175, 208, 259]</td>
       <td>[80, 121, 159, 160, 193, 244]</td>
       <td>6</td>
+    </tr>
+    <tr>
+      <th>VIDD_sera</th>
+      <td>[159, 172, 174, 175, 208, 237, 259]</td>
+      <td>[144, 157, 159, 160, 193, 222, 244]</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>ferret</th>
@@ -6135,21 +6097,21 @@ display(HTML(sigsites_by_serumgroup.to_html()))
     </tr>
     <tr>
       <th>antibody_region_B</th>
-      <td>[160, 172, 173, 174, 175, 182, 207, 208, 237, 242, 259]</td>
-      <td>[145, 157, 158, 159, 160, 167, 192, 193, 222, 227, 244]</td>
-      <td>11</td>
+      <td>[152, 160, 172, 173, 174, 175, 182, 207, 208, 222, 237, 242, 259, 261]</td>
+      <td>[137, 145, 157, 158, 159, 160, 167, 192, 193, 207, 222, 227, 244, 246]</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>Hensley_sera</th>
+      <td>[159, 160, 174, 175, 176, 204, 207, 208, 222, 235, 237, 239, 240, 242, 259]</td>
+      <td>[144, 145, 159, 160, 161, 189, 192, 193, 207, 220, 222, 224, 225, 227, 244]</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>antibody_lower_head</th>
       <td>[68, 69, 72, 95, 96, 97, 98, 136, 137, 203, 225, 235, 259, 274, 405, 422]</td>
       <td>[53, 54, 57, 80, 81, 82, 83, 121, 122, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]</td>
       <td>16</td>
-    </tr>
-    <tr>
-      <th>Hensley_sera</th>
-      <td>[159, 160, 172, 174, 175, 176, 204, 207, 208, 216, 222, 225, 233, 235, 237, 238, 239, 240, 242, 259, 294]</td>
-      <td>[144, 145, 157, 159, 160, 161, 189, 192, 193, 201, 207, 210, 218, 220, 222, 223, 224, 225, 227, 244, 279]</td>
-      <td>21</td>
     </tr>
   </tbody>
 </table>
@@ -6162,21 +6124,7 @@ Now we plot the average (across libraries) selection for each serum.
 In the plots, we will zoom in on important sites using logo plots.
 The reason that we zoom in on just a subset of sites is to keep the logo plots relatively compact.
 
-The sites we zoom in on will be those identified above as being under "significant" selection.
-There are two ways we can do the zooming:
- 1. We can zoom in on separate sites for each serum group.
-    In this case, for each group we only zoom on sites of significant selection for at least one serum in that group.
-    This might be preferable if each serum group targets very different sites.
-    To do this, set *zoom_combine_serum_groups* to *False*.
- 2. We can zoom in on the same sites for all serum groups.
-    In this case, for each group we zoom on all sites that are significant for any serum in any group.
-    This might be preferable if we want to compare across sites.
-    To do this, set *zoom_combine_serum_groups* to *True*.
-
-
-```python
-zoom_combine_serum_groups = False
-```
+The sites we zoom in on will be those identified above as being under "significant" selection for all sera in that serum group.
 
 We also may want to "pad" the sites that we zoom in on by zooming in on this many sites before and after each significant site.
 This is useful if you want to give some context to the zoomed sites.
@@ -6193,11 +6141,7 @@ Now build a dict, *zoom_sites* that is keyed first by *serum_group* and then by 
 ```python
 zoom_sites = {}
 for tup in sigsites_by_serumgroup.reset_index().itertuples(index=False):
-    if zoom_combine_serum_groups:
-        isites = set(itertools.chain.from_iterable(
-                     sigsites_by_serumgroup['isite']))
-    else:
-        isites = set(tup.isite)
+    isites = set(tup.isite)
     for isite in list(isites):
         for pad in range(-zoom_pad, zoom_pad + 1):
             isites.add(isite + pad)
@@ -6238,15 +6182,15 @@ display(HTML(pd.DataFrame.from_dict(zoom_sites, orient='index').to_html()))
   <tbody>
     <tr>
       <th>Hensley_sera</th>
-      <td>[159, 160, 172, 174, 175, 176, 204, 207, 208, 216, 222, 225, 233, 235, 237, 238, 239, 240, 242, 259, 294]</td>
-      <td>[144, 145, 157, 159, 160, 161, 189, 192, 193, 201, 207, 210, 218, 220, 222, 223, 224, 225, 227, 244, 279]</td>
-      <td>21</td>
+      <td>[159, 160, 174, 175, 176, 204, 207, 208, 222, 235, 237, 239, 240, 242, 259]</td>
+      <td>[144, 145, 159, 160, 161, 189, 192, 193, 207, 220, 222, 224, 225, 227, 244]</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>VIDD_sera</th>
-      <td>[172, 174, 175, 208, 237, 259]</td>
-      <td>[157, 159, 160, 193, 222, 244]</td>
-      <td>6</td>
+      <td>[159, 172, 174, 175, 208, 237, 259]</td>
+      <td>[144, 157, 159, 160, 193, 222, 244]</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>antibody_lower_head</th>
@@ -6256,9 +6200,9 @@ display(HTML(pd.DataFrame.from_dict(zoom_sites, orient='index').to_html()))
     </tr>
     <tr>
       <th>antibody_region_B</th>
-      <td>[160, 172, 173, 174, 175, 182, 207, 208, 237, 242, 259]</td>
-      <td>[145, 157, 158, 159, 160, 167, 192, 193, 222, 227, 244]</td>
-      <td>11</td>
+      <td>[152, 160, 172, 173, 174, 175, 182, 207, 208, 222, 237, 242, 259, 261]</td>
+      <td>[137, 145, 157, 158, 159, 160, 167, 192, 193, 207, 222, 227, 244, 246]</td>
+      <td>14</td>
     </tr>
     <tr>
       <th>ferret</th>
@@ -6304,8 +6248,8 @@ We will use axes with shared ylimits across rows for all plots **except** for th
 
 
 ```python
-share_ylim_across_rows = collections.defaultdict(lambda: True)
-share_ylim_across_rows['antibody'] = False
+share_ylim_across_rows = {serum_group: ('antibody' not in serum_group)
+                          for serum_group in avg_sel_df['serum_group'].unique()}
 ```
 
 Now we make the line and logo plots.
@@ -6355,7 +6299,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_1.png)
+![png](analysis_notebook_files/analysis_notebook_108_1.png)
 
 
     
@@ -6366,7 +6310,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_3.png)
+![png](analysis_notebook_files/analysis_notebook_108_3.png)
 
 
     
@@ -6377,7 +6321,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_5.png)
+![png](analysis_notebook_files/analysis_notebook_108_5.png)
 
 
     
@@ -6388,7 +6332,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_7.png)
+![png](analysis_notebook_files/analysis_notebook_108_7.png)
 
 
     
@@ -6399,7 +6343,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_9.png)
+![png](analysis_notebook_files/analysis_notebook_108_9.png)
 
 
     
@@ -6410,7 +6354,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_109_11.png)
+![png](analysis_notebook_files/analysis_notebook_108_11.png)
 
 
 #### Compact plots showing each replicate
@@ -6464,7 +6408,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_111_1.png)
+![png](analysis_notebook_files/analysis_notebook_110_1.png)
 
 
     
@@ -6475,7 +6419,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_111_3.png)
+![png](analysis_notebook_files/analysis_notebook_110_3.png)
 
 
     
@@ -6486,7 +6430,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_111_5.png)
+![png](analysis_notebook_files/analysis_notebook_110_5.png)
 
 
     
@@ -6497,7 +6441,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_111_7.png)
+![png](analysis_notebook_files/analysis_notebook_110_7.png)
 
 
     
@@ -6508,7 +6452,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_111_9.png)
+![png](analysis_notebook_files/analysis_notebook_110_9.png)
 
 
     
@@ -6519,7 +6463,7 @@ for serum_group, df in avg_sel_df.groupby('serum_group'):
 
 
 
-![png](analysis_notebook_files/analysis_notebook_111_11.png)
+![png](analysis_notebook_files/analysis_notebook_110_11.png)
 
 
 #### Whole-gene logo plots of replicate-average selection
@@ -6682,7 +6626,7 @@ plt.close(fig)
 ```
 
 
-![png](analysis_notebook_files/analysis_notebook_121_0.png)
+![png](analysis_notebook_files/analysis_notebook_120_0.png)
 
 
 
