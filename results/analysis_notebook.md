@@ -5796,7 +5796,7 @@ Now we use [dms_tools2.plot.findSigSel](https://jbloomlab.github.io/dms_tools2/d
 That function finds these sites by fitting a gamma distribution to the data and then finding sites that are far outside the range of the distribution (thereby computing a heuristic P-value).
 It has two methods, *robust_hist* and *mle*; we use both and take any sites found by either method.
 
-Because the pre-vaccination and pre-infection serum generally have weak signal and the vaccination at most boosts existing specificities in the human samples that we have, we ignore the pre-vaccination samples when identifying significant sites.
+Because the pre-vaccination and pre-infection serum generally have weak signal and the vaccination at most boosts existing specificities in the human samples that we have, we will ignore the pre-vaccination samples when identifying significant sites.
 
 The cell below also saves plots showing the fit gamma distribution (you can inspect these separately if you want to look in more detail):
 
@@ -5900,14 +5900,14 @@ display(HTML(sigsites_df.head(n=4).to_html(index=False)))
 
 
 #### List significant sites for each serum
-Now display lists of the significant sites for each serum (excluding the pre-vaccination ones as described above):
+Now display lists of the significant sites for each serum (we did not determine significant sites for pre-vaccination samples as described above):
 
 
 ```python
 display(HTML(sigsites_df
              .sort_values('isite')
              .assign(nsites=1)
-             .groupby('serum_name_formatted', observed=True)
+             .groupby('serum_name_formatted')
              .aggregate({'site': lambda x: ', '.join(list(x)),
                          'nsites': 'sum'})
              .rename(columns={'site': 'significant sites',
@@ -5932,9 +5932,84 @@ display(HTML(sigsites_df
   </thead>
   <tbody>
     <tr>
-      <th>2009-age-53a</th>
+      <th>antibody-5A01</th>
+      <td>157, 158, 159, 160, 193, 222, 227, 244</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>antibody-3C04</th>
+      <td>159, 160, 192, 193</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>antibody-3C06</th>
+      <td>137, 145, 159, 160, 167, 193, 207, 244, 246</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>antibody-4C01</th>
+      <td>193</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>antibody-4F03</th>
+      <td>80, 81, 83, 121, 122, 220, 244, 259, (HA2)78</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>antibody-1C04</th>
+      <td>53, 54, 57, 82, 83, 188, 210, 220, 244, (HA2)61</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-1-preinf</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-1-postinf</th>
+      <td>189, 193, 222</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-2-preinf</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-2-postinf</th>
+      <td>142, 144, 189, 193, 222</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-3-preinf</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ferret-Pitt-3-postinf</th>
+      <td>189, 193</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>ferret-WHO</th>
+      <td>50, 189, 193</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>ferret-WHO-Victoria2011</th>
+      <td>50, 159, 189, 193, 222, 275</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2010-age-21</th>
       <td>144, 159, 193, 222</td>
       <td>4</td>
+    </tr>
+    <tr>
+      <th>2009-age-53a</th>
+      <td>157, 160</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2009-age-53b</th>
@@ -5943,8 +6018,8 @@ display(HTML(sigsites_df
     </tr>
     <tr>
       <th>2009-age-64</th>
-      <td>145, 159, 160, 161, 192, 193, 207, 220, 222, 224, 225, 244</td>
-      <td>12</td>
+      <td>159, 222, 244</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>2009-age-65</th>
@@ -5952,89 +6027,59 @@ display(HTML(sigsites_df
       <td>3</td>
     </tr>
     <tr>
-      <th>2009-age-65-with-low-4F03</th>
-      <td>80, 81, 83, 121, 122, 220, 244, 259, (HA2)78</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>2009-age-65-with-mid-4F03</th>
-      <td>53, 54, 57, 82, 83, 188, 210, 220, 244, (HA2)61</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>2010-age-21</th>
-      <td>189, 193</td>
-      <td>2</td>
+      <th>2015-age-25-prevacc</th>
+      <td></td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2015-age-25-vacc</th>
-      <td>50, 159, 189, 193, 222, 275</td>
-      <td>6</td>
+      <td>145, 159, 160, 161, 192, 193, 207, 220, 222, 224, 225, 244</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2015-age-29-prevacc</th>
+      <td></td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2015-age-29-vacc</th>
-      <td>50, 189, 193</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>2015-age-48-vacc</th>
-      <td>80, 121, 159, 160, 193, 244</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>antibody-1C04</th>
-      <td>137, 145, 159, 160, 167, 193, 207, 244, 246</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>antibody-3C04</th>
-      <td>159, 222, 244</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>antibody-3C06</th>
-      <td>189, 193, 222</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>antibody-4C01</th>
-      <td>121</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>antibody-4F03</th>
-      <td>193</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>antibody-5A01</th>
-      <td>157, 160</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>ferret-Pitt-1-postinf</th>
       <td>144, 145, 159, 160, 222, 227</td>
       <td>6</td>
     </tr>
     <tr>
-      <th>ferret-Pitt-2-postinf</th>
-      <td>142, 144, 189, 193, 222</td>
-      <td>5</td>
+      <th>2015-age-48-prevacc</th>
+      <td></td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>ferret-Pitt-3-postinf</th>
+      <th>2015-age-48-vacc</th>
       <td>189</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>ferret-WHO</th>
-      <td>159, 160, 192, 193</td>
-      <td>4</td>
+      <th>2015-age-49-prevacc</th>
+      <td></td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>ferret-WHO-Victoria2011</th>
-      <td>157, 158, 159, 160, 193, 222, 227, 244</td>
-      <td>8</td>
+      <th>2015-age-49-vacc</th>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-low-4F03</th>
+      <td>80, 121, 159, 160, 193, 244</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-mid-4F03</th>
+      <td>121</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2009-age-65-with-hi-4F03</th>
+      <td></td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
