@@ -253,6 +253,20 @@
         dilution_factor: 2.333
         initial_concentration: 0.0125
 
+- 571v2:
+    excelfile: data/neut_plate_reader_data/571v2_NeutralizationAssay.xlsx
+    sheet_mapping:
+      WT:
+        serum: 2015-age-49-vacc
+        virus: WT
+        dilution_factor: 2
+        initial_concentration: 0.025
+      K144E:
+        serum: 2015-age-49-vacc
+        virus: G75(HA2)H
+        dilution_factor: 2
+        initial_concentration: 0.025
+
 - ferret-Pitt-1-postinf:
     excelfile: data/neut_plate_reader_data/fPitt1postinf_NeutralizationAssay.xlsx
     sheet_mapping:
@@ -311,6 +325,35 @@
         dilution_factor: 2.333
         initial_concentration: 0.0125
 
+- ferret-Pitt-3-postinf:
+    excelfile: data/neut_plate_reader_data/fPitt3postinf_NeutralizationAssay.xlsx
+    sheet_mapping:
+      WT:
+        serum: ferret-Pitt-3-postinf
+        virus: WT
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+      K189D:
+        serum: ferret-Pitt-3-postinf
+        virus: K189D
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+      F193D:
+        serum: ferret-Pitt-3-postinf
+        virus: F193D
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+      K160T:
+        serum: ferret-Pitt-3-postinf
+        virus: K160T
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+      L157D:
+        serum: ferret-Pitt-3-postinf
+        virus: L157D
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+
 - ferret-WHO-Victoria2011:
     excelfile: data/neut_plate_reader_data/WHOVic11_NeutralizationAssay.xlsx
     sheet_mapping:
@@ -334,3 +377,127 @@
         virus: K144E
         dilution_factor: 2
         initial_concentration: 0.025
+
+- antibody-5A01:
+    excelfile: data/neut_plate_reader_data/mAb_5A01_NeutralizationAssay.xlsx
+    sheet_mapping:
+      WT:
+        serum: antibody-5A01
+        virus: WT
+        dilution_factor: 2.333
+        initial_concentration: 1
+      F159G:
+        serum: antibody-5A01
+        virus: F159G
+        dilution_factor: 2.333
+        initial_concentration: 1
+      F159F:
+        serum: antibody-5A01
+        virus: F159F
+        dilution_factor: 2.333
+        initial_concentration: 1
+      K160T:
+        serum: antibody-5A01
+        virus: K160T
+        dilution_factor: 2.333
+        initial_concentration: 1
+
+- antibody-3C06:
+    excelfile: data/neut_plate_reader_data/mAb_3C06_NeutralizationAssay.xlsx
+    sheet_mapping:
+      WT:
+        serum: antibody-3C06
+        virus: WT
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+      F159G:
+        serum: antibody-3C06
+        virus: F159G
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+      K160T:
+        serum: antibody-3C06
+        virus: K160T
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+
+- antibody-3C04:
+    excelfile: data/neut_plate_reader_data/mAb_3C04_NeutralizationAssay.xlsx
+    sheet_mapping:
+      WT:
+        serum: antibody-3C04
+        virus: WT
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+      K160T:
+        serum: antibody-3C04
+        virus: K160T
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+      K160S:
+        serum: antibody-3C04
+        virus: K160S
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+
+- antibody-4C01:
+    excelfile: data/neut_plate_reader_data/mAb_4C01_NeutralizationAssay.xlsx
+    sheet_mapping:
+      WT:
+        serum: antibody-4C01
+        virus: WT
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+      F193D:
+        serum: antibody-4C01
+        virus: F193D
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+      F193F:
+        serum: antibody-4C01
+        virus: F193F
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+      K160T:
+        serum: antibody-4C01
+        virus: K160T
+        dilution_factor: 2.333
+        initial_concentration: 0.5
+
+- antibody-4F03:
+    excelfile: data/neut_plate_reader_data/mAb_4F03_NeutralizationAssay.xlsx
+    sheet_mapping:
+      WT:
+        serum: antibody-4F03
+        virus: WT
+        dilution_factor: 2.333
+        initial_concentration: 3
+      N121E:
+        serum: antibody-4F03
+        virus: N121E
+        dilution_factor: 2.333
+        initial_concentration: 3
+      F193D:
+        serum: antibody-4F03
+        virus: F193D
+        dilution_factor: 2.333
+        initial_concentration: 3
+      F159G:
+        serum: antibody-4F03
+        virus: F159G
+        dilution_factor: 2.333
+        initial_concentration: 3
+
+- antibody-1C04:
+    excelfile: data/neut_plate_reader_data/mAb_1C04_NeutralizationAssay.xlsx
+    sheet_mapping:
+      WT:
+        serum: antibody-1C04
+        virus: WT
+        dilution_factor: 2.6
+        initial_concentration: 5
+      K82A:
+        serum: antibody-1C04
+        virus: K82A
+        dilution_factor: 2.6
+        initial_concentration: 5
