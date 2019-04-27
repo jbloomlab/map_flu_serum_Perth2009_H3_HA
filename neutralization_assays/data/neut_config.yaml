@@ -261,7 +261,7 @@
         virus: WT
         dilution_factor: 2
         initial_concentration: 0.025
-      K144E:
+      G75(HA2)H:
         serum: 2015-age-49-vacc
         virus: G75(HA2)H
         dilution_factor: 2
@@ -372,9 +372,14 @@
         virus: F193D
         dilution_factor: 2
         initial_concentration: 0.025
-      K144E:
+      F159G:
         serum: ferret-WHO-Victoria2011
-        virus: K144E
+        virus: F159G
+        dilution_factor: 2
+        initial_concentration: 0.025
+      K160T:
+        serum: ferret-WHO-Victoria2011
+        virus: K160T
         dilution_factor: 2
         initial_concentration: 0.025
 
