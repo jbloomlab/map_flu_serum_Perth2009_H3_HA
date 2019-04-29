@@ -4,19 +4,28 @@ Mutational antigenic profiling of Perth/2009 H3 HA codon mutant libraries agains
 Study by Juhye Lee, Rachel Eguia, and [Jesse Bloom](https://research.fhcrc.org/bloom/en.html).
 
 ## Quick summary
-Look at the [notebook results](results/analysis_notebook.md) for an overview of the results.
+Look at the [Markdown notebook results](results/notebooks) for an overview of the results:
+
+  - Analysis of mutational antigenic profiling data: [results/notebooks/analyze_map.md](results/notebooks/analyze_map.md)
+
+  - Analysis of neutralization: [results/notebooks/analyze_neut.md](results/notebooks/analyze_neut.md)
 
 ## Running the analysis
-The main analysis is performed by the Jupyter notebook [analysis_notebook.ipynb](analysis_notebook.ipynb).
-The Markdown results of the notebook are shown in [results/analysis_notebook.md](results/analysis_notebook.md).
+The main analysis is performed by the following [Jupyter notebooks](https://jupyter.org/):
 
-To run [analysis_notebook.ipynb](analysis_notebook.ipynb) and generate the [Markdown results](results/analysis_notebook.md), run the bash script [run_notebook.bash](run_notebook.bash) with:
+  - [analyze_map.ipynb](analyze_map.ipynb): analyzes mutational antigenic profiling
 
-    ./run_notebook.bash
+  - [analyze_neut.ipynb](analyze_neut.ipynb): analyzes neutralization assays
+
+The easiest way to look at the results is to view the Markdown output of the notebooks as described above.
+
+To run the notebooks and generate the Markdown output, run the bash script [run_nbs.bash](run_nbs.bash) with:
+
+    ./run_nbs.bash
     
 On the Hutch cluster, you probably want to submit this job using [slurm](https://slurm.schedmd.com/), which you can simply do with:
 
-    sbatch -p largenode -c 16 --mem=100000 run_notebook.bash
+    sbatch -p largenode -c 16 --mem=100000 run_nbs.bash
 
 ## Configuring the analysis
 The configuration for the analysis is in a separate file, [config.yaml](config.yaml). 
@@ -49,19 +58,24 @@ The [config.yaml](config.yaml) file points to several files in the [./data/](dat
   
   - [data/H3renumbering_scheme.csv](data/H3renumbering_scheme.csv):
     A CSV file that maps sequential 1, 2, ... numbering of the Perth/2009 HA protein sequence (*original* column) to the standard H3 HA numbering scheme (*new* column).
+
+  - [data/neut_assays](data/neut_assays):
+    Data from neutralization assays.
+    Specifically:
+      - [data/neut_assays/neut_config.yaml](data/neut_assays/neut_config.yaml): Details on neutralization assays for each serum, with Excel path relative to top-level analysis directory.
+      - [data/plate_reader_data/](data/plate_reader_data/): The plate reader data (Excel format).
   
 ## Results
 Results are placed in the [./results/](results) subdirectory.
 Many of the results files are **not** tracked in this GitHub repo since they are very large.
 However, the following results are tracked:
 
-  - [results/analysis_notebook.md](results/analysis_notebook.md): Markdown rendering of results of the Jupyter notebook [analysis_notebook.ipynb](analysis_notebook.ipynb)
+  - [results/notebooks/analyze_map.md](results/notebooks/analyze_map.md): analysis of mutational antigenic profiling
+
+  - [results/notebooks/analyze_neut.md](results/notebooks/analyze_neut.md): analysis of neutralization assays
 
 ## Other subdirectories
 Other subdirectories have information relevant to the study that are not part of the main pipeline described above:
 
- - [./neutralization_assays/](neutralization_assays) has data and analysis relevant to the neutralization assays.
-   See [./neutralization_assays/README.md](neutralization_assays/README.md) for details.
-
- - [./SRA_upload/](SRA_upload) has information on how the sequencing data are uploaded to the NIH [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra).
+ - [./SRA_upload/](SRA_upload) has information on how the sequencing data were uploaded to the NIH [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra).
    See [./SRA_upload/README.md](SRA_upload/README.md) for details.

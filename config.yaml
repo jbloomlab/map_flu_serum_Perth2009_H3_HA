@@ -43,6 +43,9 @@ use_existing: 'yes'
 # Do we average across replicates using "mean" or "median"?
 avg_type: median
 
+# configuration file for neutralization assays
+neut_config: data/neut_assays/neut_config.yaml
+
 # names of results directories
 countsdir: results/codoncounts  # counts of mutations
 renumbcountsdir: results/renumbered_codoncounts  # counts w/ renumbered sites
@@ -52,4 +55,5 @@ avgdiffsel_sigsites_dir: results/avgdiffsel/sigsites  # calling "significant sit
 avgdiffsel_zoom_dir: results/avgdiffsel/zoomed_plots  # zoom of average diffsel
 avgdiffsel_reps_dir: results/avgdiffsel/replicates  # replicates that go into average
 avgdiffsel_full_dir: results/avgdiffsel/full_logo_plots  # full logo plots of average diffsel
+neutresultsdir: results/neutralization_assays # results of neutralization assays
 figsdir: results/addtl_figs  # additional customized figures
