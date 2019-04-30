@@ -6,26 +6,31 @@
         virus: WT
         dilution_factor: 1.889
         initial_concentration: 0.02647
+        excluded_dilutions: [1]
       F193D:
         serum: 2010-age-21
         virus: F193D
         dilution_factor: 1.889
         initial_concentration: 0.02647
+        excluded_dilutions: [1]
       F193F:
         serum: 2010-age-21
         virus: F193F
         dilution_factor: 1.889
         initial_concentration: 0.02647
+        excluded_dilutions: [1]
       K189D:
         serum: 2010-age-21
         virus: K189D
         dilution_factor: 1.889
         initial_concentration: 0.02647
+        excluded_dilutions: [1]
       L157D:
         serum: 2010-age-21
         virus: L157D
         dilution_factor: 1.889
         initial_concentration: 0.02647
+        excluded_dilutions: [1]
 
 - VIDD2:
     excelfile: data/neut_assays/plate_reader_data/VIDD2_NeutralizationAssay.xlsx
@@ -35,26 +40,31 @@
         virus: WT
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       L157D:
         serum: 2009-age-53a
         virus: L157D
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       K160T:
         serum: 2009-age-53a
         virus: K160T
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       F193D:
         serum: 2009-age-53a
         virus: F193D
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       F193F:
         serum: 2009-age-53a
         virus: F193F
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
         
 - VIDD3:
     excelfile: data/neut_assays/plate_reader_data/VIDD3_NeutralizationAssay.xlsx
@@ -64,26 +74,31 @@
         virus: WT
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       L157D:
         serum: 2009-age-53b
         virus: L157D
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       K160T:
         serum: 2009-age-53b
         virus: K160T
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       F193D:
         serum: 2009-age-53b
         virus: F193D
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       F159G:
         serum: 2009-age-53b
         virus: F159G
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
 
 - VIDD4:
     excelfile: data/neut_assays/plate_reader_data/VIDD4_NeutralizationAssay.xlsx
@@ -93,21 +108,25 @@
         virus: WT
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
       F159G:
         serum: 2009-age-64
         virus: F159G
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
       K189D:
         serum: 2009-age-64
         virus: K189D
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
       F193D:
         serum: 2009-age-64
         virus: F193D
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
 
 - VIDD5:
     excelfile: data/neut_assays/plate_reader_data/VIDD5_NeutralizationAssay.xlsx
@@ -117,31 +136,37 @@
         virus: WT
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
       F193D:
         serum: 2009-age-65
         virus: F193D
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
       K160T:
         serum: 2009-age-65
         virus: K160T
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
       F193F:
         serum: 2009-age-65
         virus: F193F
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
       N121E:
         serum: 2009-age-65
         virus: N121E
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
       F159G:
         serum: 2009-age-65
         virus: F159G
         dilution_factor: 2.143
         initial_concentration: 0.0233
+        excluded_dilutions: [1]
         
 - 557v1:
     excelfile: data/neut_assays/plate_reader_data/557v1_NeutralizationAssay.xlsx
@@ -151,21 +176,25 @@
         virus: WT
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
       F159G:
         serum: 2015-age-25-prevacc
         virus: F159G
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
       R220D:
         serum: 2015-age-25-prevacc
         virus: R220D
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
       K189D:
         serum: 2015-age-25-prevacc
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
 
 - 557v2:
     excelfile: data/neut_assays/plate_reader_data/557v2_NeutralizationAssay.xlsx
@@ -175,16 +204,19 @@
         virus: WT
         dilution_factor: 2.143
         initial_concentration: 0.0025
+        excluded_dilutions: [1]
       F159G:
         serum: 2015-age-25-vacc
         virus: F159G
         dilution_factor: 2.143
         initial_concentration: 0.0025
+        excluded_dilutions: [1]
       F159F:
         serum: 2015-age-25-vacc
         virus: F159F
         dilution_factor: 2.143
         initial_concentration: 0.0025
+        excluded_dilutions: [1]
 
 - 574v1:
     excelfile: data/neut_assays/plate_reader_data/574v1_NeutralizationAssay.xlsx
@@ -194,16 +226,19 @@
         virus: WT
         dilution_factor: 1.889
         initial_concentration: 0.02647
+        excluded_dilutions: [1]
       F159G:
         serum: 2015-age-29-prevacc
         virus: F159G
         dilution_factor: 1.889
         initial_concentration: 0.02647
+        excluded_dilutions: [1]
       K144E:
         serum: 2015-age-29-prevacc
         virus: K144E
         dilution_factor: 1.889
         initial_concentration: 0.02647
+        excluded_dilutions: [1]
 
 - 574v2:
     excelfile: data/neut_assays/plate_reader_data/574v2_NeutralizationAssay.xlsx
@@ -213,16 +248,19 @@
         virus: WT
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       K144E:
         serum: 2015-age-29-vacc
         virus: K144E
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       F159G:
         serum: 2015-age-29-vacc
         virus: F159G
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
 
 - 589v2:
     excelfile: data/neut_assays/plate_reader_data/589v2_NeutralizationAssay.xlsx
@@ -232,26 +270,31 @@
         virus: WT
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       K189D:
         serum: 2015-age-48-vacc
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       F159G:
         serum: 2015-age-48-vacc
         virus: F159G
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       R220D:
         serum: 2015-age-48-vacc
         virus: R220D
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       K144E:
         serum: 2015-age-48-vacc
         virus: K144E
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
 
 - 571v2:
     excelfile: data/neut_assays/plate_reader_data/571v2_NeutralizationAssay.xlsx
@@ -261,11 +304,13 @@
         virus: WT
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       G75(HA2)H:
         serum: 2015-age-49-vacc
         virus: G75(HA2)H
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
 
 - ferret-Pitt-1-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt1postinf_NeutralizationAssay.xlsx
@@ -275,31 +320,37 @@
         virus: WT
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       K189D:
         serum: ferret-Pitt-1-postinf
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       F193D:
         serum: ferret-Pitt-1-postinf
         virus: F193D
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       F193F:
         serum: ferret-Pitt-1-postinf
         virus: F193F
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       F159G:
         serum: ferret-Pitt-1-postinf
         virus: F159G
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       K144E:
         serum: ferret-Pitt-1-postinf
         virus: K144E
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
 
 - ferret-Pitt-2-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt2postinf_NeutralizationAssay.xlsx
@@ -309,21 +360,25 @@
         virus: WT
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       K189D:
         serum: ferret-Pitt-2-postinf
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       F193D:
         serum: ferret-Pitt-2-postinf
         virus: F193D
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
       K144E:
         serum: ferret-Pitt-2-postinf
         virus: K144E
         dilution_factor: 2.333
         initial_concentration: 0.0125
+        excluded_dilutions: [1]
 
 - ferret-Pitt-3-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt3postinf_NeutralizationAssay.xlsx
@@ -333,26 +388,31 @@
         virus: WT
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
       K189D:
         serum: ferret-Pitt-3-postinf
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
       F193D:
         serum: ferret-Pitt-3-postinf
         virus: F193D
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
       K160T:
         serum: ferret-Pitt-3-postinf
         virus: K160T
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
       L157D:
         serum: ferret-Pitt-3-postinf
         virus: L157D
         dilution_factor: 2.333
         initial_concentration: 0.0238
+        excluded_dilutions: [1]
 
 - ferret-WHO-Victoria2011:
     excelfile: data/neut_assays/plate_reader_data/WHOVic11_NeutralizationAssay.xlsx
@@ -362,26 +422,31 @@
         virus: WT
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       K189D:
         serum: ferret-WHO-Victoria2011
         virus: K189D
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       F193D:
         serum: ferret-WHO-Victoria2011
         virus: F193D
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       F159G:
         serum: ferret-WHO-Victoria2011
         virus: F159G
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
       K160T:
         serum: ferret-WHO-Victoria2011
         virus: K160T
         dilution_factor: 2
         initial_concentration: 0.025
+        excluded_dilutions: [1]
 
 - antibody-5A01:
     excelfile: data/neut_assays/plate_reader_data/mAb_5A01_NeutralizationAssay.xlsx

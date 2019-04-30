@@ -28,7 +28,7 @@ import neutcurve.parse_excel
 print(f"Using neutcurve version {neutcurve.__version__}")
 ```
 
-    Using neutcurve version 0.1.0
+    Using neutcurve version 0.2.dev0
 
 
 
@@ -274,11 +274,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>WT</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00119</td>
+      <td>0.00118</td>
       <td>interpolated</td>
-      <td>0.00119</td>
-      <td>0.00119</td>
-      <td>1.87</td>
+      <td>0.00118</td>
+      <td>0.00118</td>
+      <td>1.99</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -287,11 +287,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F193D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0265</td>
+      <td>0.014</td>
       <td>lower</td>
-      <td>&gt;0.0265</td>
-      <td>0.0266</td>
-      <td>33.6</td>
+      <td>&gt;0.014</td>
+      <td>0.44</td>
+      <td>6.99</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -304,7 +304,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.00164</td>
       <td>0.00164</td>
-      <td>2.54</td>
+      <td>2.59</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -313,11 +313,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K189D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00181</td>
+      <td>0.0018</td>
       <td>interpolated</td>
-      <td>0.00181</td>
-      <td>0.00181</td>
-      <td>1.98</td>
+      <td>0.0018</td>
+      <td>0.0018</td>
+      <td>2.13</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -330,7 +330,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.00107</td>
       <td>0.00107</td>
-      <td>2.05</td>
+      <td>2.08</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -339,11 +339,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>WT</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0013</td>
+      <td>0.00124</td>
       <td>interpolated</td>
-      <td>0.0013</td>
-      <td>0.0013</td>
-      <td>1.46</td>
+      <td>0.00124</td>
+      <td>0.00124</td>
+      <td>1.78</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -352,11 +352,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>L157D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00525</td>
+      <td>0.00481</td>
       <td>interpolated</td>
-      <td>0.00525</td>
-      <td>0.00525</td>
-      <td>1.58</td>
+      <td>0.00481</td>
+      <td>0.00481</td>
+      <td>1.98</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -365,11 +365,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K160T</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00352</td>
+      <td>0.00338</td>
       <td>interpolated</td>
-      <td>0.00352</td>
-      <td>0.00352</td>
-      <td>1.63</td>
+      <td>0.00338</td>
+      <td>0.00338</td>
+      <td>2.12</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -378,11 +378,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F193D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00243</td>
+      <td>0.00234</td>
       <td>interpolated</td>
-      <td>0.00243</td>
-      <td>0.00243</td>
-      <td>1.63</td>
+      <td>0.00234</td>
+      <td>0.00234</td>
+      <td>1.86</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -395,7 +395,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.00153</td>
       <td>0.00153</td>
-      <td>2.23</td>
+      <td>2.32</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -404,11 +404,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>WT</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0027</td>
+      <td>0.00172</td>
       <td>interpolated</td>
-      <td>0.0027</td>
-      <td>0.0027</td>
-      <td>0.672</td>
+      <td>0.00172</td>
+      <td>0.00172</td>
+      <td>1.21</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -417,11 +417,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>L157D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0118</td>
+      <td>0.00931</td>
       <td>interpolated</td>
-      <td>0.0118</td>
-      <td>0.0118</td>
-      <td>1.77</td>
+      <td>0.00931</td>
+      <td>0.00931</td>
+      <td>2.64</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -430,11 +430,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K160T</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00413</td>
+      <td>0.00387</td>
       <td>interpolated</td>
-      <td>0.00413</td>
-      <td>0.00413</td>
-      <td>1.72</td>
+      <td>0.00387</td>
+      <td>0.00387</td>
+      <td>2.21</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -443,11 +443,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F193D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00471</td>
+      <td>0.00418</td>
       <td>interpolated</td>
-      <td>0.00471</td>
-      <td>0.00471</td>
-      <td>1.45</td>
+      <td>0.00418</td>
+      <td>0.00418</td>
+      <td>1.84</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -456,11 +456,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F159G</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00175</td>
+      <td>0.00174</td>
       <td>interpolated</td>
-      <td>0.00175</td>
-      <td>0.00175</td>
-      <td>2.2</td>
+      <td>0.00174</td>
+      <td>0.00174</td>
+      <td>2.33</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -482,11 +482,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F159G</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0113</td>
+      <td>0.0108</td>
       <td>interpolated</td>
-      <td>0.0113</td>
-      <td>0.0113</td>
-      <td>2.68</td>
+      <td>0.0108</td>
+      <td>0.0108</td>
+      <td>3.3</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -495,11 +495,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K189D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.000259</td>
+      <td>0.000258</td>
       <td>interpolated</td>
-      <td>0.000259</td>
-      <td>0.000259</td>
-      <td>1.53</td>
+      <td>0.000258</td>
+      <td>0.000258</td>
+      <td>1.54</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -525,7 +525,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.000328</td>
       <td>0.000328</td>
-      <td>2</td>
+      <td>2.01</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -534,11 +534,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F193D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0205</td>
-      <td>interpolated</td>
-      <td>0.0205</td>
-      <td>0.0205</td>
-      <td>2.13</td>
+      <td>0.0109</td>
+      <td>lower</td>
+      <td>&gt;0.0109</td>
+      <td>0.0114</td>
+      <td>21.9</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -551,7 +551,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.00145</td>
       <td>0.00145</td>
-      <td>2.53</td>
+      <td>2.57</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -564,7 +564,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.000412</td>
       <td>0.000412</td>
-      <td>2.1</td>
+      <td>2.11</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -590,7 +590,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.000805</td>
       <td>0.000805</td>
-      <td>1.95</td>
+      <td>1.97</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -603,7 +603,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.00126</td>
       <td>0.00126</td>
-      <td>2.39</td>
+      <td>2.43</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -612,11 +612,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F159G</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0238</td>
+      <td>0.0102</td>
       <td>lower</td>
-      <td>&gt;0.0238</td>
-      <td>888</td>
-      <td>3.12</td>
+      <td>&gt;0.0102</td>
+      <td>1.19</td>
+      <td>4.87</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -625,11 +625,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>R220D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0117</td>
-      <td>interpolated</td>
-      <td>0.0117</td>
-      <td>0.0117</td>
-      <td>4.63</td>
+      <td>0.0102</td>
+      <td>lower</td>
+      <td>&gt;0.0102</td>
+      <td>0.0104</td>
+      <td>24.7</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -638,11 +638,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K189D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.000871</td>
+      <td>0.000868</td>
       <td>interpolated</td>
-      <td>0.000871</td>
-      <td>0.000871</td>
-      <td>1.73</td>
+      <td>0.000868</td>
+      <td>0.000868</td>
+      <td>1.78</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -664,11 +664,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F159G</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0025</td>
+      <td>0.00117</td>
       <td>lower</td>
-      <td>&gt;0.0025</td>
-      <td>0.0558</td>
-      <td>1.06</td>
+      <td>&gt;0.00117</td>
+      <td>0.0331</td>
+      <td>1.17</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -690,11 +690,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>WT</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00665</td>
+      <td>0.00637</td>
       <td>interpolated</td>
-      <td>0.00665</td>
-      <td>0.00665</td>
-      <td>1.68</td>
+      <td>0.00637</td>
+      <td>0.00637</td>
+      <td>2.06</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -703,11 +703,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F159G</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00969</td>
+      <td>0.00954</td>
       <td>interpolated</td>
-      <td>0.00969</td>
-      <td>0.00969</td>
-      <td>2.73</td>
+      <td>0.00954</td>
+      <td>0.00954</td>
+      <td>3.34</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -716,11 +716,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K144E</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00568</td>
+      <td>0.00561</td>
       <td>interpolated</td>
-      <td>0.00568</td>
-      <td>0.00568</td>
-      <td>1.8</td>
+      <td>0.00561</td>
+      <td>0.00561</td>
+      <td>1.92</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -781,11 +781,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K189D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.000414</td>
+      <td>0.000413</td>
       <td>interpolated</td>
-      <td>0.000414</td>
-      <td>0.000414</td>
-      <td>1.26</td>
+      <td>0.000413</td>
+      <td>0.000413</td>
+      <td>1.31</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -833,11 +833,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>WT</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00353</td>
+      <td>0.00343</td>
       <td>interpolated</td>
-      <td>0.00353</td>
-      <td>0.00353</td>
-      <td>1.58</td>
+      <td>0.00343</td>
+      <td>0.00343</td>
+      <td>1.77</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -850,7 +850,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.00277</td>
       <td>0.00277</td>
-      <td>2.29</td>
+      <td>2.31</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -954,7 +954,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.000724</td>
       <td>0.000724</td>
-      <td>2.6</td>
+      <td>2.61</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -967,7 +967,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.0012</td>
       <td>0.0012</td>
-      <td>3.06</td>
+      <td>3.1</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1002,11 +1002,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K189D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00114</td>
+      <td>0.00113</td>
       <td>interpolated</td>
-      <td>0.00114</td>
-      <td>0.00114</td>
-      <td>1.92</td>
+      <td>0.00113</td>
+      <td>0.00113</td>
+      <td>1.98</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1015,11 +1015,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F193D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00514</td>
+      <td>0.00505</td>
       <td>interpolated</td>
-      <td>0.00514</td>
-      <td>0.00514</td>
-      <td>2.83</td>
+      <td>0.00505</td>
+      <td>0.00505</td>
+      <td>3.13</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1032,7 +1032,7 @@ display(HTML(fitparams.to_html(index=False)))
       <td>interpolated</td>
       <td>0.000471</td>
       <td>0.000471</td>
-      <td>2.37</td>
+      <td>2.38</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1054,11 +1054,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>WT</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00193</td>
+      <td>0.00192</td>
       <td>interpolated</td>
-      <td>0.00193</td>
-      <td>0.00193</td>
-      <td>2.16</td>
+      <td>0.00192</td>
+      <td>0.00192</td>
+      <td>2.26</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1067,11 +1067,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K189D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.0138</td>
+      <td>0.0115</td>
       <td>interpolated</td>
-      <td>0.0138</td>
-      <td>0.0138</td>
-      <td>1.84</td>
+      <td>0.0115</td>
+      <td>0.0115</td>
+      <td>3.01</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1080,11 +1080,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F193D</td>
       <td>average</td>
       <td>3</td>
-      <td>0.025</td>
+      <td>0.0125</td>
       <td>lower</td>
-      <td>&gt;0.025</td>
-      <td>0.0256</td>
-      <td>2.08</td>
+      <td>&gt;0.0125</td>
+      <td>0.0215</td>
+      <td>2.56</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1093,11 +1093,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>F159G</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00632</td>
+      <td>0.00601</td>
       <td>interpolated</td>
-      <td>0.00632</td>
-      <td>0.00632</td>
-      <td>2.09</td>
+      <td>0.00601</td>
+      <td>0.00601</td>
+      <td>2.52</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1106,11 +1106,11 @@ display(HTML(fitparams.to_html(index=False)))
       <td>K160T</td>
       <td>average</td>
       <td>3</td>
-      <td>0.00962</td>
+      <td>0.00871</td>
       <td>interpolated</td>
-      <td>0.00962</td>
-      <td>0.00962</td>
-      <td>1.78</td>
+      <td>0.00871</td>
+      <td>0.00871</td>
+      <td>2.42</td>
       <td>1</td>
       <td>0</td>
     </tr>

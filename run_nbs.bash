@@ -6,7 +6,8 @@ RESULTSDIR="results/notebooks"
 
 mkdir -p $RESULTSDIR
 
-declare -a nbs=("analyze_map.ipynb"
+declare -a nbs=(
+                "analyze_map.ipynb"
                 "analyze_neut.ipynb"
                 )
 
