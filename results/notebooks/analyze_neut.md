@@ -1,4 +1,7 @@
 
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Plot-neutralization-curves" data-toc-modified-id="Plot-neutralization-curves-1">Plot neutralization curves</a></span><ul class="toc-item"><li><span><a href="#Configuration-and-setup" data-toc-modified-id="Configuration-and-setup-1.1">Configuration and setup</a></span></li><li><span><a href="#Read-neutralization-data" data-toc-modified-id="Read-neutralization-data-1.2">Read neutralization data</a></span></li><li><span><a href="#Fit-and-plot-neutralization-curves" data-toc-modified-id="Fit-and-plot-neutralization-curves-1.3">Fit and plot neutralization curves</a></span></li></ul></li></ul></div>
+
 # Plot neutralization curves
 
 In this notebook we will create neutralization plots from GFP-based neutralization assays. 
@@ -104,11 +107,17 @@ print(f"Read data for {len(neutdata.groupby('serum'))} sera and "
     Parsing data for 557v2...
     Parsing data for 574v1...
     Parsing data for 574v2...
+    Parsing data for 589v1...
     Parsing data for 589v2...
+    Parsing data for 571v1...
     Parsing data for 571v2...
+    Parsing data for ferret-Pitt-1-preinf...
     Parsing data for ferret-Pitt-1-postinf...
+    Parsing data for ferret-Pitt-2-preinf...
     Parsing data for ferret-Pitt-2-postinf...
+    Parsing data for ferret-Pitt-3-preinf...
     Parsing data for ferret-Pitt-3-postinf...
+    Parsing data for ferret-WHO...
     Parsing data for ferret-WHO-Victoria2011...
     Parsing data for antibody-5A01...
     Parsing data for antibody-3C06...
@@ -116,7 +125,7 @@ print(f"Read data for {len(neutdata.groupby('serum'))} sera and "
     Parsing data for antibody-4C01...
     Parsing data for antibody-4F03...
     Parsing data for antibody-1C04...
-    Read data for 21 sera and 85 serum / virus pairs.
+    Read data for 27 sera and 91 serum / virus pairs.
 
 
 Write the neutralization data to a CSV file in our output directory:
@@ -158,87 +167,111 @@ for s in neutdata['serum'].unique():
 ```
 
 
-![png](analyze_neut_files/analyze_neut_17_0.png)
+![png](analyze_neut_files/analyze_neut_18_0.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_1.png)
+![png](analyze_neut_files/analyze_neut_18_1.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_2.png)
+![png](analyze_neut_files/analyze_neut_18_2.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_3.png)
+![png](analyze_neut_files/analyze_neut_18_3.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_4.png)
+![png](analyze_neut_files/analyze_neut_18_4.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_5.png)
+![png](analyze_neut_files/analyze_neut_18_5.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_6.png)
+![png](analyze_neut_files/analyze_neut_18_6.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_7.png)
+![png](analyze_neut_files/analyze_neut_18_7.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_8.png)
+![png](analyze_neut_files/analyze_neut_18_8.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_9.png)
+![png](analyze_neut_files/analyze_neut_18_9.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_10.png)
+![png](analyze_neut_files/analyze_neut_18_10.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_11.png)
+![png](analyze_neut_files/analyze_neut_18_11.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_12.png)
+![png](analyze_neut_files/analyze_neut_18_12.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_13.png)
+![png](analyze_neut_files/analyze_neut_18_13.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_14.png)
+![png](analyze_neut_files/analyze_neut_18_14.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_15.png)
+![png](analyze_neut_files/analyze_neut_18_15.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_16.png)
+![png](analyze_neut_files/analyze_neut_18_16.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_17.png)
+![png](analyze_neut_files/analyze_neut_18_17.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_18.png)
+![png](analyze_neut_files/analyze_neut_18_18.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_19.png)
+![png](analyze_neut_files/analyze_neut_18_19.png)
 
 
 
-![png](analyze_neut_files/analyze_neut_17_20.png)
+![png](analyze_neut_files/analyze_neut_18_20.png)
+
+
+
+![png](analyze_neut_files/analyze_neut_18_21.png)
+
+
+
+![png](analyze_neut_files/analyze_neut_18_22.png)
+
+
+
+![png](analyze_neut_files/analyze_neut_18_23.png)
+
+
+
+![png](analyze_neut_files/analyze_neut_18_24.png)
+
+
+
+![png](analyze_neut_files/analyze_neut_18_25.png)
+
+
+
+![png](analyze_neut_files/analyze_neut_18_26.png)
 
 
 
@@ -764,6 +797,19 @@ display(HTML(fitparams.to_html(index=False)))
       <td>0</td>
     </tr>
     <tr>
+      <td>2015-age-48-prevacc</td>
+      <td>WT</td>
+      <td>average</td>
+      <td>3</td>
+      <td>0.00617</td>
+      <td>lower</td>
+      <td>&gt;0.00617</td>
+      <td>0.00725</td>
+      <td>2.13</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
       <td>2015-age-48-vacc</td>
       <td>WT</td>
       <td>average</td>
@@ -829,6 +875,19 @@ display(HTML(fitparams.to_html(index=False)))
       <td>0</td>
     </tr>
     <tr>
+      <td>2015-age-49-prevacc</td>
+      <td>WT</td>
+      <td>average</td>
+      <td>3</td>
+      <td>0.00617</td>
+      <td>lower</td>
+      <td>&gt;0.00617</td>
+      <td>188</td>
+      <td>0.272</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
       <td>2015-age-49-vacc</td>
       <td>WT</td>
       <td>average</td>
@@ -851,6 +910,19 @@ display(HTML(fitparams.to_html(index=False)))
       <td>0.00277</td>
       <td>0.00277</td>
       <td>2.31</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-preinf</td>
+      <td>WT</td>
+      <td>average</td>
+      <td>3</td>
+      <td>0.00617</td>
+      <td>lower</td>
+      <td>&gt;0.00617</td>
+      <td>0.234</td>
+      <td>6.37</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -933,6 +1005,19 @@ display(HTML(fitparams.to_html(index=False)))
       <td>0</td>
     </tr>
     <tr>
+      <td>ferret-Pitt-2-preinf</td>
+      <td>WT</td>
+      <td>average</td>
+      <td>3</td>
+      <td>0.00206</td>
+      <td>lower</td>
+      <td>&gt;0.00206</td>
+      <td>0.053</td>
+      <td>9.7</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
       <td>ferret-Pitt-2-postinf</td>
       <td>WT</td>
       <td>average</td>
@@ -981,6 +1066,19 @@ display(HTML(fitparams.to_html(index=False)))
       <td>0.000636</td>
       <td>0.000636</td>
       <td>2.8</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-preinf</td>
+      <td>WT</td>
+      <td>average</td>
+      <td>3</td>
+      <td>0.00617</td>
+      <td>lower</td>
+      <td>&gt;0.00617</td>
+      <td>0.137</td>
+      <td>6.83</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1046,6 +1144,19 @@ display(HTML(fitparams.to_html(index=False)))
       <td>0.000265</td>
       <td>0.000265</td>
       <td>1.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO</td>
+      <td>WT</td>
+      <td>average</td>
+      <td>3</td>
+      <td>0.00476</td>
+      <td>interpolated</td>
+      <td>0.00476</td>
+      <td>0.00476</td>
+      <td>2.11</td>
       <td>1</td>
       <td>0</td>
     </tr>
