@@ -46,6 +46,9 @@ avg_type: median
 # configuration file for neutralization assays
 neut_config: data/neut_assays/neut_config.yaml
 
+# coloring for logo plot zoom and neut assay figure
+mutation_colors_and_markers: data/mutation_colors_and_markers.yaml
+
 # names of results directories
 countsdir: results/codoncounts  # counts of mutations
 renumbcountsdir: results/renumbered_codoncounts  # counts w/ renumbered sites

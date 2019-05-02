@@ -64,6 +64,9 @@ The [config.yaml](config.yaml) file points to several files in the [./data/](dat
     Specifically:
       - [data/neut_assays/neut_config.yaml](data/neut_assays/neut_config.yaml): Details on neutralization assays for each serum, with Excel path relative to top-level analysis directory.
       - [data/plate_reader_data/](data/plate_reader_data/): The plate reader data (Excel format).
+
+  - [data/mutation_colors_and_markers.yaml](data/mutation_colors_and_markers.yaml):
+    YAML file giving specifications for colored logo plot zooms and neutralization assay plots. 
   
 ## Results
 Results are placed in the [./results/](results) subdirectory.
