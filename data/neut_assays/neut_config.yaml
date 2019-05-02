@@ -390,7 +390,7 @@
         virus: WT
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 2]
 
 - ferret-Pitt-2-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt2postinf_NeutralizationAssay.xlsx
