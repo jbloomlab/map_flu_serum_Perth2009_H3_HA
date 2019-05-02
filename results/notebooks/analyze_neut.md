@@ -304,7 +304,7 @@ display(HTML(fitparams.to_html(index=False)))
   <tbody>
     <tr>
       <td>2010-age-21</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00118</td>
@@ -330,7 +330,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2010-age-21</td>
-      <td>F193F</td>
+      <td>syn</td>
       <td>average</td>
       <td>3</td>
       <td>0.00164</td>
@@ -369,7 +369,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2009-age-53a</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00124</td>
@@ -421,7 +421,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2009-age-53a</td>
-      <td>F193F</td>
+      <td>syn</td>
       <td>average</td>
       <td>3</td>
       <td>0.00153</td>
@@ -434,7 +434,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2009-age-53b</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00172</td>
@@ -499,7 +499,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2009-age-64</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.000318</td>
@@ -551,7 +551,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2009-age-65</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.000328</td>
@@ -590,7 +590,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2009-age-65</td>
-      <td>F193F</td>
+      <td>syn</td>
       <td>average</td>
       <td>3</td>
       <td>0.000412</td>
@@ -629,7 +629,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2015-age-25-prevacc</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00126</td>
@@ -681,7 +681,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2015-age-25-vacc</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>8.54e-05</td>
@@ -720,7 +720,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2015-age-29-prevacc</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00637</td>
@@ -759,7 +759,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2015-age-29-vacc</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.000299</td>
@@ -798,7 +798,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2015-age-48-prevacc</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00617</td>
@@ -811,7 +811,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2015-age-48-vacc</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>8.33e-05</td>
@@ -876,7 +876,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2015-age-49-prevacc</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00617</td>
@@ -889,7 +889,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>2015-age-49-vacc</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00343</td>
@@ -915,7 +915,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-Pitt-1-preinf</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00617</td>
@@ -928,7 +928,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-Pitt-1-postinf</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>9.84e-05</td>
@@ -967,7 +967,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-Pitt-1-postinf</td>
-      <td>F193F</td>
+      <td>syn</td>
       <td>average</td>
       <td>3</td>
       <td>9.9e-05</td>
@@ -1006,7 +1006,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-Pitt-2-preinf</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00206</td>
@@ -1019,7 +1019,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-Pitt-2-postinf</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.000343</td>
@@ -1071,7 +1071,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-Pitt-3-preinf</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00617</td>
@@ -1084,7 +1084,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-Pitt-3-postinf</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.000375</td>
@@ -1149,7 +1149,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-WHO</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00476</td>
@@ -1162,7 +1162,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>ferret-WHO-Victoria2011</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00192</td>
@@ -1227,7 +1227,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>antibody-5A01</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.0884</td>
@@ -1279,7 +1279,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>antibody-3C06</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00726</td>
@@ -1318,7 +1318,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>antibody-3C04</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.00774</td>
@@ -1357,7 +1357,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>antibody-4C01</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.0207</td>
@@ -1383,7 +1383,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>antibody-4C01</td>
-      <td>F193F</td>
+      <td>syn</td>
       <td>average</td>
       <td>3</td>
       <td>0.0112</td>
@@ -1409,7 +1409,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>antibody-4F03</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.362</td>
@@ -1461,7 +1461,7 @@ display(HTML(fitparams.to_html(index=False)))
     </tr>
     <tr>
       <td>antibody-1C04</td>
-      <td>WT</td>
+      <td>wt</td>
       <td>average</td>
       <td>3</td>
       <td>0.0868</td>
