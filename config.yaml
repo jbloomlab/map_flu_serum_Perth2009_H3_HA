@@ -59,4 +59,4 @@ avgdiffsel_zoom_dir: results/avgdiffsel/zoomed_plots  # zoom of average diffsel
 avgdiffsel_reps_dir: results/avgdiffsel/replicates  # replicates that go into average
 avgdiffsel_full_dir: results/avgdiffsel/full_logo_plots  # full logo plots of average diffsel
 neutresultsdir: results/neutralization_assays # results of neutralization assays
-figsdir: results/addtl_figs  # additional customized figures
+figsdir: results/figures  # additional customized figures
