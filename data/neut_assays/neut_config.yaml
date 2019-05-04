@@ -213,7 +213,7 @@
         excluded_dilutions: [1]
       F159F:
         serum: 2015-age-25-vacc
-        virus: F159F
+        virus: syn
         dilution_factor: 2.143
         initial_concentration: 0.0025
         excluded_dilutions: [1]
@@ -270,7 +270,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 11, 12]
 
 - 589v2:
     excelfile: data/neut_assays/plate_reader_data/589v2_NeutralizationAssay.xlsx
@@ -314,7 +314,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 11, 12]
 
 - 571v2:
     excelfile: data/neut_assays/plate_reader_data/571v2_NeutralizationAssay.xlsx
@@ -340,7 +340,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 11, 12]
 
 - ferret-Pitt-1-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt1postinf_NeutralizationAssay.xlsx
@@ -390,7 +390,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1, 2]
+        excluded_dilutions: [1, 2, 11, 12]
 
 - ferret-Pitt-2-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt2postinf_NeutralizationAssay.xlsx
@@ -428,7 +428,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 11, 12]
 
 - ferret-Pitt-3-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt3postinf_NeutralizationAssay.xlsx
@@ -472,7 +472,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 11, 12]
 
 - ferret-WHO-Victoria2011:
     excelfile: data/neut_assays/plate_reader_data/WHOVic11_NeutralizationAssay.xlsx
@@ -523,7 +523,7 @@
         initial_concentration: 1
       F159F:
         serum: antibody-5A01
-        virus: F159F
+        virus: syn
         dilution_factor: 2.333
         initial_concentration: 1
       K160T:
