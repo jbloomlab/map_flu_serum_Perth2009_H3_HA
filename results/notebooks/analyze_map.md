@@ -41,6 +41,10 @@ from dms_tools2.plot import COLOR_BLIND_PALETTE_GRAY as PALETTE
 import dmslogo
 ```
 
+    /fh/fast/bloom_j/software/conda/envs/BloomLab_v2/lib/python3.6/site-packages/matplotlib/font_manager.py:232: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+      'Matplotlib is building the font cache using fc-list. '
+
+
 Turn on interactive matplotlib plotting:
 
 
@@ -57,7 +61,7 @@ print(f"Using dmslogo version {dmslogo.__version__}")
 ```
 
     Using dms_tools2 version 2.4.10
-    Using dmslogo version 0.2.0
+    Using dmslogo version 0.2.1
 
 
 Set data frame display options:
@@ -6853,11 +6857,12 @@ fig, axes = dmslogo.facet_plot(
                 height_col='positive_diffsel', 
                 xtick_col='site', 
                 ylabel='immune selection',
+                show_color=PALETTE[-1],
                 ), 
         draw_logo_kwargs=dict(
                 letter_col='mutation', 
                 letter_height_col='mutdiffsel', 
-                color_col = 'color',
+                color_col='color',
                 xtick_col='site_label', 
                 xlabel='site', 
                 ylabel='immune selection', 
@@ -6955,6 +6960,7 @@ for serum_group, df in colored_zoom_df.groupby('serum_group'):
                     height_col='positive_diffsel',
                     xtick_col='site',
                     ylabel='immune selection',
+                    show_color=PALETTE[-1],
                     ),
             draw_logo_kwargs=dict(
                     letter_col='mutation',
