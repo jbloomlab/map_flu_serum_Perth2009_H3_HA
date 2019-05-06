@@ -1,6 +1,6 @@
 
 <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Fit-and-plot-neutralization-curves" data-toc-modified-id="Fit-and-plot-neutralization-curves-1">Fit and plot neutralization curves</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1">Import Python modules / packages</a></span></li><li><span><a href="#Configuration-and-setup" data-toc-modified-id="Configuration-and-setup-1.2">Configuration and setup</a></span></li><li><span><a href="#Read-neutralization-data" data-toc-modified-id="Read-neutralization-data-1.3">Read neutralization data</a></span></li><li><span><a href="#Fit-and-plot-all-neutralization-curves" data-toc-modified-id="Fit-and-plot-all-neutralization-curves-1.4">Fit and plot all neutralization curves</a></span></li><li><span><a href="#Colored-plots-for-figures" data-toc-modified-id="Colored-plots-for-figures-1.5">Colored plots for figures</a></span></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Fit-and-plot-neutralization-curves" data-toc-modified-id="Fit-and-plot-neutralization-curves-1">Fit and plot neutralization curves</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1">Import Python modules / packages</a></span></li><li><span><a href="#Configuration-and-setup" data-toc-modified-id="Configuration-and-setup-1.2">Configuration and setup</a></span></li><li><span><a href="#Read-neutralization-data" data-toc-modified-id="Read-neutralization-data-1.3">Read neutralization data</a></span></li><li><span><a href="#Fit-and-plot-all-neutralization-curves" data-toc-modified-id="Fit-and-plot-all-neutralization-curves-1.4">Fit and plot all neutralization curves</a></span></li><li><span><a href="#Neutralization-curves-integrated-with-logo-plots" data-toc-modified-id="Neutralization-curves-integrated-with-logo-plots-1.5">Neutralization curves integrated with logo plots</a></span></li></ul></li></ul></div>
 
 # Fit and plot neutralization curves
 In this notebook we will plot neutralization curves from GFP-based neutralization assays. 
@@ -11,17 +11,30 @@ All the curves plotted here represent the mean and standard deviation of three r
 The curves fit are the Hill-style neutralization functions fit and plotted by the [neutcurve](https://jbloomlab.github.io/neutcurve/) package.
 
 ## Import Python modules / packages
+In addition to importing the [neutcurve](https://jbloomlab.github.io/neutcurve/) package, we import [svgutils](https://svgutils.readthedocs.io) to merge the neutralization curves with the logo plots, and [cairosvg](https://cairosvg.org/) to convert SVGs to other formats:
 
 
 ```python
+import collections
 import os
+import re
+import string
 import warnings
+import xml.etree.ElementTree as ElementTree
+
+import cairosvg
+
+from dms_tools2.ipython_utils import showPDF
 
 from IPython.display import display, HTML
 
 import matplotlib.pyplot as plt
 
+import numpy
+
 import pandas as pd
+
+import svgutils.compose
 
 import yaml
 
@@ -229,7 +242,7 @@ for is_antibody, ptype, xlabel in [(False, 'sera', 'serum dilution'),
 
 
 
-![png](analyze_neut_files/analyze_neut_21_1.png)
+    <Figure size 1300x1450 with 25 Axes>
 
 
     
@@ -237,7 +250,7 @@ for is_antibody, ptype, xlabel in [(False, 'sera', 'serum dilution'),
 
 
 
-![png](analyze_neut_files/analyze_neut_21_3.png)
+    <Figure size 1300x550 with 9 Axes>
 
 
 Now get the curve fit parameters (e.g., IC50s):
@@ -741,28 +754,15 @@ fitparams.to_csv(fitfile, index=False, float_format='%.3g')
     Writing fit parameters to results/neutralization_assays/fitparams.csv
 
 
-## Colored plots for figures
-Get the colors that we have specified for viruses in each serum group:
+## Neutralization curves integrated with logo plots
+Now we are going to make versions of the neutralization curves that are combined with the logo plots created by [analyze_map.ipynb](analyze_map.ipynb) to serve as figures.
+
+Get the colors that we have specified for viruses in each serum group for these figures:
 
 
 ```python
 with open(config['mutation_colors_and_markers']) as f:
     virus_to_color_marker = yaml.safe_load(f)
-```
-
-Specify the extensions for the figure files:
-
-
-```python
-fig_extensions = ['.svg', '.pdf']
-```
-
-Write figures to this directory:
-
-
-```python
-figsdir = config['figsdir']
-os.makedirs(figsdir, exist_ok=True)
 ```
 
 Get data frame with all sera:
@@ -782,10 +782,11 @@ with open(config['serum_info']) as f:
                )
 ```
 
-Now draw the plots as single-column figures so they can be combined with the logo plots:
+Now draw the plots as single-column figures that can be aligned with the logo plots and save them as SVGs:
 
 
 ```python
+neutsvgfiles = []
 for serum_group, df in sera_df.groupby('group'):
     if serum_group not in virus_to_color_marker:
         continue
@@ -795,7 +796,6 @@ for serum_group, df in sera_df.groupby('group'):
     else:
         xlabel = 'serum dilution'
     colors = virus_to_color_marker[serum_group]['colors']
-    print(f"\n**************** {serum_group} ****************")
     fig, _ = fits.plotSera(
                 sera=df['name'].unique(),
                 viruses=colors.keys(),
@@ -803,65 +803,127 @@ for serum_group, df in sera_df.groupby('group'):
                 xlabel=xlabel,
                 max_viruses_per_subplot=len(colors),
                 ncol=1,
+                titlesize=17,
+                labelsize=17,
+                legendfontsize=14,
+                widthscale=1.35,
+                align_to_dmslogo_facet={'height_per_ax': 2.5,
+                                        'hspace': 0.8,
+                                        'tmargin': 0.4,
+                                        'bmargin': 1.3,
+                                        'right': 0.75,
+                                        'left': 0.2,
+                                        },
+                despine=True,
+                yticklocs=[0, 0.5, 1]
                 )
-    display(fig)
-    for ext in fig_extensions:
-        plotfile = os.path.join(config['figsdir'], f"{serum_group}_neut{ext}")
-        print(f"Saving to {plotfile}")
-        fig.savefig(plotfile)
+    neutsvgfile = os.path.join(config['figsdir'], f"{serum_group}_neut.svg")
+    print(f"Saving plot for {serum_group} to {neutsvgfile}")
+    fig.savefig(neutsvgfile)
     plt.close(fig)
+    neutsvgfiles.append(neutsvgfile)
+```
+
+    Saving plot for Hensley_sera to results/figures/Hensley_sera_neut.svg
+    Saving plot for VIDD_sera to results/figures/VIDD_sera_neut.svg
+    Saving plot for antibody_lower_head to results/figures/antibody_lower_head_neut.svg
+    Saving plot for antibody_region_B to results/figures/antibody_region_B_neut.svg
+    Saving plot for ferret to results/figures/ferret_neut.svg
+
+
+Now we will combine the logo and SVG files. 
+
+First, we need to define a function to get the width / height of a SVG file in points (see [here](http://osgeo-org.1560.x6.nabble.com/Get-size-of-SVG-in-Python-td5273032.html)):
+
+
+```python
+def svg_dim(svgfile, dim):
+    """Get width or height `dim` of `svgfile` in points."""
+    return float(ElementTree.parse(svgfile).getroot().attrib[dim].replace('pt', ''))
+```
+
+We also define a function that converts a SVG into a PDF or PNG:
+
+
+```python
+def svg_to_pdf(svgfile):
+    """`svgfile` to PDF, return converted file name."""
+    with open(svgfile) as f:
+        svg = f.read()
+    # need to eliminate units that `svgutils` incorrectly puts in viewBox
+    viewbox_match = re.compile('viewBox="' + ' '.join(['\d+\.{0,1}\d*(px){0,1}'] * 4) + '"')
+    if len(viewbox_match.findall(svg)) != 1:
+        raise ValueError(f"did not find exactly one viewBox in {svgfile}")
+    viewbox = viewbox_match.search(svg).group(0)
+    svg = svg.replace(viewbox, viewbox.replace('px', ''))
+    outfile = os.path.splitext(svgfile)[0] + '.pdf'
+    cairosvg.svg2pdf(bytestring=svg, write_to=outfile)
+    return outfile
+```
+
+Now we combine the neutralization curve SVGs with the logo-plot SVGs (which should already exist as output of [analyze_map.ipynb](analyze_map.ipynb)) as [here](https://svgutils.readthedocs.io/en/latest/tutorials/composing_multipanel_figures.html):
+
+
+```python
+for neutsvgfile in neutsvgfiles:
+    logosvgfile = neutsvgfile.replace('_neut', '_logo')
+    assert os.path.isfile(logosvgfile), f"cannot find {logosvgfile}"
+    svgfile = neutsvgfile.replace('_neut', '_logo_and_neut')
+    plots = [logosvgfile, neutsvgfile]
+    widths = [svg_dim(p, 'width') for p in plots]
+    heights = [svg_dim(p, 'height') for p in plots]
+    xshifts = numpy.cumsum(widths) - numpy.array(widths)
+    xshifts = numpy.clip(xshifts - 1, 0, None)  # reduce by one to avoid gaps
+    fig_elements = []
+    for letter, p, x in zip(string.ascii_uppercase, plots, xshifts):
+        fig_elements.append(svgutils.compose.SVG(p).move(x, 0))
+        fig_elements.append(svgutils.compose.Text(letter, 15, 25, weight='bold',
+                                                  size='26', font='Arial').move(x, 0))
+    f = svgutils.compose.Figure(sum(widths), max(heights), *fig_elements)
+    f.save(svgfile)
+    pdffile = svg_to_pdf(svgfile)
+    print(f"\nWriting figure to {svgfile} and {pdffile}")
+    showPDF(pdffile)
 ```
 
     
-    **************** Hensley_sera ****************
+    Writing figure to results/figures/Hensley_sera_logo_and_neut.svg and results/figures/Hensley_sera_logo_and_neut.pdf
 
 
 
-![png](analyze_neut_files/analyze_neut_37_1.png)
+![png](analyze_neut_files/analyze_neut_39_1.png)
 
 
-    Saving to results/figures/Hensley_sera_neut.svg
-    Saving to results/figures/Hensley_sera_neut.pdf
     
-    **************** VIDD_sera ****************
+    Writing figure to results/figures/VIDD_sera_logo_and_neut.svg and results/figures/VIDD_sera_logo_and_neut.pdf
 
 
 
-![png](analyze_neut_files/analyze_neut_37_3.png)
+![png](analyze_neut_files/analyze_neut_39_3.png)
 
 
-    Saving to results/figures/VIDD_sera_neut.svg
-    Saving to results/figures/VIDD_sera_neut.pdf
     
-    **************** antibody_lower_head ****************
+    Writing figure to results/figures/antibody_lower_head_logo_and_neut.svg and results/figures/antibody_lower_head_logo_and_neut.pdf
 
 
 
-![png](analyze_neut_files/analyze_neut_37_5.png)
+![png](analyze_neut_files/analyze_neut_39_5.png)
 
 
-    Saving to results/figures/antibody_lower_head_neut.svg
-    Saving to results/figures/antibody_lower_head_neut.pdf
     
-    **************** antibody_region_B ****************
+    Writing figure to results/figures/antibody_region_B_logo_and_neut.svg and results/figures/antibody_region_B_logo_and_neut.pdf
 
 
 
-![png](analyze_neut_files/analyze_neut_37_7.png)
+![png](analyze_neut_files/analyze_neut_39_7.png)
 
 
-    Saving to results/figures/antibody_region_B_neut.svg
-    Saving to results/figures/antibody_region_B_neut.pdf
     
-    **************** ferret ****************
+    Writing figure to results/figures/ferret_logo_and_neut.svg and results/figures/ferret_logo_and_neut.pdf
 
 
 
-![png](analyze_neut_files/analyze_neut_37_9.png)
-
-
-    Saving to results/figures/ferret_neut.svg
-    Saving to results/figures/ferret_neut.pdf
+![png](analyze_neut_files/analyze_neut_39_9.png)
 
 
 

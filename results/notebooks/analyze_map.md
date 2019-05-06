@@ -61,7 +61,7 @@ print(f"Using dmslogo version {dmslogo.__version__}")
 ```
 
     Using dms_tools2 version 2.4.10
-    Using dmslogo version 0.2.1
+    Using dmslogo version 0.2.2
 
 
 Set data frame display options:
@@ -6943,10 +6943,7 @@ Make the zoomed logo plots:
 
 ```python
 for serum_group, df in colored_zoom_df.groupby('serum_group'):
-
-    
     print(f"\n\n{'*' * 72}\nSerum group {serum_group}\n")
-
     fig, axes = dmslogo.facet_plot(
             data=df,
             x_col='isite',
@@ -6956,6 +6953,7 @@ for serum_group, df in colored_zoom_df.groupby('serum_group'):
             share_ylabel=True,
             share_ylim_across_rows=share_ylim_across_rows[serum_group],
             wspace=0.6,
+            rmargin=0.6,
             draw_line_kwargs=dict(
                     height_col='positive_diffsel',
                     xtick_col='site',
