@@ -41,10 +41,6 @@ from dms_tools2.plot import COLOR_BLIND_PALETTE_GRAY as PALETTE
 import dmslogo
 ```
 
-    /fh/fast/bloom_j/software/conda/envs/BloomLab_v2/lib/python3.6/site-packages/matplotlib/font_manager.py:232: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
-      'Matplotlib is building the font cache using fc-list. '
-
-
 Turn on interactive matplotlib plotting:
 
 
@@ -173,8 +169,8 @@ display(HTML(pd.Series(config)
       <td>data/neut_assays/neut_config.yaml</td>
     </tr>
     <tr>
-      <th>mutation_colors_and_markers</th>
-      <td>data/mutation_colors_and_markers.yaml</td>
+      <th>figure_config</th>
+      <td>data/figure_config.yaml</td>
     </tr>
     <tr>
       <th>countsdir</th>
@@ -403,7 +399,7 @@ display(HTML(sera.to_html(index=False)))
       <td>VIDD2</td>
       <td>collected at Hutch in 1/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>human</td>
       <td>NaN</td>
     </tr>
@@ -411,7 +407,7 @@ display(HTML(sera.to_html(index=False)))
       <td>VIDD3</td>
       <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>human</td>
       <td>NaN</td>
     </tr>
@@ -2948,7 +2944,7 @@ display(HTML(selections.to_html(index=False)))
       <td>lib3, 0.26% infectivity</td>
     </tr>
     <tr>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>lib2-2.0</td>
       <td>L5-VIDD2</td>
       <td>Lib5mock-A</td>
@@ -2960,13 +2956,13 @@ display(HTML(selections.to_html(index=False)))
       <td>2.0300</td>
       <td>collected at Hutch in 1/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>human</td>
       <td>NaN</td>
       <td>lib2, 2.0% infectivity</td>
     </tr>
     <tr>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>lib1-3.7</td>
       <td>L4-VIDD2</td>
       <td>Lib4mock-B</td>
@@ -2978,13 +2974,13 @@ display(HTML(selections.to_html(index=False)))
       <td>3.7400</td>
       <td>collected at Hutch in 1/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>human</td>
       <td>NaN</td>
       <td>lib1, 3.7% infectivity</td>
     </tr>
     <tr>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>lib3-6.2</td>
       <td>L6-VIDD2</td>
       <td>Lib6mock-A</td>
@@ -2996,13 +2992,13 @@ display(HTML(selections.to_html(index=False)))
       <td>6.2200</td>
       <td>collected at Hutch in 1/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>human</td>
       <td>NaN</td>
       <td>lib3, 6.2% infectivity</td>
     </tr>
     <tr>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>lib2-1.7</td>
       <td>L5-VIDD3</td>
       <td>Lib5mock-A</td>
@@ -3014,13 +3010,13 @@ display(HTML(selections.to_html(index=False)))
       <td>1.7300</td>
       <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>human</td>
       <td>NaN</td>
       <td>lib2, 1.7% infectivity</td>
     </tr>
     <tr>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>lib1-6.0</td>
       <td>L4-VIDD3</td>
       <td>Lib4mock-B</td>
@@ -3032,13 +3028,13 @@ display(HTML(selections.to_html(index=False)))
       <td>5.9800</td>
       <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>human</td>
       <td>NaN</td>
       <td>lib1, 6.0% infectivity</td>
     </tr>
     <tr>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>lib3-1.1</td>
       <td>L6-VIDD3</td>
       <td>Lib6mock-A</td>
@@ -3050,7 +3046,7 @@ display(HTML(selections.to_html(index=False)))
       <td>1.1200</td>
       <td>second sample collected at Hutch in 3/2009 from person born in 1956</td>
       <td>VIDD_sera</td>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>human</td>
       <td>NaN</td>
       <td>lib3, 1.1% infectivity</td>
@@ -3895,7 +3891,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
     
     
-    ******************* 2009-age-53a *******************
+    ******************* 2009-age-53 *******************
 
 
 
@@ -3943,7 +3939,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
     
     
-    ******************* 2009-age-53b *******************
+    ******************* 2009-age-53-plus-2-months *******************
 
 
 
@@ -5559,13 +5555,13 @@ display(HTML(selections
     </tr>
     <tr>
       <th rowspan="5" valign="top">VIDD_sera</th>
-      <th>2009-age-53a</th>
+      <th>2009-age-53</th>
       <td>3.7400</td>
       <td>2.0300</td>
       <td>6.2200</td>
     </tr>
     <tr>
-      <th>2009-age-53b</th>
+      <th>2009-age-53-plus-2-months</th>
       <td>5.9800</td>
       <td>1.7300</td>
       <td>1.1200</td>
@@ -6037,12 +6033,12 @@ display(HTML(sigsites_df
       <td>4</td>
     </tr>
     <tr>
-      <th>2009-age-53a</th>
+      <th>2009-age-53</th>
       <td>157, 160</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>2009-age-53b</th>
+      <th>2009-age-53-plus-2-months</th>
       <td>157, 160, 244</td>
       <td>3</td>
     </tr>
@@ -6471,6 +6467,9 @@ for tup in (avg_selections
             ):
     name = getattr(tup, "serum_name_formatted")
     plotfile = os.path.join(outdir, f"{name}_diffsel.pdf")
+    if os.path.isfile(plotfile) and config['use_existing'] == 'yes':
+        print(f"{plotfile} already exists.")
+        continue
     datafile = getattr(tup, 'mutdiffsel_file')
     cmds = ['dms2_logoplot',
             '--outdir', outdir,
@@ -6487,36 +6486,36 @@ for tup in (avg_selections
     assert os.path.isfile(plotfile)
 ```
 
-    Plotting antibody-5A01 to results/avgdiffsel/full_logo_plots/antibody-5A01_diffsel.pdf
-    Plotting antibody-3C04 to results/avgdiffsel/full_logo_plots/antibody-3C04_diffsel.pdf
-    Plotting antibody-3C06 to results/avgdiffsel/full_logo_plots/antibody-3C06_diffsel.pdf
-    Plotting antibody-4C01 to results/avgdiffsel/full_logo_plots/antibody-4C01_diffsel.pdf
-    Plotting antibody-4F03 to results/avgdiffsel/full_logo_plots/antibody-4F03_diffsel.pdf
-    Plotting antibody-1C04 to results/avgdiffsel/full_logo_plots/antibody-1C04_diffsel.pdf
-    Plotting ferret-Pitt-1-preinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-1-preinf_diffsel.pdf
-    Plotting ferret-Pitt-1-postinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-1-postinf_diffsel.pdf
-    Plotting ferret-Pitt-2-preinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-2-preinf_diffsel.pdf
-    Plotting ferret-Pitt-2-postinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-2-postinf_diffsel.pdf
-    Plotting ferret-Pitt-3-preinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-3-preinf_diffsel.pdf
-    Plotting ferret-Pitt-3-postinf to results/avgdiffsel/full_logo_plots/ferret-Pitt-3-postinf_diffsel.pdf
-    Plotting ferret-WHO to results/avgdiffsel/full_logo_plots/ferret-WHO_diffsel.pdf
-    Plotting ferret-WHO-Victoria2011 to results/avgdiffsel/full_logo_plots/ferret-WHO-Victoria2011_diffsel.pdf
-    Plotting 2010-age-21 to results/avgdiffsel/full_logo_plots/2010-age-21_diffsel.pdf
-    Plotting 2009-age-53a to results/avgdiffsel/full_logo_plots/2009-age-53a_diffsel.pdf
-    Plotting 2009-age-53b to results/avgdiffsel/full_logo_plots/2009-age-53b_diffsel.pdf
-    Plotting 2009-age-64 to results/avgdiffsel/full_logo_plots/2009-age-64_diffsel.pdf
-    Plotting 2009-age-65 to results/avgdiffsel/full_logo_plots/2009-age-65_diffsel.pdf
-    Plotting 2015-age-25-prevacc to results/avgdiffsel/full_logo_plots/2015-age-25-prevacc_diffsel.pdf
-    Plotting 2015-age-25-vacc to results/avgdiffsel/full_logo_plots/2015-age-25-vacc_diffsel.pdf
-    Plotting 2015-age-29-prevacc to results/avgdiffsel/full_logo_plots/2015-age-29-prevacc_diffsel.pdf
-    Plotting 2015-age-29-vacc to results/avgdiffsel/full_logo_plots/2015-age-29-vacc_diffsel.pdf
-    Plotting 2015-age-48-prevacc to results/avgdiffsel/full_logo_plots/2015-age-48-prevacc_diffsel.pdf
-    Plotting 2015-age-48-vacc to results/avgdiffsel/full_logo_plots/2015-age-48-vacc_diffsel.pdf
-    Plotting 2015-age-49-prevacc to results/avgdiffsel/full_logo_plots/2015-age-49-prevacc_diffsel.pdf
-    Plotting 2015-age-49-vacc to results/avgdiffsel/full_logo_plots/2015-age-49-vacc_diffsel.pdf
-    Plotting 2009-age-65-with-low-4F03 to results/avgdiffsel/full_logo_plots/2009-age-65-with-low-4F03_diffsel.pdf
-    Plotting 2009-age-65-with-mid-4F03 to results/avgdiffsel/full_logo_plots/2009-age-65-with-mid-4F03_diffsel.pdf
-    Plotting 2009-age-65-with-hi-4F03 to results/avgdiffsel/full_logo_plots/2009-age-65-with-hi-4F03_diffsel.pdf
+    results/avgdiffsel/full_logo_plots/antibody-5A01_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/antibody-3C04_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/antibody-3C06_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/antibody-4C01_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/antibody-4F03_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/antibody-1C04_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-Pitt-1-preinf_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-Pitt-1-postinf_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-Pitt-2-preinf_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-Pitt-2-postinf_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-Pitt-3-preinf_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-Pitt-3-postinf_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-WHO_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-WHO-Victoria2011_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2010-age-21_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2009-age-53_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2009-age-53-plus-2-months_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2009-age-64_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2009-age-65_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2015-age-25-prevacc_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2015-age-25-vacc_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2015-age-29-prevacc_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2015-age-29-vacc_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2015-age-48-prevacc_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2015-age-48-vacc_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2015-age-49-prevacc_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2015-age-49-vacc_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2009-age-65-with-low-4F03_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2009-age-65-with-mid-4F03_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/2009-age-65-with-hi-4F03_diffsel.pdf already exists.
 
 
 ### Plots of each replicate in averages
@@ -6896,25 +6895,37 @@ First, get the information on which sites to zoom and how to color mutations int
 
 
 ```python
-with open(config['mutation_colors_and_markers']) as f:
-    color_config = yaml.safe_load(f)
+with open(config['figure_config']) as f:
+    figure_config = yaml.safe_load(f)
 
-default_logo_color = color_config.pop('default_logo_color')
-zoom_sites = collections.defaultdict(list)
-mutation_colors = collections.defaultdict(list)
-for group, group_d in color_config.items():
+zoom_sites = []
+mutation_colors = []
+for figure, fig_d in figure_config['figures'].items():
     # process zoom sites
-    zoom_sites['site'] += [str(r) for r in group_d['sites']]
-    zoom_sites['serum_group'] += [group] * len(group_d['sites'])
+    zoom_sites.append(
+        pd.DataFrame({'figure': figure,
+                      'sera': fig_d['sera'],
+                      'dummy': 0})
+        .merge(pd.DataFrame({'site': avg_sel_df['site'].unique(),
+                             'dummy': 0}))
+        .drop(columns='dummy')
+        .assign(zoom=lambda x: x['site'].isin([str(r) for r in fig_d['sites']]))
+        )
     # process colors
-    muts = [mut for mut in group_d['colors'] if mut not in {'wt', 'syn'}]
-    mutation_colors['serum_group'] += [group] * len(muts)
-    mutation_colors['site'] += [mut[1: -1] for mut in muts]
-    mutation_colors['mutation'] += [mut[-1] for mut in muts]
-    mutation_colors['color'] += [group_d['colors'][mut][0] for mut in muts]
+    muts = [mut for mut in fig_d['colors'] if mut not in {'wt', 'syn'}]
+    mutation_colors.append(
+        pd.DataFrame({'figure': figure,
+                      'sera': fig_d['sera'],
+                      'dummy': 0})
+        .merge(pd.DataFrame({'site': [mut[1 : -1] for mut in muts],
+                             'mutation': [mut[-1] for mut in muts],
+                             'color': [fig_d['colors'][mut][0] for mut in muts],
+                             'dummy': 0}))
+        .drop(columns='dummy')
+        )
 
-zoom_sites = pd.DataFrame.from_dict(zoom_sites).assign(zoom=True)
-mutation_colors = pd.DataFrame.from_dict(mutation_colors)
+zoom_sites = pd.concat(zoom_sites)
+mutation_colors = pd.concat(mutation_colors)
 ```
 
 Merge the zoom and mutation-color data frames with the data on all of the immune selection values:
@@ -6924,17 +6935,23 @@ Merge the zoom and mutation-color data frames with the data on all of the immune
 colored_zoom_df = (
     avg_sel_df
     .query('library == @avg_type')
-    [['serum_group', 'serum_name_formatted', 'isite', 'site', 'mutation',
+    [['serum_name_formatted', 'isite', 'site', 'mutation',
       'positive_diffsel', 'mutdiffsel', 'site_label']]
-    .query('serum_group in @zoom_sites.serum_group.unique()')
+    .rename(columns={'serum_name_formatted': 'sera'})
     .merge(zoom_sites,
-           on=['serum_group', 'site'],
+           on=['sera', 'site'],
            how='left')
     .assign(zoom=lambda x: x['zoom'].fillna(False))
     .merge(mutation_colors,
-           on=['serum_group', 'site', 'mutation'],
+           on=['figure', 'sera', 'site', 'mutation'],
            how='left')
-    .assign(color=lambda x: x['color'].fillna(default_logo_color))
+    .assign(color=lambda x: x['color'].fillna(figure_config['default_logo_color']),
+            sera=lambda x: x['sera'].str.replace('-', ' ')
+            )
+    .assign(sera=lambda x: pd.Categorical(x['sera'],
+                                          x['sera'].unique(),
+                                          ordered=True)
+            )
     )           
 ```
 
@@ -6942,13 +6959,12 @@ Make the zoomed logo plots:
 
 
 ```python
-for serum_group, df in colored_zoom_df.groupby('serum_group'):
-    print(f"\n\n{'*' * 72}\nSerum group {serum_group}\n")
+for figure, df in colored_zoom_df.groupby('figure'):
     fig, axes = dmslogo.facet_plot(
             data=df,
             x_col='isite',
             show_col='zoom',
-            gridrow_col='serum_name_formatted',
+            gridrow_col='sera',
             share_xlabel=True,
             share_ylabel=True,
             share_ylim_across_rows=share_ylim_across_rows[serum_group],
@@ -6972,73 +6988,54 @@ for serum_group, df in colored_zoom_df.groupby('serum_group'):
             )
     display(fig)
     for ext in fig_extensions:
-        plotfile = os.path.join(config['figsdir'], f"{serum_group}_logo{ext}")
+        plotfile = os.path.join(config['figsdir'], f"{figure}_logo{ext}")
         print(f"Saving figure to {plotfile}")
         fig.savefig(plotfile)
     plt.close(fig)
 ```
 
-    
-    
-    ************************************************************************
-    Serum group Hensley_sera
-    
+
+![png](analyze_map_files/analyze_map_136_0.png)
+
+
+    Saving figure to results/figures/2009_age_53_samples_logo.pdf
+    Saving figure to results/figures/2009_age_53_samples_logo.svg
 
 
 
-![png](analyze_map_files/analyze_map_136_1.png)
+![png](analyze_map_files/analyze_map_136_2.png)
 
 
     Saving figure to results/figures/Hensley_sera_logo.pdf
     Saving figure to results/figures/Hensley_sera_logo.svg
-    
-    
-    ************************************************************************
-    Serum group VIDD_sera
-    
 
 
 
-![png](analyze_map_files/analyze_map_136_3.png)
+![png](analyze_map_files/analyze_map_136_4.png)
 
 
     Saving figure to results/figures/VIDD_sera_logo.pdf
     Saving figure to results/figures/VIDD_sera_logo.svg
-    
-    
-    ************************************************************************
-    Serum group antibody_lower_head
-    
 
 
 
-![png](analyze_map_files/analyze_map_136_5.png)
+![png](analyze_map_files/analyze_map_136_6.png)
 
 
     Saving figure to results/figures/antibody_lower_head_logo.pdf
     Saving figure to results/figures/antibody_lower_head_logo.svg
-    
-    
-    ************************************************************************
-    Serum group antibody_region_B
-    
 
 
 
-![png](analyze_map_files/analyze_map_136_7.png)
+![png](analyze_map_files/analyze_map_136_8.png)
 
 
     Saving figure to results/figures/antibody_region_B_logo.pdf
     Saving figure to results/figures/antibody_region_B_logo.svg
-    
-    
-    ************************************************************************
-    Serum group ferret
-    
 
 
 
-![png](analyze_map_files/analyze_map_136_9.png)
+![png](analyze_map_files/analyze_map_136_10.png)
 
 
     Saving figure to results/figures/ferret_logo.pdf

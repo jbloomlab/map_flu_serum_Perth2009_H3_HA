@@ -120,13 +120,13 @@ VIDD1:
   group: VIDD_sera
 
 VIDD2:
-  name: 2009-age-53a
+  name: 2009-age-53
   species: human
   description: collected at Hutch in 1/2009 from person born in 1956
   group: VIDD_sera
 
 VIDD3:
-  name: 2009-age-53b
+  name: 2009-age-53-plus-2-months
   species: human
   description: second sample collected at Hutch in 3/2009 from person born in 1956
   group: VIDD_sera

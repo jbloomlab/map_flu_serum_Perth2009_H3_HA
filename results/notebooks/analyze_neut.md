@@ -24,8 +24,6 @@ import xml.etree.ElementTree as ElementTree
 
 import cairosvg
 
-from dms_tools2.ipython_utils import showPDF
-
 from IPython.display import display, HTML
 
 import matplotlib.pyplot as plt
@@ -38,6 +36,8 @@ import svgutils.compose
 
 import yaml
 
+from dms_tools2.ipython_utils import showPDF
+
 import neutcurve
 from neutcurve.colorschemes import CBPALETTE
 import neutcurve.parse_excel
@@ -45,8 +45,15 @@ import neutcurve.parse_excel
 print(f"Using neutcurve version {neutcurve.__version__}")
 ```
 
-    Using neutcurve version 0.2.dev0
+    Using neutcurve version 0.2.1
 
+
+Interactive matplotlib plotting:
+
+
+```python
+plt.ion()
+```
 
 Suppress warnings that can clutter output:
 
@@ -242,7 +249,7 @@ for is_antibody, ptype, xlabel in [(False, 'sera', 'serum dilution'),
 
 
 
-    <Figure size 1300x1450 with 25 Axes>
+![png](analyze_neut_files/analyze_neut_23_1.png)
 
 
     
@@ -250,7 +257,7 @@ for is_antibody, ptype, xlabel in [(False, 'sera', 'serum dilution'),
 
 
 
-    <Figure size 1300x550 with 9 Axes>
+![png](analyze_neut_files/analyze_neut_23_3.png)
 
 
 Now get the curve fit parameters (e.g., IC50s):
@@ -309,52 +316,52 @@ display(HTML(fitparams
       <td>0.00107</td>
     </tr>
     <tr>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>wt</td>
       <td>0.00124</td>
     </tr>
     <tr>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>L157D</td>
       <td>0.00481</td>
     </tr>
     <tr>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>K160T</td>
       <td>0.00338</td>
     </tr>
     <tr>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>F193D</td>
       <td>0.00234</td>
     </tr>
     <tr>
-      <td>2009-age-53a</td>
+      <td>2009-age-53</td>
       <td>syn</td>
       <td>0.00153</td>
     </tr>
     <tr>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>wt</td>
       <td>0.00172</td>
     </tr>
     <tr>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>L157D</td>
       <td>0.00931</td>
     </tr>
     <tr>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>K160T</td>
       <td>0.00387</td>
     </tr>
     <tr>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>F193D</td>
       <td>0.00418</td>
     </tr>
     <tr>
-      <td>2009-age-53b</td>
+      <td>2009-age-53-plus-2-months</td>
       <td>F159G</td>
       <td>0.00174</td>
     </tr>
@@ -761,25 +768,21 @@ Get the colors that we have specified for viruses in each serum group for these 
 
 
 ```python
-with open(config['mutation_colors_and_markers']) as f:
-    virus_to_color_marker = yaml.safe_load(f)
+with open(config['figure_config']) as f:
+    figure_config = yaml.safe_load(f)
 ```
 
-Get data frame with all sera:
+Get data frame with all sera for each figure:
 
 
 ```python
-with open(config['serum_info']) as f:
-    sera_df = (pd.DataFrame.from_dict(yaml.safe_load(f))
-               .transpose()
-               .rename_axis('serum')
-               .reset_index()
-               .assign(name=lambda x:
-                            x['species'].map(lambda s: '' if pd.isnull(s) or
-                                             s == 'human' else s + '-') +
-                            x['name']
-                       )
-               )
+sera_df = pd.concat(
+           [pd.DataFrame({'figure': figure,
+                          'sera': figure_d['sera']})
+            for figure, figure_d in figure_config['figures'].items()
+            ],
+           ignore_index=True
+           )
 ```
 
 Now draw the plots as single-column figures that can be aligned with the logo plots and save them as SVGs:
@@ -787,18 +790,16 @@ Now draw the plots as single-column figures that can be aligned with the logo pl
 
 ```python
 neutsvgfiles = []
-for serum_group, df in sera_df.groupby('group'):
-    if serum_group not in virus_to_color_marker:
-        continue
-    sera = df['name'].unique()
-    if 'antibody' in serum_group:
+for figure, df in sera_df.groupby('figure'):
+    if 'antibody' in figure:
         xlabel = 'concentration ($\mu$g/ml)'
     else:
         xlabel = 'serum dilution'
-    colors = virus_to_color_marker[serum_group]['colors']
+    colors = figure_config['figures'][figure]['colors']
     fig, _ = fits.plotSera(
-                sera=df['name'].unique(),
+                sera=df['sera'].unique(),
                 viruses=colors.keys(),
+                titles=[sera.replace('-', ' ') for sera in df['sera'].unique()],
                 virus_to_color_marker=colors,
                 xlabel=xlabel,
                 max_viruses_per_subplot=len(colors),
@@ -806,7 +807,8 @@ for serum_group, df in sera_df.groupby('group'):
                 titlesize=17,
                 labelsize=17,
                 legendfontsize=14,
-                widthscale=1.35,
+                widthscale=1.37,
+                markersize=7,
                 align_to_dmslogo_facet={'height_per_ax': 2.5,
                                         'hspace': 0.8,
                                         'tmargin': 0.4,
@@ -817,13 +819,14 @@ for serum_group, df in sera_df.groupby('group'):
                 despine=True,
                 yticklocs=[0, 0.5, 1]
                 )
-    neutsvgfile = os.path.join(config['figsdir'], f"{serum_group}_neut.svg")
-    print(f"Saving plot for {serum_group} to {neutsvgfile}")
+    neutsvgfile = os.path.join(config['figsdir'], f"{figure}_neut.svg")
+    print(f"Saving plot for {figure} to {neutsvgfile}")
     fig.savefig(neutsvgfile)
     plt.close(fig)
     neutsvgfiles.append(neutsvgfile)
 ```
 
+    Saving plot for 2009_age_53_samples to results/figures/2009_age_53_samples_neut.svg
     Saving plot for Hensley_sera to results/figures/Hensley_sera_neut.svg
     Saving plot for VIDD_sera to results/figures/VIDD_sera_neut.svg
     Saving plot for antibody_lower_head to results/figures/antibody_lower_head_neut.svg
@@ -887,11 +890,19 @@ for neutsvgfile in neutsvgfiles:
 ```
 
     
+    Writing figure to results/figures/2009_age_53_samples_logo_and_neut.svg and results/figures/2009_age_53_samples_logo_and_neut.pdf
+
+
+
+![png](analyze_neut_files/analyze_neut_41_1.png)
+
+
+    
     Writing figure to results/figures/Hensley_sera_logo_and_neut.svg and results/figures/Hensley_sera_logo_and_neut.pdf
 
 
 
-![png](analyze_neut_files/analyze_neut_39_1.png)
+![png](analyze_neut_files/analyze_neut_41_3.png)
 
 
     
@@ -899,7 +910,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_39_3.png)
+![png](analyze_neut_files/analyze_neut_41_5.png)
 
 
     
@@ -907,7 +918,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_39_5.png)
+![png](analyze_neut_files/analyze_neut_41_7.png)
 
 
     
@@ -915,7 +926,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_39_7.png)
+![png](analyze_neut_files/analyze_neut_41_9.png)
 
 
     
@@ -923,7 +934,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_39_9.png)
+![png](analyze_neut_files/analyze_neut_41_11.png)
 
 
 

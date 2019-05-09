@@ -1,0 +1,88 @@
+color_defs:
+  # colors from: http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/
+  - black: &black '#000000'
+  - gray: &gray '#999999'
+  - orange: &orange '#E69F00'
+  - lightblue: &lightblue '#56B4E9'
+  - green: &green '#009E73'
+  - yellow: &yellow '#F0E442'
+  - darkblue: &darkblue '#0072B2'
+  - red: &red '#D55E00'
+  - purple: &purple '#CC79A7'
+
+default_logo_color: *gray
+
+figures:
+  VIDD_sera:
+    sera: [2010-age-21, 2009-age-53, 2009-age-64, 2009-age-65]
+    colors:
+      wt: [*black, 'o']
+      syn: [*gray, '8']
+      N121E: [*red, '>']
+      L157D: [*orange, '<']
+      F159G: [*green, '^']
+      K160T: [*darkblue, 's']
+      K189D: [*yellow, 'd']
+      F193D: [*lightblue, 'v']
+    sites: [121, 144, 157, 159, 160, 189, 193, 222, 244]
+
+  2009_age_53_samples:
+    sera: [2009-age-53, 2009-age-53-plus-2-months]
+    colors:
+      wt: [*black, 'o']
+      L157D: [*orange, '<']
+      K160T: [*darkblue, 's']
+      F193D: [*lightblue, 'v']
+    sites: [144, 157, 159, 160, 189, 193, 222, 244]
+
+  Hensley_sera:
+    sera: [2015-age-25-prevacc, 2015-age-25-vacc,
+           2015-age-29-prevacc, 2015-age-29-vacc,
+           2015-age-48-prevacc, 2015-age-48-vacc,
+           2015-age-49-prevacc, 2015-age-49-vacc]
+    colors:
+      wt: [*black, 'o']
+      syn: [*gray, '8']
+      K144E: [*orange, 'h']
+      F159G: [*green, '^']
+      K189D: [*yellow, 'd']
+      R220D: [*lightblue, 'D']
+    sites: [144, 145, 159, 160, 161, 189, 192, 193, 207, 220,
+            222, 224, 225, 227, 244]
+
+  ferret:
+    sera: [ferret-Pitt-1-preinf, ferret-Pitt-1-postinf,
+           ferret-Pitt-2-preinf, ferret-Pitt-2-postinf,
+           ferret-Pitt-3-preinf, ferret-Pitt-3-postinf,
+           ferret-WHO, ferret-WHO-Victoria2011]
+    colors:
+      wt: [*black, 'o']
+      syn: [*gray, '8']
+      K144E: [*red, 'h']
+      L157D: [*orange, '<']
+      F159G: [*green, '^']
+      K160T: [*darkblue, 's']
+      K189D: [*yellow, 'd']
+      F193D: [*lightblue, 'v']
+    sites: [50, 142, 144, 157, 159, 160, 189, 193, 222, 275]
+
+  antibody_region_B:
+    sera: [antibody-5A01, antibody-3C04, antibody-3C06, antibody-4C01]
+    colors:
+      wt: [*black, 'o']
+      syn: [*gray, '8']
+      F159G: [*green, '^']
+      K160T: [*darkblue, 's']
+      K160S: [*lightblue, 'x']
+      F193D: [*orange, 'v']
+    sites: [137, 145, 157, 158, 159, 160, 167, 192, 193, 207, 222, 227, 244, 246]
+
+  antibody_lower_head:
+    sera: [antibody-4F03, antibody-1C04]
+    colors:
+      wt: [*black, 'o']
+      K82A: [*orange, 'H']
+      N121E: [*red, '>']
+      F159G: [*green, '^']
+      F193D: [*lightblue, 'v']
+    sites: [53, 54, 57, 80, 81, 82, 83, 121, 122, 159, 193, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]
