@@ -49,6 +49,8 @@ figures:
       R220D: [*lightblue, 'D']
     sites: [144, 145, 159, 160, 161, 189, 192, 193, 207, 220,
             222, 224, 225, 227, 244]
+    ignore_serum_virus:
+      2015-age-48-vacc: [R220D]
 
   ferret:
     sera: [ferret-Pitt-1-preinf, ferret-Pitt-1-postinf,

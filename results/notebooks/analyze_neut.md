@@ -45,7 +45,11 @@ import neutcurve.parse_excel
 print(f"Using neutcurve version {neutcurve.__version__}")
 ```
 
-    Using neutcurve version 0.2.1
+    /fh/fast/bloom_j/software/conda/envs/BloomLab_v2/lib/python3.6/site-packages/matplotlib/font_manager.py:232: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+      'Matplotlib is building the font cache using fc-list. '
+
+
+    Using neutcurve version 0.2.dev2
 
 
 Interactive matplotlib plotting:
@@ -795,10 +799,13 @@ for figure, df in sera_df.groupby('figure'):
         xlabel = 'concentration ($\mu$g/ml)'
     else:
         xlabel = 'serum dilution'
-    colors = figure_config['figures'][figure]['colors']
+    ifigconfig = figure_config['figures'][figure]
+    colors = ifigconfig['colors']
     fig, _ = fits.plotSera(
                 sera=df['sera'].unique(),
                 viruses=colors.keys(),
+                ignore_serum_virus=ifigconfig['ignore_serum_virus'] if
+                                   'ignore_serum_virus' in ifigconfig else None,
                 titles=[sera.replace('-', ' ') for sera in df['sera'].unique()],
                 virus_to_color_marker=colors,
                 xlabel=xlabel,
