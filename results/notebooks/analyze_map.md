@@ -1,6 +1,6 @@
 
 <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Analysis-of-serum-mutational-antigenic-profiling" data-toc-modified-id="Analysis-of-serum-mutational-antigenic-profiling-1">Analysis of serum mutational antigenic profiling</a></span><ul class="toc-item"><li><span><a href="#Configure-analysis" data-toc-modified-id="Configure-analysis-1.1">Configure analysis</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1.1">Import Python modules / packages</a></span></li><li><span><a href="#Get-config-variables" data-toc-modified-id="Get-config-variables-1.1.2">Get config variables</a></span></li><li><span><a href="#Get-sera-information" data-toc-modified-id="Get-sera-information-1.1.3">Get sera information</a></span></li><li><span><a href="#Get-list-of-samples" data-toc-modified-id="Get-list-of-samples-1.1.4">Get list of samples</a></span></li><li><span><a href="#Download-deep-sequencing-data-if-needed" data-toc-modified-id="Download-deep-sequencing-data-if-needed-1.1.5">Download deep sequencing data if needed</a></span></li></ul></li><li><span><a href="#Align-sequencing-and-count-mutations" data-toc-modified-id="Align-sequencing-and-count-mutations-1.2">Align sequencing and count mutations</a></span><ul class="toc-item"><li><span><a href="#Run-dms2_batch_bcsubamp" data-toc-modified-id="Run-dms2_batch_bcsubamp-1.2.1">Run <code>dms2_batch_bcsubamp</code></a></span></li><li><span><a href="#Plot-sequencing-and-mutation-counts-summaries" data-toc-modified-id="Plot-sequencing-and-mutation-counts-summaries-1.2.2">Plot sequencing and mutation counts summaries</a></span><ul class="toc-item"><li><span><a href="#Reads-and-barcodes-per-sample" data-toc-modified-id="Reads-and-barcodes-per-sample-1.2.2.1">Reads and barcodes per sample</a></span></li><li><span><a href="#Coverage-across-gene" data-toc-modified-id="Coverage-across-gene-1.2.2.2">Coverage across gene</a></span></li><li><span><a href="#Mutation-frequencies" data-toc-modified-id="Mutation-frequencies-1.2.2.3">Mutation frequencies</a></span></li><li><span><a href="#Check-for-oxidative-damage" data-toc-modified-id="Check-for-oxidative-damage-1.2.2.4">Check for oxidative damage</a></span></li></ul></li><li><span><a href="#Renumber-to-standard-HA-numbering" data-toc-modified-id="Renumber-to-standard-HA-numbering-1.2.3">Renumber to standard HA numbering</a></span></li></ul></li><li><span><a href="#Compute-immune-selection-on-mutations" data-toc-modified-id="Compute-immune-selection-on-mutations-1.3">Compute immune selection on mutations</a></span><ul class="toc-item"><li><span><a href="#Samples-to-compare-for-each-selection" data-toc-modified-id="Samples-to-compare-for-each-selection-1.3.1">Samples to compare for each selection</a></span></li><li><span><a href="#Compute-immune-selection" data-toc-modified-id="Compute-immune-selection-1.3.2">Compute immune selection</a></span></li><li><span><a href="#Get-all-selection-information-in-one-data-frame" data-toc-modified-id="Get-all-selection-information-in-one-data-frame-1.3.3">Get all selection information in one data frame</a></span></li></ul></li><li><span><a href="#Analyze-and-plot-immune-selection" data-toc-modified-id="Analyze-and-plot-immune-selection-1.4">Analyze and plot immune selection</a></span><ul class="toc-item"><li><span><a href="#Choose-sample-to-retain-for-each-serum" data-toc-modified-id="Choose-sample-to-retain-for-each-serum-1.4.1">Choose sample to retain for each serum</a></span><ul class="toc-item"><li><span><a href="#Plot-site-level-selection-for-all-samples" data-toc-modified-id="Plot-site-level-selection-for-all-samples-1.4.1.1">Plot site-level selection for all samples</a></span></li><li><span><a href="#Choose-samples-to-retain-based-on-infectivity-remaining" data-toc-modified-id="Choose-samples-to-retain-based-on-infectivity-remaining-1.4.1.2">Choose samples to retain based on infectivity remaining</a></span></li><li><span><a href="#Listing-of-retained-samples" data-toc-modified-id="Listing-of-retained-samples-1.4.1.3">Listing of retained samples</a></span></li></ul></li><li><span><a href="#Compute-serum-average-from-retained-samples" data-toc-modified-id="Compute-serum-average-from-retained-samples-1.4.2">Compute serum average from retained samples</a></span></li><li><span><a href="#Identify-sites-of-&quot;significant&quot;-selection" data-toc-modified-id="Identify-sites-of-&quot;significant&quot;-selection-1.4.3">Identify sites of "significant" selection</a></span><ul class="toc-item"><li><span><a href="#Cutoff-for-significance" data-toc-modified-id="Cutoff-for-significance-1.4.3.1">Cutoff for significance</a></span></li><li><span><a href="#Identify-significant-sites" data-toc-modified-id="Identify-significant-sites-1.4.3.2">Identify significant sites</a></span></li><li><span><a href="#List-significant-sites-for-each-serum" data-toc-modified-id="List-significant-sites-for-each-serum-1.4.3.3">List significant sites for each serum</a></span></li><li><span><a href="#Get-significant-sites-for-each-serum-group" data-toc-modified-id="Get-significant-sites-for-each-serum-group-1.4.3.4">Get significant sites for each serum group</a></span></li></ul></li><li><span><a href="#Line-and-logo-plots-of-average-for-each-serum" data-toc-modified-id="Line-and-logo-plots-of-average-for-each-serum-1.4.4">Line and logo plots of average for each serum</a></span><ul class="toc-item"><li><span><a href="#Choose-sites-to-zoom-in-on" data-toc-modified-id="Choose-sites-to-zoom-in-on-1.4.4.1">Choose sites to zoom-in on</a></span></li><li><span><a href="#Write-tidy-data-frame-with-selection-data" data-toc-modified-id="Write-tidy-data-frame-with-selection-data-1.4.4.2">Write tidy data frame with selection data</a></span></li><li><span><a href="#Compact-&quot;zoom&quot;-plots" data-toc-modified-id="Compact-&quot;zoom&quot;-plots-1.4.4.3">Compact "zoom" plots</a></span></li><li><span><a href="#Whole-gene-logo-plots" data-toc-modified-id="Whole-gene-logo-plots-1.4.4.4">Whole-gene logo plots</a></span></li></ul></li><li><span><a href="#Plots-of-each-replicate-in-averages" data-toc-modified-id="Plots-of-each-replicate-in-averages-1.4.5">Plots of each replicate in averages</a></span><ul class="toc-item"><li><span><a href="#Zoom-plots-showing-each-replicate" data-toc-modified-id="Zoom-plots-showing-each-replicate-1.4.5.1">Zoom plots showing each replicate</a></span></li><li><span><a href="#Plot-replicate-replicate-correlations" data-toc-modified-id="Plot-replicate-replicate-correlations-1.4.5.2">Plot replicate-replicate correlations</a></span></li></ul></li></ul></li><li><span><a href="#Customized-figures-for-paper" data-toc-modified-id="Customized-figures-for-paper-1.5">Customized figures for paper</a></span><ul class="toc-item"><li><span><a href="#Antibody-spike-in-experiment" data-toc-modified-id="Antibody-spike-in-experiment-1.5.1">Antibody spike-in experiment</a></span></li><li><span><a href="#Zoom-plots-color-coded-to-match-neutralization-assays" data-toc-modified-id="Zoom-plots-color-coded-to-match-neutralization-assays-1.5.2">Zoom plots color-coded to match neutralization assays</a></span></li></ul></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Analysis-of-serum-mutational-antigenic-profiling" data-toc-modified-id="Analysis-of-serum-mutational-antigenic-profiling-1">Analysis of serum mutational antigenic profiling</a></span><ul class="toc-item"><li><span><a href="#Configure-analysis" data-toc-modified-id="Configure-analysis-1.1">Configure analysis</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1.1">Import Python modules / packages</a></span></li><li><span><a href="#Get-config-variables" data-toc-modified-id="Get-config-variables-1.1.2">Get config variables</a></span></li><li><span><a href="#Get-sera-information" data-toc-modified-id="Get-sera-information-1.1.3">Get sera information</a></span></li><li><span><a href="#Get-list-of-samples" data-toc-modified-id="Get-list-of-samples-1.1.4">Get list of samples</a></span></li><li><span><a href="#Download-deep-sequencing-data-if-needed" data-toc-modified-id="Download-deep-sequencing-data-if-needed-1.1.5">Download deep sequencing data if needed</a></span></li></ul></li><li><span><a href="#Align-sequencing-and-count-mutations" data-toc-modified-id="Align-sequencing-and-count-mutations-1.2">Align sequencing and count mutations</a></span><ul class="toc-item"><li><span><a href="#Run-dms2_batch_bcsubamp" data-toc-modified-id="Run-dms2_batch_bcsubamp-1.2.1">Run <code>dms2_batch_bcsubamp</code></a></span></li><li><span><a href="#Plot-sequencing-and-mutation-counts-summaries" data-toc-modified-id="Plot-sequencing-and-mutation-counts-summaries-1.2.2">Plot sequencing and mutation counts summaries</a></span><ul class="toc-item"><li><span><a href="#Reads-and-barcodes-per-sample" data-toc-modified-id="Reads-and-barcodes-per-sample-1.2.2.1">Reads and barcodes per sample</a></span></li><li><span><a href="#Coverage-across-gene" data-toc-modified-id="Coverage-across-gene-1.2.2.2">Coverage across gene</a></span></li><li><span><a href="#Mutation-frequencies" data-toc-modified-id="Mutation-frequencies-1.2.2.3">Mutation frequencies</a></span></li><li><span><a href="#Check-for-oxidative-damage" data-toc-modified-id="Check-for-oxidative-damage-1.2.2.4">Check for oxidative damage</a></span></li></ul></li><li><span><a href="#Renumber-to-standard-HA-numbering" data-toc-modified-id="Renumber-to-standard-HA-numbering-1.2.3">Renumber to standard HA numbering</a></span></li></ul></li><li><span><a href="#Compute-immune-selection-on-mutations" data-toc-modified-id="Compute-immune-selection-on-mutations-1.3">Compute immune selection on mutations</a></span><ul class="toc-item"><li><span><a href="#Samples-to-compare-for-each-selection" data-toc-modified-id="Samples-to-compare-for-each-selection-1.3.1">Samples to compare for each selection</a></span></li><li><span><a href="#Compute-immune-selection" data-toc-modified-id="Compute-immune-selection-1.3.2">Compute immune selection</a></span></li><li><span><a href="#Get-all-selection-information-in-one-data-frame" data-toc-modified-id="Get-all-selection-information-in-one-data-frame-1.3.3">Get all selection information in one data frame</a></span></li></ul></li><li><span><a href="#Analyze-and-plot-immune-selection" data-toc-modified-id="Analyze-and-plot-immune-selection-1.4">Analyze and plot immune selection</a></span><ul class="toc-item"><li><span><a href="#Choose-sample-to-retain-for-each-serum" data-toc-modified-id="Choose-sample-to-retain-for-each-serum-1.4.1">Choose sample to retain for each serum</a></span><ul class="toc-item"><li><span><a href="#Plot-site-level-selection-for-all-samples" data-toc-modified-id="Plot-site-level-selection-for-all-samples-1.4.1.1">Plot site-level selection for all samples</a></span></li><li><span><a href="#Choose-samples-to-retain-based-on-infectivity-remaining" data-toc-modified-id="Choose-samples-to-retain-based-on-infectivity-remaining-1.4.1.2">Choose samples to retain based on infectivity remaining</a></span></li><li><span><a href="#Listing-of-retained-samples" data-toc-modified-id="Listing-of-retained-samples-1.4.1.3">Listing of retained samples</a></span></li></ul></li><li><span><a href="#Compute-serum-average-from-retained-samples" data-toc-modified-id="Compute-serum-average-from-retained-samples-1.4.2">Compute serum average from retained samples</a></span></li><li><span><a href="#Identify-sites-of-&quot;significant&quot;-selection" data-toc-modified-id="Identify-sites-of-&quot;significant&quot;-selection-1.4.3">Identify sites of "significant" selection</a></span><ul class="toc-item"><li><span><a href="#Cutoff-for-significance" data-toc-modified-id="Cutoff-for-significance-1.4.3.1">Cutoff for significance</a></span></li><li><span><a href="#Identify-significant-sites" data-toc-modified-id="Identify-significant-sites-1.4.3.2">Identify significant sites</a></span></li><li><span><a href="#List-significant-sites-for-each-serum" data-toc-modified-id="List-significant-sites-for-each-serum-1.4.3.3">List significant sites for each serum</a></span></li><li><span><a href="#Get-significant-sites-for-each-serum-group" data-toc-modified-id="Get-significant-sites-for-each-serum-group-1.4.3.4">Get significant sites for each serum group</a></span></li></ul></li><li><span><a href="#Line-and-logo-plots-of-average-for-each-serum" data-toc-modified-id="Line-and-logo-plots-of-average-for-each-serum-1.4.4">Line and logo plots of average for each serum</a></span><ul class="toc-item"><li><span><a href="#Choose-sites-to-zoom-in-on" data-toc-modified-id="Choose-sites-to-zoom-in-on-1.4.4.1">Choose sites to zoom-in on</a></span></li><li><span><a href="#Write-tidy-data-frame-with-selection-data" data-toc-modified-id="Write-tidy-data-frame-with-selection-data-1.4.4.2">Write tidy data frame with selection data</a></span></li><li><span><a href="#Compact-&quot;zoom&quot;-plots" data-toc-modified-id="Compact-&quot;zoom&quot;-plots-1.4.4.3">Compact "zoom" plots</a></span></li><li><span><a href="#Whole-gene-logo-plots" data-toc-modified-id="Whole-gene-logo-plots-1.4.4.4">Whole-gene logo plots</a></span></li></ul></li><li><span><a href="#Plots-of-each-replicate-in-averages" data-toc-modified-id="Plots-of-each-replicate-in-averages-1.4.5">Plots of each replicate in averages</a></span><ul class="toc-item"><li><span><a href="#Zoom-plots-showing-each-replicate" data-toc-modified-id="Zoom-plots-showing-each-replicate-1.4.5.1">Zoom plots showing each replicate</a></span></li><li><span><a href="#Plot-replicate-replicate-correlations" data-toc-modified-id="Plot-replicate-replicate-correlations-1.4.5.2">Plot replicate-replicate correlations</a></span></li></ul></li></ul></li><li><span><a href="#Customized-figures-for-paper" data-toc-modified-id="Customized-figures-for-paper-1.5">Customized figures for paper</a></span></li></ul></li></ul></div>
 
 # Analysis of serum mutational antigenic profiling
 This Python Jupyter notebook analyzes mutational antigenic profiling of serum against virus carrying the A/Perth/2009 (H3N2) HA.
@@ -6788,120 +6788,25 @@ We will save each of these figures with the following extensions:
 fig_extensions = ['.pdf', '.svg']
 ```
 
-### Antibody spike-in experiment
-
-First, we will plot the profiles for the serum with monoclonal Ab spike-in as well as the profiles for the individual serum and mAb. Significant sites of escape for the mAb will be in one color, and sites for the serum will be in another color.
-
-First, get the sites to zoom in on: these are sites of significant escape for either the serum or the antibody:
-
-
-```python
-spike_samples = ['antibody-4F03', '2009-age-65']
-
-spike_sample_isites = {}
-for s in spike_samples:
-    spike_sample_isites[s] = (
-         sigsites_df.query('serum_name_formatted == @s')
-         [['serum_name_formatted', 'isite', 'site']]
-         .drop_duplicates()
-         .sort_values('isite')
-         ['isite']
-         .tolist())
-    
-spike_zoom_isites = [x for v in spike_sample_isites.values() 
-                    for x in v]
-```
-
-Make a data frame with just spike-in samples, indicating which sites to zoom in on and their color:
-
-
-```python
-spike_ids = collections.OrderedDict(  # plot in the order listed here
-            [('2009-age-65', 'serum'), 
-             ('2009-age-65-with-low-4F03', 'serum with low mAb'),
-             ('2009-age-65-with-mid-4F03', 'serum with intermediate mAb'), 
-             ('2009-age-65-with-hi-4F03', 'serum with high mAb'),
-             ('antibody-4F03', 'mAb')]) 
-
-spike_sel_df = (
-    avg_sel_df
-    .query('serum_name_formatted in @spike_ids')
-    .query('library == @avg_type')
-    .assign(spike_zoom_site=lambda x: x['isite'].isin(spike_zoom_isites),
-            color=lambda x: x['isite'].apply(lambda i:
-                  PALETTE[2] if i in spike_sample_isites['antibody-4F03']
-                  else (PALETTE[1] if i in spike_sample_isites['2009-age-65']
-                        else 'gray')),
-            spike_id=lambda x: pd.Categorical(x['serum_name_formatted'].map(spike_ids),
-                                              spike_ids.values(),
-                                              ordered=True)
-                                                 
-            )
-    )
-```
-
-Now draw the plot:
-
-
-```python
-fig, axes = dmslogo.facet_plot(
-        data=spike_sel_df, 
-        x_col='isite', 
-        show_col='spike_zoom_site', 
-        gridrow_col='spike_id', 
-        share_xlabel=True, 
-        share_ylabel=True, 
-        wspace=0.6,  
-        draw_line_kwargs=dict(
-                height_col='positive_diffsel', 
-                xtick_col='site', 
-                ylabel='immune selection',
-                show_color=PALETTE[-1],
-                ), 
-        draw_logo_kwargs=dict(
-                letter_col='mutation', 
-                letter_height_col='mutdiffsel', 
-                color_col='color',
-                xtick_col='site_label', 
-                xlabel='site', 
-                ylabel='immune selection', 
-                clip_negative_heights=True,
-                ),
-        )
-
-display(fig)
-for ext in fig_extensions:
-    spikein_plotfile = os.path.join(config['figsdir'], f"serum_mAb_spike_logo{ext}")
-    print(f"Saving figure to {spikein_plotfile}")
-    fig.savefig(spikein_plotfile)
-plt.close(fig)
-```
-
-
-![png](analyze_map_files/analyze_map_130_0.png)
-
-
-    Saving figure to results/figures/serum_mAb_spike_logo.pdf
-    Saving figure to results/figures/serum_mAb_spike_logo.svg
-
-
-### Zoom plots color-coded to match neutralization assays
 Now we are going to make versions of the zoomed logo plots that are slightly different than the ones above.
 We read in colors for specific mutations from a YAML file; these colors match those used to plot the neutralization curves.
-We also plot a slightly different set of sites: not just the "significant" ones, but also others that were tested in neutralization assays as controls.
+We also plot a slightly different set of sites: not just the "significant" ones, but also others of interest (these are sites of strong selection in ferrets).
 
-
-First, get the information on which sites to zoom and how to color mutations into data frames:
+First, get data frames with sites to zoom on and how to color them, and how to color specific mutations:
 
 
 ```python
 with open(config['figure_config']) as f:
-    figure_config = yaml.safe_load(f)
+    fig_config = yaml.safe_load(f)
 
 zoom_sites = []
 mutation_colors = []
-for figure, fig_d in figure_config['figures'].items():
+for figure, fig_d in fig_config['figures'].items():
     # process zoom sites
+    site_color_map = collections.defaultdict(lambda: fig_config['default_logo_color'])
+    if 'site_colors' in fig_d:
+        for r, c in fig_d['site_colors'].items():
+            site_color_map[str(r)] = c
     zoom_sites.append(
         pd.DataFrame({'figure': figure,
                       'sera': fig_d['sera'],
@@ -6909,7 +6814,9 @@ for figure, fig_d in figure_config['figures'].items():
         .merge(pd.DataFrame({'site': avg_sel_df['site'].unique(),
                              'dummy': 0}))
         .drop(columns='dummy')
-        .assign(zoom=lambda x: x['site'].isin([str(r) for r in fig_d['sites']]))
+        .assign(zoom=lambda x: x['site'].isin([str(r) for r in fig_d['sites']]),
+                color=lambda x: x['site'].map(site_color_map)
+                )
         )
     # process colors
     muts = [mut for mut in fig_d['colors'] if mut not in {'wt', 'syn'}]
@@ -6945,14 +6852,9 @@ colored_zoom_df = (
     .merge(mutation_colors,
            on=['figure', 'sera', 'site', 'mutation'],
            how='left')
-    .assign(color=lambda x: x['color'].fillna(figure_config['default_logo_color']),
-            sera=lambda x: x['sera'].str.replace('-', ' ')
-            )
-    .assign(sera=lambda x: pd.Categorical(x['sera'],
-                                          x['sera'].unique(),
-                                          ordered=True)
-            )
-    )           
+    .assign(color=lambda x: x['color_x'].where(x['color_y'].isna(), x['color_y']))
+    .drop(columns=['color_x', 'color_y'])
+    )
 ```
 
 Make the zoomed logo plots:
@@ -6960,16 +6862,25 @@ Make the zoomed logo plots:
 
 ```python
 for figure, df in colored_zoom_df.groupby('figure'):
+        
+    if 'sera_names' in fig_config['figures'][figure]:
+        name_map = fig_config['figures'][figure]['sera_names']
+    else:
+        name_map = {s: s.replace('-', ' ') for s in df.sera.unique()}
+    df = df.assign(sera_names=lambda x: pd.Categorical(x.sera.map(name_map),
+                                                       x.sera.map(name_map).unique(),
+                                                       ordered=True))
+        
     fig, axes = dmslogo.facet_plot(
             data=df,
             x_col='isite',
             show_col='zoom',
-            gridrow_col='sera',
+            gridrow_col='sera_names',
             share_xlabel=True,
             share_ylabel=True,
             share_ylim_across_rows=share_ylim_across_rows[serum_group],
             wspace=0.6,
-            rmargin=0.6,
+            rmargin=0.7,
             draw_line_kwargs=dict(
                     height_col='positive_diffsel',
                     xtick_col='site',
@@ -6995,7 +6906,7 @@ for figure, df in colored_zoom_df.groupby('figure'):
 ```
 
 
-![png](analyze_map_files/analyze_map_136_0.png)
+![png](analyze_map_files/analyze_map_129_0.png)
 
 
     Saving figure to results/figures/2009_age_53_samples_logo.pdf
@@ -7003,7 +6914,7 @@ for figure, df in colored_zoom_df.groupby('figure'):
 
 
 
-![png](analyze_map_files/analyze_map_136_2.png)
+![png](analyze_map_files/analyze_map_129_2.png)
 
 
     Saving figure to results/figures/Hensley_sera_logo.pdf
@@ -7011,7 +6922,7 @@ for figure, df in colored_zoom_df.groupby('figure'):
 
 
 
-![png](analyze_map_files/analyze_map_136_4.png)
+![png](analyze_map_files/analyze_map_129_4.png)
 
 
     Saving figure to results/figures/VIDD_sera_logo.pdf
@@ -7019,7 +6930,7 @@ for figure, df in colored_zoom_df.groupby('figure'):
 
 
 
-![png](analyze_map_files/analyze_map_136_6.png)
+![png](analyze_map_files/analyze_map_129_6.png)
 
 
     Saving figure to results/figures/antibody_lower_head_logo.pdf
@@ -7027,7 +6938,7 @@ for figure, df in colored_zoom_df.groupby('figure'):
 
 
 
-![png](analyze_map_files/analyze_map_136_8.png)
+![png](analyze_map_files/analyze_map_129_8.png)
 
 
     Saving figure to results/figures/antibody_region_B_logo.pdf
@@ -7035,7 +6946,15 @@ for figure, df in colored_zoom_df.groupby('figure'):
 
 
 
-![png](analyze_map_files/analyze_map_136_10.png)
+![png](analyze_map_files/analyze_map_129_10.png)
+
+
+    Saving figure to results/figures/antibody_spikein_logo.pdf
+    Saving figure to results/figures/antibody_spikein_logo.svg
+
+
+
+![png](analyze_map_files/analyze_map_129_12.png)
 
 
     Saving figure to results/figures/ferret_logo.pdf

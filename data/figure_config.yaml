@@ -96,9 +96,22 @@ figures:
       2009-age-65-with-hi-4F03: serum + high antibody
       antibody-4F03: antibody alone
     sites: [159, 160, 193, # significant for serum
-            80, 81, 83, 121, 122, 220, 244, 259, HA2(78)]
+            80, 81, 83, 121, 122, 220, 244, 259, (HA2)78]
+    site_colors:
+      159: *orange
+      160: *orange
+      193: *orange
+      80: *lightblue
+      81: *lightblue
+      83: *lightblue
+      121: *lightblue
+      122: *lightblue
+      220: *lightblue
+      244: *lightblue
+      259: *lightblue
+      (HA2)78: *lightblue
     colors:
       wt: [*black, 'o']
-      N121E: [*red, '>']
-      F159G: [*green, '^']
-      F193D: [*lightblue, 'v']
+      N121E: [*lightblue, 's']
+      F159G: [*orange, '^']
+      F193D: [*orange, 'v']

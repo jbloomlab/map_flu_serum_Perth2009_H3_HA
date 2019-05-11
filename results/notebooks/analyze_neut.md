@@ -795,18 +795,38 @@ Now draw the plots as single-column figures that can be aligned with the logo pl
 ```python
 neutsvgfiles = []
 for figure, df in sera_df.groupby('figure'):
-    if 'antibody' in figure:
-        xlabel = 'concentration ($\mu$g/ml)'
-    else:
-        xlabel = 'serum dilution'
+    
     ifigconfig = figure_config['figures'][figure]
     colors = ifigconfig['colors']
+    sera = [s for s in df['sera'].unique() if s in fits.sera]
+    xlabel = ['concentration ($\mu$g/ml)' if 'antibody' in s else 'serum dilution' for s in sera]
+    
+    # do we have one or multiple x-axis labels, which determines whether we try to align to logos
+    if len(set(xlabel)) == 1:
+        xlabel = xlabel[0]
+        align_to_dmslogo_facet={'height_per_ax': 2.5,
+                                'hspace': 0.8,
+                                'tmargin': 0.4,
+                                'bmargin': 1.3,
+                                'right': 0.75,
+                                'left': 0.2,
+                                }
+        heightscale = 1
+        widthscale = 1.37
+        sharex = True
+    else:
+        align_to_dmslogo_facet = False
+        heightscale = 1.23
+        widthscale = 1.1
+        sharex = False
+        
     fig, _ = fits.plotSera(
-                sera=df['sera'].unique(),
+                sera=sera,
                 viruses=colors.keys(),
                 ignore_serum_virus=ifigconfig['ignore_serum_virus'] if
                                    'ignore_serum_virus' in ifigconfig else None,
-                titles=[sera.replace('-', ' ') for sera in df['sera'].unique()],
+                titles=[ifigconfig['sera_names'][s] for s in sera] if 'sera_names' in ifigconfig
+                       else [s.replace('-', ' ') for s in sera],
                 virus_to_color_marker=colors,
                 xlabel=xlabel,
                 max_viruses_per_subplot=len(colors),
@@ -814,21 +834,22 @@ for figure, df in sera_df.groupby('figure'):
                 titlesize=17,
                 labelsize=17,
                 legendfontsize=14,
-                widthscale=1.37,
+                ticksize=12,
+                widthscale=widthscale,
+                heightscale=heightscale,
                 markersize=7,
-                align_to_dmslogo_facet={'height_per_ax': 2.5,
-                                        'hspace': 0.8,
-                                        'tmargin': 0.4,
-                                        'bmargin': 1.3,
-                                        'right': 0.75,
-                                        'left': 0.2,
-                                        },
+                align_to_dmslogo_facet=align_to_dmslogo_facet,
                 despine=True,
-                yticklocs=[0, 0.5, 1]
+                yticklocs=[0, 0.5, 1],
+                sharex=sharex,
                 )
+    
     neutsvgfile = os.path.join(config['figsdir'], f"{figure}_neut.svg")
     print(f"Saving plot for {figure} to {neutsvgfile}")
-    fig.savefig(neutsvgfile)
+    if sharex:
+        fig.savefig(neutsvgfile)
+    else:
+        fig.savefig(neutsvgfile, bbox_inches='tight')
     plt.close(fig)
     neutsvgfiles.append(neutsvgfile)
 ```
@@ -838,6 +859,7 @@ for figure, df in sera_df.groupby('figure'):
     Saving plot for VIDD_sera to results/figures/VIDD_sera_neut.svg
     Saving plot for antibody_lower_head to results/figures/antibody_lower_head_neut.svg
     Saving plot for antibody_region_B to results/figures/antibody_region_B_neut.svg
+    Saving plot for antibody_spikein to results/figures/antibody_spikein_neut.svg
     Saving plot for ferret to results/figures/ferret_neut.svg
 
 
@@ -937,12 +959,25 @@ for neutsvgfile in neutsvgfiles:
 
 
     
-    Writing figure to results/figures/ferret_logo_and_neut.svg and results/figures/ferret_logo_and_neut.pdf
+    Writing figure to results/figures/antibody_spikein_logo_and_neut.svg and results/figures/antibody_spikein_logo_and_neut.pdf
 
 
 
 ![png](analyze_neut_files/analyze_neut_41_11.png)
 
+
+    
+    Writing figure to results/figures/ferret_logo_and_neut.svg and results/figures/ferret_logo_and_neut.pdf
+
+
+
+![png](analyze_neut_files/analyze_neut_41_13.png)
+
+
+
+```python
+
+```
 
 
 ```python
