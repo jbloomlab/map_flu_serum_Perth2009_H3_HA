@@ -18,13 +18,12 @@ figures:
     colors:
       wt: [*black, 'o']
       syn: [*gray, '8']
-      N121E: [*red, '>']
       L157D: [*orange, '<']
       F159G: [*green, '^']
       K160T: [*darkblue, 's']
       K189D: [*yellow, 'd']
       F193D: [*lightblue, 'v']
-    sites: [121, 144, 157, 159, 160, 189, 193, 222, 244]
+    sites: [144, 157, 159, 160, 189, 193, 222, 244]
 
   2009_age_53_samples:
     sera: [2009-age-53, 2009-age-53-plus-2-months]
@@ -85,6 +84,21 @@ figures:
       wt: [*black, 'o']
       K82A: [*orange, 'H']
       N121E: [*red, '>']
+    sites: [53, 54, 57, 80, 81, 82, 83, 121, 122, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]
+
+  antibody_spikein:
+    sera: [2009-age-65, 2009-age-65-with-low-4F03, 2009-age-65-with-mid-4F03,
+           2009-age-65-with-hi-4F03, antibody-4F03]
+    sera_names:
+      2009-age-65: serum alone
+      2009-age-65-with-low-4F03: serum + low antibody
+      2009-age-65-with-mid-4F03: serum + mid antibody
+      2009-age-65-with-hi-4F03: serum + high antibody
+      antibody-4F03: antibody alone
+    sites: [159, 160, 193, # significant for serum
+            80, 81, 83, 121, 122, 220, 244, 259, HA2(78)]
+    colors:
+      wt: [*black, 'o']
+      N121E: [*red, '>']
       F159G: [*green, '^']
       F193D: [*lightblue, 'v']
-    sites: [53, 54, 57, 80, 81, 82, 83, 121, 122, 159, 193, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]
