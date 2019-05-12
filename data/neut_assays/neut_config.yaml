@@ -204,19 +204,19 @@
         virus: wt
         dilution_factor: 2.143
         initial_concentration: 0.0025
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F159G:
         serum: 2015-age-25-vacc
         virus: F159G
         dilution_factor: 2.143
         initial_concentration: 0.0025
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F159F:
         serum: 2015-age-25-vacc
         virus: syn
         dilution_factor: 2.143
         initial_concentration: 0.0025
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
 
 - 574v1:
     excelfile: data/neut_assays/plate_reader_data/574v1_NeutralizationAssay.xlsx
@@ -226,19 +226,19 @@
         virus: wt
         dilution_factor: 1.889
         initial_concentration: 0.02647
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F159G:
         serum: 2015-age-29-prevacc
         virus: F159G
         dilution_factor: 1.889
         initial_concentration: 0.02647
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K144E:
         serum: 2015-age-29-prevacc
         virus: K144E
         dilution_factor: 1.889
         initial_concentration: 0.02647
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
 
 - 574v2:
     excelfile: data/neut_assays/plate_reader_data/574v2_NeutralizationAssay.xlsx
@@ -248,19 +248,19 @@
         virus: wt
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K144E:
         serum: 2015-age-29-vacc
         virus: K144E
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F159G:
         serum: 2015-age-29-vacc
         virus: F159G
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
 
 - 589v1:
     excelfile: data/neut_assays/plate_reader_data/589v1_NeutralizationAssay.xlsx
@@ -270,7 +270,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1, 11, 12]
+        excluded_dilutions: [1, 10, 11, 12]
 
 - 589v2:
     excelfile: data/neut_assays/plate_reader_data/589v2_NeutralizationAssay.xlsx
@@ -280,31 +280,31 @@
         virus: wt
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K189D:
         serum: 2015-age-48-vacc
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F159G:
         serum: 2015-age-48-vacc
         virus: F159G
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       R220D:
         serum: 2015-age-48-vacc
         virus: R220D
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K144E:
         serum: 2015-age-48-vacc
         virus: K144E
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
 
 - 571v1:
     excelfile: data/neut_assays/plate_reader_data/571v1_NeutralizationAssay.xlsx
@@ -314,7 +314,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1, 11, 12]
+        excluded_dilutions: [1, 10, 11, 12]
 
 - 571v2:
     excelfile: data/neut_assays/plate_reader_data/571v2_NeutralizationAssay.xlsx
@@ -340,7 +340,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1, 11, 12]
+        excluded_dilutions: [1, 10, 11, 12]
 
 - ferret-Pitt-1-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt1postinf_NeutralizationAssay.xlsx
@@ -350,37 +350,37 @@
         virus: wt
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K189D:
         serum: ferret-Pitt-1-postinf
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F193D:
         serum: ferret-Pitt-1-postinf
         virus: F193D
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F193F:
         serum: ferret-Pitt-1-postinf
         virus: syn
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F159G:
         serum: ferret-Pitt-1-postinf
         virus: F159G
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K144E:
         serum: ferret-Pitt-1-postinf
         virus: K144E
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
 
 - ferret-Pitt-2-preinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt2preinf_NeutralizationAssay.xlsx
@@ -390,7 +390,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1, 2, 11, 12]
+        excluded_dilutions: [1, 2, 10, 11, 12]
 
 - ferret-Pitt-2-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt2postinf_NeutralizationAssay.xlsx
@@ -400,25 +400,25 @@
         virus: wt
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K189D:
         serum: ferret-Pitt-2-postinf
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F193D:
         serum: ferret-Pitt-2-postinf
         virus: F193D
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K144E:
         serum: ferret-Pitt-2-postinf
         virus: K144E
         dilution_factor: 2.333
         initial_concentration: 0.0125
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
 
 - ferret-Pitt-3-preinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt3preinf_NeutralizationAssay.xlsx
@@ -428,7 +428,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1, 11, 12]
+        excluded_dilutions: [1, 10, 11, 12]
 
 - ferret-Pitt-3-postinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt3postinf_NeutralizationAssay.xlsx
@@ -438,31 +438,31 @@
         virus: wt
         dilution_factor: 2.333
         initial_concentration: 0.0238
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K189D:
         serum: ferret-Pitt-3-postinf
         virus: K189D
         dilution_factor: 2.333
         initial_concentration: 0.0238
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       F193D:
         serum: ferret-Pitt-3-postinf
         virus: F193D
         dilution_factor: 2.333
         initial_concentration: 0.0238
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       K160T:
         serum: ferret-Pitt-3-postinf
         virus: K160T
         dilution_factor: 2.333
         initial_concentration: 0.0238
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
       L157D:
         serum: ferret-Pitt-3-postinf
         virus: L157D
         dilution_factor: 2.333
         initial_concentration: 0.0238
-        excluded_dilutions: [1]
+        excluded_dilutions: [1, 12]
 
 - ferret-WHO:
     excelfile: data/neut_assays/plate_reader_data/WHOPerth2009_NeutralizationAssay.xlsx
@@ -472,7 +472,7 @@
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185
-        excluded_dilutions: [1, 11, 12]
+        excluded_dilutions: [1, 10, 11, 12]
 
 - ferret-WHO-Victoria2011:
     excelfile: data/neut_assays/plate_reader_data/WHOVic11_NeutralizationAssay.xlsx

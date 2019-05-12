@@ -45,11 +45,7 @@ import neutcurve.parse_excel
 print(f"Using neutcurve version {neutcurve.__version__}")
 ```
 
-    /fh/fast/bloom_j/software/conda/envs/BloomLab_v2/lib/python3.6/site-packages/matplotlib/font_manager.py:232: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
-      'Matplotlib is building the font cache using fc-list. '
-
-
-    Using neutcurve version 0.2.dev2
+    Using neutcurve version 0.2.2
 
 
 Interactive matplotlib plotting:
@@ -507,7 +503,7 @@ display(HTML(fitparams
     <tr>
       <td>2015-age-48-vacc</td>
       <td>R220D</td>
-      <td>5.11e-06</td>
+      <td>5.53e-06</td>
     </tr>
     <tr>
       <td>2015-age-48-vacc</td>

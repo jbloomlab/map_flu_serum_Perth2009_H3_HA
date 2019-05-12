@@ -6885,7 +6885,7 @@ for figure, df in colored_zoom_df.groupby('figure'):
                     height_col='positive_diffsel',
                     xtick_col='site',
                     ylabel='immune selection',
-                    show_color=PALETTE[-1],
+                    show_color=PALETTE[-2],
                     ),
             draw_logo_kwargs=dict(
                     letter_col='mutation',

@@ -9,29 +9,46 @@ color_defs:
   - darkblue: &darkblue '#0072B2'
   - red: &red '#D55E00'
   - purple: &purple '#CC79A7'
+  # additional colors
+  - darkred: &darkred '#990000'
+  - pink: &pink '#FF00CC'
 
 default_logo_color: *gray
+
+mut_marks:
+  - wt_mark: &wt_mark [*black, 'o']
+  - syn_mark: &syn_mark [*gray, '8']
+  - K144E_mark: &K144E_mark [*red, 'h']
+  - L157D_mark: &L157D_mark [*orange, '<']
+  - F159G_mark: &F159G_mark [*green, '^']
+  - K160T_mark: &K160T_mark [*darkblue, 's']
+  - K189D_mark: &K189D_mark [*purple, 'd']
+  - F193D_mark: &F193D_mark [*lightblue, 'v']
+  - R220D_mark: &R220D_mark [*yellow, 'D']
+  - K82A_mark: &K82A_mark [*darkred, 'p']
+  - N121E_mark: &N121E_mark [*pink, 'X']
+
 
 figures:
   VIDD_sera:
     sera: [2010-age-21, 2009-age-53, 2009-age-64, 2009-age-65]
     colors:
-      wt: [*black, 'o']
-      syn: [*gray, '8']
-      L157D: [*orange, '<']
-      F159G: [*green, '^']
-      K160T: [*darkblue, 's']
-      K189D: [*yellow, 'd']
-      F193D: [*lightblue, 'v']
+      wt: *wt_mark
+      syn: *syn_mark
+      L157D: *L157D_mark
+      F159G: *F159G_mark
+      K160T: *K160T_mark
+      K189D: *K189D_mark
+      F193D: *F193D_mark
     sites: [144, 157, 159, 160, 189, 193, 222, 244]
 
   2009_age_53_samples:
     sera: [2009-age-53, 2009-age-53-plus-2-months]
     colors:
-      wt: [*black, 'o']
-      L157D: [*orange, '<']
-      K160T: [*darkblue, 's']
-      F193D: [*lightblue, 'v']
+      wt: *wt_mark
+      L157D: *L157D_mark
+      K160T: *K160T_mark
+      F193D: *F193D_mark
     sites: [144, 157, 159, 160, 189, 193, 222, 244]
 
   Hensley_sera:
@@ -40,12 +57,12 @@ figures:
            2015-age-48-prevacc, 2015-age-48-vacc,
            2015-age-49-prevacc, 2015-age-49-vacc]
     colors:
-      wt: [*black, 'o']
-      syn: [*gray, '8']
-      K144E: [*orange, 'h']
-      F159G: [*green, '^']
-      K189D: [*yellow, 'd']
-      R220D: [*lightblue, 'D']
+      wt: *wt_mark
+      syn: *syn_mark
+      K144E: *K144E_mark
+      F159G: *F159G_mark
+      K189D: *K189D_mark
+      R220D: *R220D_mark
     sites: [144, 145, 159, 160, 161, 189, 192, 193, 207, 220,
             222, 224, 225, 227, 244]
     ignore_serum_virus:
@@ -57,33 +74,34 @@ figures:
            ferret-Pitt-3-preinf, ferret-Pitt-3-postinf,
            ferret-WHO, ferret-WHO-Victoria2011]
     colors:
-      wt: [*black, 'o']
-      syn: [*gray, '8']
-      K144E: [*red, 'h']
-      L157D: [*orange, '<']
-      F159G: [*green, '^']
-      K160T: [*darkblue, 's']
-      K189D: [*yellow, 'd']
-      F193D: [*lightblue, 'v']
+      wt: *wt_mark
+      syn: *syn_mark
+      K144E: *K144E_mark
+      L157D: *L157D_mark
+      F159G: *F159G_mark
+      K160T: *K160T_mark
+      K189D: *K189D_mark
+      F193D: *F193D_mark
     sites: [50, 142, 144, 157, 159, 160, 189, 193, 222, 275]
 
   antibody_region_B:
     sera: [antibody-5A01, antibody-3C04, antibody-3C06, antibody-4C01]
     colors:
-      wt: [*black, 'o']
-      syn: [*gray, '8']
-      F159G: [*green, '^']
-      K160T: [*darkblue, 's']
-      K160S: [*lightblue, 'x']
-      F193D: [*orange, 'v']
+      wt: *wt_mark
+      syn: *syn_mark
+      F159G: *F159G_mark
+      K160T: *K160T_mark
+      F193D: *F193D_mark
     sites: [137, 145, 157, 158, 159, 160, 167, 192, 193, 207, 222, 227, 244, 246]
+    ignore_serum_virus:
+      antibody-3C04: [K160S]
 
   antibody_lower_head:
     sera: [antibody-4F03, antibody-1C04]
     colors:
-      wt: [*black, 'o']
-      K82A: [*orange, 'H']
-      N121E: [*red, '>']
+      wt: *wt_mark
+      K82A: *K82A_mark
+      N121E: *N121E_mark
     sites: [53, 54, 57, 80, 81, 82, 83, 121, 122, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]
 
   antibody_spikein:
