@@ -18,7 +18,6 @@ In addition to importing the [neutcurve](https://jbloomlab.github.io/neutcurve/)
 import collections
 import os
 import re
-import string
 import warnings
 import xml.etree.ElementTree as ElementTree
 
@@ -45,7 +44,7 @@ import neutcurve.parse_excel
 print(f"Using neutcurve version {neutcurve.__version__}")
 ```
 
-    Using neutcurve version 0.2.2
+    Using neutcurve version 0.2.3
 
 
 Interactive matplotlib plotting:
@@ -902,8 +901,11 @@ for neutsvgfile in neutsvgfiles:
     heights = [svg_dim(p, 'height') for p in plots]
     xshifts = numpy.cumsum(widths) - numpy.array(widths)
     xshifts = numpy.clip(xshifts - 1, 0, None)  # reduce by one to avoid gaps
+    figure = os.path.basename(neutsvgfile).replace('_neut.svg', '')
+    letters = [figure_config['figures'][figure]['logo_panel_label'],
+               figure_config['figures'][figure]['neut_panel_label']]
     fig_elements = []
-    for letter, p, x in zip(string.ascii_uppercase, plots, xshifts):
+    for letter, p, x in zip(letters, plots, xshifts):
         fig_elements.append(svgutils.compose.SVG(p).move(x, 0))
         fig_elements.append(svgutils.compose.Text(letter, 15, 25, weight='bold',
                                                   size='26', font='Arial').move(x, 0))
@@ -969,11 +971,6 @@ for neutsvgfile in neutsvgfiles:
 
 ![png](analyze_neut_files/analyze_neut_41_13.png)
 
-
-
-```python
-
-```
 
 
 ```python

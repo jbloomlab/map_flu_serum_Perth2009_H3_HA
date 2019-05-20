@@ -41,6 +41,8 @@ figures:
       K189D: *K189D_mark
       F193D: *F193D_mark
     sites: [144, 157, 159, 160, 189, 193, 222, 244]
+    logo_panel_label: A
+    neut_panel_label: B
 
   2009_age_53_samples:
     sera: [2009-age-53, 2009-age-53-plus-2-months]
@@ -50,6 +52,8 @@ figures:
       K160T: *K160T_mark
       F193D: *F193D_mark
     sites: [144, 157, 159, 160, 189, 193, 222, 244]
+    logo_panel_label: A
+    neut_panel_label: B
 
   Hensley_sera:
     sera: [2015-age-25-prevacc, 2015-age-25-vacc,
@@ -67,6 +71,8 @@ figures:
             222, 224, 225, 227, 244]
     ignore_serum_virus:
       2015-age-48-vacc: [R220D]
+    logo_panel_label: A
+    neut_panel_label: B
 
   ferret:
     sera: [ferret-Pitt-1-preinf, ferret-Pitt-1-postinf,
@@ -83,6 +89,8 @@ figures:
       K189D: *K189D_mark
       F193D: *F193D_mark
     sites: [50, 142, 144, 157, 159, 160, 189, 193, 222, 275]
+    logo_panel_label: A
+    neut_panel_label: B
 
   antibody_region_B:
     sera: [antibody-5A01, antibody-3C04, antibody-3C06, antibody-4C01]
@@ -95,6 +103,8 @@ figures:
     sites: [137, 145, 157, 158, 159, 160, 167, 192, 193, 207, 222, 227, 244, 246]
     ignore_serum_virus:
       antibody-3C04: [K160S]
+    logo_panel_label: A
+    neut_panel_label: B
 
   antibody_lower_head:
     sera: [antibody-4F03, antibody-1C04]
@@ -103,6 +113,8 @@ figures:
       K82A: *K82A_mark
       N121E: *N121E_mark
     sites: [53, 54, 57, 80, 81, 82, 83, 121, 122, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]
+    logo_panel_label: C
+    neut_panel_label: D
 
   antibody_spikein:
     sera: [2009-age-65, 2009-age-65-with-low-4F03, 2009-age-65-with-mid-4F03,
@@ -133,3 +145,5 @@ figures:
       N121E: [*lightblue, 's']
       F159G: [*orange, '^']
       F193D: [*orange, 'v']
+    logo_panel_label: C
+    neut_panel_label: D
