@@ -84,6 +84,9 @@ However, the following results are tracked:
 
   - [results/notebooks/structs](results/notebooks/structs): Jupyter notebooks that render the immune selection onto interactive structure widgets.
 
+  - [results/avgdiffsel/avg_sel_tidy.csv](results/avgdiffsel/avg_sel_tidy.csv): the across-replicate average differential selection for each mutation for each serum sample.
+    **This is where you should look if you want the numerical results shown in the plots.**
+
   - [results/renumbered_codoncounts](results/renumbered_codoncounts): the counts of each mutation in each sample, after renumbering to H3 numbering.
 
 ## Other subdirectories

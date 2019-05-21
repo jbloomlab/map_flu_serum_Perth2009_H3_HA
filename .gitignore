@@ -12,3 +12,6 @@ SRA_upload/files_to_upload
 results/*
 !results/notebooks
 !results/renumbered_codoncounts
+!results/avgdiffsel
+results/avgdiffsel/*
+!results/avgdiffsel/avg_sel_tidy.csv
