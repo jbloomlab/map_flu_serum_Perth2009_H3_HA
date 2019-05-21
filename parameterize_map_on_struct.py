@@ -44,7 +44,11 @@ def main():
         panelfig_relpath = os.path.relpath(os.path.join(config['figsdir'],
                                                         f"{fig}_struct.png"),
                                            config['structnotebookdir'])
-        query_str = f"serum_name_formatted in {figconfig['sera']}"
+        if fig != 'ferret':
+            query_str = f"serum_name_formatted in {figconfig['sera']}"
+        else:
+            sera = [s for s in figconfig['sera'] if 'preinf' not in s]
+            query_str = f"serum_name_formatted in {sera}"
         papermill.execute.execute_notebook(
                 input_path=config['map_on_struct_template'],
                 output_path=struct_nb,
