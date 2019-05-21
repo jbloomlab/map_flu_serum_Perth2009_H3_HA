@@ -8,7 +8,23 @@ Study by Juhye Lee, Rachel Eguia, and [Jesse Bloom](https://research.fhcrc.org/b
 
 - Analysis of neutralization curves: [results/notebooks/analyze_neut.md](results/notebooks/analyze_neut.md)
 
+- Interactive protein structures showing the immune selection can be viewed via the folowing [mybinder link](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?filepath=results%2Fnotebooks%2Fstructs).
+  Specifically, use the below links to open web apps for each notebook showing the selection from:
+
+   - [The antibodies targeting antigenic region B](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fstructs%2Fmap_on_struct_antibody_region_B.ipynb)
+
+   - [The antibodies targeting lower on the HA head](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fstructs%2Fmap_on_struct_antibody_lower_head.ipynb)
+
+   - [The human sera from 2009-2010 (the "VIDD sera")](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fstructs%2Fmap_on_struct_VIDD_sera.ipynb)
+
+   - [The human sera from vaccinees in 2015 (the "Hensley sera")](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fstructs%2Fmap_on_struct_Hensley_sera.ipynb)
+
+   - [The ferret sera)](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fstructs%2Fmap_on_struct_ferret_sera.ipynb)
+
+
 ## Running the analysis
+
+### Automated steps
 The main analysis is performed primarily by a series of [Jupyter notebooks](https://jupyter.org/) and Python scripts:
 
   1. [analyze_map.ipynb](analyze_map.ipynb): analyzes mutational antigenic profiling
@@ -25,10 +41,14 @@ On the Hutch cluster, you can also submit this script using [slurm](https://slur
 
     sbatch -p largenode -c 16 --mem=100000 run.bash
 
-Running these three steps creates Jupyter notebooks that map the immune selection onto the structure using [dms_struct](https://jbloomlab.github.io/dms_struct) (which is a wrapper around [nglview](https://github.com/arose/nglview)).
-These notebooks are in [results/notebooks/structs](results/notebooks/structs).
-They can be used to render interactive views of the structures via [mybinder](https://mybinder.org/) with [appmode](https://github.com/oschuett/appmode) by clicking on the links in the *Quick summary* section above.
-You should also run them interactively cell-by-cell (giving time for each structure to render) in order to create static structure images.
+### Manual steps
+The following steps to polish the analysis must be performed manually:
+
+  4. The automated steps above creates Jupyter notebooks that map the immune selection onto the structure using [dms_struct](https://jbloomlab.github.io/dms_struct) (which is a wrapper around [nglview](https://github.com/arose/nglview)).
+     These notebooks are in [results/notebooks/structs](results/notebooks/structs).
+     To open them interactively with [mybinder](https://mybinder.org/), click [here](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?filepath=results%2Fnotebooks%2Fstructs).
+     You can also directly open each notebook as an interactive app in [appmode](https://github.com/oschuett/appmode) by clicking on the links in the *Quick summary* section above.
+     To generate static protein structure images for the final figures, you also need to run each notebook locally and interactively cell-by-cell (giving time for each structure to render).
 
 ## Configuring the analysis
 The configuration for the analysis is in a separate file, [config.yaml](config.yaml). 
