@@ -49,6 +49,11 @@ neut_config: data/neut_assays/neut_config.yaml
 # configuration for fine-tuned figures of logo plots and neut curves
 figure_config: data/figure_config.yaml
 
+# template notebook for mapping selection on structure
+map_on_struct_template: map_on_struct_template.ipynb
+pdb_id: 4o5n  # PDB structure ID
+site_to_pdb: data/H3_site_to_PDB_4o5n.csv  # map site to PDB chain / site
+
 # names of results directories
 countsdir: results/codoncounts  # counts of mutations
 renumbcountsdir: results/renumbered_codoncounts  # counts w/ renumbered sites
@@ -59,4 +64,6 @@ avgdiffsel_zoom_dir: results/avgdiffsel/zoomed_plots  # zoom of average diffsel
 avgdiffsel_reps_dir: results/avgdiffsel/replicates  # replicates that go into average
 avgdiffsel_full_dir: results/avgdiffsel/full_logo_plots  # full logo plots of average diffsel
 neutresultsdir: results/neutralization_assays # results of neutralization assays
+structsdir: results/structs  # structure-related images
 figsdir: results/figures  # additional customized figures
+structnotebookdir: results/notebooks/structs  # notebooks for structure mapping

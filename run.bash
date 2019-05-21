@@ -28,3 +28,9 @@ do
         --to markdown \
         $nb
 done
+
+map_on_struct="parameterize_map_on_struct.py"
+echo "Running $map_on_struct to parameterize notebooks to map on structure."
+python $map_on_struct
+echo "Completed running $map_on_struct"
+echo "Now run the parameterized structure-mapping notebooks interactively."

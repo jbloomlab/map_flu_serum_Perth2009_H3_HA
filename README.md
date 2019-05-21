@@ -4,28 +4,31 @@ Mutational antigenic profiling of Perth/2009 H3 HA codon mutant libraries agains
 Study by Juhye Lee, Rachel Eguia, and [Jesse Bloom](https://research.fhcrc.org/bloom/en.html).
 
 ## Quick summary
-Look at the [Markdown notebook results](results/notebooks) for an overview of the results:
+- Analysis of mutational antigenic profiling data: [results/notebooks/analyze_map.md](results/notebooks/analyze_map.md)
 
-  - Analysis of mutational antigenic profiling data: [results/notebooks/analyze_map.md](results/notebooks/analyze_map.md)
-
-  - Analysis of neutralization: [results/notebooks/analyze_neut.md](results/notebooks/analyze_neut.md)
+- Analysis of neutralization curves: [results/notebooks/analyze_neut.md](results/notebooks/analyze_neut.md)
 
 ## Running the analysis
-The main analysis is performed by the following [Jupyter notebooks](https://jupyter.org/):
+The main analysis is performed primarily by a series of [Jupyter notebooks](https://jupyter.org/) and Python scripts:
 
-  - [analyze_map.ipynb](analyze_map.ipynb): analyzes mutational antigenic profiling
+  1. [analyze_map.ipynb](analyze_map.ipynb): analyzes mutational antigenic profiling
 
-  - [analyze_neut.ipynb](analyze_neut.ipynb): analyzes neutralization assays
+  2. [analyze_neut.ipynb](analyze_neut.ipynb): analyzes neutralization assays
 
-The easiest way to look at the results is to view the Markdown output of the notebooks as described above.
+  3. [parameterize_map_on_struct.py](parameterize_map_on_struct.py): parameterizes the template Jupyter notebook [map_on_struct_template.ipynb](map_on_struct_template.ipynb) to show structures for each type of sera.
 
-To run the notebooks and generate the Markdown output, run the bash script [run_nbs.bash](run_nbs.bash) with:
+To run the three steps above, execute the bash script [run.bash](run.bash) with:
 
-    ./run_nbs.bash
+    ./run.bash
     
-On the Hutch cluster, you probably want to submit this job using [slurm](https://slurm.schedmd.com/), which you can simply do with:
+On the Hutch cluster, you can also submit this script using [slurm](https://slurm.schedmd.com/) with:
 
-    sbatch -p largenode -c 16 --mem=100000 run_nbs.bash
+    sbatch -p largenode -c 16 --mem=100000 run.bash
+
+Running these three steps creates Jupyter notebooks that map the immune selection onto the structure using [dms_struct](https://jbloomlab.github.io/dms_struct) (which is a wrapper around [nglview](https://github.com/arose/nglview)).
+These notebooks are in [results/notebooks/structs](results/notebooks/structs).
+They can be used to render interactive views of the structures via [mybinder](https://mybinder.org/) with [appmode](https://github.com/oschuett/appmode) by clicking on the links in the *Quick summary* section above.
+You should also run them interactively cell-by-cell (giving time for each structure to render) in order to create static structure images.
 
 ## Configuring the analysis
 The configuration for the analysis is in a separate file, [config.yaml](config.yaml). 
@@ -59,9 +62,11 @@ The [config.yaml](config.yaml) file points to several files in the [./data/](dat
   - [data/H3renumbering_scheme.csv](data/H3renumbering_scheme.csv):
     A CSV file that maps sequential 1, 2, ... numbering of the Perth/2009 HA protein sequence (*original* column) to the standard H3 HA numbering scheme (*new* column).
 
+  - [data/H3_site_to_PDB_4o5n.csv](data/H3_site_to_PDB_4o5n.csv):
+    A CSV file that matches the H3 HA numbering to the site numbers and PDB chains in PDB structure [4o5n](https://www.rcsb.org/structure/4O5N).
+
   - [data/neut_assays](data/neut_assays):
-    Data from neutralization assays.
-    Specifically:
+    Data from neutralization assays:
       - [data/neut_assays/neut_config.yaml](data/neut_assays/neut_config.yaml): Details on neutralization assays for each serum, with Excel path relative to top-level analysis directory.
       - [data/plate_reader_data/](data/plate_reader_data/): The plate reader data (Excel format).
 
@@ -73,12 +78,16 @@ Results are placed in the [./results/](results) subdirectory.
 Many of the results files are **not** tracked in this GitHub repo since they are very large.
 However, the following results are tracked:
 
-  - [results/notebooks/analyze_map.md](results/notebooks/analyze_map.md): analysis of mutational antigenic profiling
+  - [results/notebooks/analyze_map.md](results/notebooks/analyze_map.md): Markdown rendering of the notebook analyzing the mutational antigenic profiling
 
-  - [results/notebooks/analyze_neut.md](results/notebooks/analyze_neut.md): analysis of neutralization assays
+  - [results/notebooks/analyze_neut.md](results/notebooks/analyze_neut.md): Markdown rendering of the notebook analyzing the neutralization assays
+
+  - [results/notebooks/structs](results/notebooks/structs): Jupyter notebooks that render the immune selection onto interactive structure widgets.
 
 ## Other subdirectories
-Other subdirectories have information relevant to the study that are not part of the main pipeline described above:
+Other subdirectories in the repo are:
 
  - [./SRA_upload/](SRA_upload) has information on how the sequencing data were uploaded to the NIH [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra).
    See [./SRA_upload/README.md](SRA_upload/README.md) for details.
+
+ - [./binder](binder) has the configuration for visualizing the protein structure notebooks on [mybinder](https://mybinder.org/).

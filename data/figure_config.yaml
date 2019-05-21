@@ -54,6 +54,7 @@ figures:
     sites: [144, 157, 159, 160, 189, 193, 222, 244]
     logo_panel_label: A
     neut_panel_label: B
+    no_struct: true
 
   Hensley_sera:
     sera: [2015-age-25-prevacc, 2015-age-25-vacc,
@@ -147,3 +148,4 @@ figures:
       F193D: [*orange, 'v']
     logo_panel_label: C
     neut_panel_label: D
+    no_struct: true
