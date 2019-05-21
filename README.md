@@ -84,6 +84,8 @@ However, the following results are tracked:
 
   - [results/notebooks/structs](results/notebooks/structs): Jupyter notebooks that render the immune selection onto interactive structure widgets.
 
+  - [results/renumbered_codoncounts](results/renumbered_codoncounts): the counts of each mutation in each sample, after renumbering to H3 numbering.
+
 ## Other subdirectories
 Other subdirectories in the repo are:
 
