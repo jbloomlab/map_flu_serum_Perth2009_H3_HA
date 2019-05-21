@@ -19,7 +19,7 @@ Study by Juhye Lee, Rachel Eguia, and [Jesse Bloom](https://research.fhcrc.org/b
 
    - [The human sera from vaccinees in 2015 (the "Hensley sera")](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fstructs%2Fmap_on_struct_Hensley_sera.ipynb)
 
-   - [The ferret sera)](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fstructs%2Fmap_on_struct_ferret_sera.ipynb)
+   - [The ferret sera](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fstructs%2Fmap_on_struct_ferret.ipynb)
 
 
 ## Running the analysis
@@ -42,12 +42,12 @@ On the Hutch cluster, you can also submit this script using [slurm](https://slur
     sbatch -p largenode -c 16 --mem=100000 run.bash
 
 ### Manual steps
-The following steps to polish the analysis must be performed manually:
+The following steps to must be performed manually to finalize the paper figures:
 
-  4. The automated steps above creates Jupyter notebooks that map the immune selection onto the structure using [dms_struct](https://jbloomlab.github.io/dms_struct) (which is a wrapper around [nglview](https://github.com/arose/nglview)).
+  4. The automated steps above create Jupyter notebooks that map the immune selection onto the structure using [dms_struct](https://jbloomlab.github.io/dms_struct) (which is a wrapper around [nglview](https://github.com/arose/nglview)).
      These notebooks are in [results/notebooks/structs](results/notebooks/structs).
      To open them interactively with [mybinder](https://mybinder.org/), click [here](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?filepath=results%2Fnotebooks%2Fstructs).
-     You can also directly open each notebook as an interactive app in [appmode](https://github.com/oschuett/appmode) by clicking on the links in the *Quick summary* section above.
+     You can also directly open each notebook as an interactive app in [appmode](https://github.com/oschuett/appmode) by clicking on the links in the *Quick summary* section at the top of this README.
      To generate static protein structure images for the final figures, you also need to run each notebook locally and interactively cell-by-cell (giving time for each structure to render).
 
 ## Configuring the analysis
