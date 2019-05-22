@@ -15,3 +15,7 @@ results/*
 !results/avgdiffsel
 results/avgdiffsel/*
 !results/avgdiffsel/avg_sel_tidy.csv
+!results/figures
+results/figures/*
+!results/figures/final
+results/figures/final/*.pdf

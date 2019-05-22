@@ -50,6 +50,9 @@ The following steps to must be performed manually to finalize the paper figures:
      You can also directly open each notebook as an interactive app in [appmode](https://github.com/oschuett/appmode) by clicking on the links in the *Quick summary* section at the top of this README.
      To generate static protein structure images for the final figures, you also need to run each notebook locally and interactively cell-by-cell (giving time for each structure to render).
 
+  5. The Jupyter notebook [make_final_figs.ipynb](make_final_figs.ipynb) generates the final figures for the paper, which are placed in [.results/figures/final](.results/figures/final).
+     You need to run this notebook to generate the figures.
+
 ## Configuring the analysis
 The configuration for the analysis is in a separate file, [config.yaml](config.yaml). 
 This file defines key variables for the analysis, and should be self-explanatory. 
@@ -108,6 +111,8 @@ However, the following results are tracked:
     **This is where you should look if you want the numerical results shown in the plots.**
 
   - [results/renumbered_codoncounts](results/renumbered_codoncounts): the counts of each mutation in each sample, after renumbering to H3 numbering.
+
+  - [.results/figures/final](.results/figures/final): the final figures for the paper.
 
 ## Other subdirectories
 Other subdirectories in the repo are:
