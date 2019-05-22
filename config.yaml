@@ -67,4 +67,4 @@ neutresultsdir: results/neutralization_assays # results of neutralization assays
 structsdir: results/structs  # structure-related images
 figsdir: results/figures  # additional customized figures
 finalfigsdir: results/figures/final  # final figures for paper
-structnotebookdir: results/notebooks/structs  # notebooks for structure mapping
+notebookdir: results/notebooks  # notebooks

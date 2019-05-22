@@ -16,7 +16,7 @@ def main():
     with open('config.yaml') as f:
         config = yaml.safe_load(f)
 
-    os.makedirs(config['structnotebookdir'], exist_ok=True)
+    os.makedirs(config['notebookdir'], exist_ok=True)
 
     avg_sel_df = os.path.join(config['avgdiffseldir'], 'avg_sel_tidy.csv')
     if not os.path.isfile(avg_sel_df):
@@ -34,33 +34,32 @@ def main():
         figure_config = yaml.safe_load(f)
 
     for fig, figconfig in figure_config['figures'].items():
-        if 'no_struct' in figconfig and figconfig['no_struct']:
+        if 'sera_for_struct' not in figconfig:
             continue
-        struct_nb = os.path.join(config['structnotebookdir'],
+        sera = figconfig['sera_for_struct']
+        if len(sera) == 0:
+            continue
+        struct_nb = os.path.join(config['notebookdir'],
                                  f"map_on_struct_{fig}.ipynb")
-        data_relpath = os.path.relpath(avg_sel_df, config['structnotebookdir'])
+        data_relpath = os.path.relpath(avg_sel_df, config['notebookdir'])
         outdir_relpath = os.path.relpath(config['structsdir'],
-                                         config['structnotebookdir'])
+                                         config['notebookdir'])
         panelfig_relpath = os.path.relpath(os.path.join(config['figsdir'],
                                                         f"{fig}_struct.png"),
-                                           config['structnotebookdir'])
-        if fig != 'ferret':
-            query_str = f"serum_name_formatted in {figconfig['sera']}"
-        else:
-            sera = [s for s in figconfig['sera'] if 'preinf' not in s]
-            query_str = f"serum_name_formatted in {sera}"
+                                           config['notebookdir'])
         papermill.execute.execute_notebook(
                 input_path=config['map_on_struct_template'],
                 output_path=struct_nb,
                 parameters={'data_csv': data_relpath,
-                            'query_str': query_str,
+                            'query_str': f"serum_name_formatted in {sera}",
                             'facet_col': 'serum_name_formatted',
                             'pdb': config['pdb_id'],
                             'outdir': outdir_relpath,
                             'panel_fig': panelfig_relpath,
+                            'panel_height': figure_config['struct_panel_height'],
                             },
                 prepare_only=True,
-                cwd=config['structnotebookdir'],
+                cwd=config['notebookdir'],
                 )
         print(f"Created {struct_nb}")
 

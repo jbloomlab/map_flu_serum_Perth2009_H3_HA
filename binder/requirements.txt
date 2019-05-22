@@ -1,6 +1,6 @@
 appmode==0.5.0
 dmslogo==0.2.3
-dms_struct==0.1.0
+dms_struct==0.2.0
 iPython==7.2.0
 ipywidgets==7.4.2
 jupyter_contrib_nbextensions==0.5.0

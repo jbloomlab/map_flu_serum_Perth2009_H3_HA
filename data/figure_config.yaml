@@ -28,10 +28,12 @@ mut_marks:
   - K82A_mark: &K82A_mark [*darkred, 'p']
   - N121E_mark: &N121E_mark [*pink, 'X']
 
+struct_panel_height: 4
 
 figures:
   VIDD_sera:
     sera: [2010-age-21, 2009-age-53, 2009-age-64, 2009-age-65]
+    sera_for_struct: [2010-age-21, 2009-age-53, 2009-age-64, 2009-age-65]
     colors:
       wt: *wt_mark
       syn: *syn_mark
@@ -55,13 +57,15 @@ figures:
     sites: [144, 157, 159, 160, 189, 193, 222, 244]
     logo_panel_label: A
     neut_panel_label: B
-    no_struct: true
 
   Hensley_sera:
     sera: [2015-age-25-prevacc, 2015-age-25-vacc,
            2015-age-29-prevacc, 2015-age-29-vacc,
            2015-age-48-prevacc, 2015-age-48-vacc,
            2015-age-49-prevacc, 2015-age-49-vacc]
+    sera_for_struct: [2015-age-25-prevacc, 2015-age-25-vacc,
+                      2015-age-29-prevacc, 2015-age-29-vacc,
+                      2015-age-48-vacc]
     colors:
       wt: *wt_mark
       syn: *syn_mark
@@ -82,6 +86,9 @@ figures:
            ferret-Pitt-2-preinf, ferret-Pitt-2-postinf,
            ferret-Pitt-3-preinf, ferret-Pitt-3-postinf,
            ferret-WHO, ferret-WHO-Victoria2011]
+    sera_for_struct: [ferret-Pitt-1-postinf, ferret-Pitt-2-postinf,
+                      ferret-Pitt-3-postinf, ferret-WHO,
+                      ferret-WHO-Victoria2011]
     colors:
       wt: *wt_mark
       syn: *syn_mark
@@ -98,6 +105,7 @@ figures:
 
   antibody_region_B:
     sera: [antibody-5A01, antibody-3C04, antibody-3C06, antibody-4C01]
+    sera_for_struct: [antibody-5A01, antibody-3C04, antibody-3C06, antibody-4C01]
     colors:
       wt: *wt_mark
       syn: *syn_mark
@@ -113,6 +121,7 @@ figures:
 
   antibody_lower_head:
     sera: [antibody-4F03, antibody-1C04]
+    sera_for_struct: [antibody-4F03, antibody-1C04]
     colors:
       wt: *wt_mark
       K82A: *K82A_mark
@@ -153,4 +162,3 @@ figures:
       F193D: [*orange, 'v']
     logo_panel_label: A
     neut_panel_label: B
-    no_struct: true
