@@ -18,4 +18,5 @@ results/avgdiffsel/*
 !results/figures
 results/figures/*
 !results/figures/final
-results/figures/final/*.pdf
+results/figures/final/*
+!results/figures/final/*.pdf
