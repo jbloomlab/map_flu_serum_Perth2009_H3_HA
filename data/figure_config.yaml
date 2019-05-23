@@ -30,6 +30,13 @@ mut_marks:
 
 struct_panel_height: 4
 
+# structure orientation in `nglview`, can be determined as here:
+# https://github.com/arose/nglview/issues/785#issuecomment-487409212
+struct_orientation: [113.5, 44.09, 180.08, 0,
+                     -185.38, 23.99, 110.97, 0,
+                     2.63, -211.51, 50.12, 0,
+                     -34.66, 25.44, 46.9, 1]
+
 figures:
   VIDD_sera:
     sera: [2010-age-21, 2009-age-53, 2009-age-64, 2009-age-65]
