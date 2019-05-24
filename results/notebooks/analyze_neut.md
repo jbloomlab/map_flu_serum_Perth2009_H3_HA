@@ -143,7 +143,7 @@ print(f"Read data for {len(neutdata.groupby('serum'))} sera and "
     Parsing data for antibody-4C01...
     Parsing data for antibody-4F03...
     Parsing data for antibody-1C04...
-    Read data for 27 sera and 104 serum / virus pairs.
+    Read data for 27 sera and 113 serum / virus pairs.
 
 
 These data look like this:
@@ -515,6 +515,21 @@ display(HTML(fitparams
       <td>0.000141</td>
     </tr>
     <tr>
+      <td>2015-age-25-vacc</td>
+      <td>wt2</td>
+      <td>1.84e-05</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>R220D</td>
+      <td>6.27e-05</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>K189D</td>
+      <td>4.95e-05</td>
+    </tr>
+    <tr>
       <td>2015-age-29-prevacc</td>
       <td>wt</td>
       <td>0.00637</td>
@@ -650,6 +665,26 @@ display(HTML(fitparams
       <td>0.000636</td>
     </tr>
     <tr>
+      <td>ferret-Pitt-2-postinf</td>
+      <td>wt2</td>
+      <td>0.000121</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-postinf</td>
+      <td>L157D</td>
+      <td>0.000177</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-postinf</td>
+      <td>R220D</td>
+      <td>1.55e-05</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-postinf</td>
+      <td>F159G</td>
+      <td>6.45e-05</td>
+    </tr>
+    <tr>
       <td>ferret-Pitt-3-preinf</td>
       <td>wt</td>
       <td>&gt;0.00617</td>
@@ -678,6 +713,16 @@ display(HTML(fitparams
       <td>ferret-Pitt-3-postinf</td>
       <td>L157D</td>
       <td>0.000265</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-postinf</td>
+      <td>wt2</td>
+      <td>0.000152</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-postinf</td>
+      <td>R220D</td>
+      <td>2.51e-05</td>
     </tr>
     <tr>
       <td>ferret-WHO</td>
