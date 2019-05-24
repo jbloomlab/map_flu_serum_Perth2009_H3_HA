@@ -54,6 +54,7 @@ def main():
                             'query_str': f"serum_name_formatted in {sera}",
                             'facet_col': 'serum_name_formatted',
                             'pdb': config['pdb_id'],
+                            'orientation': figure_config['struct_orientation'],
                             'outdir': outdir_relpath,
                             'panel_fig': panelfig_relpath,
                             'panel_height': figure_config['struct_panel_height'],
