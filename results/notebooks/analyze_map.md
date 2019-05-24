@@ -6525,8 +6525,8 @@ for tup in (avg_selections
     results/avgdiffsel/full_logo_plots/ferret-WHO_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/ferret-WHO-Victoria2011_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/2010-age-21_diffsel.pdf already exists.
-    results/avgdiffsel/full_logo_plots/2009-age-53_diffsel.pdf already exists.
-    results/avgdiffsel/full_logo_plots/2009-age-53-plus-2-months_diffsel.pdf already exists.
+    Plotting 2009-age-53 to results/avgdiffsel/full_logo_plots/2009-age-53_diffsel.pdf
+    Plotting 2009-age-53-plus-2-months to results/avgdiffsel/full_logo_plots/2009-age-53-plus-2-months_diffsel.pdf
     results/avgdiffsel/full_logo_plots/2009-age-64_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/2009-age-65_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/2015-age-25-prevacc_diffsel.pdf already exists.
