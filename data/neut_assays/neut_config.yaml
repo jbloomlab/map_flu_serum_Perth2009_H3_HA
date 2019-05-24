@@ -31,6 +31,24 @@
         dilution_factor: 1.889
         initial_concentration: 0.02647
         excluded_dilutions: [1]
+      WT2:
+        serum: 2010-age-21
+        virus: wt2
+        dilution_factor: 1.889
+        initial_concentration: 0.02647
+        excluded_dilutions: [1]
+      F159G:
+        serum: 2010-age-21
+        virus: F159G
+        dilution_factor: 1.889
+        initial_concentration: 0.02647
+        excluded_dilutions: [1]
+      K160T:
+        serum: 2010-age-21
+        virus: K160T
+        dilution_factor: 1.889
+        initial_concentration: 0.02647
+        excluded_dilutions: [1]
 
 - VIDD2:
     excelfile: data/neut_assays/plate_reader_data/VIDD2_NeutralizationAssay.xlsx
@@ -62,6 +80,24 @@
       F193F:
         serum: 2009-age-53
         virus: syn
+        dilution_factor: 2
+        initial_concentration: 0.025
+        excluded_dilutions: [1]
+      WT2:
+        serum: 2009-age-53
+        virus: wt2
+        dilution_factor: 2
+        initial_concentration: 0.025
+        excluded_dilutions: [1]
+      K189D:
+        serum: 2009-age-53
+        virus: K189D
+        dilution_factor: 2
+        initial_concentration: 0.025
+        excluded_dilutions: [1]
+      F159G:
+        serum: 2009-age-53
+        virus: F159G
         dilution_factor: 2
         initial_concentration: 0.025
         excluded_dilutions: [1]
@@ -127,6 +163,30 @@
         dilution_factor: 2.143
         initial_concentration: 0.0233
         excluded_dilutions: [1, 12]
+      WT2:
+        serum: 2009-age-64
+        virus: wt2
+        dilution_factor: 2.143
+        initial_concentration: 0.0233
+        excluded_dilutions: [1, 12]
+      K160T:
+        serum: 2009-age-64
+        virus: K160T
+        dilution_factor: 2.143
+        initial_concentration: 0.0233
+        excluded_dilutions: [1, 12]
+      L157D:
+        serum: 2009-age-64
+        virus: L157D
+        dilution_factor: 2.143
+        initial_concentration: 0.0233
+        excluded_dilutions: [1, 12]
+      F193F:
+        serum: 2009-age-64
+        virus: F193F
+        dilution_factor: 2.143
+        initial_concentration: 0.0233
+        excluded_dilutions: [1, 12]
 
 - VIDD5:
     excelfile: data/neut_assays/plate_reader_data/VIDD5_NeutralizationAssay.xlsx
@@ -164,6 +224,24 @@
       F159G:
         serum: 2009-age-65
         virus: F159G
+        dilution_factor: 2.143
+        initial_concentration: 0.0233
+        excluded_dilutions: [1, 12]
+      WT2:
+        serum: 2009-age-65
+        virus: wt2
+        dilution_factor: 2.143
+        initial_concentration: 0.0233
+        excluded_dilutions: [1, 12]
+      L157D:
+        serum: 2009-age-65
+        virus: L157D
+        dilution_factor: 2.143
+        initial_concentration: 0.0233
+        excluded_dilutions: [1, 12]
+      K189D:
+        serum: 2009-age-65
+        virus: K189D
         dilution_factor: 2.143
         initial_concentration: 0.0233
         excluded_dilutions: [1, 12]
