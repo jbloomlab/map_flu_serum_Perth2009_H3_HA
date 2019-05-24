@@ -56,8 +56,8 @@ print(f"Using dms_tools2 version {dms_tools2.__version__}")
 print(f"Using dmslogo version {dmslogo.__version__}")
 ```
 
-    Using dms_tools2 version 2.4.10
-    Using dmslogo version 0.2.2
+    Using dms_tools2 version 2.4.12
+    Using dmslogo version 0.2.3
 
 
 Set data frame display options:
@@ -173,6 +173,18 @@ display(HTML(pd.Series(config)
       <td>data/figure_config.yaml</td>
     </tr>
     <tr>
+      <th>map_on_struct_template</th>
+      <td>map_on_struct_template.ipynb</td>
+    </tr>
+    <tr>
+      <th>pdb_id</th>
+      <td>4o5n</td>
+    </tr>
+    <tr>
+      <th>site_to_pdb</th>
+      <td>data/H3_site_to_PDB_4o5n.csv</td>
+    </tr>
+    <tr>
       <th>countsdir</th>
       <td>results/codoncounts</td>
     </tr>
@@ -209,8 +221,20 @@ display(HTML(pd.Series(config)
       <td>results/neutralization_assays</td>
     </tr>
     <tr>
+      <th>structsdir</th>
+      <td>results/structs</td>
+    </tr>
+    <tr>
       <th>figsdir</th>
       <td>results/figures</td>
+    </tr>
+    <tr>
+      <th>finalfigsdir</th>
+      <td>results/figures/final</td>
+    </tr>
+    <tr>
+      <th>notebookdir</th>
+      <td>results/notebooks</td>
     </tr>
   </tbody>
 </table>
@@ -6501,8 +6525,8 @@ for tup in (avg_selections
     results/avgdiffsel/full_logo_plots/ferret-WHO_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/ferret-WHO-Victoria2011_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/2010-age-21_diffsel.pdf already exists.
-    results/avgdiffsel/full_logo_plots/2009-age-53_diffsel.pdf already exists.
-    results/avgdiffsel/full_logo_plots/2009-age-53-plus-2-months_diffsel.pdf already exists.
+    Plotting 2009-age-53 to results/avgdiffsel/full_logo_plots/2009-age-53_diffsel.pdf
+    Plotting 2009-age-53-plus-2-months to results/avgdiffsel/full_logo_plots/2009-age-53-plus-2-months_diffsel.pdf
     results/avgdiffsel/full_logo_plots/2009-age-64_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/2009-age-65_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/2015-age-25-prevacc_diffsel.pdf already exists.

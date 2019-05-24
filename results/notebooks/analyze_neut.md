@@ -143,7 +143,7 @@ print(f"Read data for {len(neutdata.groupby('serum'))} sera and "
     Parsing data for antibody-4C01...
     Parsing data for antibody-4F03...
     Parsing data for antibody-1C04...
-    Read data for 27 sera and 91 serum / virus pairs.
+    Read data for 27 sera and 104 serum / virus pairs.
 
 
 These data look like this:
@@ -315,6 +315,21 @@ display(HTML(fitparams
       <td>0.00107</td>
     </tr>
     <tr>
+      <td>2010-age-21</td>
+      <td>wt2</td>
+      <td>0.00148</td>
+    </tr>
+    <tr>
+      <td>2010-age-21</td>
+      <td>F159G</td>
+      <td>0.00148</td>
+    </tr>
+    <tr>
+      <td>2010-age-21</td>
+      <td>K160T</td>
+      <td>0.00329</td>
+    </tr>
+    <tr>
       <td>2009-age-53</td>
       <td>wt</td>
       <td>0.00124</td>
@@ -338,6 +353,21 @@ display(HTML(fitparams
       <td>2009-age-53</td>
       <td>syn</td>
       <td>0.00153</td>
+    </tr>
+    <tr>
+      <td>2009-age-53</td>
+      <td>wt2</td>
+      <td>0.00144</td>
+    </tr>
+    <tr>
+      <td>2009-age-53</td>
+      <td>K189D</td>
+      <td>0.000548</td>
+    </tr>
+    <tr>
+      <td>2009-age-53</td>
+      <td>F159G</td>
+      <td>0.00122</td>
     </tr>
     <tr>
       <td>2009-age-53-plus-2-months</td>
@@ -385,6 +415,26 @@ display(HTML(fitparams
       <td>0.000386</td>
     </tr>
     <tr>
+      <td>2009-age-64</td>
+      <td>wt2</td>
+      <td>0.000231</td>
+    </tr>
+    <tr>
+      <td>2009-age-64</td>
+      <td>K160T</td>
+      <td>0.000649</td>
+    </tr>
+    <tr>
+      <td>2009-age-64</td>
+      <td>L157D</td>
+      <td>0.000213</td>
+    </tr>
+    <tr>
+      <td>2009-age-64</td>
+      <td>F193F</td>
+      <td>0.000386</td>
+    </tr>
+    <tr>
       <td>2009-age-65</td>
       <td>wt</td>
       <td>0.000328</td>
@@ -413,6 +463,21 @@ display(HTML(fitparams
       <td>2009-age-65</td>
       <td>F159G</td>
       <td>0.000805</td>
+    </tr>
+    <tr>
+      <td>2009-age-65</td>
+      <td>wt2</td>
+      <td>0.000192</td>
+    </tr>
+    <tr>
+      <td>2009-age-65</td>
+      <td>L157D</td>
+      <td>0.00027</td>
+    </tr>
+    <tr>
+      <td>2009-age-65</td>
+      <td>K189D</td>
+      <td>0.000202</td>
     </tr>
     <tr>
       <td>2015-age-25-prevacc</td>
