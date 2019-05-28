@@ -295,6 +295,24 @@
         dilution_factor: 2.143
         initial_concentration: 0.0025
         excluded_dilutions: [1, 12]
+      WT2:
+        serum: 2015-age-25-vacc
+        virus: wt2
+        dilution_factor: 2.143
+        initial_concentration: 0.0025
+        excluded_dilutions: [1, 12]
+      R220D:
+        serum: 2015-age-25-vacc
+        virus: R220D
+        dilution_factor: 2.143
+        initial_concentration: 0.0025
+        excluded_dilutions: [1, 12]
+      K189D:
+        serum: 2015-age-25-vacc
+        virus: K189D
+        dilution_factor: 2.143
+        initial_concentration: 0.0025
+        excluded_dilutions: [1, 12]
 
 - 574v1:
     excelfile: data/neut_assays/plate_reader_data/574v1_NeutralizationAssay.xlsx
@@ -497,6 +515,30 @@
         dilution_factor: 2.333
         initial_concentration: 0.0125
         excluded_dilutions: [1, 12]
+      WT2:
+        serum: ferret-Pitt-2-postinf
+        virus: wt2
+        dilution_factor: 2.333
+        initial_concentration: 0.0125
+        excluded_dilutions: [1, 12]
+      R220D:
+        serum: ferret-Pitt-2-postinf
+        virus: R220D
+        dilution_factor: 2.333
+        initial_concentration: 0.0125
+        excluded_dilutions: [1, 12]
+      L157D:
+        serum: ferret-Pitt-2-postinf
+        virus: L157D
+        dilution_factor: 2.333
+        initial_concentration: 0.0125
+        excluded_dilutions: [1, 12]
+      F159G:
+        serum: ferret-Pitt-2-postinf
+        virus: F159G
+        dilution_factor: 2.333
+        initial_concentration: 0.0125
+        excluded_dilutions: [1, 12]
 
 - ferret-Pitt-3-preinf:
     excelfile: data/neut_assays/plate_reader_data/fPitt3preinf_NeutralizationAssay.xlsx
@@ -538,6 +580,18 @@
       L157D:
         serum: ferret-Pitt-3-postinf
         virus: L157D
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+        excluded_dilutions: [1, 12]
+      WT2:
+        serum: ferret-Pitt-3-postinf
+        virus: wt2
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+        excluded_dilutions: [1, 12]
+      R220D:
+        serum: ferret-Pitt-3-postinf
+        virus: R220D
         dilution_factor: 2.333
         initial_concentration: 0.0238
         excluded_dilutions: [1, 12]
