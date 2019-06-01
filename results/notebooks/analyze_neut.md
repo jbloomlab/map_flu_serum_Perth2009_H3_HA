@@ -44,7 +44,7 @@ import neutcurve.parse_excel
 print(f"Using neutcurve version {neutcurve.__version__}")
 ```
 
-    Using neutcurve version 0.2.3
+    Using neutcurve version 0.2.4
 
 
 Interactive matplotlib plotting:
@@ -431,7 +431,7 @@ display(HTML(fitparams
     </tr>
     <tr>
       <td>2009-age-64</td>
-      <td>F193F</td>
+      <td>syn</td>
       <td>0.000386</td>
     </tr>
     <tr>

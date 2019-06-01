@@ -183,7 +183,7 @@
         excluded_dilutions: [1, 12]
       F193F:
         serum: 2009-age-64
-        virus: F193F
+        virus: syn
         dilution_factor: 2.143
         initial_concentration: 0.0233
         excluded_dilutions: [1, 12]

@@ -83,6 +83,7 @@ figures:
     sites: [144, 145, 159, 160, 161, 189, 192, 193, 207, 220,
             222, 224, 225, 227, 244]
     ignore_serum_virus:
+      2015-age-25-vacc: [syn]
       2015-age-48-vacc: [R220D]
     logo_panel_label: A
     neut_panel_label: B
@@ -106,6 +107,8 @@ figures:
       K189D: *K189D_mark
       F193D: *F193D_mark
     sites: [50, 142, 144, 157, 159, 160, 189, 193, 222, 275]
+    ignore_serum_virus:
+      ferret-Pitt-1-postinf: [syn]
     logo_panel_label: A
     neut_panel_label: B
     struct_panel_label: C
@@ -121,7 +124,9 @@ figures:
       F193D: *F193D_mark
     sites: [137, 145, 157, 158, 159, 160, 167, 192, 193, 207, 222, 227, 244, 246]
     ignore_serum_virus:
+      antibody-5A01: [syn]
       antibody-3C04: [K160S]
+      antibody-4C01: [syn]
     logo_panel_label: A
     neut_panel_label: B
     struct_panel_label: E
