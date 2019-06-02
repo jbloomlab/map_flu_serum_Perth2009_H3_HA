@@ -1,4 +1,7 @@
 
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Setup-notebook" data-toc-modified-id="Setup-notebook-1">Setup notebook</a></span></li><li><span><a href="#Align-and-filter-sequences" data-toc-modified-id="Align-and-filter-sequences-2">Align and filter sequences</a></span></li><li><span><a href="#Get-amino-acid-frequencies-and-other-relevant-information" data-toc-modified-id="Get-amino-acid-frequencies-and-other-relevant-information-3">Get amino-acid frequencies and other relevant information</a></span></li><li><span><a href="#Examine-sites-of-strong-immune-selection" data-toc-modified-id="Examine-sites-of-strong-immune-selection-4">Examine sites of strong immune selection</a></span></li></ul></div>
+
 ## Setup notebook
 Import Python modules:
 
@@ -127,7 +130,7 @@ showPDF(os.path.splitext(alignmentfile)[0] + '.pdf')
 ```
 
 
-![png](analyze_natseqs_files/analyze_natseqs_15_0.png)
+![png](analyze_natseqs_files/analyze_natseqs_16_0.png)
 
 
 Read alignment as proteins:
@@ -416,9 +419,9 @@ aafreqs_df.to_csv(aafreqs_file, index=False)
 Now we examine the amino-acid frequency changes at sites of strong immune selection.
 
 First, we merge the amino-acid frequencies with the data frame containing the immune-selection values.
-We keep only sites of major selection from contemporary human sera, which we define as:
+We keep only sites of major selection from human sera, which we define as:
 
- - being among the "contemporaneous" human sera, which is the "VIDD sera" set.
+ - being significanly selected in either the "VIDD sera" or "Hensley sera" set.
  - being "significant" sites according to the criterion used when analyzing the mutational antigenic profiling, which means that they have a value of `True` in the *zoom_site* column.
  
 We also only keep amino acids at each site that have frequencies that exceed 5% in at least one year, and the re-normalize the frequencies for each site / year to sum to one:
@@ -431,7 +434,7 @@ sel_df = pd.read_csv(sel_df_file, low_memory=False)
 
 # add immune selection values and get sites of major selection
 df = (pd.merge(aafreqs_df, sel_df)
-      .query('serum_group == "VIDD_sera"')
+      .query('serum_group in ["Hensley_sera", "VIDD_sera"]')
       .query('zoom_site')
       [['year', 'site', 'mutation', 'natural_frequency']]
       .drop_duplicates()
@@ -473,8 +476,7 @@ Plot frequencies per year for these sites:
 p = (
  ggplot(df, aes('year', 'natural_frequency', color='amino acid')) +
  geom_line() +
- facet_wrap('site', nrow=2) +
- theme(figure_size=(9, 4))
+ facet_wrap('site')
  )
 
 _ = p.draw()
@@ -483,7 +485,7 @@ p.save(plotfile)
 ```
 
 
-![png](analyze_natseqs_files/analyze_natseqs_29_0.png)
+![png](analyze_natseqs_files/analyze_natseqs_30_0.png)
 
 
 
