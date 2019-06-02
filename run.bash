@@ -9,6 +9,7 @@ mkdir -p $RESULTSDIR
 declare -a nbs=(
                 "analyze_map.ipynb"
                 "analyze_neut.ipynb"
+                "analyze_natseqs.ipynb"
                 )
 
 for nb in "${nbs[@]}"

@@ -21,6 +21,7 @@ Study by Juhye Lee, Rachel Eguia, and [Jesse Bloom](https://research.fhcrc.org/b
 
    - [The ferret sera](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?urlpath=%2Fapps%2Fresults%2Fnotebooks%2Fmap_on_struct_ferret.ipynb)
 
+- A brief examination of changes in amino-acid frequencies at strongly selected sites: [results/notebooks/analyze_natseqs.md](results/notebooks/analyze_natseqs.md)
 
 ## Running the analysis
 
@@ -31,7 +32,9 @@ The main analysis is performed primarily by a series of [Jupyter notebooks](http
 
   2. [analyze_neut.ipynb](analyze_neut.ipynb): analyzes neutralization assays
 
-  3. [parameterize_map_on_struct.py](parameterize_map_on_struct.py): parameterizes the template Jupyter notebook [map_on_struct_template.ipynb](map_on_struct_template.ipynb) to show structures for each type of sera.
+  3. [analyze_natseqs.ipynb](analyze_natseqs.ipynb): analyzes changes in amino-acid frequencies among natural sequences
+
+  4. [parameterize_map_on_struct.py](parameterize_map_on_struct.py): parameterizes the template Jupyter notebook [map_on_struct_template.ipynb](map_on_struct_template.ipynb) to show structures for each type of sera.
 
 To run the three steps above, execute the bash script [run.bash](run.bash) with:
 
@@ -44,13 +47,13 @@ On the Hutch cluster, you can also submit this script using [slurm](https://slur
 ### Manual steps
 The following steps to must be performed manually to finalize the paper figures:
 
-  4. The automated steps above create Jupyter notebooks that map the immune selection onto the structure using [dms_struct](https://jbloomlab.github.io/dms_struct) (which is a wrapper around [nglview](https://github.com/arose/nglview)).
+  5. The automated steps above create Jupyter notebooks that map the immune selection onto the structure using [dms_struct](https://jbloomlab.github.io/dms_struct) (which is a wrapper around [nglview](https://github.com/arose/nglview)).
      These notebooks are in [results/notebooks](results/notebooks) with names matching `map_on_struct_*.ipynb`.
      To open them interactively with [mybinder](https://mybinder.org/), click [here](https://mybinder.org/v2/gh/jbloomlab/map_flu_serum_Perth2009_H3_HA/master?filepath=results%2Fnotebooks).
      You can also directly open each notebook as an interactive app in [appmode](https://github.com/oschuett/appmode) by clicking on the links in the *Quick summary* section at the top of this README.
      To generate static protein structure images for the final figures, you also need to run each notebook locally and interactively cell-by-cell (giving time for each structure to render).
 
-  5. The Jupyter notebook [make_final_figs.ipynb](make_final_figs.ipynb) generates the final figures for the paper, which are placed in [.results/figures/final](.results/figures/final).
+  6. The Jupyter notebook [make_final_figs.ipynb](make_final_figs.ipynb) generates the final figures for the paper, which are placed in [.results/figures/final](.results/figures/final).
      You need to run this notebook to generate the figures.
 
 ## Configuring the analysis
@@ -88,6 +91,9 @@ The [config.yaml](config.yaml) file points to several files in the [./data/](dat
   - [data/H3_site_to_PDB_4o5n.csv](data/H3_site_to_PDB_4o5n.csv):
     A CSV file that matches the H3 HA numbering to the site numbers and PDB chains in PDB structure [4o5n](https://www.rcsb.org/structure/4O5N).
 
+  - [data/human_H3N2_HA_2007-2018.fasta.gz](data/human_H3N2_HA_2007-2018.fasta.gz):
+    A gzipped FASTA file that contains all human H3N2 influenza HA coding sequences collected between 2007 and 2018 as downloaded from the [Influenza Virus Resource](https://www.ncbi.nlm.nih.gov/genomes/FLU/Database/nph-select.cgi?go=database) on June-2-2019.
+
   - [data/neut_assays](data/neut_assays):
     Data from neutralization assays:
       - [data/neut_assays/neut_config.yaml](data/neut_assays/neut_config.yaml): Details on neutralization assays for each serum, with Excel path relative to top-level analysis directory.
@@ -104,6 +110,8 @@ However, the following results are tracked:
   - [results/notebooks/analyze_map.md](results/notebooks/analyze_map.md): Markdown rendering of the notebook analyzing the mutational antigenic profiling
 
   - [results/notebooks/analyze_neut.md](results/notebooks/analyze_neut.md): Markdown rendering of the notebook analyzing the neutralization assays
+
+  - [results/notebooks/analyze_natseqs.md](results/notebooks/analyze_natseqs.md): Markdown rendering of the notebook analyzing the amino-acid frequencies in nature
 
   - [results/notebooks](results/notebooks): Jupyter notebooks with names like `map_on_struct_*.ipynb` that render the immune selection onto interactive structure widgets.
 

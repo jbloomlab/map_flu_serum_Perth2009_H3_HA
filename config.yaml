@@ -43,6 +43,9 @@ use_existing: 'yes'
 # Do we average across replicates using "mean" or "median"?
 avg_type: median
 
+# file with natural sequences
+natseqs: data/human_H3N2_HA_2007-2018.fasta.gz
+
 # configuration file for neutralization assays
 neut_config: data/neut_assays/neut_config.yaml
 
@@ -63,6 +66,7 @@ avgdiffsel_sigsites_dir: results/avgdiffsel/sigsites  # calling "significant sit
 avgdiffsel_zoom_dir: results/avgdiffsel/zoomed_plots  # zoom of average diffsel
 avgdiffsel_reps_dir: results/avgdiffsel/replicates  # replicates that go into average
 avgdiffsel_full_dir: results/avgdiffsel/full_logo_plots  # full logo plots of average diffsel
+natseqs_dir: results/natseqs  # results related to analysis of natural sequences
 neutresultsdir: results/neutralization_assays # results of neutralization assays
 structsdir: results/structs  # structure-related images
 figsdir: results/figures  # additional customized figures
