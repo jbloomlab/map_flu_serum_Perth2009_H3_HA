@@ -27,7 +27,7 @@ def main():
      .drop(columns=['pdb_chain', 'pdb_site'], errors='ignore')
      .merge(pd.read_csv(config['site_to_pdb']),
             on='site', how='left', validate='many_to_one')
-     .to_csv(avg_sel_df, index=False)
+     .to_csv(avg_sel_df, index=False, float_format='%.5g')
      )
 
     with open(config['figure_config']) as f:
