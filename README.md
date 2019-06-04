@@ -115,8 +115,10 @@ However, the following results are tracked:
 
   - [results/notebooks](results/notebooks): Jupyter notebooks with names like `map_on_struct_*.ipynb` that render the immune selection onto interactive structure widgets.
 
-  - [results/avgdiffsel/avg_sel_tidy.csv](results/avgdiffsel/avg_sel_tidy.csv): the across-replicate average differential selection for each mutation for each serum sample.
+  - [results/avgdiffsel/avg_sel_tidy.csv](results/avgdiffsel/avg_sel_tidy.csv): the across-replicate average (median) differential selection for each mutation for each serum or antibody that was analyzed by mutational antigenic profiling.
     **This is where you should look if you want the numerical results shown in the plots.**
+
+  - [results/avgdiffsel/full_logo_plots/](results/avgdiffsel/full_logo_plots/): PDF files with full-gene logo plots of the replicate average (median) positive differential selection for each serum / antibody that was analyzed by mutational antigenic profiling.
 
   - [results/selection_tables/percent_infectivity_table.csv](results/selection_tables/percent_infectivity_table.csv): the percent infectivity remaining for the mutant virus library for each replicate of mutational antigenic profiling.
 
