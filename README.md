@@ -130,6 +130,8 @@ However, the following results are tracked:
 
   - [results/figures/final](results/figures/final): the final figures for the paper.
 
+  - [results/neutralization_assays/neut_assay_figs_fit_params.csv](results/neutralization_assays/neut_assay_figs_fit_params.csv): the curve-fit parameters for all neutralization curves plotted in the figures.
+
 ## Other subdirectories
 Other subdirectories in the repo are:
 

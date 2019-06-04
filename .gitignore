@@ -27,3 +27,6 @@ results/figures/*
 results/figures/final/*
 !results/figures/final/*.pdf
 !results/selection_tables
+!results/neutralization_assays
+results/neutralization_assays/*
+!results/neutralization_assays/neut_assay_figs_fit_params.csv
