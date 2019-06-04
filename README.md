@@ -124,6 +124,8 @@ However, the following results are tracked:
 
   - [results/selection_tables/serum_dilution_table.csv](results/selection_tables/serum_dilution_table.csv): the concentration of serum or antibody used in each replicate of mutational antigenic profiling. For sera, the values indicate the dilution of serum. For antibodies, they are the concentration in ug/ml. For serum / antibody mixes, they are the dilution of serum followed by the antibody concentration in ug/ml.
 
+  - [results/diffsel/](results/diffsel/): CSV files giving the mutation and site differential selection for each replicate (library) of mutational antigenic profiling. The file names also indicate the percent infectivity remaining. These are the values that are averaged across replicates (by median) to give the values shown in the paper and provided in [results/avgdiffsel/avg_sel_tidy.csv](results/avgdiffsel/avg_sel_tidy.csv).
+
   - [results/renumbered_codoncounts](results/renumbered_codoncounts): the counts of each mutation in each sample, after renumbering to H3 numbering.
 
   - [results/figures/final](results/figures/final): the final figures for the paper.

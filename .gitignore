@@ -18,6 +18,9 @@ results/avgdiffsel/*
 results/avgdiffsel/full_logo_plots/*
 !results/avgdiffsel/full_logo_plots/*diffsel.pdf
 !results/avgdiffsel/avg_sel_tidy.csv
+!results/diffsel
+results/diffsel/*
+!results/diffsel/*lib*diffsel.csv
 !results/figures
 results/figures/*
 !results/figures/final
