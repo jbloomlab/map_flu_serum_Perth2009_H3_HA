@@ -20,3 +20,4 @@ results/figures/*
 !results/figures/final
 results/figures/final/*
 !results/figures/final/*.pdf
+!results/selection_tables
