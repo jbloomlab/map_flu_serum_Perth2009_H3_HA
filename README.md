@@ -126,7 +126,7 @@ However, the following results are tracked:
 
   - [results/renumbered_codoncounts](results/renumbered_codoncounts): the counts of each mutation in each sample, after renumbering to H3 numbering.
 
-  - [.results/figures/final](.results/figures/final): the final figures for the paper.
+  - [results/figures/final](results/figures/final): the final figures for the paper.
 
 ## Other subdirectories
 Other subdirectories in the repo are:
