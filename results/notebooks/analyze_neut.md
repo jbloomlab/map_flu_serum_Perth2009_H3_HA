@@ -144,7 +144,7 @@ print(f"Read data for {len(neutdata.groupby('serum'))} sera and "
     Parsing data for antibody-4C01...
     Parsing data for antibody-4F03...
     Parsing data for antibody-1C04...
-    Read data for 27 sera and 113 serum / virus pairs.
+    Read data for 27 sera and 119 serum / virus pairs.
 
 
 These data look like this:
@@ -501,6 +501,21 @@ display(HTML(fitparams
       <td>0.000868</td>
     </tr>
     <tr>
+      <td>2015-age-25-prevacc</td>
+      <td>wt-2</td>
+      <td>0.00109</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-prevacc</td>
+      <td>F159G-2</td>
+      <td>&gt;0.0102</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-prevacc</td>
+      <td>R220D-2</td>
+      <td>&gt;0.0102</td>
+    </tr>
+    <tr>
       <td>2015-age-25-vacc</td>
       <td>wt</td>
       <td>8.54e-05</td>
@@ -529,6 +544,21 @@ display(HTML(fitparams
       <td>2015-age-25-vacc</td>
       <td>K189D</td>
       <td>0.000132</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>wt-2</td>
+      <td>0.000114</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>F159G-2</td>
+      <td>&gt;0.00117</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>R220D-2</td>
+      <td>0.00014</td>
     </tr>
     <tr>
       <td>2015-age-29-prevacc</td>

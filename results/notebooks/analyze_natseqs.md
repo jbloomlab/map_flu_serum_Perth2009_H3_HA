@@ -119,7 +119,8 @@ else:
     Using following version of phydms:
     phydms_prepalignment 2.3.1
     
-    Using existing alignment in results/natseqs/all_alignment.fasta
+    Building alignment and writing to results/natseqs/all_alignment.fasta...
+    Bulding of alignment complete.
 
 
 Look at plot showing divergence from "reference" seqeuence:

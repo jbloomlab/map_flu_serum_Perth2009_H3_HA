@@ -273,6 +273,24 @@
         dilution_factor: 2.333
         initial_concentration: 0.0238
         excluded_dilutions: [1]
+      WT-2:
+        serum: 2015-age-25-prevacc
+        virus: wt-2
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+        excluded_dilutions: [1]
+      F159G-2:
+        serum: 2015-age-25-prevacc
+        virus: F159G-2
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+        excluded_dilutions: [1]
+      R220D-2:
+        serum: 2015-age-25-prevacc
+        virus: R220D-2
+        dilution_factor: 2.333
+        initial_concentration: 0.0238
+        excluded_dilutions: [1]
 
 - 557v2:
     excelfile: data/neut_assays/plate_reader_data/557v2_NeutralizationAssay.xlsx
@@ -310,6 +328,24 @@
       K189D:
         serum: 2015-age-25-vacc
         virus: K189D
+        dilution_factor: 2.143
+        initial_concentration: 0.0025
+        excluded_dilutions: [1, 12]
+      WT-2:
+        serum: 2015-age-25-vacc
+        virus: wt-2
+        dilution_factor: 2.143
+        initial_concentration: 0.0025
+        excluded_dilutions: [1, 12]
+      F159G-2:
+        serum: 2015-age-25-vacc
+        virus: F159G-2
+        dilution_factor: 2.143
+        initial_concentration: 0.0025
+        excluded_dilutions: [1, 12]
+      R220D-2:
+        serum: 2015-age-25-vacc
+        virus: R220D-2
         dilution_factor: 2.143
         initial_concentration: 0.0025
         excluded_dilutions: [1, 12]
