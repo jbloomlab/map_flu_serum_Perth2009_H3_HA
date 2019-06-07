@@ -1604,46 +1604,6 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>0</td>
     </tr>
     <tr>
-      <td>antibody-3C04</td>
-      <td>wt</td>
-      <td>0.00774</td>
-      <td>2.833772</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>antibody-3C04</td>
-      <td>K160T</td>
-      <td>&gt;0.5</td>
-      <td>1.694603</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>antibody-3C06</td>
-      <td>wt</td>
-      <td>0.00726</td>
-      <td>1.879743</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>antibody-3C06</td>
-      <td>K160T</td>
-      <td>0.0269</td>
-      <td>1.805354</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>antibody-3C06</td>
-      <td>F159G</td>
-      <td>&gt;0.5</td>
-      <td>1.209460</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
       <td>antibody-4C01</td>
       <td>wt</td>
       <td>0.0207</td>

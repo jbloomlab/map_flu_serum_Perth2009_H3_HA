@@ -7284,7 +7284,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_0.png)
 
 
-    <ggplot: (8744830440624)>
+    <ggplot: (-9223363287101172571)>
     Saving figure to results/figures/VIDD_sera_rep_corr.pdf
     Saving figure to results/figures/VIDD_sera_rep_corr.svg
 
@@ -7293,7 +7293,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_2.png)
 
 
-    <ggplot: (-9223363292024356285)>
+    <ggplot: (-9223363287381352900)>
     Saving figure to results/figures/2009_age_53_samples_rep_corr.pdf
     Saving figure to results/figures/2009_age_53_samples_rep_corr.svg
 
@@ -7302,7 +7302,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_4.png)
 
 
-    <ggplot: (8744835037739)>
+    <ggplot: (-9223363287422204391)>
     Saving figure to results/figures/Hensley_sera_rep_corr.pdf
     Saving figure to results/figures/Hensley_sera_rep_corr.svg
 
@@ -7311,7 +7311,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_6.png)
 
 
-    <ggplot: (-9223363292024025428)>
+    <ggplot: (8749428508038)>
     Saving figure to results/figures/ferret_rep_corr.pdf
     Saving figure to results/figures/ferret_rep_corr.svg
 
@@ -7320,7 +7320,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_8.png)
 
 
-    <ggplot: (-9223363291672390442)>
+    <ggplot: (8749432396015)>
     Saving figure to results/figures/antibody_region_B_rep_corr.pdf
     Saving figure to results/figures/antibody_region_B_rep_corr.svg
 
@@ -7329,7 +7329,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_10.png)
 
 
-    <ggplot: (8745111761535)>
+    <ggplot: (8749449943332)>
     Saving figure to results/figures/antibody_lower_head_rep_corr.pdf
     Saving figure to results/figures/antibody_lower_head_rep_corr.svg
 
@@ -7338,7 +7338,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_12.png)
 
 
-    <ggplot: (-9223363291672374030)>
+    <ggplot: (-9223363287395695598)>
     Saving figure to results/figures/antibody_spikein_rep_corr.pdf
     Saving figure to results/figures/antibody_spikein_rep_corr.svg
 
@@ -7403,7 +7403,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_0.png)
 
 
-    <ggplot: (8744832282709)>
+    <ggplot: (8749431838328)>
     Saving figure to results/figures/VIDD_sera_percent_infectivity.pdf
     Saving figure to results/figures/VIDD_sera_percent_infectivity.svg
 
@@ -7412,7 +7412,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_2.png)
 
 
-    <ggplot: (-9223363291671574959)>
+    <ggplot: (8749527951701)>
     Saving figure to results/figures/2009_age_53_samples_percent_infectivity.pdf
     Saving figure to results/figures/2009_age_53_samples_percent_infectivity.svg
 
@@ -7421,7 +7421,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_4.png)
 
 
-    <ggplot: (-9223363292018175751)>
+    <ggplot: (-9223363287332026785)>
     Saving figure to results/figures/Hensley_sera_percent_infectivity.pdf
     Saving figure to results/figures/Hensley_sera_percent_infectivity.svg
 
@@ -7430,7 +7430,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_6.png)
 
 
-    <ggplot: (-9223363291902232800)>
+    <ggplot: (8749490305207)>
     Saving figure to results/figures/ferret_percent_infectivity.pdf
     Saving figure to results/figures/ferret_percent_infectivity.svg
 
@@ -7439,7 +7439,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_8.png)
 
 
-    <ggplot: (8744838593828)>
+    <ggplot: (8749471263629)>
     Saving figure to results/figures/antibody_region_B_percent_infectivity.pdf
     Saving figure to results/figures/antibody_region_B_percent_infectivity.svg
 
@@ -7448,7 +7448,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_10.png)
 
 
-    <ggplot: (-9223363292019874672)>
+    <ggplot: (-9223363287098927949)>
     Saving figure to results/figures/antibody_lower_head_percent_infectivity.pdf
     Saving figure to results/figures/antibody_lower_head_percent_infectivity.svg
 
@@ -7457,7 +7457,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_12.png)
 
 
-    <ggplot: (8744872118676)>
+    <ggplot: (8749470531802)>
     Saving figure to results/figures/antibody_spikein_percent_infectivity.pdf
     Saving figure to results/figures/antibody_spikein_percent_infectivity.svg
 

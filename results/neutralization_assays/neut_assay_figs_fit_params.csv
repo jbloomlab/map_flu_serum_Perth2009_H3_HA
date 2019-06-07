@@ -55,11 +55,6 @@ serum,virus,ic50_str,slope,top,bottom
 2015-age-49-vacc,wt,0.00343,1.77,1,0
 antibody-1C04,wt,0.0868,1.44,1,0
 antibody-1C04,K82A,>5,4.87,1,0
-antibody-3C04,wt,0.00774,2.83,1,0
-antibody-3C04,K160T,>0.5,1.69,1,0
-antibody-3C06,wt,0.00726,1.88,1,0
-antibody-3C06,K160T,0.0269,1.81,1,0
-antibody-3C06,F159G,>0.5,1.21,1,0
 antibody-4C01,wt,0.0207,2.77,1,0
 antibody-4C01,K160T,0.0202,2.27,1,0
 antibody-4C01,F193D,>0.5,16.8,1,0

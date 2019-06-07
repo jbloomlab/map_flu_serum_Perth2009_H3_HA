@@ -114,15 +114,15 @@ figures:
     struct_panel_label: C
 
   antibody_region_B:
-    sera: [antibody-5A01, antibody-3C04, antibody-3C06, antibody-4C01]
-    sera_for_struct: [antibody-5A01, antibody-3C04, antibody-3C06, antibody-4C01]
+    sera: [antibody-5A01, antibody-4C01]
+    sera_for_struct: [antibody-5A01, antibody-4C01]
     colors:
       wt: *wt_mark
       syn: *syn_mark
       F159G: *F159G_mark
       K160T: *K160T_mark
       F193D: *F193D_mark
-    sites: [137, 145, 157, 158, 159, 160, 167, 192, 193, 207, 222, 227, 244, 246]
+    sites: [157, 158, 159, 160, 193, 222, 227, 244]
     ignore_serum_virus:
       antibody-5A01: [syn]
       antibody-3C04: [K160S]
