@@ -41,6 +41,10 @@ from dms_tools2.plot import COLOR_BLIND_PALETTE_GRAY as PALETTE
 import dmslogo
 ```
 
+    /fh/fast/bloom_j/software/conda/envs/BloomLab_v2/lib/python3.6/site-packages/matplotlib/font_manager.py:232: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+      'Matplotlib is building the font cache using fc-list. '
+
+
 Turn on interactive matplotlib plotting:
 
 
@@ -411,7 +415,7 @@ display(HTML(sera.to_html(index=False)))
       <td>WHOCCPerth</td>
       <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
       <td>ferret</td>
-      <td>WHO</td>
+      <td>WHO-Perth2009</td>
       <td>ferret</td>
       <td>post</td>
     </tr>
@@ -2332,7 +2336,7 @@ display(HTML(selections.to_html(index=False)))
       <td>lib3, 3.3% infectivity</td>
     </tr>
     <tr>
-      <td>ferret-WHO</td>
+      <td>ferret-WHO-Perth2009</td>
       <td>lib1-2.3</td>
       <td>L4-WHOCCPerth</td>
       <td>Lib4mock-A</td>
@@ -2344,13 +2348,13 @@ display(HTML(selections.to_html(index=False)))
       <td>2.3200</td>
       <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
       <td>ferret</td>
-      <td>WHO</td>
+      <td>WHO-Perth2009</td>
       <td>ferret</td>
       <td>post</td>
       <td>lib1, 2.3% infectivity</td>
     </tr>
     <tr>
-      <td>ferret-WHO</td>
+      <td>ferret-WHO-Perth2009</td>
       <td>lib2-1.9</td>
       <td>L5-WHOCCPerth</td>
       <td>Lib5mock-A</td>
@@ -2362,13 +2366,13 @@ display(HTML(selections.to_html(index=False)))
       <td>1.8800</td>
       <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
       <td>ferret</td>
-      <td>WHO</td>
+      <td>WHO-Perth2009</td>
       <td>ferret</td>
       <td>post</td>
       <td>lib2, 1.9% infectivity</td>
     </tr>
     <tr>
-      <td>ferret-WHO</td>
+      <td>ferret-WHO-Perth2009</td>
       <td>lib3-4.1</td>
       <td>L6-WHOCCPerth</td>
       <td>Lib6mock-A</td>
@@ -2380,7 +2384,7 @@ display(HTML(selections.to_html(index=False)))
       <td>4.1000</td>
       <td>ferret infected by Melbourne WHO CC with their Perth/2009 strain</td>
       <td>ferret</td>
-      <td>WHO</td>
+      <td>WHO-Perth2009</td>
       <td>ferret</td>
       <td>post</td>
       <td>lib3, 4.1% infectivity</td>
@@ -3668,7 +3672,9 @@ for selfile in ['mutdiffsel', 'sitediffsel']:
     selections[selfilecol] = (outdir + '/' + selections['serum_name_formatted']
                               + '-' + selections['name'] + '_' +
                               selfile + '.csv')
-    assert all(selections[selfilecol].map(os.path.isfile)), 'missing files'
+    missing_files = [f for f in selections[selfilecol]
+                     if not os.path.isfile(f)]
+    assert not missing_files, f"missing files: {missing_files}"
     print(f"Created {len(selections[selfilecol])} {selfile} files, adding to "
           f"`selections` data frame in column {selfilecol}")
 ```
@@ -5333,7 +5339,7 @@ for serum_name, serum_sel_df in sel_df.groupby('serum_name_formatted'):
 
     
     
-    ******************* ferret-WHO *******************
+    ******************* ferret-WHO-Perth2009 *******************
 
 
 
@@ -5712,7 +5718,7 @@ for valtype in ['percent_infectivity', 'serum_dilution']:
       <td>100.0000</td>
     </tr>
     <tr>
-      <th>ferret-WHO</th>
+      <th>ferret-WHO-Perth2009</th>
       <td>2.3200</td>
       <td>1.8800</td>
       <td>4.1000</td>
@@ -5926,7 +5932,7 @@ for valtype in ['percent_infectivity', 'serum_dilution']:
       <td>0.00625</td>
     </tr>
     <tr>
-      <th>ferret-WHO</th>
+      <th>ferret-WHO-Perth2009</th>
       <td>0.0185</td>
       <td>0.0075</td>
       <td>0.0075</td>
@@ -6287,7 +6293,7 @@ display(HTML(sigsites_df
       <td>2</td>
     </tr>
     <tr>
-      <th>ferret-WHO</th>
+      <th>ferret-WHO-Perth2009</th>
       <td>50, 189, 193</td>
       <td>3</td>
     </tr>
@@ -6774,7 +6780,7 @@ for tup in (avg_selections
     results/avgdiffsel/full_logo_plots/ferret-Pitt-2-postinf_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/ferret-Pitt-3-preinf_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/ferret-Pitt-3-postinf_diffsel.pdf already exists.
-    results/avgdiffsel/full_logo_plots/ferret-WHO_diffsel.pdf already exists.
+    results/avgdiffsel/full_logo_plots/ferret-WHO-Perth2009_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/ferret-WHO-Victoria2011_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/2010-age-21_diffsel.pdf already exists.
     results/avgdiffsel/full_logo_plots/2009-age-53_diffsel.pdf already exists.
@@ -7098,17 +7104,20 @@ for figure, fig_d in fig_config['figures'].items():
                 )
         )
     # process colors
-    muts = [mut for mut in fig_d['colors'] if mut not in {'wt', 'syn'}]
-    mutation_colors.append(
-        pd.DataFrame({'figure': figure,
-                      'sera': fig_d['sera'],
-                      'dummy': 0})
-        .merge(pd.DataFrame({'site': [mut[1 : -1] for mut in muts],
-                             'mutation': [mut[-1] for mut in muts],
-                             'color': [fig_d['colors'][mut][0] for mut in muts],
-                             'dummy': 0}))
-        .drop(columns='dummy')
-        )
+    for serum in fig_d['sera']:
+        if ('ignore_serum_virus' in fig_d) and (serum in fig_d['ignore_serum_virus']):
+            ignore_muts = fig_d['ignore_serum_virus'][serum]
+        else:
+            ignore_muts = []
+        muts = [mut for mut in fig_d['colors'] if (mut not in {'wt', 'syn'}) and
+                                                  (mut not in ignore_muts)]
+        mutation_colors.append(pd.DataFrame(
+                                {'figure': figure,
+                                 'sera': serum,
+                                 'site': [mut[1: -1] for mut in muts],
+                                 'mutation': [mut[-1] for mut in muts],
+                                 'color': [fig_d['colors'][mut][0] for mut in muts],
+                                 }))
 
 zoom_sites = pd.concat(zoom_sites)
 mutation_colors = pd.concat(mutation_colors)
@@ -7284,7 +7293,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_0.png)
 
 
-    <ggplot: (-9223363287101172571)>
+    <ggplot: (-9223363310189884728)>
     Saving figure to results/figures/VIDD_sera_rep_corr.pdf
     Saving figure to results/figures/VIDD_sera_rep_corr.svg
 
@@ -7293,7 +7302,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_2.png)
 
 
-    <ggplot: (-9223363287381352900)>
+    <ggplot: (-9223363310173431215)>
     Saving figure to results/figures/2009_age_53_samples_rep_corr.pdf
     Saving figure to results/figures/2009_age_53_samples_rep_corr.svg
 
@@ -7302,7 +7311,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_4.png)
 
 
-    <ggplot: (-9223363287422204391)>
+    <ggplot: (-9223363310190700484)>
     Saving figure to results/figures/Hensley_sera_rep_corr.pdf
     Saving figure to results/figures/Hensley_sera_rep_corr.svg
 
@@ -7311,7 +7320,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_6.png)
 
 
-    <ggplot: (8749428508038)>
+    <ggplot: (8726711529627)>
     Saving figure to results/figures/ferret_rep_corr.pdf
     Saving figure to results/figures/ferret_rep_corr.svg
 
@@ -7320,7 +7329,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_8.png)
 
 
-    <ggplot: (8749432396015)>
+    <ggplot: (8726662739667)>
     Saving figure to results/figures/antibody_region_B_rep_corr.pdf
     Saving figure to results/figures/antibody_region_B_rep_corr.svg
 
@@ -7329,7 +7338,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_10.png)
 
 
-    <ggplot: (8749449943332)>
+    <ggplot: (8726703339342)>
     Saving figure to results/figures/antibody_lower_head_rep_corr.pdf
     Saving figure to results/figures/antibody_lower_head_rep_corr.svg
 
@@ -7338,7 +7347,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_131_12.png)
 
 
-    <ggplot: (-9223363287395695598)>
+    <ggplot: (-9223363310129210543)>
     Saving figure to results/figures/antibody_spikein_rep_corr.pdf
     Saving figure to results/figures/antibody_spikein_rep_corr.svg
 
@@ -7403,7 +7412,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_0.png)
 
 
-    <ggplot: (8749431838328)>
+    <ggplot: (-9223363310143479615)>
     Saving figure to results/figures/VIDD_sera_percent_infectivity.pdf
     Saving figure to results/figures/VIDD_sera_percent_infectivity.svg
 
@@ -7412,7 +7421,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_2.png)
 
 
-    <ggplot: (8749527951701)>
+    <ggplot: (-9223363310191858453)>
     Saving figure to results/figures/2009_age_53_samples_percent_infectivity.pdf
     Saving figure to results/figures/2009_age_53_samples_percent_infectivity.svg
 
@@ -7421,7 +7430,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_4.png)
 
 
-    <ggplot: (-9223363287332026785)>
+    <ggplot: (8726744094784)>
     Saving figure to results/figures/Hensley_sera_percent_infectivity.pdf
     Saving figure to results/figures/Hensley_sera_percent_infectivity.svg
 
@@ -7430,7 +7439,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_6.png)
 
 
-    <ggplot: (8749490305207)>
+    <ggplot: (-9223363310110548238)>
     Saving figure to results/figures/ferret_percent_infectivity.pdf
     Saving figure to results/figures/ferret_percent_infectivity.svg
 
@@ -7439,7 +7448,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_8.png)
 
 
-    <ggplot: (8749471263629)>
+    <ggplot: (-9223363310152395888)>
     Saving figure to results/figures/antibody_region_B_percent_infectivity.pdf
     Saving figure to results/figures/antibody_region_B_percent_infectivity.svg
 
@@ -7448,7 +7457,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_10.png)
 
 
-    <ggplot: (-9223363287098927949)>
+    <ggplot: (-9223363310129214660)>
     Saving figure to results/figures/antibody_lower_head_percent_infectivity.pdf
     Saving figure to results/figures/antibody_lower_head_percent_infectivity.svg
 
@@ -7457,7 +7466,7 @@ for figure, fig_d in fig_config['figures'].items():
 ![png](analyze_map_files/analyze_map_133_12.png)
 
 
-    <ggplot: (8749470531802)>
+    <ggplot: (-9223363310152409789)>
     Saving figure to results/figures/antibody_spikein_percent_infectivity.pdf
     Saving figure to results/figures/antibody_spikein_percent_infectivity.svg
 

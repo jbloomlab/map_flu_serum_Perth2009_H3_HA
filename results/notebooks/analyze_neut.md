@@ -136,7 +136,7 @@ print(f"Read data for {len(neutdata.groupby('serum'))} sera and "
     Parsing data for ferret-Pitt-2-postinf...
     Parsing data for ferret-Pitt-3-preinf...
     Parsing data for ferret-Pitt-3-postinf...
-    Parsing data for ferret-WHO...
+    Parsing data for ferret-WHO-Perth2009...
     Parsing data for ferret-WHO-Victoria2011...
     Parsing data for antibody-5A01...
     Parsing data for antibody-3C06...
@@ -756,7 +756,7 @@ display(HTML(fitparams
       <td>8.47e-05</td>
     </tr>
     <tr>
-      <td>ferret-WHO</td>
+      <td>ferret-WHO-Perth2009</td>
       <td>wt</td>
       <td>0.00476</td>
     </tr>
@@ -1836,7 +1836,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>0</td>
     </tr>
     <tr>
-      <td>ferret-WHO</td>
+      <td>ferret-WHO-Perth2009</td>
       <td>wt</td>
       <td>0.00476</td>
       <td>2.111495</td>

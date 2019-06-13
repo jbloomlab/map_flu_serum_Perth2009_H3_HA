@@ -97,7 +97,7 @@ f9437d23:
   group: ferret
 
 WHOCCPerth:
-  name: WHO
+  name: WHO-Perth2009
   species: ferret
   description: ferret infected by Melbourne WHO CC with their Perth/2009 strain
   vaccination: post

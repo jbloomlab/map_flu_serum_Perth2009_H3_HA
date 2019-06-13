@@ -24,7 +24,7 @@ ferret,ferret-Pitt-2-postinf,0.0025,0.000625,0.00125
 ferret,ferret-Pitt-2-preinf,0.001,0.0025,0.0025
 ferret,ferret-Pitt-3-postinf,0.00225,0.001375,0.00175
 ferret,ferret-Pitt-3-preinf,0.00225,0.00625,0.00625
-ferret,ferret-WHO,0.0185,0.0075,0.0075
+ferret,ferret-WHO-Perth2009,0.0185,0.0075,0.0075
 ferret,ferret-WHO-Victoria2011,0.00625,0.0025,0.0025
 serum_mAb_spike,2009-age-65-with-hi-4F03,0.003375+2,0.000875+1.5,0.002+1.4
 serum_mAb_spike,2009-age-65-with-low-4F03,0.003375+0.3,0.000875+0.3,0.002+0.3

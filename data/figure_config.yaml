@@ -30,6 +30,8 @@ mut_marks:
 
 struct_panel_height: 4
 
+struct_cmap: Reds
+
 # structure orientation in `nglview`, can be determined as here:
 # https://github.com/arose/nglview/issues/785#issuecomment-487409212
 struct_orientation: [113.5, 44.09, 180.08, 0,
@@ -83,8 +85,14 @@ figures:
     sites: [144, 145, 159, 160, 161, 189, 192, 193, 207, 220,
             222, 224, 225, 227, 244]
     ignore_serum_virus:
-      2015-age-25-vacc: [syn]
+      2015-age-25-prevacc: [K144E]
+      2015-age-25-vacc: [syn, K144E]
+      2015-age-29-prevacc: [K189D, R220D]
+      2015-age-29-vacc: [K189D, R220D]
+      2015-age-48-prevacc: [K144E, F159G, K189D, R220D]
       2015-age-48-vacc: [R220D]
+      2015-age-49-prevacc: [K144E, F159G, K189D, R220D]
+      2015-age-49-vacc: [K144E, F159G, K189D, R220D]
     logo_panel_label: A
     neut_panel_label: B
     struct_panel_label: C
@@ -93,9 +101,9 @@ figures:
     sera: [ferret-Pitt-1-preinf, ferret-Pitt-1-postinf,
            ferret-Pitt-2-preinf, ferret-Pitt-2-postinf,
            ferret-Pitt-3-preinf, ferret-Pitt-3-postinf,
-           ferret-WHO, ferret-WHO-Victoria2011]
+           ferret-WHO-Perth2009, ferret-WHO-Victoria2011]
     sera_for_struct: [ferret-Pitt-1-postinf, ferret-Pitt-2-postinf,
-                      ferret-Pitt-3-postinf, ferret-WHO,
+                      ferret-Pitt-3-postinf, ferret-WHO-Perth2009,
                       ferret-WHO-Victoria2011]
     colors:
       wt: *wt_mark
@@ -108,7 +116,13 @@ figures:
       F193D: *F193D_mark
     sites: [50, 142, 144, 157, 159, 160, 189, 193, 222, 275]
     ignore_serum_virus:
-      ferret-Pitt-1-postinf: [syn]
+      ferret-Pitt-1-preinf: [K144E, L157D, F159G, K160T, K189D, F193D]
+      ferret-Pitt-2-preinf: [K144E, L157D, F159G, K160T, K189D, F193D]
+      ferret-Pitt-3-preinf: [K144E, L157D, F159G, K160T, K189D, F193D]
+      ferret-Pitt-1-postinf: [syn, L157D, K160T]
+      ferret-Pitt-2-postinf: [K160T]
+      ferret-WHO-Perth2009: [K144E, L157D, F159G, K160T, K189D, F193D]
+      ferret-WHO-Victoria2011: [K144E, L157D]
     logo_panel_label: A
     neut_panel_label: B
     struct_panel_label: C
@@ -124,9 +138,9 @@ figures:
       F193D: *F193D_mark
     sites: [157, 158, 159, 160, 193, 222, 227, 244]
     ignore_serum_virus:
-      antibody-5A01: [syn]
+      antibody-5A01: [syn, F193D]
       antibody-3C04: [K160S]
-      antibody-4C01: [syn]
+      antibody-4C01: [syn, F159G]
     logo_panel_label: A
     neut_panel_label: B
     struct_panel_label: E
@@ -139,6 +153,9 @@ figures:
       K82A: *K82A_mark
       N121E: *N121E_mark
     sites: [53, 54, 57, 80, 81, 82, 83, 121, 122, 188, 210, 220, 244, 259, (HA2)61, (HA2)78]
+    ignore_serum_virus:
+      antibody-4F03: [K82A]
+      antibody-1C04: [N121E]
     logo_panel_label: C
     neut_panel_label: D
     struct_panel_label: F

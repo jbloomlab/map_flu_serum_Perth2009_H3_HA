@@ -632,11 +632,11 @@
         initial_concentration: 0.0238
         excluded_dilutions: [1, 12]
 
-- ferret-WHO:
+- ferret-WHO-Perth2009:
     excelfile: data/neut_assays/plate_reader_data/WHOPerth2009_NeutralizationAssay.xlsx
     sheet_mapping:
       WT:
-        serum: ferret-WHO
+        serum: ferret-WHO-Perth2009
         virus: wt
         dilution_factor: 3
         initial_concentration: 0.0185

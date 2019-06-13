@@ -58,6 +58,7 @@ def main():
                             'outdir': outdir_relpath,
                             'panel_fig': panelfig_relpath,
                             'panel_height': figure_config['struct_panel_height'],
+                            'cmap': figure_config['struct_cmap'],
                             },
                 prepare_only=True,
                 cwd=config['notebookdir'],
