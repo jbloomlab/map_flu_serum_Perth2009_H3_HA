@@ -35,7 +35,7 @@ from dms_tools2.plot import COLOR_BLIND_PALETTE_GRAY as PALETTE
 print(f"Using dms_tools2 version {dms_tools2.__version__}")
 ```
 
-    Using dms_tools2 version 2.4.12
+    Using dms_tools2 version 2.4.16
 
 
 Filter warnings that clutter output:
@@ -117,7 +117,7 @@ else:
 ```
 
     Using following version of phydms:
-    phydms_prepalignment 2.3.1
+    phydms_prepalignment 2.3.2
     
     Using existing alignment in results/natseqs/all_alignment.fasta
 
