@@ -1,6 +1,6 @@
 
 <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Fit-and-plot-neutralization-curves" data-toc-modified-id="Fit-and-plot-neutralization-curves-1">Fit and plot neutralization curves</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1">Import Python modules / packages</a></span></li><li><span><a href="#Configuration-and-setup" data-toc-modified-id="Configuration-and-setup-1.2">Configuration and setup</a></span></li><li><span><a href="#Read-neutralization-data" data-toc-modified-id="Read-neutralization-data-1.3">Read neutralization data</a></span></li><li><span><a href="#Fit-and-plot-all-neutralization-curves" data-toc-modified-id="Fit-and-plot-all-neutralization-curves-1.4">Fit and plot all neutralization curves</a></span></li><li><span><a href="#Neutralization-curves-integrated-with-logo-plots" data-toc-modified-id="Neutralization-curves-integrated-with-logo-plots-1.5">Neutralization curves integrated with logo plots</a></span></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Fit-and-plot-neutralization-curves" data-toc-modified-id="Fit-and-plot-neutralization-curves-1">Fit and plot neutralization curves</a></span><ul class="toc-item"><li><span><a href="#Import-Python-modules-/-packages" data-toc-modified-id="Import-Python-modules-/-packages-1.1">Import Python modules / packages</a></span></li><li><span><a href="#Configuration-and-setup" data-toc-modified-id="Configuration-and-setup-1.2">Configuration and setup</a></span></li><li><span><a href="#Read-neutralization-data" data-toc-modified-id="Read-neutralization-data-1.3">Read neutralization data</a></span></li><li><span><a href="#Get-serum-concentrations" data-toc-modified-id="Get-serum-concentrations-1.4">Get serum concentrations</a></span></li><li><span><a href="#Fit-and-plot-all-neutralization-curves" data-toc-modified-id="Fit-and-plot-all-neutralization-curves-1.5">Fit and plot all neutralization curves</a></span></li><li><span><a href="#Neutralization-curves-integrated-with-logo-plots" data-toc-modified-id="Neutralization-curves-integrated-with-logo-plots-1.6">Neutralization curves integrated with logo plots</a></span></li></ul></li></ul></div>
 
 # Fit and plot neutralization curves
 In this notebook we will plot neutralization curves from GFP-based neutralization assays. 
@@ -45,7 +45,7 @@ import neutcurve.parse_excel
 print(f"Using neutcurve version {neutcurve.__version__}")
 ```
 
-    Using neutcurve version 0.2.4
+    Using neutcurve version 0.3.0
 
 
 Interactive matplotlib plotting:
@@ -217,16 +217,142 @@ print(f"Wrote neutralization data to {neutdatafile}")
     Wrote neutralization data to results/neutralization_assays/neutdata.csv
 
 
+## Get serum concentrations
+We get the mean concentration over the three replicates:
+
+
+```python
+mean_concentration = (
+ pd.read_csv(os.path.join(config['selectiontabledir'], 'serum_dilution_table.csv'))
+ .rename(columns={'serum_name_formatted': 'serum'})
+ .drop(columns='serum_group')
+ .query('not serum.str.contains("antibody")')
+ .set_index('serum')
+ .apply(pd.to_numeric, errors='coerce')
+ .mean(axis=1, numeric_only=True)
+ .dropna()
+ .rename('concentration')
+ .reset_index()
+ )
+
+display(HTML(mean_concentration.to_html(index=False)))
+```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>serum</th>
+      <th>concentration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2015-age-25-prevacc</td>
+      <td>0.005833</td>
+    </tr>
+    <tr>
+      <td>2015-age-25-vacc</td>
+      <td>0.000750</td>
+    </tr>
+    <tr>
+      <td>2015-age-29-prevacc</td>
+      <td>0.015333</td>
+    </tr>
+    <tr>
+      <td>2015-age-29-vacc</td>
+      <td>0.001208</td>
+    </tr>
+    <tr>
+      <td>2015-age-48-prevacc</td>
+      <td>0.017833</td>
+    </tr>
+    <tr>
+      <td>2015-age-48-vacc</td>
+      <td>0.000542</td>
+    </tr>
+    <tr>
+      <td>2015-age-49-prevacc</td>
+      <td>0.018500</td>
+    </tr>
+    <tr>
+      <td>2015-age-49-vacc</td>
+      <td>0.011167</td>
+    </tr>
+    <tr>
+      <td>2009-age-53</td>
+      <td>0.005417</td>
+    </tr>
+    <tr>
+      <td>2009-age-53-plus-2-months</td>
+      <td>0.006083</td>
+    </tr>
+    <tr>
+      <td>2009-age-64</td>
+      <td>0.003142</td>
+    </tr>
+    <tr>
+      <td>2009-age-65</td>
+      <td>0.002083</td>
+    </tr>
+    <tr>
+      <td>2010-age-21</td>
+      <td>0.009833</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-postinf</td>
+      <td>0.000433</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-1-preinf</td>
+      <td>0.000750</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-postinf</td>
+      <td>0.001458</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-2-preinf</td>
+      <td>0.002000</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-postinf</td>
+      <td>0.001792</td>
+    </tr>
+    <tr>
+      <td>ferret-Pitt-3-preinf</td>
+      <td>0.004917</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO-Perth2009</td>
+      <td>0.011167</td>
+    </tr>
+    <tr>
+      <td>ferret-WHO-Victoria2011</td>
+      <td>0.003750</td>
+    </tr>
+  </tbody>
+</table>
+
+
+Now convert to dict appropriate for passing to `neutcurve.CurveFits.plotSera` as `vlines` parameter:
+
+
+```python
+vlines = {tup.serum: [{'x': tup.concentration}] for tup in
+          mean_concentration.itertuples(index=False)}
+```
+
 ## Fit and plot all neutralization curves
 
-Now we fit the neutralization curves with a neutcurve.CurveFits:
+Now we fit the neutralization curves with a `neutcurve.CurveFits`:
 
 
 ```python
 fits = neutcurve.CurveFits(neutdata)
 ```
 
-Make a big panel of plots of the across-replicate averages for all sera and antibodies:
+Make a big panel of plots of the across-replicate averages for all sera and antibodies, drawing a vertical line at the mean serum concentration used in the mutational antigenic profiling of the sera:
 
 
 ```python
@@ -238,6 +364,7 @@ for is_antibody, ptype, xlabel in [(False, 'sera', 'serum dilution'),
                 sera=[s for s in fits.sera if ('antibody' in s) == is_antibody],
                 xlabel=xlabel,
                 max_viruses_per_subplot=6,
+                vlines=vlines,
                 )
     display(fig)
     fig.savefig(plotfile)
@@ -249,7 +376,7 @@ for is_antibody, ptype, xlabel in [(False, 'sera', 'serum dilution'),
 
 
 
-![png](analyze_neut_files/analyze_neut_23_1.png)
+![png](analyze_neut_files/analyze_neut_27_1.png)
 
 
     
@@ -257,7 +384,7 @@ for is_antibody, ptype, xlabel in [(False, 'sera', 'serum dilution'),
 
 
 
-![png](analyze_neut_files/analyze_neut_23_3.png)
+![png](analyze_neut_files/analyze_neut_27_3.png)
 
 
 Now get the curve fit parameters (e.g., IC50s):
@@ -986,6 +1113,7 @@ for figure, df in sera_df.groupby('figure'):
                 despine=True,
                 yticklocs=[0, 0.5, 1],
                 sharex=sharex,
+                vlines=None if 'spikein' in figure else vlines,
                 )
     
     neutsvgfile = os.path.join(config['figsdir'], f"{figure}_neut.svg")
@@ -1070,7 +1198,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_41_1.png)
+![png](analyze_neut_files/analyze_neut_45_1.png)
 
 
     
@@ -1078,7 +1206,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_41_3.png)
+![png](analyze_neut_files/analyze_neut_45_3.png)
 
 
     
@@ -1086,7 +1214,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_41_5.png)
+![png](analyze_neut_files/analyze_neut_45_5.png)
 
 
     
@@ -1094,7 +1222,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_41_7.png)
+![png](analyze_neut_files/analyze_neut_45_7.png)
 
 
     
@@ -1102,7 +1230,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_41_9.png)
+![png](analyze_neut_files/analyze_neut_45_9.png)
 
 
     
@@ -1110,7 +1238,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_41_11.png)
+![png](analyze_neut_files/analyze_neut_45_11.png)
 
 
     
@@ -1118,7 +1246,7 @@ for neutsvgfile in neutsvgfiles:
 
 
 
-![png](analyze_neut_files/analyze_neut_41_13.png)
+![png](analyze_neut_files/analyze_neut_45_13.png)
 
 
 Now tabulate the fit parameters for the serum / viruses that we plotted in the figures:
@@ -1159,7 +1287,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53</td>
       <td>wt</td>
       <td>0.00124</td>
-      <td>1.779854</td>
+      <td>1.779855</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1167,7 +1295,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53</td>
       <td>syn</td>
       <td>0.00153</td>
-      <td>2.317304</td>
+      <td>2.317307</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1191,7 +1319,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53</td>
       <td>K160T</td>
       <td>0.00338</td>
-      <td>2.118445</td>
+      <td>2.118436</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1199,7 +1327,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53</td>
       <td>F193D</td>
       <td>0.00234</td>
-      <td>1.856293</td>
+      <td>1.856294</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1207,7 +1335,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53</td>
       <td>F159G</td>
       <td>0.00122</td>
-      <td>1.937588</td>
+      <td>1.937589</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1215,7 +1343,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53-plus-2-months</td>
       <td>wt</td>
       <td>0.00172</td>
-      <td>1.208408</td>
+      <td>1.208404</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1223,7 +1351,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53-plus-2-months</td>
       <td>L157D</td>
       <td>0.00931</td>
-      <td>2.644218</td>
+      <td>2.644220</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1231,7 +1359,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53-plus-2-months</td>
       <td>K160T</td>
       <td>0.00387</td>
-      <td>2.206105</td>
+      <td>2.206106</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1239,7 +1367,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-53-plus-2-months</td>
       <td>F193D</td>
       <td>0.00418</td>
-      <td>1.843502</td>
+      <td>1.843438</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1247,7 +1375,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-64</td>
       <td>wt</td>
       <td>0.000318</td>
-      <td>2.252411</td>
+      <td>2.252406</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1263,7 +1391,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-64</td>
       <td>L157D</td>
       <td>0.000213</td>
-      <td>1.780586</td>
+      <td>1.780584</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1279,7 +1407,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-64</td>
       <td>K160T</td>
       <td>0.000649</td>
-      <td>1.976917</td>
+      <td>1.976921</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1295,7 +1423,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-64</td>
       <td>F159G</td>
       <td>0.0108</td>
-      <td>3.296919</td>
+      <td>3.297095</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1303,7 +1431,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-65</td>
       <td>wt</td>
       <td>0.000328</td>
-      <td>2.008439</td>
+      <td>2.008450</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1327,7 +1455,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-65</td>
       <td>L157D</td>
       <td>0.00027</td>
-      <td>1.996904</td>
+      <td>1.996908</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1335,7 +1463,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-65</td>
       <td>K189D</td>
       <td>0.000202</td>
-      <td>1.603601</td>
+      <td>1.603608</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1343,7 +1471,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-65</td>
       <td>K160T</td>
       <td>0.00145</td>
-      <td>2.568104</td>
+      <td>2.568102</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1351,7 +1479,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2009-age-65</td>
       <td>F193D</td>
       <td>&gt;0.0109</td>
-      <td>21.636675</td>
+      <td>21.576706</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1367,7 +1495,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2010-age-21</td>
       <td>wt</td>
       <td>0.00118</td>
-      <td>1.989079</td>
+      <td>1.989081</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1375,7 +1503,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2010-age-21</td>
       <td>syn</td>
       <td>0.00164</td>
-      <td>2.586570</td>
+      <td>2.586569</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1383,7 +1511,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2010-age-21</td>
       <td>L157D</td>
       <td>0.00107</td>
-      <td>2.076038</td>
+      <td>2.076028</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1391,7 +1519,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2010-age-21</td>
       <td>K189D</td>
       <td>0.0018</td>
-      <td>2.127156</td>
+      <td>2.127158</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1407,7 +1535,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2010-age-21</td>
       <td>F193D</td>
       <td>&gt;0.014</td>
-      <td>6.992641</td>
+      <td>10.432859</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1431,7 +1559,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-25-prevacc</td>
       <td>R220D</td>
       <td>&gt;0.0102</td>
-      <td>24.660351</td>
+      <td>23.974538</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1447,7 +1575,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-25-prevacc</td>
       <td>F159G</td>
       <td>&gt;0.0102</td>
-      <td>4.868883</td>
+      <td>9.591964</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1463,7 +1591,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-25-vacc</td>
       <td>R220D</td>
       <td>0.000141</td>
-      <td>3.151571</td>
+      <td>3.151577</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1471,7 +1599,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-25-vacc</td>
       <td>K189D</td>
       <td>0.000132</td>
-      <td>1.937383</td>
+      <td>1.937381</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1479,7 +1607,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-25-vacc</td>
       <td>F159G</td>
       <td>&gt;0.00117</td>
-      <td>1.170448</td>
+      <td>1.170513</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1503,7 +1631,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-29-prevacc</td>
       <td>F159G</td>
       <td>0.00954</td>
-      <td>3.335871</td>
+      <td>3.335905</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1511,7 +1639,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-29-vacc</td>
       <td>wt</td>
       <td>0.000299</td>
-      <td>3.208097</td>
+      <td>3.208098</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1535,7 +1663,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-48-prevacc</td>
       <td>wt</td>
       <td>&gt;0.00617</td>
-      <td>2.134400</td>
+      <td>2.134402</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1543,7 +1671,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-48-vacc</td>
       <td>wt</td>
       <td>8.33e-05</td>
-      <td>1.779257</td>
+      <td>1.779256</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1551,7 +1679,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-48-vacc</td>
       <td>K189D</td>
       <td>0.000413</td>
-      <td>1.311555</td>
+      <td>1.311547</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1559,7 +1687,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-48-vacc</td>
       <td>K144E</td>
       <td>7.23e-05</td>
-      <td>2.387688</td>
+      <td>2.387690</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1567,7 +1695,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-48-vacc</td>
       <td>F159G</td>
       <td>0.000149</td>
-      <td>1.457267</td>
+      <td>1.457277</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1575,7 +1703,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-49-prevacc</td>
       <td>wt</td>
       <td>&gt;0.00617</td>
-      <td>0.303035</td>
+      <td>0.303021</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1583,7 +1711,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>2015-age-49-vacc</td>
       <td>wt</td>
       <td>0.00343</td>
-      <td>1.773100</td>
+      <td>1.773101</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1599,7 +1727,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>antibody-1C04</td>
       <td>K82A</td>
       <td>&gt;5</td>
-      <td>4.870744</td>
+      <td>9.513325</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1607,7 +1735,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>antibody-4C01</td>
       <td>wt</td>
       <td>0.0207</td>
-      <td>2.773909</td>
+      <td>2.773914</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1615,7 +1743,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>antibody-4C01</td>
       <td>K160T</td>
       <td>0.0202</td>
-      <td>2.271634</td>
+      <td>2.271633</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1623,7 +1751,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>antibody-4C01</td>
       <td>F193D</td>
       <td>&gt;0.5</td>
-      <td>16.826371</td>
+      <td>10.334572</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1639,7 +1767,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>antibody-4F03</td>
       <td>N121E</td>
       <td>&gt;3</td>
-      <td>1.976675</td>
+      <td>9.580069</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1655,7 +1783,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>antibody-4F03</td>
       <td>F159G</td>
       <td>0.0649</td>
-      <td>1.831486</td>
+      <td>1.831487</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1671,7 +1799,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>antibody-5A01</td>
       <td>K160T</td>
       <td>0.549</td>
-      <td>1.852401</td>
+      <td>1.852408</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1679,7 +1807,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>antibody-5A01</td>
       <td>F159G</td>
       <td>&gt;1</td>
-      <td>1.384433</td>
+      <td>1.384432</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1687,7 +1815,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-1-postinf</td>
       <td>wt</td>
       <td>9.84e-05</td>
-      <td>2.659101</td>
+      <td>2.659119</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1703,7 +1831,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-1-postinf</td>
       <td>K144E</td>
       <td>0.000176</td>
-      <td>3.166336</td>
+      <td>3.166316</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1711,7 +1839,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-1-postinf</td>
       <td>F193D</td>
       <td>0.000484</td>
-      <td>3.940891</td>
+      <td>3.940897</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1719,7 +1847,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-1-postinf</td>
       <td>F159G</td>
       <td>0.000186</td>
-      <td>2.015128</td>
+      <td>2.015143</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1727,7 +1855,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-1-preinf</td>
       <td>wt</td>
       <td>&gt;0.00617</td>
-      <td>6.369520</td>
+      <td>8.567956</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1735,7 +1863,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-2-postinf</td>
       <td>wt</td>
       <td>0.000343</td>
-      <td>2.671066</td>
+      <td>2.671063</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1743,7 +1871,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-2-postinf</td>
       <td>L157D</td>
       <td>0.000486</td>
-      <td>2.964199</td>
+      <td>2.964182</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1751,7 +1879,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-2-postinf</td>
       <td>K189D</td>
       <td>0.000724</td>
-      <td>2.611093</td>
+      <td>2.611096</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1767,7 +1895,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-2-postinf</td>
       <td>F193D</td>
       <td>0.0012</td>
-      <td>3.102095</td>
+      <td>3.102091</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1775,7 +1903,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-2-postinf</td>
       <td>F159G</td>
       <td>0.000341</td>
-      <td>2.252599</td>
+      <td>2.252597</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1783,7 +1911,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-2-preinf</td>
       <td>wt</td>
       <td>&gt;0.00206</td>
-      <td>9.688935</td>
+      <td>9.757383</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1791,7 +1919,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-3-postinf</td>
       <td>wt</td>
       <td>0.000375</td>
-      <td>2.435212</td>
+      <td>2.435213</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1807,7 +1935,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-3-postinf</td>
       <td>K189D</td>
       <td>0.00113</td>
-      <td>1.981845</td>
+      <td>1.981848</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1815,7 +1943,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-3-postinf</td>
       <td>K160T</td>
       <td>0.000471</td>
-      <td>2.376603</td>
+      <td>2.376600</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1823,7 +1951,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-3-postinf</td>
       <td>F193D</td>
       <td>0.00505</td>
-      <td>3.129657</td>
+      <td>3.129703</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1831,7 +1959,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-Pitt-3-preinf</td>
       <td>wt</td>
       <td>&gt;0.00617</td>
-      <td>7.362922</td>
+      <td>8.589477</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1839,7 +1967,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-WHO-Perth2009</td>
       <td>wt</td>
       <td>0.00476</td>
-      <td>2.111495</td>
+      <td>2.111494</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1847,7 +1975,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-WHO-Victoria2011</td>
       <td>wt</td>
       <td>0.00192</td>
-      <td>2.256115</td>
+      <td>2.256116</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1855,7 +1983,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-WHO-Victoria2011</td>
       <td>K189D</td>
       <td>0.0115</td>
-      <td>3.008466</td>
+      <td>3.008475</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1871,7 +1999,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-WHO-Victoria2011</td>
       <td>F193D</td>
       <td>&gt;0.0125</td>
-      <td>2.561162</td>
+      <td>2.561249</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1879,7 +2007,7 @@ fit_table.to_csv(fit_table_file, index=False, float_format='%.3g')
       <td>ferret-WHO-Victoria2011</td>
       <td>F159G</td>
       <td>0.00601</td>
-      <td>2.520521</td>
+      <td>2.520402</td>
       <td>1</td>
       <td>0</td>
     </tr>
