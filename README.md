@@ -1,7 +1,9 @@
 # Mapping of anti-flu serum against the Perth/2009 H3 HA
 Mutational antigenic profiling of Perth/2009 H3 HA codon mutant libraries against ferret and human sera.
 
-Study by Juhye Lee, Rachel Eguia, and [Jesse Bloom](https://research.fhcrc.org/bloom/en.html).
+This is the computer code and raw data for the study [Mapping person-to-person variation in viral mutations that escape polyclonal serum targeting influenza hemagglutinin, _eLife_, 2019](https://elifesciences.org/articles/49324).
+
+Study led by Juhye Lee and [Jesse Bloom](https://research.fhcrc.org/bloom/en.html).
 
 ## Quick summary
 - Analysis of mutational antigenic profiling data: [results/notebooks/analyze_map.md](results/notebooks/analyze_map.md)
