@@ -8,5 +8,5 @@ matplotlib==3.0.2
 nglview==2.0
 numpy==1.15.4
 pandas==0.24.2
-pyyaml==5.1
+pyyaml==5.4
 setuptools==40.6.2
